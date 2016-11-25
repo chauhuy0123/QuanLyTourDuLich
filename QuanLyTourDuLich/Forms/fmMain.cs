@@ -42,5 +42,13 @@ namespace QuanLyTourDuLich
             fm.ShowDialog();
             this.Show();
         }
+
+        private void btnKetNoiCSDL_Click(object sender, EventArgs e)
+        {
+            fmKetNoiCSDL fm = new fmKetNoiCSDL();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
     }
 }

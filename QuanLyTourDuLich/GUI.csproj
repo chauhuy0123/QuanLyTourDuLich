@@ -46,48 +46,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\fmDangNhap.cs">
+    <Compile Include="Forms\fmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fmDangNhap.Designer.cs">
+    <Compile Include="Forms\fmDangNhap.Designer.cs">
       <DependentUpon>fmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fmKetNoiCSDL.cs">
+    <Compile Include="Forms\fmKetNoiCSDL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fmKetNoiCSDL.Designer.cs">
+    <Compile Include="Forms\fmKetNoiCSDL.Designer.cs">
       <DependentUpon>fmKetNoiCSDL.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fmMain.cs">
+    <Compile Include="Forms\fmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fmMain.Designer.cs">
+    <Compile Include="Forms\fmMain.Designer.cs">
       <DependentUpon>fmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fmQuanLyHeThong.cs">
+    <Compile Include="Forms\fmQuanLyHeThong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fmQuanLyHeThong.Designer.cs">
+    <Compile Include="Forms\fmQuanLyHeThong.Designer.cs">
       <DependentUpon>fmQuanLyHeThong.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fmTraCuu.cs">
+    <Compile Include="Forms\fmTraCuu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fmTraCuu.Designer.cs">
+    <Compile Include="Forms\fmTraCuu.Designer.cs">
       <DependentUpon>fmTraCuu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\fmDangNhap.resx">
+    <EmbeddedResource Include="Forms\fmDangNhap.resx">
       <DependentUpon>fmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fmMain.resx">
+    <EmbeddedResource Include="Forms\fmKetNoiCSDL.resx">
+      <DependentUpon>fmKetNoiCSDL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmMain.resx">
       <DependentUpon>fmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fmQuanLyHeThong.resx">
+    <EmbeddedResource Include="Forms\fmQuanLyHeThong.resx">
       <DependentUpon>fmQuanLyHeThong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fmTraCuu.resx">
+    <EmbeddedResource Include="Forms\fmTraCuu.resx">
       <DependentUpon>fmTraCuu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -151,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save-disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL-Server-Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

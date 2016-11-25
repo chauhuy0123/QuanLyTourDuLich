@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnQuanLyHeThong = new System.Windows.Forms.Button();
-            this.btnCSDL = new System.Windows.Forms.Button();
+            this.btnKetNoiCSDL = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnQuanLyDoan = new System.Windows.Forms.Button();
@@ -45,11 +45,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(27, 76);
+            this.label1.Location = new System.Drawing.Point(27, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(775, 58);
+            this.label1.Size = new System.Drawing.Size(915, 58);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hệ Thống Quản Lý Tour Du Lịch";
+            this.label1.Text = "HỆ THỐNG QUẢN LÝ TOUR DU LỊCH";
             // 
             // label2
             // 
@@ -80,17 +80,18 @@
             this.btnQuanLyHeThong.UseVisualStyleBackColor = false;
             this.btnQuanLyHeThong.Click += new System.EventHandler(this.btnQuanLyHeThong_Click);
             // 
-            // btnCSDL
+            // btnKetNoiCSDL
             // 
-            this.btnCSDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnCSDL.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.database;
-            this.btnCSDL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCSDL.Location = new System.Drawing.Point(1018, 12);
-            this.btnCSDL.Name = "btnCSDL";
-            this.btnCSDL.Size = new System.Drawing.Size(104, 65);
-            this.btnCSDL.TabIndex = 6;
-            this.btnCSDL.UseVisualStyleBackColor = false;
+            this.btnKetNoiCSDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnKetNoiCSDL.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.database;
+            this.btnKetNoiCSDL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnKetNoiCSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKetNoiCSDL.Location = new System.Drawing.Point(1018, 12);
+            this.btnKetNoiCSDL.Name = "btnKetNoiCSDL";
+            this.btnKetNoiCSDL.Size = new System.Drawing.Size(104, 65);
+            this.btnKetNoiCSDL.TabIndex = 6;
+            this.btnKetNoiCSDL.UseVisualStyleBackColor = false;
+            this.btnKetNoiCSDL.Click += new System.EventHandler(this.btnKetNoiCSDL_Click);
             // 
             // btnBaoCao
             // 
@@ -197,7 +198,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnQuanLyHeThong);
-            this.Controls.Add(this.btnCSDL);
+            this.Controls.Add(this.btnKetNoiCSDL);
             this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.btnTraCuu);
             this.Controls.Add(this.btnQuanLyDoan);
@@ -224,7 +225,7 @@
         private System.Windows.Forms.Button btnQuanLyDoan;
         private System.Windows.Forms.Button btnTraCuu;
         private System.Windows.Forms.Button btnBaoCao;
-        private System.Windows.Forms.Button btnCSDL;
+        private System.Windows.Forms.Button btnKetNoiCSDL;
         private System.Windows.Forms.Button btnQuanLyHeThong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

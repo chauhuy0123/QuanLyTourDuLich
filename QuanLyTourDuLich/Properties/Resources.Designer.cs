@@ -183,6 +183,16 @@ namespace QuanLyTourDuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SQL_Server_Logo {
+            get {
+                object obj = ResourceManager.GetObject("SQL-Server-Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tourist {
             get {
                 object obj = ResourceManager.GetObject("tourist", resourceCulture);
