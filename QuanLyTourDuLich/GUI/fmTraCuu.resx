@@ -117,44 +117,69 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tourist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tourist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAA
+        DAAAAk1TRnQBSQFMAgEBAgEAAQgBAAEIAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABgAMAASADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wwAAdwBkQhmAZEPABdT
+        TQAD3AHzCmYBFQ4AFVNMAAFmAfMD3AHzCmYCFQHvDQATU0wAAWYBtQHzA9wB8wlmAWwEFQ0AARsPUwH/
+        TAACZgLzA9wB8wG0CGYGFQ4AAf8DUwJNAVMCTQNTTgADZgLzA9wC8whmBxURAAWaUAAEZgLzAtwD8wdm
+        AbQGFQGRAQkQAAWaTwAB9ARmARkB8wEZAdwC8wH/B2YB8wYVAf8BuQ4AAfYHmk4ABGYBCQH/ARkC2wHc
+        AfUB/wdmAf8GFQH/ArkMAAuaSwAB9ARmBP8BWQP/AWwEZgF0Av8B+AMVAXoBWQH/AbkB3AsADZpKAALc
+        AbQCZgL/AZkDWQL/Aa4CZgF0A1kB/wH4ARUDegGZAf8C3AEZCQAFmgF1ApoCdQWaSQAE3AG6Av8CWQF5
+        AlkB/wFmAdwBmgGZAnoCmQLcBHoE3AgAARsPmkkABtwBWQV6AfEC3AZ6AdwGegPcCAARmkcAAfQG3Ad6
+        AdwBbAZ6AXMHegLcBgABGhOaAfRFAAEJBdwB+Ad6AZEBHAJzAnoCcwFsBnoBFgLcBQAWmgH0RAAF3AFs
+        CHoBZgN6AmYCegF5AW8EegF1AeMC3AUAApoBRAOaAZkNmgFEAppEAAXcAWYIegF5Ae0B6wRtAesB6gEV
+        AuMBegF1AeMBFgLcBQABmgF0AUQDmgIRB5oCEQOaAUQCmkQAARkD3AGLAWYIegEcAWYCegEcAnoB6gIV
+        BeMD3AUAAZoCRAOaAUQBdAeaAUsBbgOaAUQBdQH2RQAD3AJmCHoCZggVBeMD3AYAAkQQmgGTAkRGAAPc
+        AmYCegFsAWYBegFzBGYHFQG6AU0CbwFNBNwGAAJEApoBRAFzAUoBkwWaAUQBdAJuAZoDREYAA9wMZgcV
+        AdwB7wJNAW8E3AYAA0QCmgJuB5oBSwF0AZoBSgNERgABGQLcC2YBbAYVCdwHAAREAW4DmgGZB5oFREcA
+        AtwBbApmAdsBiwG0AhUBZgrcBwAORAGaBkRHAAEZAtwJZgGRD9wIABVESAAC3AHbB2YBtBDcCAAVREkA
+        GdwJABVESQAB/xfcCwATREsAAf8V3AwAEkQB8k0AE9wOABBEUAABGQ/cAf8QAA5EUwABGQvcAf8UAApE
+        AfRYAAEZAtwBCQH0GwAB9AHtAesBkgH0TQABQgFNAT4HAAE+AwABKAMAAYADAAEgAwABAQEAAQEGAAEC
+        FgAD/wEAAf8B4AEDAf8B+AIAAQ8IAAH/AYABAAH/AfwCAAEfCAAB/gIAAT8B/gIAAT8IAAH8AgABHwH/
+        AgABfwgAAfgCAAEPAf8BwAEDAf8IAAHwAgABBwH/AfwBHwH/CAAB4AIAAQMB/wH8AR8B/wgAAcACAAED
+        Af8B8AEPAf8IAAHAAgABAQH/AeABAwH/CAABgAIAAQEB/wHAAQEB/wgAAYADAAH/AYABAAH/CAABgAMA
+        Af8CAAH/CAABgAMAAf8CAAF/DAAB/AIAAR8MAAH4AgABDwwAAfgCAAEPDAAB+AIAAQ8MAAH4AgABDwgA
+        AYADAAH8AgABHwgAAYADAAH8AgABHwgAAYADAAH8AgABHwgAAYACAAEBAfwCAAEfCAABwAIAAQEB/AIA
+        AR8IAAHAAgABAwH8AgABHwgAAeACAAEDAfwCAAEfCAAB8AIAAQcB/AIAAR8IAAHwAgABDwH+AgABPwgA
+        AfgCAAEfAf4CAAE/CAAB/gIAAT8B/wIAAf8IAAH/AgABfwH/AYABAQH/CAAB/wHAAQEC/wHgAQMB/wgA
+        Af8B/AEfAv8B/AEfAf8IAAs=
+</value>
   </data>
-  <data name="rubbish-bin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rubbish-bin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="navigation-trajectory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\navigation-trajectory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bar-chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bar-chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back-left-arrow-circular-button-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back-left-arrow-circular-button-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="earth-pictures" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\earth-pictures.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add-circular-outlined-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-circular-outlined-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="database" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\database.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save-disk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save-disk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>62</value>
+  </metadata>
 </root>
