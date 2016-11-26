@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyTourDuLich.GUI
 {
-    public partial class fmDangNhap : Form
+    public partial class fmLogin : Form
     {
-        public fmDangNhap()
+        public fmLogin()
         {
             InitializeComponent();
         }

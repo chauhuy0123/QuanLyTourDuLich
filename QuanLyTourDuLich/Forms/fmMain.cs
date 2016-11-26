@@ -1,4 +1,5 @@
-﻿using QuanLyTourDuLich.GUI;
+﻿using QuanLyTourDuLich.Forms;
+using QuanLyTourDuLich.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace QuanLyTourDuLich
 
         private void btnfmDangNhap_Click(object sender, EventArgs e)
         {
-            fmDangNhap fm = new fmDangNhap();
+            fmLogin fm = new fmLogin();
             this.Hide();
             fm.ShowDialog();
             this.Show();
@@ -29,7 +30,7 @@ namespace QuanLyTourDuLich
 
         private void btnQuanLyHeThong_Click(object sender, EventArgs e)
         {
-            fmQuanLyHeThong fm = new fmQuanLyHeThong();
+            fmSystemManager fm = new fmSystemManager();
             this.Hide();
             fm.ShowDialog();
             this.Show();
@@ -37,7 +38,7 @@ namespace QuanLyTourDuLich
 
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
-            fmTraCuu fm = new fmTraCuu();
+            fmSearch fm = new fmSearch();
             this.Hide();
             fm.ShowDialog();
             this.Show();
@@ -45,7 +46,26 @@ namespace QuanLyTourDuLich
 
         private void btnKetNoiCSDL_Click(object sender, EventArgs e)
         {
-            fmKetNoiCSDL fm = new fmKetNoiCSDL();
+            fmConnectDatabase fm = new fmConnectDatabase();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
+
+        //
+        //Button: Quản lý đoàn / btnTouristsGroupManager
+        //
+        private void btnTouristsGroupManager_Click(object sender, EventArgs e)
+        {
+            fmTouristsGroupManager fm = new fmTouristsGroupManager();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
+
+        private void btnLocationManager_Click(object sender, EventArgs e)
+        {
+            fmLocationManager fm = new fmLocationManager();
             this.Hide();
             fm.ShowDialog();
             this.Show();

@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace QuanLyTourDuLich.GUI
 {
-    public partial class fmQuanLyHeThong : Form
+    public partial class fmConnectDatabase : Form
     {
-        public fmQuanLyHeThong()
+        public fmConnectDatabase()
         {
             InitializeComponent();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCSDL_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnTroLai2_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnTroLai1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }

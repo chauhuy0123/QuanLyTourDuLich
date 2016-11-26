@@ -1,6 +1,6 @@
 ﻿namespace QuanLyTourDuLich.GUI
 {
-    partial class fmDangNhap
+    partial class fmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 18);
+            this.label1.Location = new System.Drawing.Point(176, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(885, 55);
             this.label1.TabIndex = 9;
@@ -154,12 +154,12 @@
             // 
             // btnTroLai
             // 
-            this.btnTroLai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnTroLai.BackColor = System.Drawing.Color.Green;
             this.btnTroLai.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
             this.btnTroLai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTroLai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTroLai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnTroLai.Location = new System.Drawing.Point(12, 23);
+            this.btnTroLai.ForeColor = System.Drawing.Color.Green;
+            this.btnTroLai.Location = new System.Drawing.Point(3, 6);
             this.btnTroLai.Name = "btnTroLai";
             this.btnTroLai.Size = new System.Drawing.Size(64, 64);
             this.btnTroLai.TabIndex = 10;
@@ -170,12 +170,13 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Green;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(198, 23);
+            this.panel1.Controls.Add(this.btnTroLai);
+            this.panel1.Location = new System.Drawing.Point(12, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(958, 84);
+            this.panel1.Size = new System.Drawing.Size(1238, 84);
             this.panel1.TabIndex = 20;
             // 
-            // fmDangNhap
+            // fmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,14 +187,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnTroLai);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
-            this.Name = "fmDangNhap";
+            this.Name = "fmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmDangNhap";
+            this.Text = "fmLogin";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

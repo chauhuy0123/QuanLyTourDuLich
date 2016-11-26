@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyTourDuLich.GUI
+namespace QuanLyTourDuLich.Forms
 {
-    public partial class fmTraCuu : Form
+    public partial class fmLocationManager : Form
     {
-        public fmTraCuu()
+        public fmLocationManager()
         {
             InitializeComponent();
         }
 
-        private void btnTroLai1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
-        private void btnTroLai2_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace QuanLyTourDuLich.GUI
 {
-    public partial class fmKetNoiCSDL : Form
+    public partial class fmSystemManager : Form
     {
-        public fmKetNoiCSDL()
+        public fmSystemManager()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnCSDL_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnTroLai_Click(object sender, EventArgs e)
+        private void btnTroLai2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
+        private void btnTroLai1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

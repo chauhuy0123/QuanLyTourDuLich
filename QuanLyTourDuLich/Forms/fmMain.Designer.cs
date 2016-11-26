@@ -34,8 +34,8 @@
             this.btnKetNoiCSDL = new System.Windows.Forms.Button();
             this.btnBaoCao = new System.Windows.Forms.Button();
             this.btnTraCuu = new System.Windows.Forms.Button();
-            this.btnQuanLyDoan = new System.Windows.Forms.Button();
-            this.btnQuanLyDiaDiem = new System.Windows.Forms.Button();
+            this.btnTouristsGroupManager = new System.Windows.Forms.Button();
+            this.btnLocationManager = new System.Windows.Forms.Button();
             this.btnQuanLyTour = new System.Windows.Forms.Button();
             this.btnfmDangNhap = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(27, 52);
+            this.label1.Location = new System.Drawing.Point(27, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(915, 58);
             this.label1.TabIndex = 8;
@@ -86,9 +86,9 @@
             this.btnKetNoiCSDL.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.database;
             this.btnKetNoiCSDL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnKetNoiCSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKetNoiCSDL.Location = new System.Drawing.Point(1018, 12);
+            this.btnKetNoiCSDL.Location = new System.Drawing.Point(1102, 12);
             this.btnKetNoiCSDL.Name = "btnKetNoiCSDL";
-            this.btnKetNoiCSDL.Size = new System.Drawing.Size(104, 65);
+            this.btnKetNoiCSDL.Size = new System.Drawing.Size(64, 64);
             this.btnKetNoiCSDL.TabIndex = 6;
             this.btnKetNoiCSDL.UseVisualStyleBackColor = false;
             this.btnKetNoiCSDL.Click += new System.EventHandler(this.btnKetNoiCSDL_Click);
@@ -126,38 +126,40 @@
             this.btnTraCuu.UseVisualStyleBackColor = false;
             this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
             // 
-            // btnQuanLyDoan
+            // btnTouristsGroupManager
             // 
-            this.btnQuanLyDoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnQuanLyDoan.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.tourist;
-            this.btnQuanLyDoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnQuanLyDoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuanLyDoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLyDoan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnQuanLyDoan.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnQuanLyDoan.Location = new System.Drawing.Point(425, 255);
-            this.btnQuanLyDoan.Name = "btnQuanLyDoan";
-            this.btnQuanLyDoan.Size = new System.Drawing.Size(317, 156);
-            this.btnQuanLyDoan.TabIndex = 3;
-            this.btnQuanLyDoan.Text = "Quản lý đoàn";
-            this.btnQuanLyDoan.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnQuanLyDoan.UseVisualStyleBackColor = false;
+            this.btnTouristsGroupManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnTouristsGroupManager.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.tourist;
+            this.btnTouristsGroupManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTouristsGroupManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTouristsGroupManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTouristsGroupManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTouristsGroupManager.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnTouristsGroupManager.Location = new System.Drawing.Point(425, 255);
+            this.btnTouristsGroupManager.Name = "btnTouristsGroupManager";
+            this.btnTouristsGroupManager.Size = new System.Drawing.Size(317, 156);
+            this.btnTouristsGroupManager.TabIndex = 3;
+            this.btnTouristsGroupManager.Text = "Quản lý đoàn";
+            this.btnTouristsGroupManager.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnTouristsGroupManager.UseVisualStyleBackColor = false;
+            this.btnTouristsGroupManager.Click += new System.EventHandler(this.btnTouristsGroupManager_Click);
             // 
-            // btnQuanLyDiaDiem
+            // btnLocationManager
             // 
-            this.btnQuanLyDiaDiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnQuanLyDiaDiem.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.navigation_trajectory;
-            this.btnQuanLyDiaDiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnQuanLyDiaDiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuanLyDiaDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLyDiaDiem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnQuanLyDiaDiem.Location = new System.Drawing.Point(805, 255);
-            this.btnQuanLyDiaDiem.Name = "btnQuanLyDiaDiem";
-            this.btnQuanLyDiaDiem.Size = new System.Drawing.Size(317, 156);
-            this.btnQuanLyDiaDiem.TabIndex = 2;
-            this.btnQuanLyDiaDiem.Text = "Quản lý địa điểm";
-            this.btnQuanLyDiaDiem.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnQuanLyDiaDiem.UseVisualStyleBackColor = false;
+            this.btnLocationManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnLocationManager.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.navigation_trajectory;
+            this.btnLocationManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLocationManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLocationManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocationManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLocationManager.Location = new System.Drawing.Point(805, 255);
+            this.btnLocationManager.Name = "btnLocationManager";
+            this.btnLocationManager.Size = new System.Drawing.Size(317, 156);
+            this.btnLocationManager.TabIndex = 2;
+            this.btnLocationManager.Text = "Quản lý địa điểm";
+            this.btnLocationManager.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnLocationManager.UseVisualStyleBackColor = false;
+            this.btnLocationManager.Click += new System.EventHandler(this.btnLocationManager_Click);
             // 
             // btnQuanLyTour
             // 
@@ -181,9 +183,9 @@
             this.btnfmDangNhap.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.login;
             this.btnfmDangNhap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnfmDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfmDangNhap.Location = new System.Drawing.Point(1146, 12);
+            this.btnfmDangNhap.Location = new System.Drawing.Point(1186, 12);
             this.btnfmDangNhap.Name = "btnfmDangNhap";
-            this.btnfmDangNhap.Size = new System.Drawing.Size(104, 65);
+            this.btnfmDangNhap.Size = new System.Drawing.Size(64, 64);
             this.btnfmDangNhap.TabIndex = 0;
             this.btnfmDangNhap.UseVisualStyleBackColor = false;
             this.btnfmDangNhap.Click += new System.EventHandler(this.btnfmDangNhap_Click);
@@ -201,8 +203,8 @@
             this.Controls.Add(this.btnKetNoiCSDL);
             this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.btnTraCuu);
-            this.Controls.Add(this.btnQuanLyDoan);
-            this.Controls.Add(this.btnQuanLyDiaDiem);
+            this.Controls.Add(this.btnTouristsGroupManager);
+            this.Controls.Add(this.btnLocationManager);
             this.Controls.Add(this.btnQuanLyTour);
             this.Controls.Add(this.btnfmDangNhap);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,8 +223,8 @@
 
         private System.Windows.Forms.Button btnfmDangNhap;
         private System.Windows.Forms.Button btnQuanLyTour;
-        private System.Windows.Forms.Button btnQuanLyDiaDiem;
-        private System.Windows.Forms.Button btnQuanLyDoan;
+        private System.Windows.Forms.Button btnLocationManager;
+        private System.Windows.Forms.Button btnTouristsGroupManager;
         private System.Windows.Forms.Button btnTraCuu;
         private System.Windows.Forms.Button btnBaoCao;
         private System.Windows.Forms.Button btnKetNoiCSDL;
