@@ -70,5 +70,13 @@ namespace QuanLyTourDuLich
             fm.ShowDialog();
             this.Show();
         }
+
+        private void btnTourManager_Click(object sender, EventArgs e)
+        {
+            fmTourManager fm = new fmTourManager();
+            this.Hide();
+            fm.ShowDialog();
+            this.Show();
+        }
     }
 }

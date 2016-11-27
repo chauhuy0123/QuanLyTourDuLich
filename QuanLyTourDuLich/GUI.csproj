@@ -70,6 +70,12 @@
     <Compile Include="Forms\fmMain.Designer.cs">
       <DependentUpon>fmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmReport.Designer.cs">
+      <DependentUpon>fmReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmSystemManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="Forms\fmTouristsGroupManager.Designer.cs">
       <DependentUpon>fmTouristsGroupManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmTourManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmTourManager.Designer.cs">
+      <DependentUpon>fmTourManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\fmLocationManager.resx">
@@ -102,6 +114,9 @@
     <EmbeddedResource Include="Forms\fmMain.resx">
       <DependentUpon>fmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmReport.resx">
+      <DependentUpon>fmReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmSystemManager.resx">
       <DependentUpon>fmSystemManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmTouristsGroupManager.resx">
       <DependentUpon>fmTouristsGroupManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmTourManager.resx">
+      <DependentUpon>fmTourManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -36,7 +36,7 @@
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.btnTouristsGroupManager = new System.Windows.Forms.Button();
             this.btnLocationManager = new System.Windows.Forms.Button();
-            this.btnQuanLyTour = new System.Windows.Forms.Button();
+            this.btnTourManager = new System.Windows.Forms.Button();
             this.btnfmDangNhap = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -161,21 +161,22 @@
             this.btnLocationManager.UseVisualStyleBackColor = false;
             this.btnLocationManager.Click += new System.EventHandler(this.btnLocationManager_Click);
             // 
-            // btnQuanLyTour
+            // btnTourManager
             // 
-            this.btnQuanLyTour.BackColor = System.Drawing.Color.Purple;
-            this.btnQuanLyTour.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.earth_pictures;
-            this.btnQuanLyTour.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnQuanLyTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuanLyTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLyTour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnQuanLyTour.Location = new System.Drawing.Point(37, 255);
-            this.btnQuanLyTour.Name = "btnQuanLyTour";
-            this.btnQuanLyTour.Size = new System.Drawing.Size(317, 156);
-            this.btnQuanLyTour.TabIndex = 1;
-            this.btnQuanLyTour.Text = "Quản lý tour";
-            this.btnQuanLyTour.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnQuanLyTour.UseVisualStyleBackColor = false;
+            this.btnTourManager.BackColor = System.Drawing.Color.Purple;
+            this.btnTourManager.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.earth_pictures;
+            this.btnTourManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTourManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTourManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTourManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTourManager.Location = new System.Drawing.Point(37, 255);
+            this.btnTourManager.Name = "btnTourManager";
+            this.btnTourManager.Size = new System.Drawing.Size(317, 156);
+            this.btnTourManager.TabIndex = 1;
+            this.btnTourManager.Text = "Quản lý tour";
+            this.btnTourManager.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnTourManager.UseVisualStyleBackColor = false;
+            this.btnTourManager.Click += new System.EventHandler(this.btnTourManager_Click);
             // 
             // btnfmDangNhap
             // 
@@ -205,7 +206,7 @@
             this.Controls.Add(this.btnTraCuu);
             this.Controls.Add(this.btnTouristsGroupManager);
             this.Controls.Add(this.btnLocationManager);
-            this.Controls.Add(this.btnQuanLyTour);
+            this.Controls.Add(this.btnTourManager);
             this.Controls.Add(this.btnfmDangNhap);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -222,7 +223,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnfmDangNhap;
-        private System.Windows.Forms.Button btnQuanLyTour;
+        private System.Windows.Forms.Button btnTourManager;
         private System.Windows.Forms.Button btnLocationManager;
         private System.Windows.Forms.Button btnTouristsGroupManager;
         private System.Windows.Forms.Button btnTraCuu;
