@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TourManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TourManagerModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="TourManagerModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Destination" EntityType="TourManagerModel.Store.Destination" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="TourManagerModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeRole" EntityType="TourManagerModel.Store.EmployeeRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gender" EntityType="TourManagerModel.Store.Gender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hotel" EntityType="TourManagerModel.Store.Hotel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Passenger" EntityType="TourManagerModel.Store.Passenger" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PassengerCategory" EntityType="TourManagerModel.Store.PassengerCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Status" EntityType="TourManagerModel.Store.Status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tour" EntityType="TourManagerModel.Store.Tour" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TourCategory" EntityType="TourManagerModel.Store.TourCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TourGroup" EntityType="TourManagerModel.Store.TourGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TourGroupDetail" EntityType="TourManagerModel.Store.TourGroupDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TourPrice" EntityType="TourManagerModel.Store.TourPrice" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TourSite" EntityType="TourManagerModel.Store.TourSite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transport" EntityType="TourManagerModel.Store.Transport" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Customer_Gender" Association="TourManagerModel.Store.FK_Customer_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeRole" Association="TourManagerModel.Store.FK_Employee_EmployeeRole">
+            <End Role="EmployeeRole" EntitySet="EmployeeRole" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Status" Association="TourManagerModel.Store.FK_Employee_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Destination" Association="TourManagerModel.Store.FK_Hotel_Destination">
+            <End Role="Destination" EntitySet="Destination" />
+            <End Role="Hotel" EntitySet="Hotel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_Customer" Association="TourManagerModel.Store.FK_Passenger_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Passenger" EntitySet="Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_PassengerCategory" Association="TourManagerModel.Store.FK_Passenger_PassengerCategory">
+            <End Role="PassengerCategory" EntitySet="PassengerCategory" />
+            <End Role="Passenger" EntitySet="Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_TourGroup" Association="TourManagerModel.Store.FK_Passenger_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroup" />
+            <End Role="Passenger" EntitySet="Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tour_TourCategory" Association="TourManagerModel.Store.FK_Tour_TourCategory">
+            <End Role="TourCategory" EntitySet="TourCategory" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tour_TourPrice" Association="TourManagerModel.Store.FK_Tour_TourPrice">
+            <End Role="TourPrice" EntitySet="TourPrice" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroup_TourCategory" Association="TourManagerModel.Store.FK_TourGroup_TourCategory">
+            <End Role="TourCategory" EntitySet="TourCategory" />
+            <End Role="TourGroup" EntitySet="TourGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Employee" Association="TourManagerModel.Store.FK_TourGroupDetail_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Tour" Association="TourManagerModel.Store.FK_TourGroupDetail_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Transport" Association="TourManagerModel.Store.FK_TourGroupDetail_Transport">
+            <End Role="Transport" EntitySet="Transport" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourSite_Destination" Association="TourManagerModel.Store.FK_TourSite_Destination">
+            <End Role="Destination" EntitySet="Destination" />
+            <End Role="TourSite" EntitySet="TourSite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Status" Association="TourManagerModel.Store.FK_Transport_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Transport" EntitySet="Transport" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="gender" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="nationality" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Destination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="status" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="role" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="EmployeeRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="phone" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="status" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="destination_id" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Passenger">
+          <Key>
+            <PropertyRef Name="customer_id" />
+            <PropertyRef Name="tour_group_id" />
+          </Key>
+          <Property Name="customer_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="category_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="tour_group_id" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PassengerCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="category_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="tour_price_id" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TourCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TourGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="depart_date" Type="date" Nullable="false" />
+          <Property Name="return_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TourGroupDetail">
+          <Key>
+            <PropertyRef Name="tour_id" />
+            <PropertyRef Name="employee_id" />
+            <PropertyRef Name="transport_id" />
+          </Key>
+          <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="employee_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="transport_id" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TourPrice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TourSite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="destination_id" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="status" Type="varchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK_Customer_Gender">
+          <End Role="Gender" Type="TourManagerModel.Store.Gender" Multiplicity="1" />
+          <End Role="Customer" Type="TourManagerModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeRole">
+          <End Role="EmployeeRole" Type="TourManagerModel.Store.EmployeeRole" Multiplicity="1" />
+          <End Role="Employee" Type="TourManagerModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Status">
+          <End Role="Status" Type="TourManagerModel.Store.Status" Multiplicity="1" />
+          <End Role="Employee" Type="TourManagerModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_Destination">
+          <End Role="Destination" Type="TourManagerModel.Store.Destination" Multiplicity="1" />
+          <End Role="Hotel" Type="TourManagerModel.Store.Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="destination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_Customer">
+          <End Role="Customer" Type="TourManagerModel.Store.Customer" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Store.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_PassengerCategory">
+          <End Role="PassengerCategory" Type="TourManagerModel.Store.PassengerCategory" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Store.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassengerCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_TourGroup">
+          <End Role="TourGroup" Type="TourManagerModel.Store.TourGroup" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Store.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="tour_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tour_TourCategory">
+          <End Role="TourCategory" Type="TourManagerModel.Store.TourCategory" Multiplicity="1" />
+          <End Role="Tour" Type="TourManagerModel.Store.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tour_TourPrice">
+          <End Role="TourPrice" Type="TourManagerModel.Store.TourPrice" Multiplicity="1" />
+          <End Role="Tour" Type="TourManagerModel.Store.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourPrice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="tour_price_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroup_TourCategory">
+          <End Role="TourCategory" Type="TourManagerModel.Store.TourCategory" Multiplicity="1" />
+          <End Role="TourGroup" Type="TourManagerModel.Store.TourGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroup">
+              <PropertyRef Name="tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Employee">
+          <End Role="Employee" Type="TourManagerModel.Store.Employee" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.Store.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Tour">
+          <End Role="Tour" Type="TourManagerModel.Store.Tour" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.Store.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Transport">
+          <End Role="Transport" Type="TourManagerModel.Store.Transport" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.Store.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="transport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourSite_Destination">
+          <End Role="Destination" Type="TourManagerModel.Store.Destination" Multiplicity="1" />
+          <End Role="TourSite" Type="TourManagerModel.Store.TourSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourSite">
+              <PropertyRef Name="destination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Status">
+          <End Role="Status" Type="TourManagerModel.Store.Status" Multiplicity="1" />
+          <End Role="Transport" Type="TourManagerModel.Store.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TourManagerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="TourManagerModel.Customer" />
+          <EntitySet Name="Destinations" EntityType="TourManagerModel.Destination" />
+          <EntitySet Name="Employees" EntityType="TourManagerModel.Employee" />
+          <EntitySet Name="EmployeeRoles" EntityType="TourManagerModel.EmployeeRole" />
+          <EntitySet Name="Genders" EntityType="TourManagerModel.Gender" />
+          <EntitySet Name="Hotels" EntityType="TourManagerModel.Hotel" />
+          <EntitySet Name="Passengers" EntityType="TourManagerModel.Passenger" />
+          <EntitySet Name="PassengerCategories" EntityType="TourManagerModel.PassengerCategory" />
+          <EntitySet Name="Status" EntityType="TourManagerModel.Status" />
+          <EntitySet Name="Tours" EntityType="TourManagerModel.Tour" />
+          <EntitySet Name="TourCategories" EntityType="TourManagerModel.TourCategory" />
+          <EntitySet Name="TourGroups" EntityType="TourManagerModel.TourGroup" />
+          <EntitySet Name="TourGroupDetails" EntityType="TourManagerModel.TourGroupDetail" />
+          <EntitySet Name="TourPrices" EntityType="TourManagerModel.TourPrice" />
+          <EntitySet Name="TourSites" EntityType="TourManagerModel.TourSite" />
+          <EntitySet Name="Transports" EntityType="TourManagerModel.Transport" />
+          <AssociationSet Name="FK_Customer_Gender" Association="TourManagerModel.FK_Customer_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_Customer" Association="TourManagerModel.FK_Passenger_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Passenger" EntitySet="Passengers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Destination" Association="TourManagerModel.FK_Hotel_Destination">
+            <End Role="Destination" EntitySet="Destinations" />
+            <End Role="Hotel" EntitySet="Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourSite_Destination" Association="TourManagerModel.FK_TourSite_Destination">
+            <End Role="Destination" EntitySet="Destinations" />
+            <End Role="TourSite" EntitySet="TourSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeRole" Association="TourManagerModel.FK_Employee_EmployeeRole">
+            <End Role="EmployeeRole" EntitySet="EmployeeRoles" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Status" Association="TourManagerModel.FK_Employee_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Employee" Association="TourManagerModel.FK_TourGroupDetail_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_PassengerCategory" Association="TourManagerModel.FK_Passenger_PassengerCategory">
+            <End Role="PassengerCategory" EntitySet="PassengerCategories" />
+            <End Role="Passenger" EntitySet="Passengers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passenger_TourGroup" Association="TourManagerModel.FK_Passenger_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroups" />
+            <End Role="Passenger" EntitySet="Passengers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Status" Association="TourManagerModel.FK_Transport_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Transport" EntitySet="Transports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tour_TourCategory" Association="TourManagerModel.FK_Tour_TourCategory">
+            <End Role="TourCategory" EntitySet="TourCategories" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tour_TourPrice" Association="TourManagerModel.FK_Tour_TourPrice">
+            <End Role="TourPrice" EntitySet="TourPrices" />
+            <End Role="Tour" EntitySet="Tours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Tour" Association="TourManagerModel.FK_TourGroupDetail_Tour">
+            <End Role="Tour" EntitySet="Tours" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroup_TourCategory" Association="TourManagerModel.FK_TourGroup_TourCategory">
+            <End Role="TourCategory" EntitySet="TourCategories" />
+            <End Role="TourGroup" EntitySet="TourGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupDetail_Transport" Association="TourManagerModel.FK_TourGroupDetail_Transport">
+            <End Role="Transport" EntitySet="Transports" />
+            <End Role="TourGroupDetail" EntitySet="TourGroupDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="nationality" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Gender1" Relationship="TourManagerModel.FK_Customer_Gender" FromRole="Customer" ToRole="Gender" />
+          <NavigationProperty Name="Passengers" Relationship="TourManagerModel.FK_Passenger_Customer" FromRole="Customer" ToRole="Passenger" />
+        </EntityType>
+        <EntityType Name="Destination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Hotels" Relationship="TourManagerModel.FK_Hotel_Destination" FromRole="Destination" ToRole="Hotel" />
+          <NavigationProperty Name="TourSites" Relationship="TourManagerModel.FK_TourSite_Destination" FromRole="Destination" ToRole="TourSite" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="role" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmployeeRole" Relationship="TourManagerModel.FK_Employee_EmployeeRole" FromRole="Employee" ToRole="EmployeeRole" />
+          <NavigationProperty Name="Status1" Relationship="TourManagerModel.FK_Employee_Status" FromRole="Employee" ToRole="Status" />
+          <NavigationProperty Name="TourGroupDetails" Relationship="TourManagerModel.FK_TourGroupDetail_Employee" FromRole="Employee" ToRole="TourGroupDetail" />
+        </EntityType>
+        <EntityType Name="EmployeeRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employees" Relationship="TourManagerModel.FK_Employee_EmployeeRole" FromRole="EmployeeRole" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customers" Relationship="TourManagerModel.FK_Customer_Gender" FromRole="Gender" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="destination_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Destination" Relationship="TourManagerModel.FK_Hotel_Destination" FromRole="Hotel" ToRole="Destination" />
+        </EntityType>
+        <EntityType Name="Passenger">
+          <Key>
+            <PropertyRef Name="customer_id" />
+            <PropertyRef Name="tour_group_id" />
+          </Key>
+          <Property Name="customer_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="category_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tour_group_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="TourManagerModel.FK_Passenger_Customer" FromRole="Passenger" ToRole="Customer" />
+          <NavigationProperty Name="PassengerCategory" Relationship="TourManagerModel.FK_Passenger_PassengerCategory" FromRole="Passenger" ToRole="PassengerCategory" />
+          <NavigationProperty Name="TourGroup" Relationship="TourManagerModel.FK_Passenger_TourGroup" FromRole="Passenger" ToRole="TourGroup" />
+        </EntityType>
+        <EntityType Name="PassengerCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Passengers" Relationship="TourManagerModel.FK_Passenger_PassengerCategory" FromRole="PassengerCategory" ToRole="Passenger" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Employees" Relationship="TourManagerModel.FK_Employee_Status" FromRole="Status" ToRole="Employee" />
+          <NavigationProperty Name="Transports" Relationship="TourManagerModel.FK_Transport_Status" FromRole="Status" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="category_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tour_price_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TourCategory" Relationship="TourManagerModel.FK_Tour_TourCategory" FromRole="Tour" ToRole="TourCategory" />
+          <NavigationProperty Name="TourPrice" Relationship="TourManagerModel.FK_Tour_TourPrice" FromRole="Tour" ToRole="TourPrice" />
+          <NavigationProperty Name="TourGroupDetails" Relationship="TourManagerModel.FK_TourGroupDetail_Tour" FromRole="Tour" ToRole="TourGroupDetail" />
+        </EntityType>
+        <EntityType Name="TourCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Tours" Relationship="TourManagerModel.FK_Tour_TourCategory" FromRole="TourCategory" ToRole="Tour" />
+          <NavigationProperty Name="TourGroups" Relationship="TourManagerModel.FK_TourGroup_TourCategory" FromRole="TourCategory" ToRole="TourGroup" />
+        </EntityType>
+        <EntityType Name="TourGroup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tour_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="depart_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Passengers" Relationship="TourManagerModel.FK_Passenger_TourGroup" FromRole="TourGroup" ToRole="Passenger" />
+          <NavigationProperty Name="TourCategory" Relationship="TourManagerModel.FK_TourGroup_TourCategory" FromRole="TourGroup" ToRole="TourCategory" />
+        </EntityType>
+        <EntityType Name="TourGroupDetail">
+          <Key>
+            <PropertyRef Name="tour_id" />
+            <PropertyRef Name="employee_id" />
+            <PropertyRef Name="transport_id" />
+          </Key>
+          <Property Name="tour_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="employee_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="transport_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Employee" Relationship="TourManagerModel.FK_TourGroupDetail_Employee" FromRole="TourGroupDetail" ToRole="Employee" />
+          <NavigationProperty Name="Tour" Relationship="TourManagerModel.FK_TourGroupDetail_Tour" FromRole="TourGroupDetail" ToRole="Tour" />
+          <NavigationProperty Name="Transport" Relationship="TourManagerModel.FK_TourGroupDetail_Transport" FromRole="TourGroupDetail" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="TourPrice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Tours" Relationship="TourManagerModel.FK_Tour_TourPrice" FromRole="TourPrice" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="TourSite">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="destination_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Destination" Relationship="TourManagerModel.FK_TourSite_Destination" FromRole="TourSite" ToRole="Destination" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Status1" Relationship="TourManagerModel.FK_Transport_Status" FromRole="Transport" ToRole="Status" />
+          <NavigationProperty Name="TourGroupDetails" Relationship="TourManagerModel.FK_TourGroupDetail_Transport" FromRole="Transport" ToRole="TourGroupDetail" />
+        </EntityType>
+        <Association Name="FK_Customer_Gender">
+          <End Role="Gender" Type="TourManagerModel.Gender" Multiplicity="1" />
+          <End Role="Customer" Type="TourManagerModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_Customer">
+          <End Role="Customer" Type="TourManagerModel.Customer" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_Destination">
+          <End Role="Destination" Type="TourManagerModel.Destination" Multiplicity="1" />
+          <End Role="Hotel" Type="TourManagerModel.Hotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hotel">
+              <PropertyRef Name="destination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourSite_Destination">
+          <End Role="Destination" Type="TourManagerModel.Destination" Multiplicity="1" />
+          <End Role="TourSite" Type="TourManagerModel.TourSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destination">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourSite">
+              <PropertyRef Name="destination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeRole">
+          <End Role="EmployeeRole" Type="TourManagerModel.EmployeeRole" Multiplicity="1" />
+          <End Role="Employee" Type="TourManagerModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeRole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Status">
+          <End Role="Status" Type="TourManagerModel.Status" Multiplicity="1" />
+          <End Role="Employee" Type="TourManagerModel.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Employee">
+          <End Role="Employee" Type="TourManagerModel.Employee" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_PassengerCategory">
+          <End Role="PassengerCategory" Type="TourManagerModel.PassengerCategory" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PassengerCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passenger_TourGroup">
+          <End Role="TourGroup" Type="TourManagerModel.TourGroup" Multiplicity="1" />
+          <End Role="Passenger" Type="TourManagerModel.Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Passenger">
+              <PropertyRef Name="tour_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Status">
+          <End Role="Status" Type="TourManagerModel.Status" Multiplicity="1" />
+          <End Role="Transport" Type="TourManagerModel.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tour_TourCategory">
+          <End Role="TourCategory" Type="TourManagerModel.TourCategory" Multiplicity="1" />
+          <End Role="Tour" Type="TourManagerModel.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tour_TourPrice">
+          <End Role="TourPrice" Type="TourManagerModel.TourPrice" Multiplicity="1" />
+          <End Role="Tour" Type="TourManagerModel.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourPrice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="tour_price_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Tour">
+          <End Role="Tour" Type="TourManagerModel.Tour" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroup_TourCategory">
+          <End Role="TourCategory" Type="TourManagerModel.TourCategory" Multiplicity="1" />
+          <End Role="TourGroup" Type="TourManagerModel.TourGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroup">
+              <PropertyRef Name="tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupDetail_Transport">
+          <End Role="Transport" Type="TourManagerModel.Transport" Multiplicity="1" />
+          <End Role="TourGroupDetail" Type="TourManagerModel.TourGroupDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupDetail">
+              <PropertyRef Name="transport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TourManagerModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="TourManagerModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destinations">
+            <EntityTypeMapping TypeName="TourManagerModel.Destination">
+              <MappingFragment StoreEntitySet="Destination">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="TourManagerModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeRoles">
+            <EntityTypeMapping TypeName="TourManagerModel.EmployeeRole">
+              <MappingFragment StoreEntitySet="EmployeeRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="TourManagerModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotels">
+            <EntityTypeMapping TypeName="TourManagerModel.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="destination_id" ColumnName="destination_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passengers">
+            <EntityTypeMapping TypeName="TourManagerModel.Passenger">
+              <MappingFragment StoreEntitySet="Passenger">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="tour_group_id" ColumnName="tour_group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassengerCategories">
+            <EntityTypeMapping TypeName="TourManagerModel.PassengerCategory">
+              <MappingFragment StoreEntitySet="PassengerCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="TourManagerModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="TourManagerModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="tour_price_id" ColumnName="tour_price_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourCategories">
+            <EntityTypeMapping TypeName="TourManagerModel.TourCategory">
+              <MappingFragment StoreEntitySet="TourCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourGroups">
+            <EntityTypeMapping TypeName="TourManagerModel.TourGroup">
+              <MappingFragment StoreEntitySet="TourGroup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="depart_date" ColumnName="depart_date" />
+                <ScalarProperty Name="return_date" ColumnName="return_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourGroupDetails">
+            <EntityTypeMapping TypeName="TourManagerModel.TourGroupDetail">
+              <MappingFragment StoreEntitySet="TourGroupDetail">
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="transport_id" ColumnName="transport_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourPrices">
+            <EntityTypeMapping TypeName="TourManagerModel.TourPrice">
+              <MappingFragment StoreEntitySet="TourPrice">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourSites">
+            <EntityTypeMapping TypeName="TourManagerModel.TourSite">
+              <MappingFragment StoreEntitySet="TourSite">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="destination_id" ColumnName="destination_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transports">
+            <EntityTypeMapping TypeName="TourManagerModel.Transport">
+              <MappingFragment StoreEntitySet="Transport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
