@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2d58a6c065048299bdb20b9a164383a" Name="Diagram1">
+        <EntityTypeShape EntityType="TourManagerModel.Customer" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Destination" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Employee" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.EmployeeRole" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Gender" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Hotel" Width="1.5" PointX="10" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Passenger" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.PassengerCategory" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Status" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Tour" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.TourCategory" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.TourGroup" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.TourGroupDetail" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.TourPrice" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.TourSite" Width="1.5" PointX="10" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourManagerModel.Transport" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="TourManagerModel.FK_Customer_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Passenger_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Hotel_Destination" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_TourSite_Destination" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Employee_EmployeeRole" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Employee_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_TourGroupDetail_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Passenger_PassengerCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Passenger_TourGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Transport_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Tour_TourCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_Tour_TourPrice" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_TourGroupDetail_Tour" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_TourGroup_TourCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TourManagerModel.FK_TourGroupDetail_Transport" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
