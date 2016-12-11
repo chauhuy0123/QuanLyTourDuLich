@@ -7,21 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTourDuLich.DTO
+namespace DTO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Gender
+    public partial class Transport
     {
-        public Gender()
+        public Transport()
         {
-            this.Customers = new HashSet<Customer>();
+            this.TourGroupDetails = new HashSet<TourGroupDetail>();
         }
     
         public string id { get; set; }
         public string name { get; set; }
+        public string status { get; set; }
     
-        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual Status Status1 { get; set; }
+        public virtual ICollection<TourGroupDetail> TourGroupDetails { get; set; }
     }
 }

@@ -7,25 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTourDuLich.DTO
+namespace DTO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Tour
     {
-        public Customer()
+        public Tour()
         {
-            this.Passengers = new HashSet<Passenger>();
+            this.TourGroupDetails = new HashSet<TourGroupDetail>();
         }
     
         public string id { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
-        public string gender { get; set; }
-        public string nationality { get; set; }
+        public string category_id { get; set; }
+        public string tour_price_id { get; set; }
     
-        public virtual Gender Gender1 { get; set; }
-        public virtual ICollection<Passenger> Passengers { get; set; }
+        public virtual TourCategory TourCategory { get; set; }
+        public virtual TourPrice TourPrice { get; set; }
+        public virtual ICollection<TourGroupDetail> TourGroupDetails { get; set; }
     }
 }

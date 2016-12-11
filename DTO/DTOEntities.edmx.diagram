@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e2d58a6c065048299bdb20b9a164383a" Name="Diagram1">
+      <Diagram DiagramId="cbdde08eb83747d78deacd5d446dc0fa" Name="Diagram1" ZoomLevel="69">
         <EntityTypeShape EntityType="TourManagerModel.Customer" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TourManagerModel.Destination" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TourManagerModel.Employee" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />

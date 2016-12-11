@@ -7,20 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTourDuLich.DTO
+namespace DTO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Hotel
+    public partial class EmployeeRole
     {
+        public EmployeeRole()
+        {
+            this.Employees = new HashSet<Employee>();
+        }
+    
         public string id { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
-        public string phone { get; set; }
-        public string status { get; set; }
-        public string destination_id { get; set; }
     
-        public virtual Destination Destination { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

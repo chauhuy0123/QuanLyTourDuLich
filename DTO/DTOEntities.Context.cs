@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTourDuLich.DTO
+namespace DTO
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class TourManagerEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public TourManagerEntities()
+            : base("name=TourManagerEntities")
         {
         }
     

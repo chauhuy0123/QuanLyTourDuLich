@@ -90,69 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseManager.cs" />
-    <Compile Include="DTO\Customer.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Destination.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\DTOEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTOEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\DTOEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\DTOEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DTOEntities.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Employee.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\EmployeeRole.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Gender.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Hotel.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Passenger.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\PassengerCategory.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Status.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Tour.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\TourCategory.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\TourGroup.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\TourGroupDetail.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\TourPrice.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\TourSite.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DTO\Transport.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,23 +192,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Constants.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DTO\DTOEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DTOEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DTO\DTOEntities.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DTOEntities.edmx</DependentUpon>
-      <LastGenOutput>DTOEntities.Context.cs</LastGenOutput>
-    </None>
-    <None Include="DTO\DTOEntities.edmx.diagram">
-      <DependentUpon>DTOEntities.edmx</DependentUpon>
-    </None>
-    <None Include="DTO\DTOEntities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DTOEntities.edmx</DependentUpon>
-      <LastGenOutput>DTOEntities.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -355,7 +275,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

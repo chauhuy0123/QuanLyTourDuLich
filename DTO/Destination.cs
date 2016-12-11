@@ -7,17 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLyTourDuLich.DTO
+namespace DTO
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TourSite
+    public partial class Destination
     {
+        public Destination()
+        {
+            this.Hotels = new HashSet<Hotel>();
+            this.TourSites = new HashSet<TourSite>();
+        }
+    
         public string id { get; set; }
         public string name { get; set; }
-        public string destination_id { get; set; }
+        public string city { get; set; }
     
-        public virtual Destination Destination { get; set; }
+        public virtual ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<TourSite> TourSites { get; set; }
     }
 }
