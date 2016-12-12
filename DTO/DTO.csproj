@@ -80,6 +80,42 @@
     <Compile Include="Gender.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetCustomerById_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCustomerList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDestinationById_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDestinationList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmployeeById_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmployeeByTourGroupId_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmployeeList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPassengerById_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPassengerByTourGroupId_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStatusById_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStatusList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTourList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Hotel.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>

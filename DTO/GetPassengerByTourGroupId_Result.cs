@@ -10,22 +10,18 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class GetPassengerByTourGroupId_Result
     {
-        public Customer()
-        {
-            this.Passengers = new HashSet<Passenger>();
-        }
-    
-        public int id { get; set; }
+        public string customer_id { get; set; }
+        public string category_id { get; set; }
+        public string tour_group_id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
+        public string id1 { get; set; }
+        public string name1 { get; set; }
         public string address { get; set; }
-        public int gender { get; set; }
-        public string phone { get; set; }
-    
-        public virtual Gender Gender1 { get; set; }
-        public virtual ICollection<Passenger> Passengers { get; set; }
+        public string gender { get; set; }
+        public string nationality { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace QuanLyTourDuLich
 {
+
     static class Program
     {
         public static string CompanyName = "OOD";
@@ -64,6 +65,7 @@ namespace QuanLyTourDuLich
             // Để kiểm tra sự thay đổi khi chạy chương trình thì kiểm tra file trong thư mục bin
             // Ví dụ insert new Customer thì customer mới nằm trong file của thư mục bin
             // còn file trong thư mục của project thì chỉ dùng để edit. 
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

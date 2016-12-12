@@ -95,7 +95,7 @@
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="gender" Type="int" Nullable="false" />
-          <Property Name="nationality" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Destination">
           <Key>
@@ -980,9 +980,9 @@
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="address" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="gender" Nullable="false" />
-          <Property Type="String" Name="nationality" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender1" Relationship="TourManagerModel.FK_Customer_Gender" FromRole="Customer" ToRole="Gender" />
           <NavigationProperty Name="Passengers" Relationship="TourManagerModel.FK_Passenger_Customer" FromRole="Customer" ToRole="Passenger" />
+          <Property Type="String" Name="phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Customer_Gender">
           <End Type="TourManagerModel.Gender" Role="Gender" Multiplicity="1" />
@@ -1295,7 +1295,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="TourManagerModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="address" ColumnName="address" />
                 <ScalarProperty Name="name" ColumnName="name" />

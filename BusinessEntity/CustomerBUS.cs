@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DTO;
+using DAO;
 
 namespace BusinessEntity
 {
@@ -9,8 +11,7 @@ namespace BusinessEntity
     /// Một lớp bus cơ bản thì có 5 hàm là GetById, GetAll, add, delete, update.
     /// Nếu cần loại xử lý nào thêm thì viết thêm hàm cho nó.
     ///
-    using DTO;
-    using DAO;
+
     public class CustomerBUS
     {
         UnitOfWork _unitOfWork = new DAO.UnitOfWork();
@@ -47,6 +48,12 @@ namespace BusinessEntity
         {
             _unitOfWork.CustomerRepository.Update(customer);
             _unitOfWork.Save();
+        }
+
+        public void GetSomeThingSpecial()
+        {
+            //_unitOfWork.CustomerRepository.GetFirst(c => c.name == "Tung");
+            //_unitOfWork.CustomerRepository.GetMany(c => c.id > 11);
         }
     }
 }

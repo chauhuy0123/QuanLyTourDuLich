@@ -10,22 +10,10 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class GetStatusList_Result
     {
-        public Customer()
-        {
-            this.Passengers = new HashSet<Passenger>();
-        }
-    
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
-        public int gender { get; set; }
-        public string phone { get; set; }
-    
-        public virtual Gender Gender1 { get; set; }
-        public virtual ICollection<Passenger> Passengers { get; set; }
     }
 }

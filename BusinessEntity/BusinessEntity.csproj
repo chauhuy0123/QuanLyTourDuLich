@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerBUS.cs" />
+    <Compile Include="GenderBUS.cs" />
+    <Compile Include="SearchEngine\CustomerSearchEngine.cs" />
+    <Compile Include="SearchEngine\ISearchAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchEngine\SearchEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
