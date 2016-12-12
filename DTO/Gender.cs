@@ -19,7 +19,7 @@ namespace DTO
             this.Customers = new HashSet<Customer>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
     
         public virtual ICollection<Customer> Customers { get; set; }

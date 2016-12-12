@@ -12,6 +12,9 @@ namespace DTO
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class TourManagerEntities : DbContext
     {
@@ -25,7 +28,6 @@ namespace DTO
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeRole> EmployeeRoles { get; set; }
@@ -41,5 +43,7 @@ namespace DTO
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+    
     }
 }

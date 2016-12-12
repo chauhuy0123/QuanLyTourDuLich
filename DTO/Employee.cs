@@ -19,10 +19,10 @@ namespace DTO
             this.TourGroupDetails = new HashSet<TourGroupDetail>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
-        public string status { get; set; }
-        public string role { get; set; }
+        public int status { get; set; }
+        public int role { get; set; }
     
         public virtual EmployeeRole EmployeeRole { get; set; }
         public virtual Status Status1 { get; set; }

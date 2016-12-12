@@ -19,7 +19,7 @@ namespace DTO
             this.Passengers = new HashSet<Passenger>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
     
         public virtual ICollection<Passenger> Passengers { get; set; }

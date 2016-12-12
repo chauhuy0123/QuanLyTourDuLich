@@ -17,14 +17,16 @@ namespace DTO
         public TourGroup()
         {
             this.Passengers = new HashSet<Passenger>();
+            this.TourGroupDetails = new HashSet<TourGroupDetail>();
         }
     
-        public string id { get; set; }
-        public string tour_id { get; set; }
+        public int id { get; set; }
+        public int tour_id { get; set; }
         public System.DateTime depart_date { get; set; }
         public System.DateTime return_date { get; set; }
     
         public virtual ICollection<Passenger> Passengers { get; set; }
-        public virtual TourCategory TourCategory { get; set; }
+        public virtual Tour Tour { get; set; }
+        public virtual ICollection<TourGroupDetail> TourGroupDetails { get; set; }
     }
 }

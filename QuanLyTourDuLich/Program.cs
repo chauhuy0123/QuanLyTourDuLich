@@ -18,13 +18,52 @@ namespace QuanLyTourDuLich
         [STAThread]
         static void Main()
         {
-            initAppData();
+            //initAppData();
 
-            // Nếu chưa tồn tại file db thì copy file db gốc vào thư mục db
-            if (DatabaseManager.getInsance().isValidDataFile() == false)
-            {
-                DatabaseManager.getInsance().createDataFile();
-            }
+            //// Nếu chưa tồn tại file db thì copy file db gốc vào thư mục db
+            //if (DatabaseManager.getInsance().isValidDataFile() == false)
+            //{
+            //    DatabaseManager.getInsance().createDataFile();
+            //}
+
+            // keep above. don't uncomment it. but don't delete it.
+
+            // code behind just test. also example 
+
+            /* Bussiness object for all you need */
+            var bus = new BusinessEntity.CustomerBUS();
+
+            /* Get by Id Examples */
+            // var c = bus.getCustomerById(2);
+
+            /* Get all Examples */ 
+            // var all = bus.getEntries();
+
+            /* Insert example */
+            //DTO.Customer newC = new DTO.Customer()
+            //{
+            //    address = "some thing new",
+            //    gender = 4,
+            //    name = "TungHH",
+            //    nationality = "Vn"
+            //};
+            //bus.add(newC);
+            
+            /* Delete example */
+            //bus.deletaById(2);
+
+            /* Update example */
+            //c.name = "Tung";
+            //bus.update(c);
+
+            /* end test. */
+
+            // Chú ý
+            // File database dùng để chỉnh sửa là file ở thư mục QUanLyTourDuLich/Resource/db/TourManager.mdf
+            // Khi chạy chuong trình, complier tự động copy database và thư mục QUanLyTourDuLich/bin/Debug[hoặc Release]/Resource/db/TourManager.mdf
+            // Để kiểm tra sự thay đổi khi chạy chương trình thì kiểm tra file trong thư mục bin
+            // Ví dụ insert new Customer thì customer mới nằm trong file của thư mục bin
+            // còn file trong thư mục của project thì chỉ dùng để edit. 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

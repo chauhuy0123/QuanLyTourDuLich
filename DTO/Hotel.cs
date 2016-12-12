@@ -14,12 +14,12 @@ namespace DTO
     
     public partial class Hotel
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string address { get; set; }
         public string phone { get; set; }
         public string status { get; set; }
-        public string destination_id { get; set; }
+        public int destination_id { get; set; }
     
         public virtual Destination Destination { get; set; }
     }

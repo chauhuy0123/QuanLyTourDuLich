@@ -20,7 +20,7 @@ namespace DTO
             this.Transports = new HashSet<Transport>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
     
         public virtual ICollection<Employee> Employees { get; set; }

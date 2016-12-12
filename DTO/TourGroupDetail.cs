@@ -14,12 +14,12 @@ namespace DTO
     
     public partial class TourGroupDetail
     {
-        public string tour_id { get; set; }
-        public string employee_id { get; set; }
-        public string transport_id { get; set; }
+        public int tour_group_id { get; set; }
+        public int employee_id { get; set; }
+        public int transport_id { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual Tour Tour { get; set; }
+        public virtual TourGroup TourGroup { get; set; }
         public virtual Transport Transport { get; set; }
     }
 }

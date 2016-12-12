@@ -17,13 +17,11 @@ namespace DTO
         public TourCategory()
         {
             this.Tours = new HashSet<Tour>();
-            this.TourGroups = new HashSet<TourGroup>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
     
         public virtual ICollection<Tour> Tours { get; set; }
-        public virtual ICollection<TourGroup> TourGroups { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace DAO.GenericRepository
 {
     // https://www.codeproject.com/Articles/990492/RESTful-Day-sharp-Enterprise-Level-Application#_Toc418969118/
     // TEntity là template, có thể là bất cứ class nào
-    class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> where TEntity : class
     {
         //internal DAO.TourManagerDataSet _dataSet;
         internal DbContext _context;

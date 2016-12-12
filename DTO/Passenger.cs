@@ -14,12 +14,12 @@ namespace DTO
     
     public partial class Passenger
     {
-        public string customer_id { get; set; }
-        public string category_id { get; set; }
-        public string tour_group_id { get; set; }
+        public int customer_id { get; set; }
+        public int category_id { get; set; }
+        public int tour_group_id { get; set; }
     
-        public virtual Customer Customer { get; set; }
         public virtual PassengerCategory PassengerCategory { get; set; }
         public virtual TourGroup TourGroup { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

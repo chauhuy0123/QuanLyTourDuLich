@@ -17,14 +17,16 @@ namespace DTO
         public Destination()
         {
             this.Hotels = new HashSet<Hotel>();
+            this.Tours = new HashSet<Tour>();
             this.TourSites = new HashSet<TourSite>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string city { get; set; }
     
         public virtual ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
         public virtual ICollection<TourSite> TourSites { get; set; }
     }
 }

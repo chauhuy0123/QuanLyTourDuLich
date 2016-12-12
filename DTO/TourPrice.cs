@@ -19,7 +19,7 @@ namespace DTO
             this.Tours = new HashSet<Tour>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public decimal price { get; set; }
         public System.DateTime start_date { get; set; }
         public System.DateTime end_date { get; set; }

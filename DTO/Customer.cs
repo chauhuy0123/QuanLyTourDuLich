@@ -19,10 +19,10 @@ namespace DTO
             this.Passengers = new HashSet<Passenger>();
         }
     
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string address { get; set; }
-        public string gender { get; set; }
+        public int gender { get; set; }
         public string nationality { get; set; }
     
         public virtual Gender Gender1 { get; set; }
