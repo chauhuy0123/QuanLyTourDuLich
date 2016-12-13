@@ -7,11 +7,13 @@ namespace BusinessEntity.SearchEngine
 {
     class CustomerSearchEngine : ISearchAble<DTO.Customer>
     {
-        IEnumerable<DTO.Customer> _entry;
+        private IEnumerable<DTO.Customer> _entry;
+        private CustomerBUS _bus;
 
-        public CustomerSearchEngine(IEnumerable<DTO.Customer> entry)
+        public CustomerSearchEngine()
         {
-            _entry = entry;
+            _bus = new CustomerBUS();
+            _entry = _bus.getEntries();
         }
 
         public IEnumerable<DTO.Customer> Search(string keyword)
@@ -20,31 +22,26 @@ namespace BusinessEntity.SearchEngine
             rt.AddRange(searchByName(keyword));
             rt.AddRange(searchByAddress(keyword));
             rt.AddRange(searchByPhone(keyword));
-            rt = new List<DTO.Customer>(rt.Distinct());
+            rt = new List<DTO.Customer>(rt.Distinct()); // khử các phần tử trùng
             return rt;
         }
 
         private IEnumerable<DTO.Customer> searchByName(string keyword)
         {
-
-            System.Text.RegularExpressions.Regex g = new System.Text.RegularExpressions.Regex(
-                keyword, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-            
-            return _entry.Where(customer => g.IsMatch(customer.name));
+            var regex = RegexProxy.getInstance().getRegex(keyword);
+            return _entry.Where(customer => regex.IsMatch(customer.name));
         }
 
         private IEnumerable<DTO.Customer>  searchByAddress(string keyword)
         {
-            System.Text.RegularExpressions.Regex g = new System.Text.RegularExpressions.Regex(
-                keyword, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-            return _entry.Where(customer => g.IsMatch(customer.address));
+            var regex = RegexProxy.getInstance().getRegex(keyword);
+            return _entry.Where(customer => regex.IsMatch(customer.address));
         }
 
         private IEnumerable<DTO.Customer> searchByPhone(string keyword)
         {
-            System.Text.RegularExpressions.Regex g = new System.Text.RegularExpressions.Regex(
-                keyword, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-            return _entry.Where(customer => g.IsMatch(customer.phone));
+            var regex = RegexProxy.getInstance().getRegex(keyword);
+            return _entry.Where(customer => regex.IsMatch(customer.phone));
         }
     }
 

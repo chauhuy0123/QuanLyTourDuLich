@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmSearch));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -45,7 +47,7 @@
             this._addColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._phonecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._searchRsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._searchReultBs = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this._searchBtn = new System.Windows.Forms.Button();
             this._keywordTb = new System.Windows.Forms.TextBox();
@@ -63,28 +65,68 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._no_tour_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._id_tourColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._name_tour_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tourcategoryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._price_tourColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._destination_tourColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._city_tourColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tourBs = new System.Windows.Forms.BindingSource(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this._tourSearchBtn = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this._searchTourTb = new System.Windows.Forms.TextBox();
+            this._tourOptionContainer = new System.Windows.Forms.SplitContainer();
+            this.label9 = new System.Windows.Forms.Label();
+            this._tourCategoryClb = new System.Windows.Forms.CheckedListBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this._maxPriceUD = new System.Windows.Forms.NumericUpDown();
+            this._minPriceUD = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this._destinationClb = new System.Windows.Forms.CheckedListBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this._tourCategoryBs = new System.Windows.Forms.BindingSource(this.components);
+            this._destinationBs = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._resultGv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._searchRsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._searchReultBs)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._tourBs)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._tourOptionContainer)).BeginInit();
+            this._tourOptionContainer.Panel1.SuspendLayout();
+            this._tourOptionContainer.Panel2.SuspendLayout();
+            this._tourOptionContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._maxPriceUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._minPriceUD)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._tourCategoryBs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._destinationBs)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -177,7 +219,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this._resultGv);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(12, 252);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1238, 324);
@@ -190,6 +233,15 @@
             this._resultGv.AllowUserToAddRows = false;
             this._resultGv.AutoGenerateColumns = false;
             this._resultGv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._resultGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this._resultGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._resultGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._noColumn,
@@ -198,27 +250,33 @@
             this._addColumn,
             this._phonecolumn,
             this._genderColumn});
-            this._resultGv.DataSource = this._searchRsBindingSource;
+            this._resultGv.DataSource = this._searchReultBs;
+            this._resultGv.EnableHeadersVisualStyles = false;
             this._resultGv.Location = new System.Drawing.Point(6, 23);
             this._resultGv.Name = "_resultGv";
             this._resultGv.RowHeadersVisible = false;
-            this._resultGv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font(".VnTime", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._resultGv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this._resultGv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this._resultGv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.5F);
             this._resultGv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this._resultGv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
+            this._resultGv.RowTemplate.DefaultCellStyle.NullValue = "...";
+            this._resultGv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
             this._resultGv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
             this._resultGv.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._resultGv.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._resultGv.RowTemplate.Height = 48;
             this._resultGv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._resultGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._resultGv.ShowEditingIcon = false;
             this._resultGv.Size = new System.Drawing.Size(1226, 295);
             this._resultGv.TabIndex = 0;
-            this._resultGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._resultGv_CellFormatting);
+            this._resultGv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._resultGv_CellContentClick);
+            this._resultGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._resultGvCustomer_CellFormatting);
             this._resultGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._resultGv_ColumnHeaderMouseClick);
             // 
             // _noColumn
             // 
-            this._noColumn.FillWeight = 40F;
+            this._noColumn.FillWeight = 30F;
             this._noColumn.HeaderText = "STT";
             this._noColumn.Name = "_noColumn";
             this._noColumn.ReadOnly = true;
@@ -287,7 +345,7 @@
             this._searchBtn.TabIndex = 18;
             this._searchBtn.Text = "Tìm";
             this._searchBtn.UseVisualStyleBackColor = false;
-            this._searchBtn.Click += new System.EventHandler(this.btnDangNhap_Click);
+            this._searchBtn.Click += new System.EventHandler(this.btnSearchCustomer_Click);
             // 
             // _keywordTb
             // 
@@ -440,9 +498,9 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tabPage3.Controls.Add(this.button4);
-            this.tabPage3.Controls.Add(this.groupBox6);
-            this.tabPage3.Controls.Add(this.groupBox5);
+            this.tabPage3.Controls.Add(this.panel6);
+            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Controls.Add(this._tourOptionContainer);
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 42);
             this.tabPage3.Name = "tabPage3";
@@ -450,67 +508,392 @@
             this.tabPage3.Size = new System.Drawing.Size(1262, 638);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tour";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // button4
+            // panel6
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(1134, 578);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 45);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Thoát";
-            this.button4.UseVisualStyleBackColor = false;
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.dataGridView1);
+            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(248, 160);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(962, 478);
+            this.panel6.TabIndex = 30;
             // 
-            // groupBox6
+            // dataGridView1
             // 
-            this.groupBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox6.Location = new System.Drawing.Point(12, 239);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1238, 324);
-            this.groupBox6.TabIndex = 25;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Kết quả tìm kiếm";
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.ColumnHeadersHeight = 32;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._no_tour_Column,
+            this._id_tourColumn,
+            this._name_tour_Column,
+            this._tourcategoryColumn,
+            this._price_tourColumn,
+            this._destination_tourColumn,
+            this._city_tourColumn});
+            this.dataGridView1.DataSource = this._tourBs;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.NullValue = "...";
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowTemplate.Height = 48;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(965, 527);
+            this.dataGridView1.TabIndex = 29;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // groupBox5
+            // _no_tour_Column
             // 
-            this.groupBox5.Controls.Add(this.comboBox4);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox5.Location = new System.Drawing.Point(12, 121);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1238, 100);
-            this.groupBox5.TabIndex = 24;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Thông tin tìm kiếm";
+            this._no_tour_Column.FillWeight = 30F;
+            this._no_tour_Column.HeaderText = "STT";
+            this._no_tour_Column.Name = "_no_tour_Column";
+            this._no_tour_Column.ReadOnly = true;
             // 
-            // comboBox4
+            // _id_tourColumn
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(78, 40);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(266, 25);
-            this.comboBox4.TabIndex = 19;
+            this._id_tourColumn.DataPropertyName = "id";
+            this._id_tourColumn.FillWeight = 50F;
+            this._id_tourColumn.HeaderText = "Mã Tour";
+            this._id_tourColumn.Name = "_id_tourColumn";
+            this._id_tourColumn.ReadOnly = true;
+            // 
+            // _name_tour_Column
+            // 
+            this._name_tour_Column.DataPropertyName = "name";
+            this._name_tour_Column.HeaderText = "Tên";
+            this._name_tour_Column.Name = "_name_tour_Column";
+            this._name_tour_Column.ReadOnly = true;
+            // 
+            // _tourcategoryColumn
+            // 
+            this._tourcategoryColumn.DataPropertyName = "TourCategory";
+            this._tourcategoryColumn.HeaderText = "Loại Tour";
+            this._tourcategoryColumn.Name = "_tourcategoryColumn";
+            this._tourcategoryColumn.ReadOnly = true;
+            // 
+            // _price_tourColumn
+            // 
+            this._price_tourColumn.DataPropertyName = "TourPrice";
+            this._price_tourColumn.HeaderText = "Giá (Tr. Đồng)";
+            this._price_tourColumn.Name = "_price_tourColumn";
+            this._price_tourColumn.ReadOnly = true;
+            // 
+            // _destination_tourColumn
+            // 
+            this._destination_tourColumn.DataPropertyName = "Destination";
+            this._destination_tourColumn.HeaderText = "Điểm đến";
+            this._destination_tourColumn.Name = "_destination_tourColumn";
+            this._destination_tourColumn.ReadOnly = true;
+            // 
+            // _city_tourColumn
+            // 
+            this._city_tourColumn.DataPropertyName = "Destination";
+            this._city_tourColumn.HeaderText = "Thành phố";
+            this._city_tourColumn.Name = "_city_tourColumn";
+            this._city_tourColumn.ReadOnly = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this._tourSearchBtn);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this._searchTourTb);
+            this.panel5.Location = new System.Drawing.Point(248, 80);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(965, 80);
+            this.panel5.TabIndex = 28;
+            // 
+            // _tourSearchBtn
+            // 
+            this._tourSearchBtn.BackColor = System.Drawing.Color.White;
+            this._tourSearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_tourSearchBtn.BackgroundImage")));
+            this._tourSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this._tourSearchBtn.Location = new System.Drawing.Point(301, 37);
+            this._tourSearchBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._tourSearchBtn.Name = "_tourSearchBtn";
+            this._tourSearchBtn.Size = new System.Drawing.Size(29, 26);
+            this._tourSearchBtn.TabIndex = 2;
+            this._tourSearchBtn.UseVisualStyleBackColor = false;
+            this._tourSearchBtn.Click += new System.EventHandler(this.tourSearchBtn_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(19, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(251, 18);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Tìm kiếm tên tour hoặc địa điểm đến";
+            // 
+            // _searchTourTb
+            // 
+            this._searchTourTb.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._searchTourTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this._searchTourTb.Location = new System.Drawing.Point(22, 37);
+            this._searchTourTb.Name = "_searchTourTb";
+            this._searchTourTb.Size = new System.Drawing.Size(276, 26);
+            this._searchTourTb.TabIndex = 0;
+            this._searchTourTb.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this._searchTourTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._searchTourTb_KeyPress);
+            // 
+            // _tourOptionContainer
+            // 
+            this._tourOptionContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this._tourOptionContainer.BackColor = System.Drawing.Color.Silver;
+            this._tourOptionContainer.Location = new System.Drawing.Point(0, 80);
+            this._tourOptionContainer.Name = "_tourOptionContainer";
+            this._tourOptionContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // _tourOptionContainer.Panel1
+            // 
+            this._tourOptionContainer.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._tourOptionContainer.Panel1.Controls.Add(this.label9);
+            this._tourOptionContainer.Panel1.Controls.Add(this._tourCategoryClb);
+            this._tourOptionContainer.Panel1.Padding = new System.Windows.Forms.Padding(16);
+            // 
+            // _tourOptionContainer.Panel2
+            // 
+            this._tourOptionContainer.Panel2.Controls.Add(this.splitContainer2);
+            this._tourOptionContainer.Size = new System.Drawing.Size(248, 559);
+            this._tourOptionContainer.SplitterDistance = 116;
+            this._tourOptionContainer.SplitterWidth = 2;
+            this._tourOptionContainer.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(16, 16);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 18);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Loại Tour Du Lịch";
+            // 
+            // _tourCategoryClb
+            // 
+            this._tourCategoryClb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._tourCategoryClb.CheckOnClick = true;
+            this._tourCategoryClb.Font = new System.Drawing.Font("Constantia", 12.25F);
+            this._tourCategoryClb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this._tourCategoryClb.Location = new System.Drawing.Point(19, 42);
+            this._tourCategoryClb.Margin = new System.Windows.Forms.Padding(8);
+            this._tourCategoryClb.Name = "_tourCategoryClb";
+            this._tourCategoryClb.Size = new System.Drawing.Size(205, 48);
+            this._tourCategoryClb.TabIndex = 0;
+            this._tourCategoryClb.SelectedIndexChanged += new System.EventHandler(this._tourCategoryClb_SelectedIndexChanged);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.splitContainer2.Panel1.Controls.Add(this.label14);
+            this.splitContainer2.Panel1.Controls.Add(this.panel4);
+            this.splitContainer2.Panel1.Controls.Add(this.label10);
+            this.splitContainer2.Panel1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(16);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.splitContainer2.Panel2.Controls.Add(this.label11);
+            this.splitContainer2.Panel2.Controls.Add(this._destinationClb);
+            this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(16);
+            this.splitContainer2.Size = new System.Drawing.Size(248, 441);
+            this.splitContainer2.SplitterDistance = 102;
+            this.splitContainer2.SplitterWidth = 2;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Constantia", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(134, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 17);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "(Đv: Triệu đồng)";
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.label13);
+            this.panel4.Controls.Add(this.label12);
+            this.panel4.Controls.Add(this._maxPriceUD);
+            this.panel4.Controls.Add(this._minPriceUD);
+            this.panel4.Location = new System.Drawing.Point(19, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(205, 76);
+            this.panel4.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.Location = new System.Drawing.Point(3, 42);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 18);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Cao nhất";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.Location = new System.Drawing.Point(3, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 18);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Nhỏ nhất";
+            // 
+            // _maxPriceUD
+            // 
+            this._maxPriceUD.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._maxPriceUD.ForeColor = System.Drawing.Color.Black;
+            this._maxPriceUD.Location = new System.Drawing.Point(81, 39);
+            this._maxPriceUD.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this._maxPriceUD.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this._maxPriceUD.Name = "_maxPriceUD";
+            this._maxPriceUD.Size = new System.Drawing.Size(120, 27);
+            this._maxPriceUD.TabIndex = 1;
+            this._maxPriceUD.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this._maxPriceUD.ValueChanged += new System.EventHandler(this._maxPriceUD_ValueChanged);
+            // 
+            // _minPriceUD
+            // 
+            this._minPriceUD.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._minPriceUD.ForeColor = System.Drawing.Color.Black;
+            this._minPriceUD.Location = new System.Drawing.Point(81, 6);
+            this._minPriceUD.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this._minPriceUD.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this._minPriceUD.Name = "_minPriceUD";
+            this._minPriceUD.Size = new System.Drawing.Size(120, 27);
+            this._minPriceUD.TabIndex = 0;
+            this._minPriceUD.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this._minPriceUD.ValueChanged += new System.EventHandler(this._minPriceUD_ValueChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(22, 43);
+            this.label10.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Location = new System.Drawing.Point(16, 16);
+            this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 18);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Tour";
+            this.label10.Size = new System.Drawing.Size(80, 18);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Nhóm Giá";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(16, 16);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 18);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Tình/ Thành phố";
+            // 
+            // _destinationClb
+            // 
+            this._destinationClb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._destinationClb.CheckOnClick = true;
+            this._destinationClb.Font = new System.Drawing.Font("Constantia", 12.25F);
+            this._destinationClb.FormattingEnabled = true;
+            this._destinationClb.Location = new System.Drawing.Point(19, 37);
+            this._destinationClb.Margin = new System.Windows.Forms.Padding(8);
+            this._destinationClb.Name = "_destinationClb";
+            this._destinationClb.Size = new System.Drawing.Size(205, 290);
+            this._destinationClb.TabIndex = 0;
+            this._destinationClb.SelectedIndexChanged += new System.EventHandler(this._destinationClb_SelectedIndexChanged);
             // 
             // panel3
             // 
             this.panel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel3.BackColor = System.Drawing.Color.Green;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(12, 6);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1238, 84);
+            this.panel3.Size = new System.Drawing.Size(1266, 80);
             this.panel3.TabIndex = 23;
             // 
             // label8
@@ -518,21 +901,24 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(330, 17);
+            this.label8.Location = new System.Drawing.Point(347, 25);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(482, 44);
             this.label8.TabIndex = 20;
             this.label8.Text = "TRA CỨU TOUR DU LỊCH";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(3, 8);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button2.Location = new System.Drawing.Point(15, 15);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 64);
+            this.button2.Size = new System.Drawing.Size(64, 54);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -549,16 +935,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.ClientSize = new System.Drawing.Size(1211, 682);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1156, 720);
             this.Name = "fmSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmSearch";
+            this.Load += new System.EventHandler(this.fmSearch_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -566,7 +953,7 @@
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._resultGv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._searchRsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._searchReultBs)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -576,10 +963,30 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._tourBs)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this._tourOptionContainer.Panel1.ResumeLayout(false);
+            this._tourOptionContainer.Panel1.PerformLayout();
+            this._tourOptionContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._tourOptionContainer)).EndInit();
+            this._tourOptionContainer.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._maxPriceUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._minPriceUD)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._tourCategoryBs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._destinationBs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,21 +1019,45 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView _resultGv;
-        private System.Windows.Forms.BindingSource _searchRsBindingSource;
+        private System.Windows.Forms.BindingSource _searchReultBs;
+        private System.Windows.Forms.CheckedListBox _tourCategoryClb;
+        private System.Windows.Forms.BindingSource _tourCategoryBs;
+        private System.Windows.Forms.SplitContainer _tourOptionContainer;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckedListBox _destinationClb;
+        private System.Windows.Forms.BindingSource _destinationBs;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown _maxPriceUD;
+        private System.Windows.Forms.NumericUpDown _minPriceUD;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox _searchTourTb;
+        private System.Windows.Forms.Button _tourSearchBtn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource _tourBs;
         private System.Windows.Forms.DataGridViewTextBoxColumn _noColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _addColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _phonecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _genderColumn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _no_tour_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _id_tourColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _name_tour_Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _tourcategoryColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _price_tourColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _destination_tourColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _city_tourColumn;
     }
 }

@@ -19,7 +19,6 @@ namespace BusinessEntity
         public Customer getCustomerById(int id)
         {
             return _unitOfWork.CustomerRepository.GetByID(id);
-            
         }
 
         public IEnumerable<Customer> getEntries()

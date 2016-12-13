@@ -13,7 +13,7 @@ namespace QuanLyTourDuLich.Presenters
     class CustomerSearchPresenter : ICustomerSearchPresenter
     {
         private ICustomerSearchView _view;
-        private CustomerBUS _bus;
+//        private CustomerBUS _bus;
 
         private SearchEngine<Customer> _customerSearch;
         private IEnumerable<Customer> _searchResult;
@@ -21,8 +21,8 @@ namespace QuanLyTourDuLich.Presenters
         public CustomerSearchPresenter(ICustomerSearchView view)
         {
             _view = view;
-            _bus = new CustomerBUS();
-            _customerSearch = new SearchEngine<Customer>(_bus.getEntries());
+        //    _bus = new CustomerBUS();
+            _customerSearch = new SearchEngine<Customer>();
         }
 
         public void performClickSearch(string keyword)

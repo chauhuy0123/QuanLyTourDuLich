@@ -146,7 +146,8 @@
     </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
     <Compile Include="Presenters\ICustomerSearchPresenter.cs" />
-    <Compile Include="Presenters\List.cs" />
+    <Compile Include="Presenters\ITourSearchPresenter.cs" />
+    <Compile Include="Presenters\TourSearchPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Constants.Designer.cs">
@@ -155,6 +156,7 @@
       <DependentUpon>Constants.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\ICustomerSearchView.cs" />
+    <Compile Include="Views\ITourSearchView.cs" />
     <EmbeddedResource Include="Forms\fmLocationManager.resx">
       <DependentUpon>fmLocationManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +265,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>TourManager.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\ic_filter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

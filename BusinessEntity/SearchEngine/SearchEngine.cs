@@ -11,19 +11,28 @@ namespace BusinessEntity.SearchEngine
     {
         ISearchAble<TEntity> _engine;
 
-        public SearchEngine(IEnumerable<TEntity> source)
+        public SearchEngine()
         {
-            if (typeof(TEntity) == typeof(DTO.Customer))
-            {
-                _engine = (ISearchAble<TEntity>)
-                    new CustomerSearchEngine((IEnumerable<DTO.Customer>)source);
-            }
-
+            _engine = getEngine();
         }
 
         public IEnumerable<TEntity> Search(string keyword)
         {
             return _engine.Search(keyword);
+        }
+
+
+        private ISearchAble<TEntity> getEngine()
+        {
+            if (typeof(TEntity) == typeof(DTO.Customer))
+            {
+                return new CustomerSearchEngine() as ISearchAble<TEntity>;
+            }
+            if (typeof(TEntity) == typeof(DTO.Tour))
+            {
+                return new TourSearchEngine() as ISearchAble<TEntity>;
+            }
+            return null;
         }
     }
 }
