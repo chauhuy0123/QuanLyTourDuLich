@@ -32,7 +32,6 @@ namespace DAO
         private GenericRepository<Tour> _tourRepository;
         private GenericRepository<TourCategory> _tourCategoryRepository;
         private GenericRepository<TourGroup> _tourGroupRepository;
-        private GenericRepository<TourGroupDetail> _tourGroupDetailRepository;
         private GenericRepository<TourPrice> _tourPriceRepository;
         private GenericRepository<TourSite> _tourSiteRepository;
         private GenericRepository<Transport> _transportRepository;
@@ -155,16 +154,6 @@ namespace DAO
                 if (_tourGroupRepository == null)
                     _tourGroupRepository = new GenericRepository<TourGroup>(_entityContext);
                 return _tourGroupRepository;
-            }
-        }
-
-        public GenericRepository<TourGroupDetail> TourGroupDetailRepository
-        {
-            get
-            {
-                if (_tourGroupDetailRepository == null)
-                    _tourGroupDetailRepository = new GenericRepository<TourGroupDetail>(_entityContext);
-                return _tourGroupDetailRepository;
             }
         }
 

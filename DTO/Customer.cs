@@ -16,6 +16,8 @@ namespace DTO
     {
         public Customer()
         {
+            this.identifiedcard_id = "";
+            this.nationality = "";
             this.Passengers = new HashSet<Passenger>();
         }
     
@@ -23,7 +25,10 @@ namespace DTO
         public string name { get; set; }
         public string address { get; set; }
         public int gender { get; set; }
+        public string phone { get; set; }
+        public string identifiedcard_id { get; set; }
         public string nationality { get; set; }
+        public Nullable<bool> isforeign { get; set; }
     
         public virtual Gender Gender1 { get; set; }
         public virtual ICollection<Passenger> Passengers { get; set; }

@@ -14,10 +14,16 @@ namespace DTO
     
     public partial class TourSite
     {
+        public TourSite()
+        {
+            this.Tours = new HashSet<Tour>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public int destination_id { get; set; }
     
         public virtual Destination Destination { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
     }
 }

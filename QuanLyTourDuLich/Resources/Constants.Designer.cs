@@ -79,6 +79,16 @@ namespace QuanLyTourDuLich.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ic_filter {
+            get {
+                object obj = ResourceManager.GetObject("ic_filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \Resources\db.
         /// </summary>
         public static string subFolderDb {

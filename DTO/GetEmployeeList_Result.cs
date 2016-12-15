@@ -10,16 +10,16 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TourGroupDetail
+    public partial class GetEmployeeList_Result
     {
-        public int tour_group_id { get; set; }
-        public int employee_id { get; set; }
-        public int transport_id { get; set; }
-    
-        public virtual Employee Employee { get; set; }
-        public virtual TourGroup TourGroup { get; set; }
-        public virtual Transport Transport { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public string status { get; set; }
+        public string role { get; set; }
+        public string id1 { get; set; }
+        public string name1 { get; set; }
+        public string id2 { get; set; }
+        public string name2 { get; set; }
     }
 }

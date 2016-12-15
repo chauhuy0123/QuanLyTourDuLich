@@ -39,11 +39,108 @@ namespace DTO
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourCategory> TourCategories { get; set; }
         public DbSet<TourGroup> TourGroups { get; set; }
-        public DbSet<TourGroupDetail> TourGroupDetails { get; set; }
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccounType> AccounTypes { get; set; }
     
+        public virtual ObjectResult<GetCustomerById_Result> GetCustomerById(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCustomerById_Result>("GetCustomerById", idParameter);
+        }
+    
+        public virtual ObjectResult<GetCustomerList_Result> GetCustomerList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCustomerList_Result>("GetCustomerList");
+        }
+    
+        public virtual ObjectResult<GetDestinationById_Result> GetDestinationById(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDestinationById_Result>("GetDestinationById", idParameter);
+        }
+    
+        public virtual ObjectResult<GetDestinationList_Result> GetDestinationList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDestinationList_Result>("GetDestinationList");
+        }
+    
+        public virtual ObjectResult<GetEmployeeById_Result> GetEmployeeById(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeById_Result>("GetEmployeeById", idParameter);
+        }
+    
+        public virtual ObjectResult<GetEmployeeByTourGroupId_Result> GetEmployeeByTourGroupId(string tour_group_id)
+        {
+            var tour_group_idParameter = tour_group_id != null ?
+                new ObjectParameter("tour_group_id", tour_group_id) :
+                new ObjectParameter("tour_group_id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeByTourGroupId_Result>("GetEmployeeByTourGroupId", tour_group_idParameter);
+        }
+    
+        public virtual ObjectResult<GetEmployeeList_Result> GetEmployeeList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeList_Result>("GetEmployeeList");
+        }
+    
+        public virtual ObjectResult<GetPassengerById_Result> GetPassengerById(string customer_id, string tour_group_id)
+        {
+            var customer_idParameter = customer_id != null ?
+                new ObjectParameter("customer_id", customer_id) :
+                new ObjectParameter("customer_id", typeof(string));
+    
+            var tour_group_idParameter = tour_group_id != null ?
+                new ObjectParameter("tour_group_id", tour_group_id) :
+                new ObjectParameter("tour_group_id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPassengerById_Result>("GetPassengerById", customer_idParameter, tour_group_idParameter);
+        }
+    
+        public virtual ObjectResult<GetPassengerByTourGroupId_Result> GetPassengerByTourGroupId(string tour_group_id)
+        {
+            var tour_group_idParameter = tour_group_id != null ?
+                new ObjectParameter("tour_group_id", tour_group_id) :
+                new ObjectParameter("tour_group_id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPassengerByTourGroupId_Result>("GetPassengerByTourGroupId", tour_group_idParameter);
+        }
+    
+        public virtual ObjectResult<GetStatusById_Result> GetStatusById(string id)
+        {
+            var idParameter = id != null ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStatusById_Result>("GetStatusById", idParameter);
+        }
+    
+        public virtual ObjectResult<GetStatusList_Result> GetStatusList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStatusList_Result>("GetStatusList");
+        }
+    
+        public virtual int GetTourGroupList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetTourGroupList");
+        }
+    
+        public virtual ObjectResult<GetTourList_Result> GetTourList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTourList_Result>("GetTourList");
+        }
     }
 }

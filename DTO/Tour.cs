@@ -17,6 +17,7 @@ namespace DTO
         public Tour()
         {
             this.TourGroups = new HashSet<TourGroup>();
+            this.TourSites = new HashSet<TourSite>();
         }
     
         public int id { get; set; }
@@ -29,5 +30,6 @@ namespace DTO
         public virtual TourCategory TourCategory { get; set; }
         public virtual TourPrice TourPrice { get; set; }
         public virtual ICollection<TourGroup> TourGroups { get; set; }
+        public virtual ICollection<TourSite> TourSites { get; set; }
     }
 }
