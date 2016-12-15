@@ -17,16 +17,19 @@ namespace DTO
         public TourGroup()
         {
             this.Passengers = new HashSet<Passenger>();
-            this.TourGroupDetails = new HashSet<TourGroupDetail>();
+            this.Employees = new HashSet<Employee>();
+            this.Transports = new HashSet<Transport>();
         }
     
         public int id { get; set; }
         public int tour_id { get; set; }
         public System.DateTime depart_date { get; set; }
         public System.DateTime return_date { get; set; }
+        public string name { get; set; }
     
         public virtual ICollection<Passenger> Passengers { get; set; }
         public virtual Tour Tour { get; set; }
-        public virtual ICollection<TourGroupDetail> TourGroupDetails { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Transport> Transports { get; set; }
     }
 }

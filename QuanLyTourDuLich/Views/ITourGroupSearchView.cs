@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyTourDuLich.Views
 {
-    interface ITourSearchView 
+    interface ITourGroupSearchView
     {
-        void handleSearchTourClick(string keyword);
-        void updateSearchResult(IEnumerable<Tour> _searchResult);
+        void handleSearchTourGroupClick(string keyword);
+        void updateSearchResult(IEnumerable<TourGroup> searchResult);
 
     }
 }

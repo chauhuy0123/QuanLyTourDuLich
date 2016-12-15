@@ -39,7 +39,6 @@ namespace DTO
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourCategory> TourCategories { get; set; }
         public DbSet<TourGroup> TourGroups { get; set; }
-        public DbSet<TourGroupDetail> TourGroupDetails { get; set; }
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }

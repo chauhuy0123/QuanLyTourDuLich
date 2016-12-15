@@ -16,7 +16,7 @@ namespace DTO
     {
         public Employee()
         {
-            this.TourGroupDetails = new HashSet<TourGroupDetail>();
+            this.TourGroups = new HashSet<TourGroup>();
         }
     
         public int id { get; set; }
@@ -26,6 +26,6 @@ namespace DTO
     
         public virtual EmployeeRole EmployeeRole { get; set; }
         public virtual Status Status1 { get; set; }
-        public virtual ICollection<TourGroupDetail> TourGroupDetails { get; set; }
+        public virtual ICollection<TourGroup> TourGroups { get; set; }
     }
 }

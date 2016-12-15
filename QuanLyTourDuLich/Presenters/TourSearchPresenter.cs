@@ -61,13 +61,13 @@ namespace QuanLyTourDuLich.Presenters
                 updateFilter();
         }
 
-        public void updateFilter()
+        private void updateFilter()
         {
             var rs1 = filterByTourCategory(_tourcategoriesFilter);
             var rs2 = filterByPrice(_tourPriceMin, _tourPriceMax);
             var rs3 = filterByCity(_tourCityFilter);
             var comparasion = new TourEqualityComparer();
-            var rs = rs1.Intersect(rs2).Intersect(rs3).ToList();
+            var rs = rs1.Intersect(rs2).Intersect(rs3);
             this.updateViewSearchResult(rs);
         }
 
