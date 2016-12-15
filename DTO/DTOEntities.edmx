@@ -5,6 +5,23 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TourManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="account_type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccounType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="id" />
@@ -14,6 +31,9 @@
           <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="gender" Type="int" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="identifiedcard_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="isforeign" Type="bit" />
         </EntityType>
         <EntityType Name="Destination">
           <Key>
@@ -105,6 +125,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="TourDetail">
+          <Key>
+            <PropertyRef Name="tour_id" />
+            <PropertyRef Name="toursite_id" />
+          </Key>
+          <Property Name="tour_id" Type="int" Nullable="false" />
+          <Property Name="toursite_id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="TourGroup">
           <Key>
             <PropertyRef Name="id" />
@@ -148,6 +176,18 @@
           <Property Name="transport_id" Type="int" Nullable="false" />
           <Property Name="tourgroup_id" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Role="AccounType" Type="Self.AccounType" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccounType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="account_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Customer_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
@@ -292,6 +332,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TourDetail_Tour">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+          <End Role="TourDetail" Type="Self.TourDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourDetail">
+              <PropertyRef Name="tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourDetail_TourSite">
+          <End Role="TourSite" Type="Self.TourSite" Multiplicity="1" />
+          <End Role="TourDetail" Type="Self.TourDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourSite">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourDetail">
+              <PropertyRef Name="toursite_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TourGroup_TourCategory">
           <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
           <End Role="TourGroup" Type="Self.TourGroup" Multiplicity="*" />
@@ -381,6 +445,8 @@
         <Function Name="GetTourGroupList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetTourList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="TourManagerModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccounType" EntityType="Self.AccounType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Destination" EntityType="Self.Destination" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
@@ -393,11 +459,16 @@
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourCategory" EntityType="Self.TourCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TourDetail" EntityType="Self.TourDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourGroup" EntityType="Self.TourGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourPrice" EntityType="Self.TourPrice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourSite" EntityType="Self.TourSite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransportsTourGroup" EntityType="Self.TransportsTourGroup" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_AccountType" Association="Self.FK_Account_AccountType">
+            <End Role="AccounType" EntitySet="AccounType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Customer_Gender" Association="Self.FK_Customer_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Customer" EntitySet="Customer" />
@@ -445,6 +516,14 @@
           <AssociationSet Name="FK_Tour_TourPrice" Association="Self.FK_Tour_TourPrice">
             <End Role="TourPrice" EntitySet="TourPrice" />
             <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourDetail_Tour" Association="Self.FK_TourDetail_Tour">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="TourDetail" EntitySet="TourDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourDetail_TourSite" Association="Self.FK_TourDetail_TourSite">
+            <End Role="TourSite" EntitySet="TourSite" />
+            <End Role="TourDetail" EntitySet="TourDetail" />
           </AssociationSet>
           <AssociationSet Name="FK_TourGroup_TourCategory" Association="Self.FK_TourGroup_TourCategory">
             <End Role="Tour" EntitySet="Tour" />
@@ -574,6 +653,16 @@
           <AssociationSet Name="TransportsTourGroup" Association="TourManagerModel.TransportsTourGroup">
             <End Role="TourGroup" EntitySet="TourGroups" />
             <End Role="Transport" EntitySet="Transports" />
+          </AssociationSet>
+          <EntitySet Name="Accounts" EntityType="TourManagerModel.Account" />
+          <EntitySet Name="AccounTypes" EntityType="TourManagerModel.AccounType" />
+          <AssociationSet Name="FK_Account_AccountType" Association="TourManagerModel.FK_Account_AccountType">
+            <End Role="AccounType" EntitySet="AccounTypes" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="TourDetail" Association="TourManagerModel.TourDetail">
+            <End Role="Tour" EntitySet="Tours" />
+            <End Role="TourSite" EntitySet="TourSites" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="GetCustomerById_Result">
@@ -760,6 +849,7 @@
           <NavigationProperty Name="TourCategory" Relationship="TourManagerModel.FK_Tour_TourCategory" FromRole="Tour" ToRole="TourCategory" />
           <NavigationProperty Name="TourPrice" Relationship="TourManagerModel.FK_Tour_TourPrice" FromRole="Tour" ToRole="TourPrice" />
           <NavigationProperty Name="TourGroups" Relationship="TourManagerModel.FK_TourGroup_TourCategory" FromRole="Tour" ToRole="TourGroup" />
+          <NavigationProperty Name="TourSites" Relationship="TourManagerModel.TourDetail" FromRole="Tour" ToRole="TourSite" />
         </EntityType>
         <EntityType Name="TourCategory">
           <Key>
@@ -801,6 +891,7 @@
           <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="destination_id" Nullable="false" />
           <NavigationProperty Name="Destination" Relationship="TourManagerModel.FK_TourSite_Destination" FromRole="TourSite" ToRole="Destination" />
+          <NavigationProperty Name="Tours" Relationship="TourManagerModel.TourDetail" FromRole="TourSite" ToRole="Tour" />
         </EntityType>
         <EntityType Name="Transport">
           <Key>
@@ -955,6 +1046,9 @@
           <NavigationProperty Name="Gender1" Relationship="TourManagerModel.FK_Customer_Gender" FromRole="Customer" ToRole="Gender" />
           <NavigationProperty Name="Passengers" Relationship="TourManagerModel.FK_Passenger_Customer" FromRole="Customer" ToRole="Passenger" />
           <Property Type="String" Name="phone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="identifiedcard_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" DefaultValue="" Nullable="true" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" DefaultValue="" Nullable="true" />
+          <Property Name="isforeign" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Customer_Gender">
           <End Type="TourManagerModel.Gender" Role="Gender" Multiplicity="1" />
@@ -987,6 +1081,41 @@
         <Association Name="TransportsTourGroup">
           <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
           <End Type="TourManagerModel.Transport" Role="Transport" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="account_type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccounType" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="Account" ToRole="AccounType" />
+        </EntityType>
+        <EntityType Name="AccounType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="AccounType" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Type="TourManagerModel.AccounType" Role="AccounType" Multiplicity="1" />
+          <End Type="TourManagerModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccounType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="account_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TourDetail">
+          <End Type="TourManagerModel.Tour" Role="Tour" Multiplicity="*" />
+          <End Type="TourManagerModel.TourSite" Role="TourSite" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1267,6 +1396,9 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="TourManagerModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="isforeign" ColumnName="isforeign" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="identifiedcard_id" ColumnName="identifiedcard_id" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="address" ColumnName="address" />
@@ -1289,6 +1421,33 @@
             </EndProperty>
             <EndProperty Name="TourGroup">
               <ScalarProperty Name="id" ColumnName="tourgroup_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="TourManagerModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="account_type" ColumnName="account_type" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccounTypes">
+            <EntityTypeMapping TypeName="TourManagerModel.AccounType">
+              <MappingFragment StoreEntitySet="AccounType">
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TourDetail" TypeName="TourManagerModel.TourDetail" StoreEntitySet="TourDetail">
+            <EndProperty Name="TourSite">
+              <ScalarProperty Name="id" ColumnName="toursite_id" />
+            </EndProperty>
+            <EndProperty Name="Tour">
+              <ScalarProperty Name="id" ColumnName="tour_id" />
             </EndProperty>
           </AssociationSetMapping>
           </EntityContainerMapping>

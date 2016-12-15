@@ -12,25 +12,17 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class AccounType
     {
-        public Customer()
+        public AccounType()
         {
-            this.identifiedcard_id = "";
-            this.nationality = "";
-            this.Passengers = new HashSet<Passenger>();
+            this.Accounts = new HashSet<Account>();
         }
     
         public int id { get; set; }
         public string name { get; set; }
-        public string address { get; set; }
-        public int gender { get; set; }
-        public string phone { get; set; }
-        public string identifiedcard_id { get; set; }
-        public string nationality { get; set; }
-        public Nullable<bool> isforeign { get; set; }
+        public int level { get; set; }
     
-        public virtual Gender Gender1 { get; set; }
-        public virtual ICollection<Passenger> Passengers { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccounType.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>

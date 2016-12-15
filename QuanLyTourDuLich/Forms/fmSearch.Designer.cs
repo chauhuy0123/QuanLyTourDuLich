@@ -631,7 +631,6 @@
             this._passengersColumn,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this._tourGroupGv.Cursor = System.Windows.Forms.Cursors.Default;
             this._tourGroupGv.DataSource = this._tourGroupBs;
             this._tourGroupGv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tourGroupGv.EnableHeadersVisualStyles = false;
@@ -806,7 +805,6 @@
             this._topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this._topPanel.Controls.Add(this._backBtnPanel);
             this._topPanel.Controls.Add(this.label2);
-            this._topPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this._topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this._topPanel.Location = new System.Drawing.Point(0, 0);
             this._topPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -900,9 +898,8 @@
             this._tourOptionContainer.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this._tourOptionContainer.Panel1.Controls.Add(this.label9);
             this._tourOptionContainer.Panel1.Controls.Add(this._tourCategoryClb);
-            this._tourOptionContainer.Panel1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this._tourOptionContainer.Panel1.Padding = new System.Windows.Forms.Padding(18, 17, 18, 17);
-            this._tourOptionContainer.Panel1.UseWaitCursor = true;
+            this._tourOptionContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this._tourOptionContainer_Panel1_Paint);
             // 
             // _tourOptionContainer.Panel2
             // 
@@ -923,7 +920,6 @@
             this.label9.Size = new System.Drawing.Size(135, 18);
             this.label9.TabIndex = 28;
             this.label9.Text = "Loại Tour Du Lịch";
-            this.label9.UseWaitCursor = true;
             // 
             // _tourCategoryClb
             // 
@@ -936,9 +932,8 @@
             this._tourCategoryClb.Location = new System.Drawing.Point(21, 44);
             this._tourCategoryClb.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this._tourCategoryClb.Name = "_tourCategoryClb";
-            this._tourCategoryClb.Size = new System.Drawing.Size(398, 4);
+            this._tourCategoryClb.Size = new System.Drawing.Size(398, 48);
             this._tourCategoryClb.TabIndex = 0;
-            this._tourCategoryClb.UseWaitCursor = true;
             this._tourCategoryClb.SelectedIndexChanged += new System.EventHandler(this._tourCategoryClb_SelectedIndexChanged);
             // 
             // splitContainer2
@@ -954,7 +949,6 @@
             this.splitContainer2.Panel1.Controls.Add(this.label14);
             this.splitContainer2.Panel1.Controls.Add(this.panel4);
             this.splitContainer2.Panel1.Controls.Add(this.label10);
-            this.splitContainer2.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(18, 17, 18, 17);
             // 
             // splitContainer2.Panel2
@@ -1099,7 +1093,7 @@
             this._destinationClb.Location = new System.Drawing.Point(21, 39);
             this._destinationClb.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this._destinationClb.Name = "_destinationClb";
-            this._destinationClb.Size = new System.Drawing.Size(398, 268);
+            this._destinationClb.Size = new System.Drawing.Size(398, 312);
             this._destinationClb.TabIndex = 0;
             this._destinationClb.SelectedIndexChanged += new System.EventHandler(this._destinationClb_SelectedIndexChanged);
             // 

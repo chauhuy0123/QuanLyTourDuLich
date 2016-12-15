@@ -43,6 +43,8 @@ namespace DTO
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccounType> AccounTypes { get; set; }
     
         public virtual ObjectResult<GetCustomerById_Result> GetCustomerById(string id)
         {

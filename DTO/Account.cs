@@ -12,18 +12,13 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class TourSite
+    public partial class Account
     {
-        public TourSite()
-        {
-            this.Tours = new HashSet<Tour>();
-        }
-    
         public int id { get; set; }
-        public string name { get; set; }
-        public int destination_id { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public int account_type { get; set; }
     
-        public virtual Destination Destination { get; set; }
-        public virtual ICollection<Tour> Tours { get; set; }
+        public virtual AccounType AccounType { get; set; }
     }
 }

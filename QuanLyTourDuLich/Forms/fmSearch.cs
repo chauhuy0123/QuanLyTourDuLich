@@ -323,6 +323,11 @@ namespace QuanLyTourDuLich.GUI
             _customerSearchpresenter.performClickSearch(_keywordTb.Text.Trim());
         }
 
+        private void _tourOptionContainer_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
 
     }
 }
