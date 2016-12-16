@@ -146,8 +146,7 @@ namespace QuanLyTourDuLich.GUI
         /// <param name="e"></param>
         private void _resultGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (_resultGv.Rows.Count == 0)
-                return;
+
             if (e.ColumnIndex == 1)
                 _customerSearchpresenter.sortIdColumn();
             else if (e.ColumnIndex == 2)
@@ -283,6 +282,8 @@ namespace QuanLyTourDuLich.GUI
 
         private void _tourGroupGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             var senderGrid = sender as DataGridView;
             if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell)
             {
@@ -326,6 +327,39 @@ namespace QuanLyTourDuLich.GUI
         private void _tourOptionContainer_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void _tourGroupGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+                _tourGroupSearchPresenter.sortByTourGrouId();
+            else if (e.ColumnIndex == 2)
+                _tourGroupSearchPresenter.sortByTourGroupName();
+            else if (e.ColumnIndex == 3)
+                _tourGroupSearchPresenter.sortByTourName();
+            else if (e.ColumnIndex == 4)
+                _tourGroupSearchPresenter.sortByDepartDate();
+            else if (e.ColumnIndex == 5)
+                _tourGroupSearchPresenter.sortByReturnDate();
+            else if (e.ColumnIndex == 6)
+                _tourGroupSearchPresenter.sortByEmployees();
+
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+                _tourSearchpresenter.sortByTourId();
+            else if (e.ColumnIndex == 2)
+                _tourSearchpresenter.sortByTourName();
+            else if (e.ColumnIndex == 3)
+                _tourSearchpresenter.sortByTourCategory();
+            else if (e.ColumnIndex == 4)
+                _tourSearchpresenter.sortByPrice();
+            else if (e.ColumnIndex == 5)
+                _tourSearchpresenter.sortByDestination();
+            else if (e.ColumnIndex == 6)
+                _tourSearchpresenter.sortByCity();
         }
 
 

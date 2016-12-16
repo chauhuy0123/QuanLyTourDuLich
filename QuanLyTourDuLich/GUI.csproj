@@ -145,11 +145,15 @@
       <DependentUpon>fmTourManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
+    <Compile Include="Presenters\DestinationPresenter.cs" />
     <Compile Include="Presenters\ICustomerSearchPresenter.cs" />
+    <Compile Include="Presenters\IDestinationPresenter.cs" />
     <Compile Include="Presenters\ITourGroupSearchPresenter.cs" />
     <Compile Include="Presenters\ITourSearchPresenter.cs" />
+    <Compile Include="Presenters\ITourSitePresenter.cs" />
     <Compile Include="Presenters\TourGroupSearchPresenter.cs" />
     <Compile Include="Presenters\TourSearchPresenter.cs" />
+    <Compile Include="Presenters\TourSitePresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Constants.Designer.cs">
@@ -158,8 +162,10 @@
       <DependentUpon>Constants.resx</DependentUpon>
     </Compile>
     <Compile Include="Views\ICustomerSearchView.cs" />
+    <Compile Include="Views\IDestinationView.cs" />
     <Compile Include="Views\ITourGroupSearchView.cs" />
     <Compile Include="Views\ITourSearchView.cs" />
+    <Compile Include="Views\ITourSiteView.cs" />
     <EmbeddedResource Include="Forms\fmLocationManager.resx">
       <DependentUpon>fmLocationManager.cs</DependentUpon>
     </EmbeddedResource>

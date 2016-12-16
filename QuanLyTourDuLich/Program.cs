@@ -66,7 +66,6 @@ namespace QuanLyTourDuLich
             // Ví dụ insert new Customer thì customer mới nằm trong file của thư mục bin
             // còn file trong thư mục của project thì chỉ dùng để edit. 
 
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fmMain());
