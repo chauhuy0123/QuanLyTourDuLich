@@ -653,6 +653,7 @@
             this._tourGroupGv.TabIndex = 30;
             this._tourGroupGv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._tourGroupGv_CellContentClick);
             this._tourGroupGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._tourGroupGv_CellFormatting);
+            this._tourGroupGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._tourGroupGv_ColumnHeaderMouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1154,6 +1155,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(893, 523);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // _no_tour_Column
             // 

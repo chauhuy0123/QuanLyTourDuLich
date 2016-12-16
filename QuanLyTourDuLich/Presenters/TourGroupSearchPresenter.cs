@@ -57,32 +57,98 @@ namespace QuanLyTourDuLich.Presenters
                 updateFilter();
         }
 
-        private void updateFilter()
+        private void updateFilter(IEnumerable<TourGroup> source = null)
         {
-            var rs1 = filterByTransport(_transportFilter);
-            var rs2 = filterByTime(_depart_date, _return_date);
+            var rs1 = filterByTransport(_transportFilter, source);
+            var rs2 = filterByTime(_depart_date, _return_date, source);
             var rs = rs1.Intersect(rs2);
             this.updateViewSearchResult(rs);
         }
 
-        private IEnumerable<TourGroup> filterByTime(DateTime _depart_date, DateTime _return_date)
+        private IEnumerable<TourGroup> filterByTime(DateTime _depart_date, DateTime _return_date, IEnumerable<TourGroup> source = null)
         {
+            if (source == null)
+                source = _searchResult;
             if (_depart_date == DateTime.MinValue && _return_date == DateTime.MaxValue)
-                return _searchResult;
-            return _searchResult.Where(group => group.depart_date >= _depart_date && group.return_date <= _return_date);
+                return source;
+            return source.Where(group => group.depart_date >= _depart_date && group.return_date <= _return_date);
         }
 
 
-        private IEnumerable<TourGroup> filterByTransport(IEnumerable<Transport> transports)
+        private IEnumerable<TourGroup> filterByTransport(IEnumerable<Transport> transports, IEnumerable<TourGroup> source = null)
         {
+            if (source == null)
+                source = _searchResult;
             if (transports == null || transports.Count() == 0)
-                return _searchResult;
+                return source;
             var comparer = new TransportEqualityComparer();
-            return _searchResult
+            return source
                 .Where(tourG => tourG.Transports.Intersect(transports, comparer).Count() != 0)
                 .ToList();
         }
 
+        #region Sort
+        public void sortByTourGrouId()
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.id - t2.id);
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        public void sortByTourGroupName()
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.name.CompareTo(t2.name));
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        public void sortByTourName() 
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.Tour.name.CompareTo(t2.Tour.name));
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        public void sortByDepartDate() 
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => (t1.depart_date - t2.depart_date).Days);
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        public void sortByReturnDate() 
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => (t1.return_date - t2.return_date).Days);
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        public void sortByEmployees() 
+        {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
+            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.Passengers.Count - t2.Passengers.Count);
+            var query = _searchResult.ToList();
+            query.Sort(comparasion);
+            updateFilter(query);
+        }
+
+        #endregion //!Sort
 
         class TransportEqualityComparer : IEqualityComparer<Transport>
         {
