@@ -53,7 +53,7 @@
     <Compile Include="Account.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccounType.cs">
+    <Compile Include="AccountType.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">

@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountBUS.cs" />
+    <Compile Include="AccountTypeBUS.cs" />
     <Compile Include="CustomerBUS.cs" />
     <Compile Include="DestinationBUS.cs" />
     <Compile Include="GenderBUS.cs" />
