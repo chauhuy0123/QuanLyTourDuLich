@@ -114,5 +114,17 @@ namespace DAO.GenericRepository
         {
             return _entitySet.First<TEntity>(predicate);
         }
+
+        /// <summary>
+        /// Cái này gọi là vá bug :))
+        /// </summary>
+        public void Refresh()
+        {
+            foreach (var entity in _context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+            
+        }
     }
 }

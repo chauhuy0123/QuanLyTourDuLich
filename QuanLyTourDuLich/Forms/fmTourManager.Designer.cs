@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBack1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,32 +51,48 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.dtpEnd_date = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.clbTourSite = new System.Windows.Forms.CheckedListBox();
+            this.cbDestination = new System.Windows.Forms.ComboBox();
+            this.cbTourCategory = new System.Windows.Forms.ComboBox();
+            this.btnAddTour = new System.Windows.Forms.Button();
+            this.dtpStart_date = new System.Windows.Forms.DateTimePicker();
+            this.tbTourPrice = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnExit1 = new System.Windows.Forms.Button();
-            this.btnCSDL = new System.Windows.Forms.Button();
+            this.tbTourName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnCSDL = new System.Windows.Forms.Button();
+            this.dgvListTour = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TourId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TourName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TourDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TourPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApplyDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsListTour = new System.Windows.Forms.BindingSource(this.components);
+            this.bsTourSite = new System.Windows.Forms.BindingSource(this.components);
+            this.bsCategory = new System.Windows.Forms.BindingSource(this.components);
+            this.bsDestination = new System.Windows.Forms.BindingSource(this.components);
+            this.ckbSelectAll = new System.Windows.Forms.CheckBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsListTour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTourSite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDestination)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack1
@@ -177,35 +194,35 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(93, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(218, 22);
+            this.textBox1.Size = new System.Drawing.Size(218, 20);
             this.textBox1.TabIndex = 21;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(93, 67);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 22);
+            this.textBox2.Size = new System.Drawing.Size(218, 20);
             this.textBox2.TabIndex = 22;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(515, 30);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 22);
+            this.textBox3.Size = new System.Drawing.Size(225, 20);
             this.textBox3.TabIndex = 24;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(515, 67);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(225, 22);
+            this.textBox4.Size = new System.Drawing.Size(225, 20);
             this.textBox4.TabIndex = 25;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(960, 30);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(236, 22);
+            this.textBox5.Size = new System.Drawing.Size(236, 20);
             this.textBox5.TabIndex = 26;
             // 
             // comboBox1
@@ -213,32 +230,33 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(960, 67);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 24);
+            this.comboBox1.Size = new System.Drawing.Size(236, 21);
             this.comboBox1.TabIndex = 27;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(95, 107);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(216, 22);
+            this.textBox6.Size = new System.Drawing.Size(216, 20);
             this.textBox6.TabIndex = 28;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(515, 105);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
             this.dateTimePicker1.TabIndex = 29;
             // 
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.btnBack);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1238, 84);
+            this.panel1.Size = new System.Drawing.Size(1264, 84);
             this.panel1.TabIndex = 22;
             // 
             // label10
@@ -248,17 +266,17 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(304, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(610, 55);
+            this.label10.Size = new System.Drawing.Size(480, 44);
             this.label10.TabIndex = 9;
             this.label10.Text = "QUẢN LÝ TOUR DU LỊCH";
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Green;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnBack.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.Color.Green;
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnBack.Location = new System.Drawing.Point(3, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(64, 64);
@@ -268,221 +286,200 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnExit1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.textBox13);
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.groupBox1.Controls.Add(this.ckbSelectAll);
+            this.groupBox1.Controls.Add(this.dtpEnd_date);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.clbTourSite);
+            this.groupBox1.Controls.Add(this.cbDestination);
+            this.groupBox1.Controls.Add(this.cbTourCategory);
+            this.groupBox1.Controls.Add(this.btnAddTour);
+            this.groupBox1.Controls.Add(this.dtpStart_date);
+            this.groupBox1.Controls.Add(this.tbTourPrice);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.textBox10);
-            this.groupBox1.Controls.Add(this.textBox9);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.tbTourName);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(15, 124);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox1.Location = new System.Drawing.Point(0, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1235, 171);
+            this.groupBox1.Size = new System.Drawing.Size(335, 597);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tạo tour mới";
             // 
-            // groupBox2
+            // dtpEnd_date
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.btnCSDL);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox2.Location = new System.Drawing.Point(15, 301);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1235, 301);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tour hiện có";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.Window;
-            this.label11.Location = new System.Drawing.Point(6, 72);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 24);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Tên tour";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.SystemColors.Window;
-            this.label12.Location = new System.Drawing.Point(6, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 24);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Mã tour";
+            this.dtpEnd_date.CustomFormat = "dd/MM/yyyy";
+            this.dtpEnd_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEnd_date.Location = new System.Drawing.Point(146, 246);
+            this.dtpEnd_date.Name = "dtpEnd_date";
+            this.dtpEnd_date.Size = new System.Drawing.Size(171, 26);
+            this.dtpEnd_date.TabIndex = 34;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.SystemColors.Window;
-            this.label13.Location = new System.Drawing.Point(345, 36);
+            this.label13.Location = new System.Drawing.Point(6, 250);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(142, 24);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Điểm khởi hành";
+            this.label13.Size = new System.Drawing.Size(111, 18);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Ngày hết hạn: ";
             // 
-            // label14
+            // clbTourSite
             // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.SystemColors.Window;
-            this.label14.Location = new System.Drawing.Point(345, 72);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 24);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "Điểm đến";
+            this.clbTourSite.FormattingEnabled = true;
+            this.clbTourSite.Location = new System.Drawing.Point(9, 378);
+            this.clbTourSite.Name = "clbTourSite";
+            this.clbTourSite.Size = new System.Drawing.Size(308, 130);
+            this.clbTourSite.TabIndex = 32;
             // 
-            // label15
+            // cbDestination
             // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.SystemColors.Window;
-            this.label15.Location = new System.Drawing.Point(763, 72);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(179, 24);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Địa điểm tham quan";
+            this.cbDestination.FormattingEnabled = true;
+            this.cbDestination.Location = new System.Drawing.Point(146, 297);
+            this.cbDestination.Name = "cbDestination";
+            this.cbDestination.Size = new System.Drawing.Size(171, 26);
+            this.cbDestination.TabIndex = 31;
+            this.cbDestination.SelectedIndexChanged += new System.EventHandler(this.cbDestination_SelectedIndexChanged);
+            this.cbDestination.SelectedValueChanged += new System.EventHandler(this.cbDestination_SelectedValueChanged);
             // 
-            // label16
+            // cbTourCategory
             // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.SystemColors.Window;
-            this.label16.Location = new System.Drawing.Point(763, 36);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(148, 24);
-            this.label16.TabIndex = 18;
-            this.label16.Text = "Loại hình du lịch";
+            this.cbTourCategory.FormattingEnabled = true;
+            this.cbTourCategory.Location = new System.Drawing.Point(146, 89);
+            this.cbTourCategory.Name = "cbTourCategory";
+            this.cbTourCategory.Size = new System.Drawing.Size(171, 26);
+            this.cbTourCategory.TabIndex = 30;
+            this.cbTourCategory.SelectedIndexChanged += new System.EventHandler(this.cbCatgory_SelectedIndexChanged);
             // 
-            // label17
+            // btnAddTour
             // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Window;
-            this.label17.Location = new System.Drawing.Point(345, 111);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 24);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Ngày áp dụng";
+            this.btnAddTour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAddTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTour.ForeColor = System.Drawing.Color.White;
+            this.btnAddTour.Location = new System.Drawing.Point(169, 542);
+            this.btnAddTour.Name = "btnAddTour";
+            this.btnAddTour.Size = new System.Drawing.Size(148, 43);
+            this.btnAddTour.TabIndex = 29;
+            this.btnAddTour.Text = "Tạo";
+            this.btnAddTour.UseVisualStyleBackColor = false;
+            this.btnAddTour.Click += new System.EventHandler(this.btnAddTour_Click);
             // 
-            // textBox7
+            // dtpStart_date
             // 
-            this.textBox7.Location = new System.Drawing.Point(93, 33);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(214, 28);
-            this.textBox7.TabIndex = 20;
+            this.dtpStart_date.CustomFormat = "dd/MM/yyyy";
+            this.dtpStart_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStart_date.Location = new System.Drawing.Point(146, 191);
+            this.dtpStart_date.Name = "dtpStart_date";
+            this.dtpStart_date.Size = new System.Drawing.Size(171, 26);
+            this.dtpStart_date.TabIndex = 28;
             // 
-            // textBox8
+            // tbTourPrice
             // 
-            this.textBox8.Location = new System.Drawing.Point(93, 69);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(214, 28);
-            this.textBox8.TabIndex = 21;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(493, 33);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(214, 28);
-            this.textBox9.TabIndex = 22;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(493, 69);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(214, 28);
-            this.textBox10.TabIndex = 23;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(947, 33);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(214, 28);
-            this.textBox11.TabIndex = 24;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(948, 69);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(214, 28);
-            this.textBox12.TabIndex = 25;
+            this.tbTourPrice.Location = new System.Drawing.Point(146, 141);
+            this.tbTourPrice.Name = "tbTourPrice";
+            this.tbTourPrice.Size = new System.Drawing.Size(171, 26);
+            this.tbTourPrice.TabIndex = 27;
+            this.tbTourPrice.TextChanged += new System.EventHandler(this.tbTourPrice_TextChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Window;
-            this.label18.Location = new System.Drawing.Point(6, 111);
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label18.Location = new System.Drawing.Point(6, 144);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 24);
+            this.label18.Size = new System.Drawing.Size(127, 18);
             this.label18.TabIndex = 26;
-            this.label18.Text = "Giá tour";
+            this.label18.Text = "Giá tour (Triệu) :";
             // 
-            // textBox13
+            // tbTourName
             // 
-            this.textBox13.Location = new System.Drawing.Point(93, 108);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(214, 28);
-            this.textBox13.TabIndex = 27;
+            this.tbTourName.Location = new System.Drawing.Point(146, 39);
+            this.tbTourName.Name = "tbTourName";
+            this.tbTourName.Size = new System.Drawing.Size(171, 26);
+            this.tbTourName.TabIndex = 21;
             // 
-            // dateTimePicker2
+            // label17
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(493, 106);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(214, 28);
-            this.dateTimePicker2.TabIndex = 28;
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(5, 194);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(112, 18);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Ngày áp dụng :";
             // 
-            // dataGridView1
+            // label16
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1103, 220);
-            this.dataGridView1.TabIndex = 0;
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(6, 92);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(139, 18);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "Loại hình du lịch :";
             // 
-            // btnExit1
+            // label15
             // 
-            this.btnExit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnExit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit1.ForeColor = System.Drawing.Color.White;
-            this.btnExit1.Location = new System.Drawing.Point(1046, 111);
-            this.btnExit1.Name = "btnExit1";
-            this.btnExit1.Size = new System.Drawing.Size(116, 43);
-            this.btnExit1.TabIndex = 29;
-            this.btnExit1.Text = "Tạo";
-            this.btnExit1.UseVisualStyleBackColor = false;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(6, 347);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(163, 18);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Địa điểm tham quan :";
             // 
-            // btnCSDL
+            // label14
             // 
-            this.btnCSDL.AutoSize = true;
-            this.btnCSDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCSDL.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.delete_button;
-            this.btnCSDL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCSDL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCSDL.Location = new System.Drawing.Point(1119, 199);
-            this.btnCSDL.Name = "btnCSDL";
-            this.btnCSDL.Size = new System.Drawing.Size(110, 74);
-            this.btnCSDL.TabIndex = 21;
-            this.btnCSDL.UseVisualStyleBackColor = false;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.Location = new System.Drawing.Point(6, 297);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(86, 18);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Điểm đến :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.Location = new System.Drawing.Point(6, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 18);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Tên tour :";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.groupBox2.Controls.Add(this.btnRefresh);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnExit);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnCSDL);
+            this.groupBox2.Controls.Add(this.dgvListTour);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox2.Location = new System.Drawing.Point(335, 84);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(929, 597);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tour hiện có";
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(1134, 618);
+            this.btnExit.Location = new System.Drawing.Point(801, 548);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(116, 43);
             this.btnExit.TabIndex = 30;
@@ -504,14 +501,133 @@
             this.button3.TabIndex = 23;
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // btnCSDL
+            // 
+            this.btnCSDL.AutoSize = true;
+            this.btnCSDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCSDL.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.delete_button;
+            this.btnCSDL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCSDL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCSDL.Location = new System.Drawing.Point(1119, 199);
+            this.btnCSDL.Name = "btnCSDL";
+            this.btnCSDL.Size = new System.Drawing.Size(110, 74);
+            this.btnCSDL.TabIndex = 21;
+            this.btnCSDL.UseVisualStyleBackColor = false;
+            // 
+            // dgvListTour
+            // 
+            this.dgvListTour.AutoGenerateColumns = false;
+            this.dgvListTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.TourId,
+            this.TourName,
+            this.TourDestination,
+            this.TourPrice,
+            this.ApplyDay,
+            this.Category});
+            this.dgvListTour.DataSource = this.bsListTour;
+            this.dgvListTour.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvListTour.Location = new System.Drawing.Point(3, 22);
+            this.dgvListTour.Name = "dgvListTour";
+            this.dgvListTour.RowTemplate.Height = 24;
+            this.dgvListTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListTour.Size = new System.Drawing.Size(923, 520);
+            this.dgvListTour.TabIndex = 0;
+            this.dgvListTour.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListTour_CellContentDoubleClick);
+            this.dgvListTour.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListTour_CellFormatting);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // TourId
+            // 
+            this.TourId.DataPropertyName = "id";
+            this.TourId.HeaderText = "Mã Tour";
+            this.TourId.Name = "TourId";
+            this.TourId.Width = 50;
+            // 
+            // TourName
+            // 
+            this.TourName.DataPropertyName = "name";
+            this.TourName.HeaderText = "Tour";
+            this.TourName.Name = "TourName";
+            this.TourName.Width = 300;
+            // 
+            // TourDestination
+            // 
+            this.TourDestination.DataPropertyName = "Destination";
+            this.TourDestination.HeaderText = "Điểm đến";
+            this.TourDestination.Name = "TourDestination";
+            this.TourDestination.Width = 125;
+            // 
+            // TourPrice
+            // 
+            this.TourPrice.DataPropertyName = "TourPrice";
+            this.TourPrice.HeaderText = "Giá";
+            this.TourPrice.Name = "TourPrice";
+            // 
+            // ApplyDay
+            // 
+            this.ApplyDay.DataPropertyName = "TourPrice";
+            this.ApplyDay.HeaderText = "Ngày áp dụng";
+            this.ApplyDay.Name = "ApplyDay";
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "TourCategory";
+            this.Category.HeaderText = "Loại hình du lịch";
+            this.Category.Name = "Category";
+            this.Category.Width = 175;
+            // 
+            // ckbSelectAll
+            // 
+            this.ckbSelectAll.AutoSize = true;
+            this.ckbSelectAll.Location = new System.Drawing.Point(270, 347);
+            this.ckbSelectAll.Name = "ckbSelectAll";
+            this.ckbSelectAll.Size = new System.Drawing.Size(47, 22);
+            this.ckbSelectAll.TabIndex = 35;
+            this.ckbSelectAll.Text = "All";
+            this.ckbSelectAll.UseVisualStyleBackColor = true;
+            this.ckbSelectAll.CheckedChanged += new System.EventHandler(this.ckbSelectAll_CheckedChanged);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(665, 548);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(116, 43);
+            this.btnDelete.TabIndex = 31;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(524, 548);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(116, 43);
+            this.btnRefresh.TabIndex = 32;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // fmTourManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.btnExit);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -523,13 +639,18 @@
             this.Name = "fmTourManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmTourManager";
+            this.Load += new System.EventHandler(this.fmTourManager_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsListTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTourSite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDestination)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -559,26 +680,38 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.DateTimePicker dtpStart_date;
+        private System.Windows.Forms.TextBox tbTourPrice;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbTourName;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnExit1;
+        private System.Windows.Forms.DataGridView dgvListTour;
+        private System.Windows.Forms.Button btnAddTour;
         private System.Windows.Forms.Button btnCSDL;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckedListBox clbTourSite;
+        private System.Windows.Forms.ComboBox cbDestination;
+        private System.Windows.Forms.ComboBox cbTourCategory;
+        private System.Windows.Forms.BindingSource bsTourSite;
+        private System.Windows.Forms.BindingSource bsListTour;
+        private System.Windows.Forms.BindingSource bsCategory;
+        private System.Windows.Forms.BindingSource bsDestination;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourDestination;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApplyDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DateTimePicker dtpEnd_date;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox ckbSelectAll;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

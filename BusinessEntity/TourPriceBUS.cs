@@ -26,6 +26,13 @@ namespace BusinessEntity
             _unitOfWork.TourPriceRepository.Insert(tourprice);
             _unitOfWork.Save();
         }
+        
+        public int addWithoutId(TourPrice tourprice)
+        {
+            _unitOfWork.TourPriceRepository.Insert(tourprice);
+            _unitOfWork.Save();
+            return tourprice.id;
+        }
 
         public void deletaById(int id)
         {

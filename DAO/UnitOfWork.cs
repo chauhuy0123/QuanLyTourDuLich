@@ -236,5 +236,10 @@ namespace DAO
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+        public GenericRepository<TourSite> createTourSiteRepo()
+        {
+            return new GenericRepository<TourSite>(_entityContext);
+        }
     }
 }

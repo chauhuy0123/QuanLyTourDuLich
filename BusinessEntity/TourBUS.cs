@@ -23,13 +23,29 @@ namespace BusinessEntity
 
         public void add(Tour tour)
         {
+            // T-T
+            //DAO.GenericRepository.GenericRepository<TourSite> repo 
+            //    = _unitOfWork.createTourSiteRepo();
+            //foreach (var item in tour.TourSites)
+            //{
+            //    repo.Update(item);
+            //}
+            //tour.TourSites = null;
             _unitOfWork.TourRepository.Insert(tour);
             _unitOfWork.Save();
+
+            //_unitOfWork.DestinationRepository.
+            //_unitOfWork.TourRepository.Refresh();
         }
 
         public void deletaById(int id)
         {
             _unitOfWork.TourRepository.Delete(id);
+            _unitOfWork.Save();
+        }
+        public void delete(Tour tour)
+        {
+            _unitOfWork.TourRepository.Delete(tour);
             _unitOfWork.Save();
         }
 
@@ -43,6 +59,9 @@ namespace BusinessEntity
             _unitOfWork.TourRepository.Update(tour);
             _unitOfWork.Save();
         }
-
+        public void refresh()
+        {
+            _unitOfWork.TourRepository.Refresh();
+        }
     }
 }

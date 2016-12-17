@@ -53,10 +53,12 @@
     <Compile Include="SearchEngine\SearchEngine.cs" />
     <Compile Include="SearchEngine\TourGroupSearchEngine.cs" />
     <Compile Include="SearchEngine\TourSearchEngine.cs" />
+    <Compile Include="SearchEngine\TourSiteSearchEngine.cs" />
     <Compile Include="TourBUS.cs" />
     <Compile Include="TourCategoryBUS.cs" />
     <Compile Include="TourGroupBUS.cs" />
     <Compile Include="TourPriceBUS.cs" />
+    <Compile Include="TourSiteBUS.cs" />
     <Compile Include="TransportBUS.cs" />
   </ItemGroup>
   <ItemGroup>
