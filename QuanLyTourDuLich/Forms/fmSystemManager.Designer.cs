@@ -32,9 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmSystemManager));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnBack1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteAccount = new System.Windows.Forms.Button();
+            this.dgvAccountList = new System.Windows.Forms.DataGridView();
+            this.noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bdsAccountList = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labAccountType = new System.Windows.Forms.Label();
             this.labRePassword = new System.Windows.Forms.Label();
@@ -49,30 +54,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteAccount = new System.Windows.Forms.Button();
-            this.dgvAccountList = new System.Windows.Forms.DataGridView();
-            this.bdsAccountList = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnBack1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTroLai2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccountList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsAccountList)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,9 +96,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.tabPage1.ImageIndex = 1;
@@ -105,41 +108,94 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Quản lý tài khoản";
             // 
-            // panel1
+            // panel4
             // 
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.btnBack1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1248, 84);
-            this.panel1.TabIndex = 22;
+            this.panel4.Controls.Add(this.groupBox1);
+            this.panel4.Controls.Add(this.groupBox2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 87);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1248, 537);
+            this.panel4.TabIndex = 23;
             // 
-            // label5
+            // groupBox1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(422, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(523, 55);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "QUẢN LÝ TÀI KHOẢN";
+            this.groupBox1.Controls.Add(this.btnDeleteAccount);
+            this.groupBox1.Controls.Add(this.dgvAccountList);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox1.Location = new System.Drawing.Point(561, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(687, 537);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách tài khoản";
             // 
-            // btnBack1
+            // btnDeleteAccount
             // 
-            this.btnBack1.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
-            this.btnBack1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBack1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnBack1.Location = new System.Drawing.Point(3, 10);
-            this.btnBack1.Name = "btnBack1";
-            this.btnBack1.Size = new System.Drawing.Size(64, 64);
-            this.btnBack1.TabIndex = 0;
-            this.btnBack1.UseVisualStyleBackColor = true;
-            this.btnBack1.Click += new System.EventHandler(this.btnTroLai1_Click);
+            this.btnDeleteAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeleteAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDeleteAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAccount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnDeleteAccount.Location = new System.Drawing.Point(554, 486);
+            this.btnDeleteAccount.Name = "btnDeleteAccount";
+            this.btnDeleteAccount.Size = new System.Drawing.Size(130, 45);
+            this.btnDeleteAccount.TabIndex = 8;
+            this.btnDeleteAccount.Text = "Xóa";
+            this.btnDeleteAccount.UseVisualStyleBackColor = false;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+            // 
+            // dgvAccountList
+            // 
+            this.dgvAccountList.AllowUserToAddRows = false;
+            this.dgvAccountList.AutoGenerateColumns = false;
+            this.dgvAccountList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccountList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noColumn,
+            this.usernameColumn,
+            this.accountTypeColumn});
+            this.dgvAccountList.DataSource = this.bdsAccountList;
+            this.dgvAccountList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvAccountList.Location = new System.Drawing.Point(3, 26);
+            this.dgvAccountList.MultiSelect = false;
+            this.dgvAccountList.Name = "dgvAccountList";
+            this.dgvAccountList.ReadOnly = true;
+            this.dgvAccountList.RowHeadersVisible = false;
+            this.dgvAccountList.RowTemplate.Height = 24;
+            this.dgvAccountList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAccountList.ShowEditingIcon = false;
+            this.dgvAccountList.Size = new System.Drawing.Size(681, 454);
+            this.dgvAccountList.TabIndex = 0;
+            this.dgvAccountList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccountList_CellClick);
+            this.dgvAccountList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAccountList_CellFormatting);
+            // 
+            // noColumn
+            // 
+            this.noColumn.FillWeight = 30F;
+            this.noColumn.HeaderText = "STT";
+            this.noColumn.Name = "noColumn";
+            this.noColumn.ReadOnly = true;
+            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // usernameColumn
+            // 
+            this.usernameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.usernameColumn.DataPropertyName = "username";
+            this.usernameColumn.FillWeight = 152.2843F;
+            this.usernameColumn.HeaderText = "Tên tài khoản";
+            this.usernameColumn.Name = "usernameColumn";
+            this.usernameColumn.ReadOnly = true;
+            // 
+            // accountTypeColumn
+            // 
+            this.accountTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.accountTypeColumn.DataPropertyName = "AccountType";
+            this.accountTypeColumn.FillWeight = 93.42376F;
+            this.accountTypeColumn.HeaderText = "Loại tài khoản";
+            this.accountTypeColumn.Name = "accountTypeColumn";
+            this.accountTypeColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -156,11 +212,12 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.Font = new System.Drawing.Font("Constantia", 11.25F);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox2.Location = new System.Drawing.Point(14, 143);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(561, 481);
+            this.groupBox2.Size = new System.Drawing.Size(561, 537);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tạo tài khoản";
@@ -296,64 +353,51 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập";
             // 
-            // groupBox1
+            // panel1
             // 
-            this.groupBox1.Controls.Add(this.btnDeleteAccount);
-            this.groupBox1.Controls.Add(this.dgvAccountList);
-            this.groupBox1.Font = new System.Drawing.Font("Constantia", 11.25F);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox1.Location = new System.Drawing.Point(581, 143);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(671, 481);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách tài khoản";
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnBack1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1248, 84);
+            this.panel1.TabIndex = 22;
             // 
-            // btnDeleteAccount
+            // label5
             // 
-            this.btnDeleteAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnDeleteAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteAccount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDeleteAccount.Location = new System.Drawing.Point(535, 430);
-            this.btnDeleteAccount.Name = "btnDeleteAccount";
-            this.btnDeleteAccount.Size = new System.Drawing.Size(130, 45);
-            this.btnDeleteAccount.TabIndex = 8;
-            this.btnDeleteAccount.Text = "Xóa";
-            this.btnDeleteAccount.UseVisualStyleBackColor = false;
-            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(422, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(523, 55);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "QUẢN LÝ TÀI KHOẢN";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvAccountList
+            // btnBack1
             // 
-            this.dgvAccountList.AllowUserToAddRows = false;
-            this.dgvAccountList.AutoGenerateColumns = false;
-            this.dgvAccountList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccountList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.noColumn,
-            this.usernameColumn,
-            this.accountTypeColumn});
-            this.dgvAccountList.DataSource = this.bdsAccountList;
-            this.dgvAccountList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgvAccountList.Location = new System.Drawing.Point(3, 26);
-            this.dgvAccountList.Name = "dgvAccountList";
-            this.dgvAccountList.ReadOnly = true;
-            this.dgvAccountList.RowHeadersVisible = false;
-            this.dgvAccountList.RowTemplate.Height = 24;
-            this.dgvAccountList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccountList.ShowEditingIcon = false;
-            this.dgvAccountList.Size = new System.Drawing.Size(665, 398);
-            this.dgvAccountList.TabIndex = 0;
-            this.dgvAccountList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccountList_CellClick);
-            this.dgvAccountList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAccountList_CellFormatting);
+            this.btnBack1.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
+            this.btnBack1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnBack1.Location = new System.Drawing.Point(3, 10);
+            this.btnBack1.Name = "btnBack1";
+            this.btnBack1.Size = new System.Drawing.Size(64, 64);
+            this.btnBack1.TabIndex = 0;
+            this.btnBack1.UseVisualStyleBackColor = true;
+            this.btnBack1.Click += new System.EventHandler(this.btnTroLai1_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage2.ImageIndex = 2;
             this.tabPage2.Location = new System.Drawing.Point(4, 42);
             this.tabPage2.Name = "tabPage2";
@@ -362,26 +406,64 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sao lưu & phục hồi";
             // 
-            // label8
+            // panel3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Info;
-            this.label8.Location = new System.Drawing.Point(502, 569);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(222, 25);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Copyright © UIT 2016";
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.groupBox4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.panel3.Location = new System.Drawing.Point(3, 87);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1248, 537);
+            this.panel3.TabIndex = 24;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(591, 537);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sao lưu dữ liệu";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(1118, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 45);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox4.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox4.Location = new System.Drawing.Point(597, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(651, 537);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Phục hồi dữ liệu";
             // 
             // panel2
             // 
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackColor = System.Drawing.Color.Green;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.btnTroLai2);
-            this.panel2.Location = new System.Drawing.Point(14, 16);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1238, 84);
+            this.panel2.Size = new System.Drawing.Size(1248, 84);
             this.panel2.TabIndex = 22;
             // 
             // label6
@@ -389,7 +471,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(383, 17);
+            this.label6.Location = new System.Drawing.Point(395, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(579, 55);
             this.label6.TabIndex = 19;
@@ -400,45 +482,13 @@
             this.btnTroLai2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
             this.btnTroLai2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTroLai2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTroLai2.ForeColor = System.Drawing.Color.Green;
+            this.btnTroLai2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnTroLai2.Location = new System.Drawing.Point(3, 8);
             this.btnTroLai2.Name = "btnTroLai2";
             this.btnTroLai2.Size = new System.Drawing.Size(64, 64);
             this.btnTroLai2.TabIndex = 1;
             this.btnTroLai2.UseVisualStyleBackColor = true;
             this.btnTroLai2.Click += new System.EventHandler(this.btnTroLai2_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(1122, 558);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(130, 49);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Thoát";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.Info;
-            this.groupBox4.Location = new System.Drawing.Point(626, 121);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(626, 406);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Phục hồi dữ liệu";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.Info;
-            this.groupBox3.Location = new System.Drawing.Point(14, 121);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(596, 406);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sao lưu dữ liệu";
             // 
             // imageList1
             // 
@@ -448,31 +498,9 @@
             this.imageList1.Images.SetKeyName(1, "account.png");
             this.imageList1.Images.SetKeyName(2, "database (1).png");
             // 
-            // noColumn
+            // openFileDialog1
             // 
-            this.noColumn.FillWeight = 30F;
-            this.noColumn.HeaderText = "STT";
-            this.noColumn.Name = "noColumn";
-            this.noColumn.ReadOnly = true;
-            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // usernameColumn
-            // 
-            this.usernameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.usernameColumn.DataPropertyName = "username";
-            this.usernameColumn.FillWeight = 152.2843F;
-            this.usernameColumn.HeaderText = "Tên tài khoản";
-            this.usernameColumn.Name = "usernameColumn";
-            this.usernameColumn.ReadOnly = true;
-            // 
-            // accountTypeColumn
-            // 
-            this.accountTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.accountTypeColumn.DataPropertyName = "AccountType";
-            this.accountTypeColumn.FillWeight = 93.42376F;
-            this.accountTypeColumn.HeaderText = "Loại tài khoản";
-            this.accountTypeColumn.Name = "accountTypeColumn";
-            this.accountTypeColumn.ReadOnly = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // fmSystemManager
             // 
@@ -484,23 +512,24 @@
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "fmSystemManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmSystemManager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fmSystemManager_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccountList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsAccountList)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -528,12 +557,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.Button btnDeleteAccount;
         private System.Windows.Forms.Label labAccountType;
@@ -544,5 +571,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeColumn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panel4;
     }
 }

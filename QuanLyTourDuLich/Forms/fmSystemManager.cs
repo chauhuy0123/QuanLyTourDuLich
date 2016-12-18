@@ -85,7 +85,13 @@ namespace QuanLyTourDuLich.GUI
                 labUsername.ForeColor = Color.Red;
                 labUsername.Show();
             }
-            else if (isInvalid(txbUsername.Text) == true)
+            else if (txbUsername.Text.Length > 50)
+            {
+                labUsername.Text = "Tên tài khoản không được quá 50 ký tự";
+                labUsername.ForeColor = Color.Red;
+                labUsername.Show();
+            }
+            else if (isInvalid(txbUsername.Text) == false)
             {
                 labUsername.Text = "Tên tài khoản không được chứa ký tự đặc biệt";
                 labUsername.ForeColor = Color.Red;
@@ -133,7 +139,13 @@ namespace QuanLyTourDuLich.GUI
                 labPassword.ForeColor = Color.Red;
                 labPassword.Show();
             }
-            else if(isInvalid(txbPassword.Text) == true)
+            else if(txbPassword.Text.Length > 50)
+            {
+                labPassword.Text = "Mật khẩu không quá 50 ký tự";
+                labPassword.ForeColor = Color.Red;
+                labPassword.Show();
+            }
+            else if(isInvalid(txbPassword.Text) == false)
             {
                 labPassword.Text = "Mật khẩu không được chứa ký tự đặc biệt";
                 labPassword.ForeColor = Color.Red;
@@ -316,7 +328,7 @@ namespace QuanLyTourDuLich.GUI
         /// <returns></returns>
         public bool isInvalid(string str)
         {
-            Regex _regex = new Regex(@"^[a-zA-Z0-9,{5,50}]$");
+            Regex _regex = new Regex(@"^[a-zA-Z0-9@_]{5,50}$");
             return _regex.IsMatch(str);
 
         }

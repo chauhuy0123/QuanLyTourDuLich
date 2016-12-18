@@ -37,14 +37,16 @@
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.ckbShowPassword = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSingin = new System.Windows.Forms.Button();
             this.btnTroLai = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSingin = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labTimer = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -136,6 +138,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đăng nhập";
             // 
+            // btnSingin
+            // 
+            this.btnSingin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSingin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSingin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSingin.Location = new System.Drawing.Point(346, 238);
+            this.btnSingin.Name = "btnSingin";
+            this.btnSingin.Size = new System.Drawing.Size(130, 40);
+            this.btnSingin.TabIndex = 19;
+            this.btnSingin.Text = "Đăng nhập";
+            this.btnSingin.UseVisualStyleBackColor = false;
+            this.btnSingin.Click += new System.EventHandler(this.btnSingin_Click);
+            // 
             // btnTroLai
             // 
             this.btnTroLai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -161,23 +176,10 @@
             this.panel1.Size = new System.Drawing.Size(1262, 84);
             this.panel1.TabIndex = 20;
             // 
-            // btnSingin
-            // 
-            this.btnSingin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSingin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSingin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSingin.Location = new System.Drawing.Point(346, 238);
-            this.btnSingin.Name = "btnSingin";
-            this.btnSingin.Size = new System.Drawing.Size(130, 40);
-            this.btnSingin.TabIndex = 19;
-            this.btnSingin.Text = "Đăng nhập";
-            this.btnSingin.UseVisualStyleBackColor = false;
-            this.btnSingin.Click += new System.EventHandler(this.btnSingin_Click);
-            // 
             // monthCalendar1
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.monthCalendar1.Location = new System.Drawing.Point(763, 291);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 9);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 21;
             this.monthCalendar1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -188,23 +190,34 @@
             // 
             // labTimer
             // 
+            this.labTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labTimer.AutoSize = true;
             this.labTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold);
-            this.labTimer.Location = new System.Drawing.Point(1037, 370);
+            this.labTimer.Location = new System.Drawing.Point(3, 220);
             this.labTimer.Name = "labTimer";
-            this.labTimer.Size = new System.Drawing.Size(193, 67);
+            this.labTimer.Size = new System.Drawing.Size(124, 67);
             this.labTimer.TabIndex = 22;
-            this.labTimer.Text = "label5";
+            this.labTimer.Text = "Giờ";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.monthCalendar1);
+            this.panel2.Controls.Add(this.labTimer);
+            this.panel2.Location = new System.Drawing.Point(757, 294);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(493, 287);
+            this.panel2.TabIndex = 23;
             // 
             // fmLogin
             // 
+            this.AcceptButton = this.btnSingin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.labTimer);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -216,10 +229,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmLogin";
             this.Load += new System.EventHandler(this.fmLogin_Load);
+            this.Enter += new System.EventHandler(this.fmLogin_Enter);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +257,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labTimer;
+        private System.Windows.Forms.Panel panel2;
     }
 }

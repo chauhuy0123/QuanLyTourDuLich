@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Forms\fmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmChangePassword.Designer.cs">
+      <DependentUpon>fmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <Compile Include="Views\ICustomerSearchView.cs" />
     <Compile Include="Views\ITourGroupSearchView.cs" />
     <Compile Include="Views\ITourSearchView.cs" />
+    <EmbeddedResource Include="Forms\fmChangePassword.resx">
+      <DependentUpon>fmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmLocationManager.resx">
       <DependentUpon>fmLocationManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +270,7 @@
     <None Include="Resources\printer.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\accountmanager.png" />
     <Content Include="Resources\db\TourManager.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

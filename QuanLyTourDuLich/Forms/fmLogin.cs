@@ -99,7 +99,8 @@ namespace QuanLyTourDuLich.GUI
                     txbPassword.Clear();
 
                     fmMain._accountType = _acc.account_type; //Truyền account type cho form Main
-                    MessageBox.Show("Đăng nhập thành công!\nTài khoản: " + txbUsername.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fmMain._username = _acc.username; // Truyền tên tài khoản cho form Main
+                    MessageBox.Show("Đăng nhập thành công!\nTài khoản: " + _acc.username.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 //Đăng nhập ko thành công
@@ -114,6 +115,16 @@ namespace QuanLyTourDuLich.GUI
                 //Đăng nhập ko thành công
                 MessageBox.Show("Tên tài khoản chưa đúng!\nVui lòng kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Sự kiện cho nút enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void fmLogin_Enter(object sender, EventArgs e)
+        {
+            btnSingin.PerformClick();
         }
 
         /// <summary>
@@ -141,5 +152,6 @@ namespace QuanLyTourDuLich.GUI
 
             return strBuilder.ToString();
         }
+
     }
 }
