@@ -36,7 +36,7 @@
         <AssociationConnector Association="TourManagerModel.EmployeesTourGroup" />
         <AssociationConnector Association="TourManagerModel.TransportsTourGroup" />
         <EntityTypeShape EntityType="TourManagerModel.Account" Width="1.5" PointX="9.625" PointY="0.875" />
-        <EntityTypeShape EntityType="TourManagerModel.AccounType" Width="1.5" PointX="7.375" PointY="1" />
+        <EntityTypeShape EntityType="TourManagerModel.AccountType" Width="1.5" PointX="7.375" PointY="1" />
         <AssociationConnector Association="TourManagerModel.FK_Account_AccountType" />
         <AssociationConnector Association="TourManagerModel.TourDetail" />
         </Diagram>

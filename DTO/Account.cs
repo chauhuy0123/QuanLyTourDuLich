@@ -19,6 +19,6 @@ namespace DTO
         public string password { get; set; }
         public int account_type { get; set; }
     
-        public virtual AccounType AccounType { get; set; }
+        public virtual AccountType AccountType { get; set; }
     }
 }

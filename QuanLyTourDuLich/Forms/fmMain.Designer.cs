@@ -30,14 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnQuanLyHeThong = new System.Windows.Forms.Button();
+            this.btnSystemManager = new System.Windows.Forms.Button();
             this.btnKetNoiCSDL = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnTraCuu = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnTouristsGroupManager = new System.Windows.Forms.Button();
             this.btnLocationManager = new System.Windows.Forms.Button();
             this.btnTourManager = new System.Windows.Forms.Button();
-            this.btnfmDangNhap = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -62,23 +62,23 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Copyright © UIT 2016";
             // 
-            // btnQuanLyHeThong
+            // btnSystemManager
             // 
-            this.btnQuanLyHeThong.BackColor = System.Drawing.Color.Teal;
-            this.btnQuanLyHeThong.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.settings;
-            this.btnQuanLyHeThong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnQuanLyHeThong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuanLyHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuanLyHeThong.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnQuanLyHeThong.Location = new System.Drawing.Point(805, 417);
-            this.btnQuanLyHeThong.Name = "btnQuanLyHeThong";
-            this.btnQuanLyHeThong.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnQuanLyHeThong.Size = new System.Drawing.Size(317, 156);
-            this.btnQuanLyHeThong.TabIndex = 7;
-            this.btnQuanLyHeThong.Text = "Quản lý hệ thống";
-            this.btnQuanLyHeThong.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnQuanLyHeThong.UseVisualStyleBackColor = false;
-            this.btnQuanLyHeThong.Click += new System.EventHandler(this.btnQuanLyHeThong_Click);
+            this.btnSystemManager.BackColor = System.Drawing.Color.Teal;
+            this.btnSystemManager.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.settings;
+            this.btnSystemManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSystemManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSystemManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSystemManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSystemManager.Location = new System.Drawing.Point(805, 417);
+            this.btnSystemManager.Name = "btnSystemManager";
+            this.btnSystemManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSystemManager.Size = new System.Drawing.Size(317, 156);
+            this.btnSystemManager.TabIndex = 7;
+            this.btnSystemManager.Text = "Quản lý hệ thống";
+            this.btnSystemManager.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnSystemManager.UseVisualStyleBackColor = false;
+            this.btnSystemManager.Click += new System.EventHandler(this.btnSystemManager_Click);
             // 
             // btnKetNoiCSDL
             // 
@@ -93,38 +93,38 @@
             this.btnKetNoiCSDL.UseVisualStyleBackColor = false;
             this.btnKetNoiCSDL.Click += new System.EventHandler(this.btnKetNoiCSDL_Click);
             // 
-            // btnBaoCao
+            // btnReport
             // 
-            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnBaoCao.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.bar_chart;
-            this.btnBaoCao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBaoCao.Location = new System.Drawing.Point(37, 417);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(317, 156);
-            this.btnBaoCao.TabIndex = 5;
-            this.btnBaoCao.Text = "Thống kê";
-            this.btnBaoCao.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnBaoCao.UseVisualStyleBackColor = false;
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnReport.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.bar_chart;
+            this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReport.Location = new System.Drawing.Point(37, 417);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(317, 156);
+            this.btnReport.TabIndex = 5;
+            this.btnReport.Text = "Thống kê";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnReport.UseVisualStyleBackColor = false;
             // 
-            // btnTraCuu
+            // btnSearch
             // 
-            this.btnTraCuu.BackColor = System.Drawing.Color.Green;
-            this.btnTraCuu.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.search;
-            this.btnTraCuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTraCuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTraCuu.Location = new System.Drawing.Point(425, 417);
-            this.btnTraCuu.Name = "btnTraCuu";
-            this.btnTraCuu.Size = new System.Drawing.Size(317, 156);
-            this.btnTraCuu.TabIndex = 4;
-            this.btnTraCuu.Text = "Tra cứu";
-            this.btnTraCuu.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnTraCuu.UseVisualStyleBackColor = false;
-            this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.Green;
+            this.btnSearch.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.search;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(425, 417);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(317, 156);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Tra cứu";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnTraCuu_Click);
             // 
             // btnTouristsGroupManager
             // 
@@ -178,18 +178,18 @@
             this.btnTourManager.UseVisualStyleBackColor = false;
             this.btnTourManager.Click += new System.EventHandler(this.btnTourManager_Click);
             // 
-            // btnfmDangNhap
+            // btnLogin
             // 
-            this.btnfmDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnfmDangNhap.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.login;
-            this.btnfmDangNhap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnfmDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfmDangNhap.Location = new System.Drawing.Point(1186, 12);
-            this.btnfmDangNhap.Name = "btnfmDangNhap";
-            this.btnfmDangNhap.Size = new System.Drawing.Size(64, 64);
-            this.btnfmDangNhap.TabIndex = 0;
-            this.btnfmDangNhap.UseVisualStyleBackColor = false;
-            this.btnfmDangNhap.Click += new System.EventHandler(this.btnfmDangNhap_Click);
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLogin.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.login;
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Location = new System.Drawing.Point(1186, 12);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(64, 64);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // fmMain
             // 
@@ -200,14 +200,14 @@
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnQuanLyHeThong);
+            this.Controls.Add(this.btnSystemManager);
             this.Controls.Add(this.btnKetNoiCSDL);
-            this.Controls.Add(this.btnBaoCao);
-            this.Controls.Add(this.btnTraCuu);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnTouristsGroupManager);
             this.Controls.Add(this.btnLocationManager);
             this.Controls.Add(this.btnTourManager);
-            this.Controls.Add(this.btnfmDangNhap);
+            this.Controls.Add(this.btnLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -215,6 +215,7 @@
             this.Name = "fmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tour Du Lịch";
+            this.Load += new System.EventHandler(this.fmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,14 +223,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnfmDangNhap;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnTourManager;
         private System.Windows.Forms.Button btnLocationManager;
         private System.Windows.Forms.Button btnTouristsGroupManager;
-        private System.Windows.Forms.Button btnTraCuu;
-        private System.Windows.Forms.Button btnBaoCao;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnKetNoiCSDL;
-        private System.Windows.Forms.Button btnQuanLyHeThong;
+        private System.Windows.Forms.Button btnSystemManager;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

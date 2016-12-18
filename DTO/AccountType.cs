@@ -12,9 +12,9 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class AccounType
+    public partial class AccountType
     {
-        public AccounType()
+        public AccountType()
         {
             this.Accounts = new HashSet<Account>();
         }

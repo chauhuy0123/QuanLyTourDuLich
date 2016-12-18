@@ -655,9 +655,9 @@
             <End Role="Transport" EntitySet="Transports" />
           </AssociationSet>
           <EntitySet Name="Accounts" EntityType="TourManagerModel.Account" />
-          <EntitySet Name="AccounTypes" EntityType="TourManagerModel.AccounType" />
+          <EntitySet Name="AccountTypes" EntityType="TourManagerModel.AccountType" />
           <AssociationSet Name="FK_Account_AccountType" Association="TourManagerModel.FK_Account_AccountType">
-            <End Role="AccounType" EntitySet="AccounTypes" />
+            <End Role="AccounType" EntitySet="AccountTypes" />
             <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
           <AssociationSet Name="TourDetail" Association="TourManagerModel.TourDetail">
@@ -1090,9 +1090,9 @@
           <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="account_type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AccounType" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="Account" ToRole="AccounType" />
+          <NavigationProperty Name="AccountType" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="Account" ToRole="AccounType" />
         </EntityType>
-        <EntityType Name="AccounType">
+        <EntityType Name="AccountType">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -1102,7 +1102,7 @@
           <NavigationProperty Name="Accounts" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="AccounType" ToRole="Account" />
         </EntityType>
         <Association Name="FK_Account_AccountType">
-          <End Type="TourManagerModel.AccounType" Role="AccounType" Multiplicity="1" />
+          <End Type="TourManagerModel.AccountType" Role="AccounType" Multiplicity="1" />
           <End Type="TourManagerModel.Account" Role="Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AccounType">
@@ -1433,8 +1433,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AccounTypes">
-            <EntityTypeMapping TypeName="TourManagerModel.AccounType">
+          <EntitySetMapping Name="AccountTypes">
+            <EntityTypeMapping TypeName="TourManagerModel.AccountType">
               <MappingFragment StoreEntitySet="AccounType">
                 <ScalarProperty Name="level" ColumnName="level" />
                 <ScalarProperty Name="name" ColumnName="name" />
