@@ -18,21 +18,26 @@ namespace QuanLyTourDuLich.Forms
     {
         ITourSitePresenter _tourSitePresenter;
         IDestinationPresenter _destinationPresenter;
+
         public fmLocationManager()
         {
             InitializeComponent();
+            Cursor.Current = Cursors.WaitCursor;
             _tourSitePresenter = new TourSitePresenter(this);
             _destinationPresenter = new DestinationPresenter(this);
-            _citiesCbb.DataSource = BusinessEntity.VietNamCities.getAllCities();
+            var allCities = BusinessEntity.VietNamCities.getAllCities();
+            _citiesBindingSource.DataSource = allCities;
 
-            //_tourSitesClb.DataSource = _tourSiteBindingSource;
-
+            _cityDestinationColumn.DisplayMember = "name";
+            _citiesCbb.DisplayMember = "name";
         }
 
         private void fmLocationManager_Load(object sender, EventArgs e)
         {
             _tourSitePresenter.loadAllTourSites();
             _destinationPresenter.loadAllDestinations();
+            this.setEnableSaveBtn(false);
+            Cursor.Current = Cursors.Default;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -196,6 +201,8 @@ namespace QuanLyTourDuLich.Forms
         private void splitContainer1_Panel1_Layout(object sender, LayoutEventArgs e)
         {
             _hotelAddTb.Enabled = checkEnableAddBtn();
+            var selected = _hotelGv.SelectedRows.Count;
+            _hotelRemoveTb.Enabled = selected != 0;
         }
 
         private void _hotelGv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -238,12 +245,18 @@ namespace QuanLyTourDuLich.Forms
         private void _tourSitePanel_Layout(object sender, LayoutEventArgs e)
         {
             checkEnableTourSiteAddBtn();
+            checkEnableTourSiteRemoveBtn();
+        }
+
+        private void checkEnableTourSiteRemoveBtn()
+        {
+            _tourSiteRemoveBtn.Enabled = _tourSitesTempLv.Items.Count != 0;
         }
 
         private void checkEnableTourSiteAddBtn()
         {
             var enabled = !String.IsNullOrEmpty(_tourSiteNewItemTb.Text.Trim());
-            _tourSiteAddBtn.Enabled = enabled;
+            _tourSiteAddBtn.Enabled = enabled; 
         }
 
         private void _hotelGv_SelectionChanged(object sender, EventArgs e)
@@ -271,6 +284,7 @@ namespace QuanLyTourDuLich.Forms
         {
             bool isEmpty = String.IsNullOrEmpty(_destinationTb.Text.Trim());
             _acceptBtn.Enabled = !isEmpty;
+            _cancelBtn.Enabled = !isEmpty;
         }
 
         private void _acceptBtn_Click(object sender, EventArgs e)
@@ -296,6 +310,7 @@ namespace QuanLyTourDuLich.Forms
 			}
 
             _destinationPresenter.addDestination(destination);
+            clearAllTb();
         }
 
         public void updateDestinationView(IEnumerable<Destination> destinations)
@@ -306,7 +321,14 @@ namespace QuanLyTourDuLich.Forms
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 0)
+            {
                 e.Value = e.RowIndex + 1;
+
+            }
+            if (e.ColumnIndex == 2)
+            {
+//                e.Value = 
+            }
             if (e.ColumnIndex == 3)
             {
                 if ((e.Value as IEnumerable<TourSite>) == null)
@@ -322,6 +344,153 @@ namespace QuanLyTourDuLich.Forms
                 else
                     e.Value = (e.Value as IEnumerable<Hotel>).Count().ToString();
 
+            }
+            if (e.ColumnIndex == 5)
+            {
+                if ((e.Value as IEnumerable<Tour>) == null)
+                    e.Value = 0;
+                else
+                    e.Value = (e.Value as IEnumerable<Tour>).Count().ToString();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void _saveBtnPanel_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            _destinationPresenter.updateAll(_destinationBindingSource.DataSource as IEnumerable<Destination>);
+            Cursor.Current = Cursors.Default;
+            setEnableSaveBtn(false);
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void _discardBtn_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            _destinationPresenter.refresh();
+            _destinationPresenter.loadAllDestinations();
+            Cursor.Current = Cursors.Default;
+            this.setEnableSaveBtn(false);
+        }
+
+        private void _deleteBtn_Click(object sender, EventArgs e)
+        {
+            int selectedindex = _destinationGv.SelectedRows[0].Index;
+            var destination = (_destinationBindingSource.DataSource as IEnumerable<Destination>).ElementAt(selectedindex);
+            _destinationPresenter.deleteDestination(destination);
+        }
+
+        public void showDialog(string msg)
+        {
+            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void _searchTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var keyword = _searchTb.Text.Trim();
+            _destinationPresenter.searchDestination(keyword);
+        }
+
+        private void _cancelBtn_Click(object sender, EventArgs e)
+        {
+            clearAllTb();
+        }
+
+        private void clearAllTb()
+        {
+            _destinationTb.Clear();
+            _citiesCbb.SelectedIndex = 0;
+            _tourSiteNewItemTb.Clear();
+            _tourSitesTempLv.Clear();
+            _hotelNameTb.Clear();
+            _hotelAddressTb.Clear();
+            _hotelPhoneTb.Clear();
+            _hotelStatusTb.Clear();
+            _hotelBindingSource.DataSource = null;
+            _hotelGv.Rows.Clear();
+        }
+
+        private void _destinationGv_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            _destinationGv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "...";
+        }
+
+        private void _destinationGv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                var dest = (_destinationBindingSource.DataSource as IEnumerable<Destination>).ElementAt(e.RowIndex);
+                new fmDestinationDetail(dest).ShowDialog();
+                _destinationPresenter.reLoadAll();
+            }
+
+        }
+
+        private void setEnableSaveBtn(bool isEnabled)
+        {
+            _saveBtn.Enabled = isEnabled;
+            _discardBtn.Enabled = isEnabled;
+        }
+
+        private void _destinationGv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            setEnableSaveBtn(true);
+        }
+
+        private void addButton1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addButton1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _tourSiteControlPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void updateDestinationError()
+        {
+            MessageBox.Show("Một hoặc nhiều dữ liệu không chính xác. Dữ liệu đã chỉnh sửa sẽ được khôi phục",
+                "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void _destinationGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                _destinationPresenter.sortByName();
+            }
+            else if (e.ColumnIndex == 2)
+            {
+                _destinationPresenter.sortByCity();
+            }
+            else if (e.ColumnIndex == 3)
+            {
+                _destinationPresenter.sortByTourSites();
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                _destinationPresenter.sortByHotels();
+            }
+            else if (e.ColumnIndex == 5)
+            {
+                _destinationPresenter.sortByTours();
             }
         }
     }

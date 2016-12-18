@@ -11,7 +11,7 @@ namespace BusinessEntity
     {
         UnitOfWork _unitOfWork = new DAO.UnitOfWork();
 
-        public TourSite getTourSiteById(int id)
+        public TourSite getTourSiteId(int id)
         {
             return _unitOfWork.TourSiteRepository.GetByID(id);
         }
@@ -44,7 +44,7 @@ namespace BusinessEntity
             _unitOfWork.Save();
         }
 
- 		public IEnumerable<TourSite> getByDestination(int destinationId)
+        public IEnumerable<TourSite> getByDestination(int destinationId)
         {
             return _unitOfWork.TourSiteRepository.GetMany(toursite => toursite.destination_id == destinationId);
         }
