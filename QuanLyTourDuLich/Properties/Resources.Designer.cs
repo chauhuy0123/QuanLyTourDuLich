@@ -63,6 +63,16 @@ namespace QuanLyTourDuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accountmanager {
+            get {
+                object obj = ResourceManager.GetObject("accountmanager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_circular_outlined_button {
             get {
                 object obj = ResourceManager.GetObject("add-circular-outlined-button", resourceCulture);
