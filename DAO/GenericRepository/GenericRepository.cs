@@ -114,5 +114,16 @@ namespace DAO.GenericRepository
         {
             return _entitySet.First<TEntity>(predicate);
         }
+
+        /// <summary>
+        /// Discard all changed
+        /// </summary>
+        public void Refresh()
+        {
+            foreach (var entity in _context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
     }
 }

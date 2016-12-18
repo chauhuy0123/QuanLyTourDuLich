@@ -11,6 +11,9 @@
     {
       "name": "Thành Phố Đà Nẵng"
     },
+	{
+      "name": "Thành Phố Cần Thơ"
+    },
     {
       "name": "Hà Giang"
     },
@@ -184,5 +187,11 @@
     },
     {
       "name": "Hậu Giang"
+    },
+	{
+      "name": "Khánh Hoà"
+    },
+	{
+      "name": "..."
     }
   ]

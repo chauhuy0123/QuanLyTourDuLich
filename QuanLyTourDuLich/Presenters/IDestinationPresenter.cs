@@ -11,5 +11,21 @@ namespace QuanLyTourDuLich.Presenters
     {
         void loadAllDestinations();
         void addDestination(Destination destination);
+        void updateAll(IEnumerable<Destination> destination);
+        void refresh();
+        void deleteDestination(Destination destination);
+        void searchDestination(string keyword);
+
+        void reLoadAll();
+
+        void sortByName();
+
+        void sortByCity();
+
+        void sortByTourSites();
+
+        void sortByHotels();
+
+        void sortByTours();
     }
 }

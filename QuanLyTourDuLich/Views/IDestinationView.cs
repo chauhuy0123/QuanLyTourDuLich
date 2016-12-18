@@ -10,5 +10,9 @@ namespace QuanLyTourDuLich.Views
     interface IDestinationView
     {
         void updateDestinationView(IEnumerable<Destination> destinations);
+
+        void showDialog(string msg);
+
+        void updateDestinationError();
     }
 }

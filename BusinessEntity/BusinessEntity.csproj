@@ -51,12 +51,14 @@
     <Compile Include="DestinationBUS.cs" />
     <Compile Include="GenderBUS.cs" />
     <Compile Include="SearchEngine\CustomerSearchEngine.cs" />
+    <Compile Include="SearchEngine\DestinationSearchEngine.cs" />
     <Compile Include="SearchEngine\ISearchAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchEngine\RegexProxy.cs" />
     <Compile Include="SearchEngine\SearchEngine.cs" />
     <Compile Include="SearchEngine\TourGroupSearchEngine.cs" />
     <Compile Include="SearchEngine\TourSearchEngine.cs" />
+    <Compile Include="SearchEngine\TourSiteSearchEngine.cs" />
     <Compile Include="TourBUS.cs" />
     <Compile Include="TourCategoryBUS.cs" />
     <Compile Include="TourGroupBUS.cs" />

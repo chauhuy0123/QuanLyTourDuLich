@@ -45,14 +45,19 @@
             this._tourSitePanel = new System.Windows.Forms.Panel();
             this._tourSitesTempLv = new System.Windows.Forms.ListView();
             this._tourSiteControlPanel = new System.Windows.Forms.Panel();
+            this._tourSiteRemoveBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this.removeBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._tourSiteAddBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this.addBtnImageList = new System.Windows.Forms.ImageList(this.components);
             this._tourSiteNewItemTb = new System.Windows.Forms.TextBox();
-            this._tourSiteAddBtn = new System.Windows.Forms.Button();
-            this._tourSiteRemoveBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this._cancelBtn = new System.Windows.Forms.Button();
+            this._acceptBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this._citiesCbb = new System.Windows.Forms.ComboBox();
+            this._citiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._destinationTb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this._secondSpliter = new System.Windows.Forms.SplitContainer();
@@ -64,8 +69,8 @@
             this._hotelStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
-            this._hotelRemoveTb = new System.Windows.Forms.Button();
-            this._hotelAddTb = new System.Windows.Forms.Button();
+            this._hotelRemoveTb = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._hotelAddTb = new QuanLyTourDuLich.CustomControl.AddButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this._hotelStatusTb = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,18 +81,27 @@
             this._hotelNameTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this._destinationGv = new System.Windows.Forms.DataGridView();
+            this._noDestinationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._destinationNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cityDestinationColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this._tourSitesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._hotelsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._toursColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._destinationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this._saveBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._saveBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._discardBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._revertBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._deleteBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._deleteBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._searchTb = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this._tourSiteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._acceptBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this._destinationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._noDestinationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._destinationNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._cityDestinationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tourSitesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._hotelsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this._backBtnPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -100,6 +114,7 @@
             this._tourSiteControlPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._citiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._secondSpliter)).BeginInit();
             this._secondSpliter.Panel1.SuspendLayout();
             this._secondSpliter.Panel2.SuspendLayout();
@@ -108,9 +123,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._hotelBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._destinationGv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._destinationBindingSource)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -157,7 +173,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(387, 28);
+            this.label7.Location = new System.Drawing.Point(473, 20);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(416, 44);
@@ -274,14 +290,61 @@
             // 
             // _tourSiteControlPanel
             // 
-            this._tourSiteControlPanel.Controls.Add(this._tourSiteNewItemTb);
-            this._tourSiteControlPanel.Controls.Add(this._tourSiteAddBtn);
             this._tourSiteControlPanel.Controls.Add(this._tourSiteRemoveBtn);
+            this._tourSiteControlPanel.Controls.Add(this._tourSiteAddBtn);
+            this._tourSiteControlPanel.Controls.Add(this._tourSiteNewItemTb);
             this._tourSiteControlPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this._tourSiteControlPanel.Location = new System.Drawing.Point(16, 35);
             this._tourSiteControlPanel.Name = "_tourSiteControlPanel";
             this._tourSiteControlPanel.Size = new System.Drawing.Size(225, 64);
             this._tourSiteControlPanel.TabIndex = 1;
+            this._tourSiteControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._tourSiteControlPanel_Paint);
+            // 
+            // _tourSiteRemoveBtn
+            // 
+            this._tourSiteRemoveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._tourSiteRemoveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._tourSiteRemoveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._tourSiteRemoveBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._tourSiteRemoveBtn.ImageListButton = this.removeBtnImageList;
+            this._tourSiteRemoveBtn.Location = new System.Drawing.Point(193, 13);
+            this._tourSiteRemoveBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._tourSiteRemoveBtn.Name = "_tourSiteRemoveBtn";
+            this._tourSiteRemoveBtn.Padding = new System.Windows.Forms.Padding(4);
+            this._tourSiteRemoveBtn.Size = new System.Drawing.Size(32, 32);
+            this._tourSiteRemoveBtn.TabIndex = 4;
+            this._tourSiteRemoveBtn.Click += new System.EventHandler(this._tourSiteRemoveBtn_Click);
+            // 
+            // removeBtnImageList
+            // 
+            this.removeBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("removeBtnImageList.ImageStream")));
+            this.removeBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.removeBtnImageList.Images.SetKeyName(0, "ic_delete2.png");
+            this.removeBtnImageList.Images.SetKeyName(1, "ic_delete_disabled.png");
+            // 
+            // _tourSiteAddBtn
+            // 
+            this._tourSiteAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._tourSiteAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._tourSiteAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this._tourSiteAddBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._tourSiteAddBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._tourSiteAddBtn.ImageListButton = this.addBtnImageList;
+            this._tourSiteAddBtn.Location = new System.Drawing.Point(161, 13);
+            this._tourSiteAddBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._tourSiteAddBtn.Name = "_tourSiteAddBtn";
+            this._tourSiteAddBtn.Padding = new System.Windows.Forms.Padding(4);
+            this._tourSiteAddBtn.Size = new System.Drawing.Size(32, 32);
+            this._tourSiteAddBtn.TabIndex = 3;
+            this._tourSiteAddBtn.Load += new System.EventHandler(this.addButton1_Load_1);
+            this._tourSiteAddBtn.Click += new System.EventHandler(this._tourSiteAddBtn_Click);
+            // 
+            // addBtnImageList
+            // 
+            this.addBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("addBtnImageList.ImageStream")));
+            this.addBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.addBtnImageList.Images.SetKeyName(0, "ic_add.png");
+            this.addBtnImageList.Images.SetKeyName(1, "ic_add_disabled.png");
             // 
             // _tourSiteNewItemTb
             // 
@@ -294,39 +357,6 @@
             this._tourSiteNewItemTb.TabIndex = 0;
             this._tourSiteNewItemTb.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this._tourSiteNewItemTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._tourSiteNewItemTb_KeyPress);
-            // 
-            // _tourSiteAddBtn
-            // 
-            this._tourSiteAddBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this._tourSiteAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._tourSiteAddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_tourSiteAddBtn.BackgroundImage")));
-            this._tourSiteAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this._tourSiteAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._tourSiteAddBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._tourSiteAddBtn.Location = new System.Drawing.Point(153, 16);
-            this._tourSiteAddBtn.Margin = new System.Windows.Forms.Padding(0);
-            this._tourSiteAddBtn.Name = "_tourSiteAddBtn";
-            this._tourSiteAddBtn.Size = new System.Drawing.Size(32, 32);
-            this._tourSiteAddBtn.TabIndex = 1;
-            this._tourSiteAddBtn.UseVisualStyleBackColor = false;
-            this._tourSiteAddBtn.Click += new System.EventHandler(this._tourSiteAddBtn_Click);
-            // 
-            // _tourSiteRemoveBtn
-            // 
-            this._tourSiteRemoveBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this._tourSiteRemoveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._tourSiteRemoveBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_tourSiteRemoveBtn.BackgroundImage")));
-            this._tourSiteRemoveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this._tourSiteRemoveBtn.Enabled = false;
-            this._tourSiteRemoveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._tourSiteRemoveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._tourSiteRemoveBtn.Location = new System.Drawing.Point(193, 17);
-            this._tourSiteRemoveBtn.Margin = new System.Windows.Forms.Padding(0);
-            this._tourSiteRemoveBtn.Name = "_tourSiteRemoveBtn";
-            this._tourSiteRemoveBtn.Size = new System.Drawing.Size(30, 30);
-            this._tourSiteRemoveBtn.TabIndex = 2;
-            this._tourSiteRemoveBtn.UseVisualStyleBackColor = false;
-            this._tourSiteRemoveBtn.Click += new System.EventHandler(this._tourSiteRemoveBtn_Click);
             // 
             // label3
             // 
@@ -342,7 +372,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this._cancelBtn);
             this.panel3.Controls.Add(this._acceptBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(16, 536);
@@ -350,6 +380,36 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(8);
             this.panel3.Size = new System.Drawing.Size(259, 48);
             this.panel3.TabIndex = 5;
+            // 
+            // _cancelBtn
+            // 
+            this._cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._cancelBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._cancelBtn.Font = new System.Drawing.Font("Constantia", 11F);
+            this._cancelBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this._cancelBtn.Location = new System.Drawing.Point(83, 8);
+            this._cancelBtn.Name = "_cancelBtn";
+            this._cancelBtn.Size = new System.Drawing.Size(75, 32);
+            this._cancelBtn.TabIndex = 1;
+            this._cancelBtn.Text = "Cancel";
+            this._cancelBtn.UseVisualStyleBackColor = false;
+            this._cancelBtn.Click += new System.EventHandler(this._cancelBtn_Click);
+            // 
+            // _acceptBtn
+            // 
+            this._acceptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._acceptBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._acceptBtn.Font = new System.Drawing.Font("Constantia", 11F);
+            this._acceptBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this._acceptBtn.Location = new System.Drawing.Point(8, 8);
+            this._acceptBtn.Name = "_acceptBtn";
+            this._acceptBtn.Size = new System.Drawing.Size(75, 32);
+            this._acceptBtn.TabIndex = 0;
+            this._acceptBtn.Text = "Accept";
+            this._acceptBtn.UseVisualStyleBackColor = false;
+            this._acceptBtn.Click += new System.EventHandler(this._acceptBtn_Click);
             // 
             // panel2
             // 
@@ -384,7 +444,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this._citiesCbb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this._citiesCbb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this._citiesCbb.DisplayMember = "name";
+            this._citiesCbb.DataSource = this._citiesBindingSource;
             this._citiesCbb.DropDownHeight = 132;
             this._citiesCbb.FormattingEnabled = true;
             this._citiesCbb.IntegralHeight = false;
@@ -439,7 +499,8 @@
             // _secondSpliter.Panel2
             // 
             this._secondSpliter.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._secondSpliter.Panel2.Controls.Add(this.dataGridView1);
+            this._secondSpliter.Panel2.Controls.Add(this._destinationGv);
+            this._secondSpliter.Panel2.Controls.Add(this.panel4);
             this._secondSpliter.Panel2MinSize = 272;
             this._secondSpliter.Size = new System.Drawing.Size(1061, 600);
             this._secondSpliter.SplitterDistance = 273;
@@ -517,33 +578,30 @@
             // 
             this._hotelRemoveTb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._hotelRemoveTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._hotelRemoveTb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_hotelRemoveTb.BackgroundImage")));
-            this._hotelRemoveTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this._hotelRemoveTb.Enabled = false;
-            this._hotelRemoveTb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._hotelRemoveTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._hotelRemoveTb.Location = new System.Drawing.Point(207, 2);
+            this._hotelRemoveTb.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._hotelRemoveTb.ImageListButton = this.removeBtnImageList;
+            this._hotelRemoveTb.Location = new System.Drawing.Point(209, 3);
             this._hotelRemoveTb.Margin = new System.Windows.Forms.Padding(0);
             this._hotelRemoveTb.Name = "_hotelRemoveTb";
-            this._hotelRemoveTb.Size = new System.Drawing.Size(30, 30);
-            this._hotelRemoveTb.TabIndex = 3;
-            this._hotelRemoveTb.UseVisualStyleBackColor = false;
+            this._hotelRemoveTb.Padding = new System.Windows.Forms.Padding(4);
+            this._hotelRemoveTb.Size = new System.Drawing.Size(32, 32);
+            this._hotelRemoveTb.TabIndex = 5;
             this._hotelRemoveTb.Click += new System.EventHandler(this._hotelRemoveTb_Click);
             // 
             // _hotelAddTb
             // 
             this._hotelAddTb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._hotelAddTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._hotelAddTb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_hotelAddTb.BackgroundImage")));
-            this._hotelAddTb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this._hotelAddTb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._hotelAddTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._hotelAddTb.Location = new System.Drawing.Point(167, 1);
+            this._hotelAddTb.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._hotelAddTb.ImageListButton = this.addBtnImageList;
+            this._hotelAddTb.Location = new System.Drawing.Point(177, 3);
             this._hotelAddTb.Margin = new System.Windows.Forms.Padding(0);
             this._hotelAddTb.Name = "_hotelAddTb";
+            this._hotelAddTb.Padding = new System.Windows.Forms.Padding(4);
             this._hotelAddTb.Size = new System.Drawing.Size(32, 32);
-            this._hotelAddTb.TabIndex = 3;
-            this._hotelAddTb.UseVisualStyleBackColor = false;
+            this._hotelAddTb.TabIndex = 4;
             this._hotelAddTb.Click += new System.EventHandler(this._hotelAddTb_Click);
             // 
             // panel5
@@ -650,6 +708,200 @@
             this.label4.Text = "Các khách sạn";
             this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
+            // _destinationGv
+            // 
+            this._destinationGv.AllowUserToAddRows = false;
+            this._destinationGv.AutoGenerateColumns = false;
+            this._destinationGv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._destinationGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._destinationGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._noDestinationColumn,
+            this._destinationNameColumn,
+            this._cityDestinationColumn,
+            this._tourSitesColumn,
+            this._hotelsColumn,
+            this._toursColumn});
+            this._destinationGv.DataSource = this._destinationBindingSource;
+            this._destinationGv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._destinationGv.Location = new System.Drawing.Point(0, 48);
+            this._destinationGv.MultiSelect = false;
+            this._destinationGv.Name = "_destinationGv";
+            this._destinationGv.RowHeadersVisible = false;
+            this._destinationGv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this._destinationGv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this._destinationGv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.5F);
+            this._destinationGv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._destinationGv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
+            this._destinationGv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
+            this._destinationGv.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._destinationGv.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._destinationGv.RowTemplate.Height = 48;
+            this._destinationGv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._destinationGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._destinationGv.Size = new System.Drawing.Size(786, 552);
+            this._destinationGv.TabIndex = 0;
+            this._destinationGv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._destinationGv_CellDoubleClick);
+            this._destinationGv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this._destinationGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this._destinationGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._destinationGv_CellValueChanged);
+            this._destinationGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._destinationGv_ColumnHeaderMouseClick);
+            this._destinationGv.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this._destinationGv_DataError);
+            // 
+            // _noDestinationColumn
+            // 
+            this._noDestinationColumn.FillWeight = 40F;
+            this._noDestinationColumn.HeaderText = "STT";
+            this._noDestinationColumn.Name = "_noDestinationColumn";
+            // 
+            // _destinationNameColumn
+            // 
+            this._destinationNameColumn.DataPropertyName = "name";
+            this._destinationNameColumn.HeaderText = "Tên điểm đến";
+            this._destinationNameColumn.Name = "_destinationNameColumn";
+            // 
+            // _cityDestinationColumn
+            // 
+            this._cityDestinationColumn.DataPropertyName = "city";
+            this._cityDestinationColumn.DataSource = this._citiesBindingSource;
+            this._cityDestinationColumn.HeaderText = "Tỉnh/ Thành";
+            this._cityDestinationColumn.Name = "_cityDestinationColumn";
+            this._cityDestinationColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._cityDestinationColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // _tourSitesColumn
+            // 
+            this._tourSitesColumn.DataPropertyName = "TourSites";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.NullValue = "0";
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._tourSitesColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this._tourSitesColumn.FillWeight = 60F;
+            this._tourSitesColumn.HeaderText = "Số điểm tham quan";
+            this._tourSitesColumn.Name = "_tourSitesColumn";
+            this._tourSitesColumn.ReadOnly = true;
+            // 
+            // _hotelsColumn
+            // 
+            this._hotelsColumn.DataPropertyName = "Hotels";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._hotelsColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this._hotelsColumn.FillWeight = 60F;
+            this._hotelsColumn.HeaderText = "Số khách sạn";
+            this._hotelsColumn.Name = "_hotelsColumn";
+            this._hotelsColumn.ReadOnly = true;
+            // 
+            // _toursColumn
+            // 
+            this._toursColumn.DataPropertyName = "Tours";
+            dataGridViewCellStyle3.NullValue = "0";
+            this._toursColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this._toursColumn.FillWeight = 60F;
+            this._toursColumn.HeaderText = "Số tour";
+            this._toursColumn.Name = "_toursColumn";
+            this._toursColumn.ReadOnly = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this._saveBtn);
+            this.panel4.Controls.Add(this._discardBtn);
+            this.panel4.Controls.Add(this._deleteBtn);
+            this.panel4.Controls.Add(this._searchTb);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(786, 48);
+            this.panel4.TabIndex = 1;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // _saveBtn
+            // 
+            this._saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._saveBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this._saveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._saveBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._saveBtn.ImageListButton = this._saveBtnImageList;
+            this._saveBtn.Location = new System.Drawing.Point(642, 0);
+            this._saveBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._saveBtn.Name = "_saveBtn";
+            this._saveBtn.Padding = new System.Windows.Forms.Padding(12);
+            this._saveBtn.Size = new System.Drawing.Size(48, 48);
+            this._saveBtn.TabIndex = 10;
+            this._saveBtn.Click += new System.EventHandler(this._saveBtnPanel_Click);
+            // 
+            // _saveBtnImageList
+            // 
+            this._saveBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_saveBtnImageList.ImageStream")));
+            this._saveBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this._saveBtnImageList.Images.SetKeyName(0, "ic_save.png");
+            this._saveBtnImageList.Images.SetKeyName(1, "ic_save_disabled.png");
+            // 
+            // _discardBtn
+            // 
+            this._discardBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._discardBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this._discardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._discardBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._discardBtn.ImageListButton = this._revertBtnImageList;
+            this._discardBtn.Location = new System.Drawing.Point(690, 0);
+            this._discardBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._discardBtn.Name = "_discardBtn";
+            this._discardBtn.Padding = new System.Windows.Forms.Padding(12);
+            this._discardBtn.Size = new System.Drawing.Size(48, 48);
+            this._discardBtn.TabIndex = 9;
+            this._discardBtn.Click += new System.EventHandler(this._discardBtn_Click);
+            // 
+            // _revertBtnImageList
+            // 
+            this._revertBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_revertBtnImageList.ImageStream")));
+            this._revertBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this._revertBtnImageList.Images.SetKeyName(0, "ic_revert.png");
+            this._revertBtnImageList.Images.SetKeyName(1, "ic_revert_disabled.png");
+            // 
+            // _deleteBtn
+            // 
+            this._deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._deleteBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this._deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._deleteBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._deleteBtn.ImageListButton = this._deleteBtnImageList;
+            this._deleteBtn.Location = new System.Drawing.Point(738, 0);
+            this._deleteBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._deleteBtn.Name = "_deleteBtn";
+            this._deleteBtn.Padding = new System.Windows.Forms.Padding(12);
+            this._deleteBtn.Size = new System.Drawing.Size(48, 48);
+            this._deleteBtn.TabIndex = 8;
+            this._deleteBtn.Click += new System.EventHandler(this._deleteBtn_Click);
+            // 
+            // _deleteBtnImageList
+            // 
+            this._deleteBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_deleteBtnImageList.ImageStream")));
+            this._deleteBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this._deleteBtnImageList.Images.SetKeyName(0, "ic_remove.png");
+            this._deleteBtnImageList.Images.SetKeyName(1, "ic_remove_disabled.png");
+            // 
+            // _searchTb
+            // 
+            this._searchTb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this._searchTb.Location = new System.Drawing.Point(143, 12);
+            this._searchTb.Name = "_searchTb";
+            this._searchTb.Size = new System.Drawing.Size(280, 27);
+            this._searchTb.TabIndex = 1;
+            this._searchTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._searchTb_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(11, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 19);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Tìm kiếm nhanh";
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
@@ -668,98 +920,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Khách sạn";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // _acceptBtn
-            // 
-            this._acceptBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this._acceptBtn.Location = new System.Drawing.Point(8, 8);
-            this._acceptBtn.Name = "_acceptBtn";
-            this._acceptBtn.Size = new System.Drawing.Size(75, 32);
-            this._acceptBtn.TabIndex = 0;
-            this._acceptBtn.Text = "Accept";
-            this._acceptBtn.UseVisualStyleBackColor = true;
-            this._acceptBtn.Click += new System.EventHandler(this._acceptBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(83, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._noDestinationColumn,
-            this._destinationNameColumn,
-            this._cityDestinationColumn,
-            this._tourSitesColumn,
-            this._hotelsColumn});
-            this.dataGridView1.DataSource = this._destinationBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 48;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 600);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // _noDestinationColumn
-            // 
-            this._noDestinationColumn.FillWeight = 40F;
-            this._noDestinationColumn.HeaderText = "STT";
-            this._noDestinationColumn.Name = "_noDestinationColumn";
-            // 
-            // _destinationNameColumn
-            // 
-            this._destinationNameColumn.DataPropertyName = "name";
-            this._destinationNameColumn.HeaderText = "Tên điểm đến";
-            this._destinationNameColumn.Name = "_destinationNameColumn";
-            // 
-            // _cityDestinationColumn
-            // 
-            this._cityDestinationColumn.DataPropertyName = "city";
-            this._cityDestinationColumn.HeaderText = "Tỉnh/ Thành";
-            this._cityDestinationColumn.Name = "_cityDestinationColumn";
-            // 
-            // _tourSitesColumn
-            // 
-            this._tourSitesColumn.DataPropertyName = "TourSites";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.NullValue = "0";
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this._tourSitesColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this._tourSitesColumn.FillWeight = 60F;
-            this._tourSitesColumn.HeaderText = "Số điểm tham quan";
-            this._tourSitesColumn.Name = "_tourSitesColumn";
-            this._tourSitesColumn.ReadOnly = true;
-            // 
-            // _hotelsColumn
-            // 
-            this._hotelsColumn.DataPropertyName = "id";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this._hotelsColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this._hotelsColumn.FillWeight = 60F;
-            this._hotelsColumn.HeaderText = "Số khách sạn";
-            this._hotelsColumn.Name = "_hotelsColumn";
-            this._hotelsColumn.ReadOnly = true;
             // 
             // fmLocationManager
             // 
@@ -795,6 +955,7 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._citiesBindingSource)).EndInit();
             this._secondSpliter.Panel1.ResumeLayout(false);
             this._secondSpliter.Panel1.PerformLayout();
             this._secondSpliter.Panel2.ResumeLayout(false);
@@ -805,9 +966,11 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._destinationGv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._destinationBindingSource)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -838,8 +1001,6 @@
         private System.Windows.Forms.Panel _tourSitePanel;
         private System.Windows.Forms.Panel _tourSiteControlPanel;
         private System.Windows.Forms.ListView _tourSitesTempLv;
-        private System.Windows.Forms.Button _tourSiteAddBtn;
-        private System.Windows.Forms.Button _tourSiteRemoveBtn;
         private System.Windows.Forms.TextBox _tourSiteNewItemTb;
         private System.Windows.Forms.SplitContainer _secondSpliter;
         private System.Windows.Forms.Label label4;
@@ -850,8 +1011,6 @@
         private System.Windows.Forms.TextBox _hotelAddressTb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button _hotelRemoveTb;
-        private System.Windows.Forms.Button _hotelAddTb;
         private System.Windows.Forms.TextBox _hotelPhoneTb;
         private System.Windows.Forms.TextBox _hotelStatusTb;
         private System.Windows.Forms.Label label10;
@@ -861,14 +1020,33 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _hotelAddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _hotelPhoneColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _hotelStatusColumn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button _cancelBtn;
         private System.Windows.Forms.Button _acceptBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView _destinationGv;
         private System.Windows.Forms.BindingSource _destinationBindingSource;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox _searchTb;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolTip _tooltip;
+        private System.Windows.Forms.BindingSource _citiesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn _noDestinationColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _destinationNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _cityDestinationColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn _cityDestinationColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _tourSitesColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _hotelsColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _toursColumn;
+        private System.Windows.Forms.ImageList addBtnImageList;
+        private CustomControl.AddButton _tourSiteAddBtn;
+        private CustomControl.AddButton _hotelAddTb;
+        private CustomControl.AddButton _tourSiteRemoveBtn;
+        private System.Windows.Forms.ImageList removeBtnImageList;
+        private System.Windows.Forms.ImageList _revertBtnImageList;
+        private CustomControl.AddButton _hotelRemoveTb;
+        private CustomControl.AddButton _deleteBtn;
+        private System.Windows.Forms.ImageList _deleteBtnImageList;
+        private CustomControl.AddButton _discardBtn;
+        private CustomControl.AddButton _saveBtn;
+        private System.Windows.Forms.ImageList _saveBtnImageList;
+
     }
 }

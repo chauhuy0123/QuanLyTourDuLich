@@ -36,6 +36,14 @@ namespace BusinessEntity.SearchEngine
             {
                 return new TourGroupSearchEngine() as ISearchAble<TEntity>;
             }
+            if (typeof(TEntity) == typeof(DTO.Destination))
+            {
+                return new DestinationSearchEngine() as ISearchAble<TEntity>;
+            }
+            if (typeof(TEntity) == typeof(DTO.TourSite))
+            {
+                return new TourSiteSearchEngine() as ISearchAble<TEntity>;
+            } 
             return null;
         }
     }

@@ -34,6 +34,25 @@ namespace BusinessEntity
             _unitOfWork.Save();
         }
 
+        public void delete(Destination destination)
+        {
+            if (destination.Tours != null && destination.Tours.Count != 0)
+            {
+                
+            }
+            if (destination.TourSites != null)
+            {
+                _unitOfWork.TourSiteRepository.Delete(toursite => toursite.destination_id == destination.id);
+            }
+            if (destination.Hotels != null)
+            {
+                _unitOfWork.HotelRepository.Delete(hotel => hotel.destination_id == destination.id);
+            }
+            _unitOfWork.DestinationRepository.Delete(destination.id);
+            _unitOfWork.Save();
+        }
+
+
         public bool isExists(int key)
         {
             return _unitOfWork.DestinationRepository.Exists(key);
@@ -44,5 +63,11 @@ namespace BusinessEntity
             _unitOfWork.DestinationRepository.Update(destination);
             _unitOfWork.Save();
         }
+
+        public void refresh()
+        {
+            _unitOfWork.DestinationRepository.Refresh();
+        }
+
     }
 }
