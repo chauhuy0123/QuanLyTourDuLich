@@ -28,13 +28,14 @@ namespace DTO
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeRole> EmployeeRoles { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
-        public DbSet<Passenger> Passengers { get; set; }
-        public DbSet<PassengerCategory> PassengerCategories { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourCategory> TourCategories { get; set; }
@@ -42,9 +43,6 @@ namespace DTO
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<AccountType> AccountTypes { get; set; }
     
         public virtual ObjectResult<GetCustomerById_Result> GetCustomerById(string id)
         {
@@ -83,13 +81,13 @@ namespace DTO
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeById_Result>("GetEmployeeById", idParameter);
         }
     
-        public virtual ObjectResult<GetEmployeeByTourGroupId_Result> GetEmployeeByTourGroupId(string tour_group_id)
+        public virtual int GetEmployeeByTourGroupId(Nullable<int> tour_group_id)
         {
-            var tour_group_idParameter = tour_group_id != null ?
+            var tour_group_idParameter = tour_group_id.HasValue ?
                 new ObjectParameter("tour_group_id", tour_group_id) :
-                new ObjectParameter("tour_group_id", typeof(string));
+                new ObjectParameter("tour_group_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeByTourGroupId_Result>("GetEmployeeByTourGroupId", tour_group_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetEmployeeByTourGroupId", tour_group_idParameter);
         }
     
         public virtual ObjectResult<GetEmployeeList_Result> GetEmployeeList()
@@ -141,6 +139,108 @@ namespace DTO
         public virtual ObjectResult<GetTourList_Result> GetTourList()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTourList_Result>("GetTourList");
+        }
+    
+        public virtual ObjectResult<GetAllPassengers_Result> GetCustomersByTourGroupId(Nullable<int> tourgroup_id)
+        {
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllPassengers_Result>("GetCustomersByTourGroupId", tourgroup_idParameter);
+        }
+    
+        public virtual ObjectResult<GetAllPassengers_Result> GetAllPassengers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllPassengers_Result>("GetAllPassengers");
+        }
+    
+        public virtual int addEmployeeTourGroup(Nullable<int> employee_id, Nullable<int> tourgroup_id)
+        {
+            var employee_idParameter = employee_id.HasValue ?
+                new ObjectParameter("employee_id", employee_id) :
+                new ObjectParameter("employee_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addEmployeeTourGroup", employee_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual int addPassenger(Nullable<int> customer_id, Nullable<int> tourgroup_id)
+        {
+            var customer_idParameter = customer_id.HasValue ?
+                new ObjectParameter("customer_id", customer_id) :
+                new ObjectParameter("customer_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addPassenger", customer_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual int addTransportTourGroup(Nullable<int> transport_id, Nullable<int> tourgroup_id)
+        {
+            var transport_idParameter = transport_id.HasValue ?
+                new ObjectParameter("transport_id", transport_id) :
+                new ObjectParameter("transport_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("addTransportTourGroup", transport_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual int deleteEmployeeTransport(Nullable<int> employee_id, Nullable<int> tourgroup_id)
+        {
+            var employee_idParameter = employee_id.HasValue ?
+                new ObjectParameter("employee_id", employee_id) :
+                new ObjectParameter("employee_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteEmployeeTransport", employee_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual int deletePassenger(Nullable<int> customer_id, Nullable<int> tourgroup_id)
+        {
+            var customer_idParameter = customer_id.HasValue ?
+                new ObjectParameter("customer_id", customer_id) :
+                new ObjectParameter("customer_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deletePassenger", customer_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual int deleteTransportTourGroup(Nullable<int> transport_id, Nullable<int> tourgroup_id)
+        {
+            var transport_idParameter = transport_id.HasValue ?
+                new ObjectParameter("transport_id", transport_id) :
+                new ObjectParameter("transport_id", typeof(int));
+    
+            var tourgroup_idParameter = tourgroup_id.HasValue ?
+                new ObjectParameter("tourgroup_id", tourgroup_id) :
+                new ObjectParameter("tourgroup_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteTransportTourGroup", transport_idParameter, tourgroup_idParameter);
+        }
+    
+        public virtual ObjectResult<GetAllEmployeeTourGroup_Result> GetAllEmployeeTourGroup()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllEmployeeTourGroup_Result>("GetAllEmployeeTourGroup");
+        }
+    
+        public virtual ObjectResult<GetAllTransportTourGroup_Result> GetAllTransportTourGroup()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllTransportTourGroup_Result>("GetAllTransportTourGroup");
         }
     }
 }

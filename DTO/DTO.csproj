@@ -86,10 +86,22 @@
     <Compile Include="Gender.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetAllEmployeeTourGroup_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllPassengers_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllTransportTourGroup_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetCustomerById_Result.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="GetCustomerList_Result.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCustomersByTourGroupId_Result.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="GetDestinationById_Result.cs">
@@ -125,12 +137,6 @@
     <Compile Include="Hotel.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Passenger.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PassengerCategory.cs">
-      <DependentUpon>DTOEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
@@ -162,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="DTOEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DTOEntities.edmx</DependentUpon>

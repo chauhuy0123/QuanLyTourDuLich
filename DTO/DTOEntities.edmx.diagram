@@ -4,42 +4,37 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cbdde08eb83747d78deacd5d446dc0fa" Name="Diagram1" ZoomLevel="155">
-        <EntityTypeShape EntityType="TourManagerModel.Destination" Width="1.5" PointX="0.75" PointY="6" />
-        <EntityTypeShape EntityType="TourManagerModel.Employee" Width="1.5" PointX="5.25" PointY="15.5" />
-        <EntityTypeShape EntityType="TourManagerModel.EmployeeRole" Width="1.5" PointX="3" PointY="17.125" />
-        <EntityTypeShape EntityType="TourManagerModel.Gender" Width="1.5" PointX="3" PointY="20.5" />
-        <EntityTypeShape EntityType="TourManagerModel.Hotel" Width="1.5" PointX="3" PointY="8.125" />
-        <EntityTypeShape EntityType="TourManagerModel.Passenger" Width="1.5" PointX="7.5" PointY="4" />
-        <EntityTypeShape EntityType="TourManagerModel.PassengerCategory" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="TourManagerModel.Status" Width="1.5" PointX="3" PointY="14.625" />
-        <EntityTypeShape EntityType="TourManagerModel.Tour" Width="1.5" PointX="3" PointY="3.75" />
-        <EntityTypeShape EntityType="TourManagerModel.TourCategory" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="TourManagerModel.TourGroup" Width="1.5" PointX="5.25" PointY="3.875" />
-        <EntityTypeShape EntityType="TourManagerModel.TourPrice" Width="1.5" PointX="0.75" PointY="9.25" />
-        <EntityTypeShape EntityType="TourManagerModel.TourSite" Width="1.5" PointX="3" PointY="11.25" />
-        <EntityTypeShape EntityType="TourManagerModel.Transport" Width="1.5" PointX="5.25" PointY="7.875" />
+      <Diagram DiagramId="cbdde08eb83747d78deacd5d446dc0fa" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="TourManagerModel.Account" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="TourManagerModel.AccountType" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="TourManagerModel.Customer" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="TourManagerModel.Destination" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="TourManagerModel.Employee" Width="1.5" PointX="9" PointY="10.375" />
+        <EntityTypeShape EntityType="TourManagerModel.EmployeeRole" Width="1.5" PointX="6.75" PointY="12" />
+        <EntityTypeShape EntityType="TourManagerModel.Gender" Width="1.5" PointX="6.75" PointY="2.625" />
+        <EntityTypeShape EntityType="TourManagerModel.Hotel" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="TourManagerModel.Status" Width="1.5" PointX="6.75" PointY="9.5" />
+        <EntityTypeShape EntityType="TourManagerModel.Tour" Width="1.5" PointX="6" PointY="5.25" />
+        <EntityTypeShape EntityType="TourManagerModel.TourCategory" Width="1.5" PointX="3.75" PointY="2.5" />
+        <EntityTypeShape EntityType="TourManagerModel.TourGroup" Width="1.5" PointX="11.25" PointY="5.25" />
+        <EntityTypeShape EntityType="TourManagerModel.TourPrice" Width="1.5" PointX="3.75" PointY="8.875" />
+        <EntityTypeShape EntityType="TourManagerModel.TourSite" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="TourManagerModel.Transport" Width="1.5" PointX="13.5" PointY="5.625" />
+        <AssociationConnector Association="TourManagerModel.FK_Customer_Gender" />
         <AssociationConnector Association="TourManagerModel.FK_Hotel_Destination" />
         <AssociationConnector Association="TourManagerModel.FK_Tour_Destination" />
         <AssociationConnector Association="TourManagerModel.FK_TourSite_Destination" />
         <AssociationConnector Association="TourManagerModel.FK_Employee_EmployeeRole" />
         <AssociationConnector Association="TourManagerModel.FK_Employee_Status" />
-        <AssociationConnector Association="TourManagerModel.FK_Passenger_PassengerCategory" />
-        <AssociationConnector Association="TourManagerModel.FK_Passenger_TourGroup" />
         <AssociationConnector Association="TourManagerModel.FK_Transport_Status" />
         <AssociationConnector Association="TourManagerModel.FK_Tour_TourCategory" />
         <AssociationConnector Association="TourManagerModel.FK_Tour_TourPrice" />
         <AssociationConnector Association="TourManagerModel.FK_TourGroup_TourCategory" />
-        <EntityTypeShape EntityType="TourManagerModel.Customer" Width="1.5" PointX="5.25" PointY="20.125" />
-        <AssociationConnector Association="TourManagerModel.FK_Customer_Gender" />
-        <AssociationConnector Association="TourManagerModel.FK_Passenger_Customer" />
         <AssociationConnector Association="TourManagerModel.EmployeesTourGroup" />
-        <AssociationConnector Association="TourManagerModel.TransportsTourGroup" />
-        <EntityTypeShape EntityType="TourManagerModel.Account" Width="1.5" PointX="9.625" PointY="0.875" />
-        <EntityTypeShape EntityType="TourManagerModel.AccountType" Width="1.5" PointX="7.375" PointY="1" />
-        <AssociationConnector Association="TourManagerModel.FK_Account_AccountType" />
+        <AssociationConnector Association="TourManagerModel.Passenger" />
         <AssociationConnector Association="TourManagerModel.TourDetail" />
-        </Diagram>
+        <AssociationConnector Association="TourManagerModel.TransportsTourGroup" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

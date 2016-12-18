@@ -146,7 +146,7 @@ namespace QuanLyTourDuLich
         //
         private void btnTouristsGroupManager_Click(object sender, EventArgs e)
         {
-            fmTouristsGroupManager fm = new fmTouristsGroupManager();
+            frmTourGroupManager fm = new frmTourGroupManager();
             this.Hide();
             fm.ShowDialog();
             this.Show();

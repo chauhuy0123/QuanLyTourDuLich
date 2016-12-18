@@ -26,8 +26,6 @@ namespace DAO
         private GenericRepository<EmployeeRole> _employeeRoleRepository;
         private GenericRepository<Gender> _genderRepository;
         private GenericRepository<Hotel> _hotelRepository;
-        private GenericRepository<Passenger> _passengerRepository;
-        private GenericRepository<PassengerCategory> _passengerCategoryRepository;
         private GenericRepository<Status> _statusRepository;
         private GenericRepository<Tour> _tourRepository;
         private GenericRepository<TourCategory> _tourCategoryRepository;
@@ -96,26 +94,6 @@ namespace DAO
                 if (_hotelRepository == null)
                     _hotelRepository = new GenericRepository<Hotel>(_entityContext);
                 return _hotelRepository;
-            }
-        }
-
-        public GenericRepository<Passenger> PassengerRepository
-        {
-            get
-            {
-                if (_passengerRepository == null)
-                    _passengerRepository = new GenericRepository<Passenger>(_entityContext);
-                return _passengerRepository;
-            }
-        }
-
-        public GenericRepository<PassengerCategory> PassengerCategoryRepository
-        {
-            get
-            {
-                if (_passengerCategoryRepository == null)
-                    _passengerCategoryRepository = new GenericRepository<PassengerCategory>(_entityContext);
-                return _passengerCategoryRepository;
             }
         }
 

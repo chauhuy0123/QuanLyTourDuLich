@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +48,10 @@
     <Compile Include="AccountTypeBUS.cs" />
     <Compile Include="CustomerBUS.cs" />
     <Compile Include="DestinationBUS.cs" />
+    <Compile Include="EmployeeBUS.cs" />
+    <Compile Include="EmployeeTourGroupBUS.cs" />
     <Compile Include="GenderBUS.cs" />
+    <Compile Include="PassengerBUS.cs" />
     <Compile Include="SearchEngine\CustomerSearchEngine.cs" />
     <Compile Include="SearchEngine\ISearchAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +66,7 @@
     <Compile Include="TourPriceBUS.cs" />
     <Compile Include="TourSiteBUS.cs" />
     <Compile Include="TransportBUS.cs" />
+    <Compile Include="TransportTourGroupBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

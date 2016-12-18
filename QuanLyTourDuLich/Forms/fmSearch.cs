@@ -277,7 +277,7 @@ namespace QuanLyTourDuLich.GUI
             }
             if (e.ColumnIndex == 6)
             {
-                e.Value = (e.Value as IEnumerable<Passenger>).Count().ToString();
+               // e.Value = (e.Value as IEnumerable<Passenger>).Count().ToString();
             }
         }
 

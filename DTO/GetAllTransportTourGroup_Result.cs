@@ -10,12 +10,10 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class AccountType
+    public partial class GetAllTransportTourGroup_Result
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int level { get; set; }
+        public int transport_id { get; set; }
+        public int tour_group_id { get; set; }
     }
 }

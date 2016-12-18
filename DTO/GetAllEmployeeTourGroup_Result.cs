@@ -10,18 +10,10 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PassengerCategory
+    public partial class GetAllEmployeeTourGroup_Result
     {
-        public PassengerCategory()
-        {
-            this.Passengers = new HashSet<Passenger>();
-        }
-    
-        public int id { get; set; }
-        public string name { get; set; }
-    
-        public virtual ICollection<Passenger> Passengers { get; set; }
+        public int employee_id { get; set; }
+        public int tour_group_id { get; set; }
     }
 }

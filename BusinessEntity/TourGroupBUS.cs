@@ -10,6 +10,7 @@ namespace BusinessEntity
     public class TourGroupBUS
     {
         UnitOfWork _unitOfWork = new UnitOfWork();
+        TourManagerEntities _context = new TourManagerEntities();
 
         private static DateTime MinDate = new DateTime(2000, 1, 1);
         private static DateTime MaxDate = new DateTime(2100, 1, 1);

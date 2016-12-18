@@ -10,7 +10,7 @@ namespace BusinessEntity
     public class TransportBUS
     {
         UnitOfWork _unitOfWork = new DAO.UnitOfWork();
-
+    
         public Transport getCustomerById(int id)
         {
             return _unitOfWork.TransportRepository.GetByID(id);

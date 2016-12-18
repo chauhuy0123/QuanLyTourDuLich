@@ -10,16 +10,10 @@
 namespace DTO
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Passenger
+    public partial class GetAllPassengers_Result
     {
         public int customer_id { get; set; }
-        public int category_id { get; set; }
         public int tour_group_id { get; set; }
-    
-        public virtual PassengerCategory PassengerCategory { get; set; }
-        public virtual TourGroup TourGroup { get; set; }
-        public virtual Customer Customer { get; set; }
     }
 }
