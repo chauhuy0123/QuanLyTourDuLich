@@ -98,7 +98,7 @@ namespace QuanLyTourDuLich.GUI
                     txbUsername.Clear();
                     txbPassword.Clear();
 
-                    fmMain._accountType = _acc.account_type; //Truyền account type cho form Main
+                    fmMain._accountType = _acc.AccountType.level; //Truyền account type cho form Main
                     fmMain._username = _acc.username; // Truyền tên tài khoản cho form Main
                     MessageBox.Show("Đăng nhập thành công!\nTài khoản: " + _acc.username.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

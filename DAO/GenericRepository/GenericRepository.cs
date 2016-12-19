@@ -116,7 +116,7 @@ namespace DAO.GenericRepository
         }
 
         /// <summary>
-        /// Cái này gọi là vá bug :))
+        /// Discard all changed
         /// </summary>
         public void Refresh()
         {
@@ -124,7 +124,6 @@ namespace DAO.GenericRepository
             {
                 entity.Reload();
             }
-            
         }
     }
 }

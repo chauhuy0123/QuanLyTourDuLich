@@ -1,17 +1,17 @@
-﻿using System;
+﻿using DAO;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DAO;
-using DTO;
+
 namespace BusinessEntity
 {
     public class TourSiteBUS
     {
         UnitOfWork _unitOfWork = new DAO.UnitOfWork();
 
-        // ??
-        public TourSite getCustomerById(int id)
+        public TourSite getTourSiteId(int id)
         {
             return _unitOfWork.TourSiteRepository.GetByID(id);
         }
@@ -42,6 +42,16 @@ namespace BusinessEntity
         {
             _unitOfWork.TourSiteRepository.Update(toursite);
             _unitOfWork.Save();
+        }
+
+        public IEnumerable<TourSite> getByDestination(int destinationId)
+        {
+            return _unitOfWork.TourSiteRepository.GetMany(toursite => toursite.destination_id == destinationId);
+        }
+
+        public void refresh()
+        {
+            _unitOfWork.TourSiteRepository.Refresh();
         }
     }
 }

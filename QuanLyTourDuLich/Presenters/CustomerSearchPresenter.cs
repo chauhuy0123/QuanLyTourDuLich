@@ -38,6 +38,8 @@ namespace QuanLyTourDuLich.Presenters
 
         public void sortIdColumn()
         {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
             var comparasion = new Comparison<Customer>((c1, c2) => c1.id - c2.id);
             var query = _searchResult.ToList();
             query.Sort(comparasion);
@@ -46,6 +48,8 @@ namespace QuanLyTourDuLich.Presenters
 
         public void sortNameColumn()
         {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
             var comparasion = new Comparison<Customer>((c1, c2) => c1.name.CompareTo(c2.name));
             var query = _searchResult.ToList();
             query.Sort(comparasion);
@@ -54,6 +58,8 @@ namespace QuanLyTourDuLich.Presenters
 
         public void sortAddressColumn()
         {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
             var comparasion = new Comparison<Customer>((c1, c2) => c1.address.CompareTo(c2.address));
             var query = _searchResult.ToList();
             query.Sort(comparasion);
@@ -62,6 +68,8 @@ namespace QuanLyTourDuLich.Presenters
 
         public void sortPhoneColumn()
         {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
             var comparasion = new Comparison<Customer>((c1, c2) => c1.phone.CompareTo(c2.phone));
             var query = _searchResult.ToList();
             query.Sort(comparasion);
@@ -70,6 +78,8 @@ namespace QuanLyTourDuLich.Presenters
 
         public void sortGenderColumn()
         {
+            if (_searchResult == null || _searchResult.Count() == 0)
+                return;
             var comparasion = new Comparison<Customer>((c1, c2) => c1.gender.CompareTo(c2.gender));
             var query = _searchResult.ToList();
             query.Sort(comparasion);

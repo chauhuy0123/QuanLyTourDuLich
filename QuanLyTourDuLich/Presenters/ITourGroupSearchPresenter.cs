@@ -13,5 +13,13 @@ namespace QuanLyTourDuLich.Presenters
         void updateViewSearchResult(IEnumerable<TourGroup> _searchResult);
         void filterTransport(IEnumerable<Transport> _transports);
         void filterDate(DateTime[] _times);
+
+        void sortByTourGrouId();
+        void sortByTourGroupName();
+        void sortByTourName();
+        void sortByDepartDate();
+        void sortByReturnDate();
+        void sortByEmployees();
+
     }
 }

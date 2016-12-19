@@ -242,5 +242,23 @@ namespace DTO
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllTransportTourGroup_Result>("GetAllTransportTourGroup");
         }
+    
+        public virtual int GetEmployeeByTourGroupId1(string tour_group_id)
+        {
+            var tour_group_idParameter = tour_group_id != null ?
+                new ObjectParameter("tour_group_id", tour_group_id) :
+                new ObjectParameter("tour_group_id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetEmployeeByTourGroupId1", tour_group_idParameter);
+        }
+    
+        public virtual int GetPassengerByTourGroupId1(string tour_group_id)
+        {
+            var tour_group_idParameter = tour_group_id != null ?
+                new ObjectParameter("tour_group_id", tour_group_id) :
+                new ObjectParameter("tour_group_id", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetPassengerByTourGroupId1", tour_group_idParameter);
+        }
     }
 }

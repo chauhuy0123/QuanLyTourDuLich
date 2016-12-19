@@ -19,5 +19,17 @@ namespace QuanLyTourDuLich.Presenters
 
         void filterTourCityChange(IEnumerable<Destination> city);
 
+        void sortByTourId();
+
+        void sortByTourName();
+
+        void sortByTourCategory();
+
+        void sortByPrice();
+
+        void sortByDestination();
+
+        void sortByCity();
+
     }
 }

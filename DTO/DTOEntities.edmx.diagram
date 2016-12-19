@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="cbdde08eb83747d78deacd5d446dc0fa" Name="Diagram1" ZoomLevel="94">
-        <EntityTypeShape EntityType="TourManagerModel.Account" Width="1.5" PointX="0.75" PointY="1.875" />
-        <EntityTypeShape EntityType="TourManagerModel.AccountType" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="TourManagerModel.Account" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="TourManagerModel.AccountType" Width="1.5" PointX="0.75" PointY="12.125" />
         <EntityTypeShape EntityType="TourManagerModel.Customer" Width="1.5" PointX="9" PointY="0.75" />
         <EntityTypeShape EntityType="TourManagerModel.Destination" Width="1.5" PointX="0.75" PointY="5.625" />
         <EntityTypeShape EntityType="TourManagerModel.Employee" Width="1.5" PointX="9" PointY="10.375" />
@@ -15,11 +15,12 @@
         <EntityTypeShape EntityType="TourManagerModel.Hotel" Width="1.5" PointX="3" PointY="5.5" />
         <EntityTypeShape EntityType="TourManagerModel.Status" Width="1.5" PointX="6.75" PointY="9.5" />
         <EntityTypeShape EntityType="TourManagerModel.Tour" Width="1.5" PointX="6" PointY="5.25" />
-        <EntityTypeShape EntityType="TourManagerModel.TourCategory" Width="1.5" PointX="3.75" PointY="2.5" />
+        <EntityTypeShape EntityType="TourManagerModel.TourCategory" Width="1.5" PointX="3.75" PointY="9.25" />
         <EntityTypeShape EntityType="TourManagerModel.TourGroup" Width="1.5" PointX="11.25" PointY="5.25" />
-        <EntityTypeShape EntityType="TourManagerModel.TourPrice" Width="1.5" PointX="3.75" PointY="8.875" />
+        <EntityTypeShape EntityType="TourManagerModel.TourPrice" Width="1.5" PointX="3.75" PointY="2.5" />
         <EntityTypeShape EntityType="TourManagerModel.TourSite" Width="1.5" PointX="8.25" PointY="5.625" />
         <EntityTypeShape EntityType="TourManagerModel.Transport" Width="1.5" PointX="13.5" PointY="5.625" />
+        <AssociationConnector Association="TourManagerModel.FK_Account_AccountType" />
         <AssociationConnector Association="TourManagerModel.FK_Customer_Gender" />
         <AssociationConnector Association="TourManagerModel.FK_Hotel_Destination" />
         <AssociationConnector Association="TourManagerModel.FK_Tour_Destination" />
