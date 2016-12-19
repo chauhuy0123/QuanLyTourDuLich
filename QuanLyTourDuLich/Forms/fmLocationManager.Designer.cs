@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmLocationManager));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this._backBtnPanel = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
@@ -759,10 +759,10 @@
             // _tourSitesColumn
             // 
             this._tourSitesColumn.DataPropertyName = "TourSites";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.NullValue = "0";
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this._tourSitesColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.NullValue = "0";
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._tourSitesColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this._tourSitesColumn.FillWeight = 60F;
             this._tourSitesColumn.HeaderText = "Số điểm tham quan";
             this._tourSitesColumn.Name = "_tourSitesColumn";
@@ -771,9 +771,9 @@
             // _hotelsColumn
             // 
             this._hotelsColumn.DataPropertyName = "Hotels";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this._hotelsColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this._hotelsColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this._hotelsColumn.FillWeight = 60F;
             this._hotelsColumn.HeaderText = "Số khách sạn";
             this._hotelsColumn.Name = "_hotelsColumn";
@@ -782,8 +782,8 @@
             // _toursColumn
             // 
             this._toursColumn.DataPropertyName = "Tours";
-            dataGridViewCellStyle3.NullValue = "0";
-            this._toursColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.NullValue = "0";
+            this._toursColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this._toursColumn.FillWeight = 60F;
             this._toursColumn.HeaderText = "Số tour";
             this._toursColumn.Name = "_toursColumn";
@@ -923,7 +923,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fmLocationManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmLocationManager";
+            this.Text = "Địa điểm du lịch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fmLocationManager_Load);
             this.panel1.ResumeLayout(false);
