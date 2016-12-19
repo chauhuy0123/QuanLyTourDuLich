@@ -142,7 +142,7 @@ namespace QuanLyTourDuLich.Presenters
         {
             if (_searchResult == null || _searchResult.Count() == 0)
                 return;
-            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.Passengers.Count - t2.Passengers.Count);
+            var comparasion = new Comparison<TourGroup>((t1, t2) => t1.Customers.Count - t2.Customers.Count);
             var query = _searchResult.ToList();
             query.Sort(comparasion);
             updateFilter(query);

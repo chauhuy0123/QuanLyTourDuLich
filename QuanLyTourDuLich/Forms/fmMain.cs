@@ -103,6 +103,7 @@ namespace QuanLyTourDuLich
                 //btnSearch.Enabled = false;
                 //btnSystemManager.Enabled = false;
                 //btnReport.Enabled = false;
+                defaultValue();
             }
             #endregion
 
@@ -260,12 +261,24 @@ namespace QuanLyTourDuLich
 
         private void defaultValue()
         {
+#if DEBUG
+            btnTourManager.Enabled = true;
+            btnTouristsGroupManager.Enabled = true;
+            btnLocationManager.Enabled = true;
+            btnSearch.Enabled = true;
+            btnSystemManager.Enabled = true;
+            btnReport.Enabled = true;
+#else
+#if RELEASE
+#endif // RELEASE
             btnTourManager.Enabled = false;
             btnTouristsGroupManager.Enabled = false;
             btnLocationManager.Enabled = false;
             btnSearch.Enabled = false;
             btnSystemManager.Enabled = false;
             btnReport.Enabled = false;
+#endif // DEBUG
+
         }
 
         

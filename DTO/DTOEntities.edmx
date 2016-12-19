@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="level" Type="int" Nullable="false" />
         </EntityType>
@@ -168,6 +168,18 @@
           <Property Name="transport_id" Type="int" Nullable="false" />
           <Property Name="tour_group_id" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="account_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Customer_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
@@ -425,9 +437,15 @@
         <Function Name="GetEmployeeById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetEmployeeByTourGroupId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tour_group_id" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetEmployeeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetPassengerById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="customer_id" Type="varchar" Mode="In" />
+          <Parameter Name="tour_group_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPassengerByTourGroupId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tour_group_id" Type="varchar" Mode="In" />
         </Function>
         <Function Name="GetStatusById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -456,6 +474,10 @@
           <EntitySet Name="TourSite" EntityType="Self.TourSite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransportsTourGroup" EntityType="Self.TransportsTourGroup" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_AccountType" Association="Self.FK_Account_AccountType">
+            <End Role="AccountType" EntitySet="AccountType" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Customer_Gender" Association="Self.FK_Customer_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Customer" EntitySet="Customer" />
@@ -607,6 +629,10 @@
           <EntitySet Name="TourPrices" EntityType="TourManagerModel.TourPrice" />
           <EntitySet Name="TourSites" EntityType="TourManagerModel.TourSite" />
           <EntitySet Name="Transports" EntityType="TourManagerModel.Transport" />
+          <AssociationSet Name="FK_Account_AccountType" Association="TourManagerModel.FK_Account_AccountType">
+            <End Role="AccountType" EntitySet="AccountTypes" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           <AssociationSet Name="FK_Customer_Gender" Association="TourManagerModel.FK_Customer_Gender">
             <End Role="Gender" EntitySet="Genders" />
             <End Role="Customer" EntitySet="Customers" />
@@ -663,6 +689,12 @@
             <End Role="TourGroup" EntitySet="TourGroups" />
             <End Role="Transport" EntitySet="Transports" />
           </AssociationSet>
+          <FunctionImport Name="GetEmployeeByTourGroupId1">
+          <Parameter Name="tour_group_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPassengerByTourGroupId1">
+          <Parameter Name="tour_group_id" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="GetCustomerById_Result">
           <Property Type="String" Name="id" Nullable="false" MaxLength="20" />
@@ -779,6 +811,7 @@
           <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="account_type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountType" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="Account" ToRole="AccountType" />
         </EntityType>
         <EntityType Name="AccountType">
           <Key>
@@ -787,6 +820,7 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="AccountType" ToRole="Account" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -930,6 +964,18 @@
           <NavigationProperty Name="Status1" Relationship="TourManagerModel.FK_Transport_Status" FromRole="Transport" ToRole="Status" />
           <NavigationProperty Name="TourGroups" Relationship="TourManagerModel.TransportsTourGroup" FromRole="Transport" ToRole="TourGroup" />
         </EntityType>
+        <Association Name="FK_Account_AccountType">
+          <End Type="TourManagerModel.AccountType" Role="AccountType" Multiplicity="1" />
+          <End Type="TourManagerModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="account_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Customer_Gender">
           <End Type="TourManagerModel.Gender" Role="Gender" Multiplicity="1" />
           <End Type="TourManagerModel.Customer" Role="Customer" Multiplicity="*" />
@@ -1402,6 +1448,8 @@
               <ScalarProperty Name="id" ColumnName="tour_group_id" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetEmployeeByTourGroupId1" FunctionName="TourManagerModel.Store.GetEmployeeByTourGroupId" />
+          <FunctionImportMapping FunctionImportName="GetPassengerByTourGroupId1" FunctionName="TourManagerModel.Store.GetPassengerByTourGroupId" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -14,8 +14,15 @@ namespace DTO
     
     public partial class AccountType
     {
+        public AccountType()
+        {
+            this.Accounts = new HashSet<Account>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public int level { get; set; }
+    
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }
