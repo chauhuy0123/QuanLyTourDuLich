@@ -34,14 +34,14 @@
             this._leftPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this._addBtn = new QuanLyTourDuLich.CustomControl.AddButton();
-            this.addBtnImageList = new System.Windows.Forms.ImageList(this.components);
-            this._deleteBtn = new QuanLyTourDuLich.CustomControl.AddButton();
-            this._deleteBtnImageList = new System.Windows.Forms.ImageList(this.components);
-            this._saveBtn = new QuanLyTourDuLich.CustomControl.AddButton();
-            this._saveBtnImageList = new System.Windows.Forms.ImageList(this.components);
             this._revertBtn = new QuanLyTourDuLich.CustomControl.AddButton();
             this._revertBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._saveBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._saveBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._deleteBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this._deleteBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._addBtn = new QuanLyTourDuLich.CustomControl.AddButton();
+            this.addBtnImageList = new System.Windows.Forms.ImageList(this.components);
             this._tourSiteName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -77,7 +77,7 @@
             this._leftPanel.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._leftPanel.Location = new System.Drawing.Point(0, 0);
             this._leftPanel.Name = "_leftPanel";
-            this._leftPanel.Size = new System.Drawing.Size(220, 561);
+            this._leftPanel.Size = new System.Drawing.Size(240, 561);
             this._leftPanel.TabIndex = 2;
             // 
             // panel2
@@ -85,105 +85,38 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this._tourSiteName);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 48);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(16);
-            this.panel2.Size = new System.Drawing.Size(220, 141);
+            this.panel2.Size = new System.Drawing.Size(240, 513);
             this.panel2.TabIndex = 3;
             this.panel2.Layout += new System.Windows.Forms.LayoutEventHandler(this.panel2_Layout);
             // 
             // panel3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this._addBtn);
-            this.panel3.Controls.Add(this._deleteBtn);
-            this.panel3.Controls.Add(this._saveBtn);
             this.panel3.Controls.Add(this._revertBtn);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(16, 79);
+            this.panel3.Controls.Add(this._saveBtn);
+            this.panel3.Controls.Add(this._deleteBtn);
+            this.panel3.Controls.Add(this._addBtn);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(16, 76);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(188, 46);
+            this.panel3.Size = new System.Drawing.Size(208, 42);
             this.panel3.TabIndex = 7;
-            // 
-            // _addBtn
-            // 
-            this._addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._addBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this._addBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._addBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this._addBtn.ImageListButton = this.addBtnImageList;
-            this._addBtn.Location = new System.Drawing.Point(10, 0);
-            this._addBtn.Margin = new System.Windows.Forms.Padding(0);
-            this._addBtn.Name = "_addBtn";
-            this._addBtn.Padding = new System.Windows.Forms.Padding(8);
-            this._addBtn.Size = new System.Drawing.Size(44, 44);
-            this._addBtn.TabIndex = 13;
-            this._addBtn.Click += new System.EventHandler(this._addBtn_Click);
-            // 
-            // addBtnImageList
-            // 
-            this.addBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("addBtnImageList.ImageStream")));
-            this.addBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.addBtnImageList.Images.SetKeyName(0, "ic_add.png");
-            this.addBtnImageList.Images.SetKeyName(1, "ic_add_disabled.png");
-            // 
-            // _deleteBtn
-            // 
-            this._deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._deleteBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this._deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._deleteBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this._deleteBtn.ImageListButton = this._deleteBtnImageList;
-            this._deleteBtn.Location = new System.Drawing.Point(54, 0);
-            this._deleteBtn.Margin = new System.Windows.Forms.Padding(0);
-            this._deleteBtn.Name = "_deleteBtn";
-            this._deleteBtn.Padding = new System.Windows.Forms.Padding(8);
-            this._deleteBtn.Size = new System.Drawing.Size(44, 44);
-            this._deleteBtn.TabIndex = 12;
-            this._deleteBtn.Click += new System.EventHandler(this._deleteBtn_Click);
-            // 
-            // _deleteBtnImageList
-            // 
-            this._deleteBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_deleteBtnImageList.ImageStream")));
-            this._deleteBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this._deleteBtnImageList.Images.SetKeyName(0, "ic_remove.png");
-            this._deleteBtnImageList.Images.SetKeyName(1, "ic_remove_disabled.png");
-            // 
-            // _saveBtn
-            // 
-            this._saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._saveBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this._saveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._saveBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this._saveBtn.ImageListButton = this._saveBtnImageList;
-            this._saveBtn.Location = new System.Drawing.Point(98, 0);
-            this._saveBtn.Margin = new System.Windows.Forms.Padding(0);
-            this._saveBtn.Name = "_saveBtn";
-            this._saveBtn.Padding = new System.Windows.Forms.Padding(8);
-            this._saveBtn.Size = new System.Drawing.Size(44, 44);
-            this._saveBtn.TabIndex = 11;
-            this._saveBtn.Click += new System.EventHandler(this._saveBtn_Click);
-            // 
-            // _saveBtnImageList
-            // 
-            this._saveBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_saveBtnImageList.ImageStream")));
-            this._saveBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this._saveBtnImageList.Images.SetKeyName(0, "ic_save.png");
-            this._saveBtnImageList.Images.SetKeyName(1, "ic_save_disabled.png");
             // 
             // _revertBtn
             // 
             this._revertBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this._revertBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this._revertBtn.Dock = System.Windows.Forms.DockStyle.Left;
             this._revertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this._revertBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this._revertBtn.ImageListButton = this._revertBtnImageList;
-            this._revertBtn.Location = new System.Drawing.Point(142, 0);
+            this._revertBtn.Location = new System.Drawing.Point(126, 0);
             this._revertBtn.Margin = new System.Windows.Forms.Padding(0);
             this._revertBtn.Name = "_revertBtn";
             this._revertBtn.Padding = new System.Windows.Forms.Padding(8);
-            this._revertBtn.Size = new System.Drawing.Size(44, 44);
+            this._revertBtn.Size = new System.Drawing.Size(42, 42);
             this._revertBtn.TabIndex = 10;
             this._revertBtn.Click += new System.EventHandler(this._revertBtn_Click);
             // 
@@ -194,12 +127,78 @@
             this._revertBtnImageList.Images.SetKeyName(0, "ic_revert.png");
             this._revertBtnImageList.Images.SetKeyName(1, "ic_revert_disabled.png");
             // 
+            // _saveBtn
+            // 
+            this._saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._saveBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._saveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._saveBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._saveBtn.ImageListButton = this._saveBtnImageList;
+            this._saveBtn.Location = new System.Drawing.Point(84, 0);
+            this._saveBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._saveBtn.Name = "_saveBtn";
+            this._saveBtn.Padding = new System.Windows.Forms.Padding(8);
+            this._saveBtn.Size = new System.Drawing.Size(42, 42);
+            this._saveBtn.TabIndex = 11;
+            this._saveBtn.Click += new System.EventHandler(this._saveBtn_Click);
+            // 
+            // _saveBtnImageList
+            // 
+            this._saveBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_saveBtnImageList.ImageStream")));
+            this._saveBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this._saveBtnImageList.Images.SetKeyName(0, "ic_save.png");
+            this._saveBtnImageList.Images.SetKeyName(1, "ic_save_disabled.png");
+            // 
+            // _deleteBtn
+            // 
+            this._deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._deleteBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._deleteBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._deleteBtn.ImageListButton = this._deleteBtnImageList;
+            this._deleteBtn.Location = new System.Drawing.Point(42, 0);
+            this._deleteBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._deleteBtn.Name = "_deleteBtn";
+            this._deleteBtn.Padding = new System.Windows.Forms.Padding(8);
+            this._deleteBtn.Size = new System.Drawing.Size(42, 42);
+            this._deleteBtn.TabIndex = 12;
+            this._deleteBtn.Click += new System.EventHandler(this._deleteBtn_Click);
+            // 
+            // _deleteBtnImageList
+            // 
+            this._deleteBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("_deleteBtnImageList.ImageStream")));
+            this._deleteBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this._deleteBtnImageList.Images.SetKeyName(0, "ic_remove.png");
+            this._deleteBtnImageList.Images.SetKeyName(1, "ic_remove_disabled.png");
+            // 
+            // _addBtn
+            // 
+            this._addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._addBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._addBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._addBtn.HoveredColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this._addBtn.ImageListButton = this.addBtnImageList;
+            this._addBtn.Location = new System.Drawing.Point(0, 0);
+            this._addBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._addBtn.Name = "_addBtn";
+            this._addBtn.Padding = new System.Windows.Forms.Padding(8);
+            this._addBtn.Size = new System.Drawing.Size(42, 42);
+            this._addBtn.TabIndex = 13;
+            this._addBtn.Click += new System.EventHandler(this._addBtn_Click);
+            // 
+            // addBtnImageList
+            // 
+            this.addBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("addBtnImageList.ImageStream")));
+            this.addBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.addBtnImageList.Images.SetKeyName(0, "ic_add.png");
+            this.addBtnImageList.Images.SetKeyName(1, "ic_add_disabled.png");
+            // 
             // _tourSiteName
             // 
             this._tourSiteName.Dock = System.Windows.Forms.DockStyle.Top;
             this._tourSiteName.Location = new System.Drawing.Point(16, 50);
             this._tourSiteName.Name = "_tourSiteName";
-            this._tourSiteName.Size = new System.Drawing.Size(188, 26);
+            this._tourSiteName.Size = new System.Drawing.Size(208, 26);
             this._tourSiteName.TabIndex = 2;
             this._tourSiteName.TextChanged += new System.EventHandler(this._tourSiteName_TextChanged);
             this._tourSiteName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._tourSiteName_KeyPress);
@@ -224,15 +223,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(16);
-            this.panel1.Size = new System.Drawing.Size(220, 48);
+            this.panel1.Size = new System.Drawing.Size(240, 48);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 18);
+            this.label1.Size = new System.Drawing.Size(205, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thêm mới điểm tham quan";
             // 
@@ -241,9 +241,9 @@
             this._mainPanel.Controls.Add(this.panel7);
             this._mainPanel.Controls.Add(this.panel4);
             this._mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._mainPanel.Location = new System.Drawing.Point(220, 0);
+            this._mainPanel.Location = new System.Drawing.Point(240, 0);
             this._mainPanel.Name = "_mainPanel";
-            this._mainPanel.Size = new System.Drawing.Size(344, 561);
+            this._mainPanel.Size = new System.Drawing.Size(324, 561);
             this._mainPanel.TabIndex = 4;
             // 
             // panel7
@@ -254,7 +254,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 48);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(12, 12, 12, 0);
-            this.panel7.Size = new System.Drawing.Size(344, 513);
+            this.panel7.Size = new System.Drawing.Size(324, 513);
             this.panel7.TabIndex = 4;
             // 
             // _currentTourSiteGv
@@ -293,7 +293,7 @@
             this._currentTourSiteGv.RowTemplate.Height = 48;
             this._currentTourSiteGv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._currentTourSiteGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._currentTourSiteGv.Size = new System.Drawing.Size(320, 437);
+            this._currentTourSiteGv.Size = new System.Drawing.Size(300, 437);
             this._currentTourSiteGv.TabIndex = 3;
             this._currentTourSiteGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._currentTourSiteGv_CellValueChanged);
             this._currentTourSiteGv.SelectionChanged += new System.EventHandler(this._currentTourSiteGv_SelectionChanged);
@@ -313,16 +313,15 @@
             this.panel5.Location = new System.Drawing.Point(12, 12);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(4);
-            this.panel5.Size = new System.Drawing.Size(320, 64);
+            this.panel5.Size = new System.Drawing.Size(300, 64);
             this.panel5.TabIndex = 4;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // _searchBoxTb
             // 
             this._searchBoxTb.Dock = System.Windows.Forms.DockStyle.Fill;
             this._searchBoxTb.Location = new System.Drawing.Point(4, 30);
             this._searchBoxTb.Name = "_searchBoxTb";
-            this._searchBoxTb.Size = new System.Drawing.Size(312, 26);
+            this._searchBoxTb.Size = new System.Drawing.Size(292, 26);
             this._searchBoxTb.TabIndex = 1;
             this._searchBoxTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBoxTb_KeyPress);
             // 
@@ -336,7 +335,6 @@
             this.label3.Size = new System.Drawing.Size(117, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tìm kiếm nhanh";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel4
             // 
@@ -347,16 +345,17 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(16);
-            this.panel4.Size = new System.Drawing.Size(344, 48);
+            this.panel4.Size = new System.Drawing.Size(324, 48);
             this.panel4.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 18);
+            this.label4.Size = new System.Drawing.Size(215, 18);
             this.label4.TabIndex = 0;
             this.label4.Text = "Các điểm tham quan hiện tại";
             // 

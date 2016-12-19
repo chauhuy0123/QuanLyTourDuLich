@@ -44,6 +44,10 @@ namespace BusinessEntity.SearchEngine
             {
                 return new TourSiteSearchEngine() as ISearchAble<TEntity>;
             } 
+            if (typeof(TEntity) == typeof(DTO.Hotel))
+            {
+                return new HotelSearchEngine() as ISearchAble<TEntity>;
+            } 
             return null;
         }
     }

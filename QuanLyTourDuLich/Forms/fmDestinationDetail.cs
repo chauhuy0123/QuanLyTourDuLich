@@ -85,6 +85,15 @@ namespace QuanLyTourDuLich.Forms
 
         }
 
+        private void _deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (_currentTourSiteGv.SelectedRows.Count == 0)
+                return;
+            int selectedindex = _currentTourSiteGv.SelectedRows[0].Index;
+            var toursite = (_tourSiteBindingSource.DataSource as IEnumerable<TourSite>).ElementAt(selectedindex);
+            _presenter.deleteTourSite(toursite);
+            _presenter.loadTourSiteByDesinationId(_destination.id);
+        }
 
         private void _saveBtn_Click(object sender, EventArgs e)
         {
@@ -107,16 +116,6 @@ namespace QuanLyTourDuLich.Forms
 
         }
 
-        private void _deleteBtn_Click(object sender, EventArgs e)
-        {
-            if (_currentTourSiteGv.SelectedRows.Count == 0)
-                return;
-            int selectedindex = _currentTourSiteGv.SelectedRows[0].Index;
-            var toursite = (_tourSiteBindingSource.DataSource as IEnumerable<TourSite>).ElementAt(selectedindex);
-            _presenter.deleteTourSite(toursite);
-            _presenter.loadTourSiteByDesinationId(_destination.id);
-        }
-
         private void _currentTourSiteGv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             setEnabledSaveBtn(true);
@@ -132,16 +131,6 @@ namespace QuanLyTourDuLich.Forms
         {
             var selectedCount = (sender as DataGridView).SelectedRows.Count;
             _deleteBtn.Enabled = (selectedCount != 0);
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void searchBoxTb_KeyPress(object sender, KeyPressEventArgs e)
