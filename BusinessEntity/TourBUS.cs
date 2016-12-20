@@ -12,17 +12,23 @@ namespace BusinessEntity
         UnitOfWork _unitOfWork;
 
         IEnumerable<TourSite> _toursites;
-
+        IEnumerable<Destination> _destination;
         public TourBUS()
         {
             _unitOfWork = new UnitOfWork();
             _toursites = _unitOfWork.TourSiteRepository.GetAll();
+            _destination=_unitOfWork.DestinationRepository.GetAll();
         }
 
         public IEnumerable<TourSite> getAllTourSites()
         {
             return _unitOfWork.TourSiteRepository.GetAll();
         }
+        public IEnumerable<Destination> getAllDestination()
+        {
+            return _unitOfWork.DestinationRepository.GetAll();
+        }
+
 
         public Tour getCustomerById(int id)
         {
