@@ -331,5 +331,10 @@ namespace QuanLyTourDuLich.Forms
                 init();
             }
         }
+
+        private void _returnDateDtp_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
