@@ -102,6 +102,12 @@
     <Compile Include="Forms\fmChangePassword.Designer.cs">
       <DependentUpon>fmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmHotels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmHotels.Designer.cs">
+      <DependentUpon>fmHotels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,8 +164,10 @@
     </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
     <Compile Include="Presenters\DestinationPresenter.cs" />
+    <Compile Include="Presenters\HotelPresenter.cs" />
     <Compile Include="Presenters\ICustomerSearchPresenter.cs" />
     <Compile Include="Presenters\IDestinationPresenter.cs" />
+    <Compile Include="Presenters\IHotelPresenter.cs" />
     <Compile Include="Presenters\ITourGroupSearchPresenter.cs" />
     <Compile Include="Presenters\ITourSearchPresenter.cs" />
     <Compile Include="Presenters\ITourSitePresenter.cs" />
@@ -182,6 +190,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Views\ICustomerSearchView.cs" />
     <Compile Include="Views\IDestinationView.cs" />
+    <Compile Include="Views\IHotelView.cs" />
     <Compile Include="Views\IStatusView.cs" />
     <Compile Include="Views\ITourGroupSearchView.cs" />
     <Compile Include="Views\ITourSearchView.cs" />
@@ -194,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmChangePassword.resx">
       <DependentUpon>fmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmHotels.resx">
+      <DependentUpon>fmHotels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmLocationManager.resx">
       <DependentUpon>fmLocationManager.cs</DependentUpon>

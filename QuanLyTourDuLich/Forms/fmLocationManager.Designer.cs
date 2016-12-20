@@ -100,7 +100,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this._tourSiteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this._backBtnPanel.SuspendLayout();
@@ -126,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._destinationGv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._destinationBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -252,12 +250,10 @@
             // 
             this._mainContainer.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this._mainContainer.Panel2.Controls.Add(this._secondSpliter);
-            this._mainContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this._mainContainer_Panel2_Paint);
             this._mainContainer.Size = new System.Drawing.Size(1354, 600);
             this._mainContainer.SplitterDistance = 291;
             this._mainContainer.SplitterWidth = 2;
             this._mainContainer.TabIndex = 33;
-            this._mainContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this._mainContainer_SplitterMoved);
             this._mainContainer.Layout += new System.Windows.Forms.LayoutEventHandler(this._mainContainer_Layout);
             // 
             // _tourSitePanel
@@ -298,7 +294,6 @@
             this._tourSiteControlPanel.Name = "_tourSiteControlPanel";
             this._tourSiteControlPanel.Size = new System.Drawing.Size(225, 64);
             this._tourSiteControlPanel.TabIndex = 1;
-            this._tourSiteControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this._tourSiteControlPanel_Paint);
             // 
             // _tourSiteRemoveBtn
             // 
@@ -336,7 +331,6 @@
             this._tourSiteAddBtn.Padding = new System.Windows.Forms.Padding(4);
             this._tourSiteAddBtn.Size = new System.Drawing.Size(32, 32);
             this._tourSiteAddBtn.TabIndex = 3;
-            this._tourSiteAddBtn.Load += new System.EventHandler(this.addButton1_Load_1);
             this._tourSiteAddBtn.Click += new System.EventHandler(this._tourSiteAddBtn_Click);
             // 
             // addBtnImageList
@@ -368,7 +362,6 @@
             this.label3.Size = new System.Drawing.Size(128, 35);
             this.label3.TabIndex = 0;
             this.label3.Text = "Điểm tham quan";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel3
             // 
@@ -403,6 +396,7 @@
             this._acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._acceptBtn.Font = new System.Drawing.Font("Constantia", 11F);
             this._acceptBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this._acceptBtn.ImageKey = "ic_remove.png";
             this._acceptBtn.Location = new System.Drawing.Point(8, 8);
             this._acceptBtn.Name = "_acceptBtn";
             this._acceptBtn.Size = new System.Drawing.Size(75, 32);
@@ -436,7 +430,6 @@
             this.label1.Size = new System.Drawing.Size(113, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên điểm đến";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // _citiesCbb
             // 
@@ -475,7 +468,6 @@
             this.label2.Size = new System.Drawing.Size(92, 27);
             this.label2.TabIndex = 1;
             this.label2.Text = "Thành Phố";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // _secondSpliter
             // 
@@ -492,7 +484,6 @@
             this._secondSpliter.Panel1.Controls.Add(this.panel5);
             this._secondSpliter.Panel1.Controls.Add(this.label4);
             this._secondSpliter.Panel1.Padding = new System.Windows.Forms.Padding(16);
-            this._secondSpliter.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             this._secondSpliter.Panel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.splitContainer1_Panel1_Layout);
             this._secondSpliter.Panel1MinSize = 272;
             // 
@@ -619,7 +610,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(241, 271);
             this.panel5.TabIndex = 2;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // _hotelStatusTb
             // 
@@ -706,7 +696,6 @@
             this.label4.Size = new System.Drawing.Size(118, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Các khách sạn";
-            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // _destinationGv
             // 
@@ -741,7 +730,6 @@
             this._destinationGv.Size = new System.Drawing.Size(786, 552);
             this._destinationGv.TabIndex = 0;
             this._destinationGv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._destinationGv_CellDoubleClick);
-            this._destinationGv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this._destinationGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this._destinationGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._destinationGv_CellValueChanged);
             this._destinationGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._destinationGv_ColumnHeaderMouseClick);
@@ -813,7 +801,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(786, 48);
             this.panel4.TabIndex = 1;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // _saveBtn
             // 
@@ -936,7 +923,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fmLocationManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmLocationManager";
+            this.Text = "Địa điểm du lịch";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fmLocationManager_Load);
             this.panel1.ResumeLayout(false);
@@ -970,7 +957,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._destinationBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._tourSiteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -996,7 +982,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource _tourSiteBindingSource;
+       // private System.Windows.Forms.BindingSource _tourSiteBindingSource;
         private System.Windows.Forms.BindingSource _hotelBindingSource;
         private System.Windows.Forms.Panel _tourSitePanel;
         private System.Windows.Forms.Panel _tourSiteControlPanel;

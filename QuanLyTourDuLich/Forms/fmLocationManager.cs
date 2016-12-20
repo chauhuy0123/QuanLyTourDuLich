@@ -14,16 +14,16 @@ using System.Windows.Forms;
 
 namespace QuanLyTourDuLich.Forms
 {
-    public partial class fmLocationManager : Form, ITourSiteView, IDestinationView
+    public partial class fmLocationManager : Form, IDestinationView
     {
-        ITourSitePresenter _tourSitePresenter;
+        //ITourSitePresenter _tourSitePresenter;
         IDestinationPresenter _destinationPresenter;
 
         public fmLocationManager()
         {
             InitializeComponent();
             Cursor.Current = Cursors.WaitCursor;
-            _tourSitePresenter = new TourSitePresenter(this);
+           // _tourSitePresenter = new TourSitePresenter(this);
             _destinationPresenter = new DestinationPresenter(this);
             var allCities = BusinessEntity.VietNamCities.getAllCities();
             _citiesBindingSource.DataSource = allCities;
@@ -34,81 +34,33 @@ namespace QuanLyTourDuLich.Forms
 
         private void fmLocationManager_Load(object sender, EventArgs e)
         {
-            _tourSitePresenter.loadAllTourSites();
+           // _tourSitePresenter.loadAllTourSites();
             _destinationPresenter.loadAllDestinations();
             this.setEnableSaveBtn(false);
             Cursor.Current = Cursors.Default;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        //public void updateTourSiteView(IEnumerable<DTO.TourSite> tourSites)
+        //{
+        //    _tourSiteBindingSource.DataSource = tourSites;
 
-        }
+        //    // vì một lí do gì đó cài dòng mắc dịch này phải để sau cái dòng trên nó mới hiểu.
+        //    // làm xấu code của ông
+        //   // _tourSitesClb.DisplayMember = "name";
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void updateTourSiteView(IEnumerable<DTO.TourSite> tourSites)
-        {
-            _tourSiteBindingSource.DataSource = tourSites;
-
-            // vì một lí do gì đó cài dòng mắc dịch này phải để sau cái dòng trên nó mới hiểu.
-            // làm xấu code của ông
-           // _tourSitesClb.DisplayMember = "name";
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _mainContainer_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void _hotelsClb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+        //}
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             checkEnableTourSiteAddBtn();
         }
 
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void _tourSiteAddBtn_Click(object sender, EventArgs e)
         {
@@ -136,26 +88,6 @@ namespace QuanLyTourDuLich.Forms
             {
                 _tourSitesTempLv.Items.Remove(eachItem);
             }
-        }
-
-        private void _mainContainer_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void _hotelInfoTb_TextChanged(object sender, EventArgs e)
@@ -191,11 +123,6 @@ namespace QuanLyTourDuLich.Forms
             _hotelAddressTb.Clear();
             _hotelPhoneTb.Clear();
             _hotelStatusTb.Clear();
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void splitContainer1_Panel1_Layout(object sender, LayoutEventArgs e)
@@ -354,26 +281,12 @@ namespace QuanLyTourDuLich.Forms
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void _saveBtnPanel_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             _destinationPresenter.updateAll(_destinationBindingSource.DataSource as IEnumerable<Destination>);
             Cursor.Current = Cursors.Default;
             setEnableSaveBtn(false);
-        }
-
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void _discardBtn_Click(object sender, EventArgs e)
@@ -429,10 +342,18 @@ namespace QuanLyTourDuLich.Forms
 
         private void _destinationGv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             if (e.ColumnIndex == 3)
             {
                 var dest = (_destinationBindingSource.DataSource as IEnumerable<Destination>).ElementAt(e.RowIndex);
                 new fmDestinationDetail(dest).ShowDialog();
+                _destinationPresenter.reLoadAll();
+            }
+            if (e.ColumnIndex == 4)
+            {
+                var dest = (_destinationBindingSource.DataSource as IEnumerable<Destination>).ElementAt(e.RowIndex);
+                new fmHotels(dest).ShowDialog();
                 _destinationPresenter.reLoadAll();
             }
 
@@ -447,21 +368,6 @@ namespace QuanLyTourDuLich.Forms
         private void _destinationGv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             setEnableSaveBtn(true);
-        }
-
-        private void addButton1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addButton1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _tourSiteControlPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public void updateDestinationError()

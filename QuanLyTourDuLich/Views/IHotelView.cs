@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace QuanLyTourDuLich.Views
 {
-    interface ITourSiteView
+    interface IHotelView
     {
-        void updateTourSiteView(IEnumerable<TourSite> tourSites);
-
+        void updateHotelView(IEnumerable<Hotel> hotels);
     }
 }

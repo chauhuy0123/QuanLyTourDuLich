@@ -30,6 +30,7 @@ namespace QuanLyTourDuLich
             InitializeComponent();
 
             pnUserAccount.Hide();
+            loginPanel.Show();
         }
 
         /// <summary>
@@ -112,6 +113,7 @@ namespace QuanLyTourDuLich
             {
                 labUserAccount.Text = "Xin chào, " + _username + "!";
                 pnUserAccount.Show();
+                loginPanel.Hide();
             }
             else
             {
@@ -239,6 +241,7 @@ namespace QuanLyTourDuLich
         {
             _username = null;
             pnUserAccount.Hide();
+            loginPanel.Show();
             this.fmMain_Load(sender, e);
             MessageBox.Show("Đăng xuất thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -279,6 +282,11 @@ namespace QuanLyTourDuLich
             btnReport.Enabled = false;
 #endif // DEBUG
 
+        }
+
+        private void forgotPassBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng đang phát triển", "Stop", MessageBoxButtons.OK);
         }
 
         
