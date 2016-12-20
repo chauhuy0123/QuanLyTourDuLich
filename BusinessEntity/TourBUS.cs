@@ -9,7 +9,20 @@ namespace BusinessEntity
 {
     public class TourBUS
     {
-        UnitOfWork _unitOfWork = new DAO.UnitOfWork();
+        UnitOfWork _unitOfWork;
+
+        IEnumerable<TourSite> _toursites;
+
+        public TourBUS()
+        {
+            _unitOfWork = new UnitOfWork();
+            _toursites = _unitOfWork.TourSiteRepository.GetAll();
+        }
+
+        public IEnumerable<TourSite> getAllTourSites()
+        {
+            return _unitOfWork.TourSiteRepository.GetAll();
+        }
 
         public Tour getCustomerById(int id)
         {

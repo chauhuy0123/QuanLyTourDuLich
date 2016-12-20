@@ -268,15 +268,17 @@ namespace QuanLyTourDuLich.GUI
             {
                 e.Value = e.RowIndex + 1;
             }
-            if (e.Value == null)
-                return;
+
             if (e.ColumnIndex == 3)
             {
                 e.Value = (e.Value as Tour).name;
             }
             if (e.ColumnIndex == 6)
             {
-               // e.Value = (e.Value as IEnumerable<Passenger>).Count().ToString();
+                if (e.Value == null)
+                    e.Value = 0;
+                else
+                    e.Value = (e.Value as IEnumerable<Customer>).Count().ToString();
             }
         }
 
