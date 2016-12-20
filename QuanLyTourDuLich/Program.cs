@@ -68,6 +68,19 @@ namespace QuanLyTourDuLich
             // Ví dụ insert new Customer thì customer mới nằm trong file của thư mục bin
             // còn file trong thư mục của project thì chỉ dùng để edit. 
 
+            /// Example Many-Many update
+
+            //BusinessEntity.TourBUS _bus 
+            //    = new BusinessEntity.TourBUS();
+            //var allTours = _bus.getEntries();
+            //var allTourSite = _bus.getAllTourSites();
+
+            //var myTour = allTours.ElementAt(1);
+            //var myTourSite = allTourSite.ElementAt(2);
+
+            //myTour.TourSites.Add(myTourSite);
+            //_bus.update(myTour);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fmMain());
