@@ -19,17 +19,20 @@ namespace QuanLyTourDuLich.Forms
 
         ICustomerSearchPresenter _customerPresenter;
 
+        int _tourgroupId;
         public fmTourGroupPassengers(TourGroup tourgroup)
         {
             InitializeComponent();
 
             _customerPresenter = new CustomerSearchPresenter(this);
-            _tourGroup = _customerPresenter.getTourGroupById(tourgroup.id);
+            _tourgroupId = tourgroup.id;
         }
 
 
         private void fmTourGroupPassengers_Load(object sender, EventArgs e)
         {
+            _tourGroup = _customerPresenter.getTourGroupById(_tourgroupId);
+
             _tourGroupNameLb.DataBindings.Add("Text", _tourGroup, "name");
             _tourNameLb.DataBindings.Add("Text", _tourGroup.Tour, "name");
             _departDateLb.DataBindings.Add("Text", _tourGroup, "depart_date");
@@ -48,6 +51,8 @@ namespace QuanLyTourDuLich.Forms
                 searchResult = searchResult.Where(customer => customer.TourGroups.Any(t => t.id == _tourGroup.id));
             _passengerBindingSource.DataSource = searchResult;
             _countLb.Text = searchResult.Count().ToString();
+            _resultGv.ClearSelection();
+
         }
 
         private void _resultGv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -59,7 +64,7 @@ namespace QuanLyTourDuLich.Forms
 
                 var passengers = _passengerBindingSource.DataSource as IEnumerable<Customer>;
                 if (passengers.Count() <= e.RowIndex)
-                    return;
+                    return;   // i dont know why. just fix some fucking crash
                 var passenger = (_passengerBindingSource.DataSource as IEnumerable<Customer>).ElementAt(e.RowIndex);
                 
                 if (_tourGroup.Customers.Contains(passenger, new CustomerComparer()))
@@ -106,7 +111,6 @@ namespace QuanLyTourDuLich.Forms
             _customerPresenter.toggleCustomerTourGroupStatus(customer, _tourGroup);
             //this.search(_tourGroupKeywordTb.Text.Trim());
             _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
-            _resultGv.ClearSelection();
         }
 
         private void addAllBtn_Click(object sender, EventArgs e)
@@ -122,7 +126,6 @@ namespace QuanLyTourDuLich.Forms
             }
             //this.search(_tourGroupKeywordTb.Text.Trim());
             _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
-            _resultGv.ClearSelection();
         }
 
         private void removeAllBtn_Click(object sender, EventArgs e)
@@ -139,28 +142,12 @@ namespace QuanLyTourDuLich.Forms
             }
             //this.search(_tourGroupKeywordTb.Text.Trim());
             _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
-            _resultGv.ClearSelection();
         }
 
         private void _showStateCb_CheckedChanged(object sender, EventArgs e)
         {
             //this.search(_tourGroupKeywordTb.Text.Trim());
             _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
-            _resultGv.ClearSelection();
-
-        }
-
-        private void search(string keyword)
-        {
-            var isChecked = (_showStateCb as CheckBox).Checked;
-            if (isChecked)
-                _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim(), _tourGroup.id);
-            else
-                _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 

@@ -9,6 +9,5 @@ namespace BusinessEntity
     {
         IEnumerable<TEntity> Search(string keyword);
 
-        void refresh();
     }
 }
