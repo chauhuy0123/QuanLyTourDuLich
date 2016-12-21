@@ -60,6 +60,7 @@
     <Compile Include="PassengerBUS.cs" />
     <Compile Include="SearchEngine\CustomerSearchEngine.cs" />
     <Compile Include="SearchEngine\DestinationSearchEngine.cs" />
+    <Compile Include="SearchEngine\EmployeeSearchEngine.cs" />
     <Compile Include="SearchEngine\HotelSearchEngine.cs" />
     <Compile Include="SearchEngine\ISearchAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

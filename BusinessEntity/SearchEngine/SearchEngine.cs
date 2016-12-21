@@ -46,13 +46,13 @@ namespace BusinessEntity.SearchEngine
             if (typeof(TEntity) == typeof(DTO.Hotel))
             {
                 return new HotelSearchEngine() as ISearchAble<TEntity>;
+            }
+            if (typeof(TEntity) == typeof(DTO.Employee))
+            {
+                return new EmployeeSearchEngine() as ISearchAble<TEntity>;
             } 
             return null;
         }
 
-        public void refresh()
-        {
-            _engine.refresh();
-        }
     }
 }

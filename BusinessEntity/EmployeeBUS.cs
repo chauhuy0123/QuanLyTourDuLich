@@ -29,16 +29,24 @@ namespace BusinessEntity
         public void deleteById(int id)
         {
             _unitOfWork.EmplyeeRepository.Delete(id);
+            _unitOfWork.Save();
         }
 
         public void update(Employee employee)
         {
             _unitOfWork.EmplyeeRepository.Update(employee);
+            _unitOfWork.Save();
         }
 
         public void add(Employee employee)
         {
             _unitOfWork.EmplyeeRepository.Insert(employee);
+            _unitOfWork.Save();
+        }
+
+        public TourGroup getTourGroupById(int tourGroupId)
+        {
+            return _unitOfWork.TourGroupRepository.GetByID(tourGroupId);
         }
     }
 }

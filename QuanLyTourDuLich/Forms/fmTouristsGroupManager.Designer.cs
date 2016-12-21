@@ -72,12 +72,18 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this._employeeDeleteBtn = new System.Windows.Forms.Button();
             this._employeeDgv = new System.Windows.Forms.DataGridView();
+            this._employeeControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this._employeeNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._employeeIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._employeeBs = new System.Windows.Forms.BindingSource(this.components);
             this._addEmployeeBtn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this._employeeIdTb = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this._transportDgv = new System.Windows.Forms.DataGridView();
+            this._transportControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this._transportNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._transportIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._transportBs = new System.Windows.Forms.BindingSource(this.components);
             this._transportDeleteBtn = new System.Windows.Forms.Button();
             this._addTransportBtn = new System.Windows.Forms.Button();
@@ -86,6 +92,9 @@
             this._passengerGb = new System.Windows.Forms.GroupBox();
             this._customerDeleteBtn = new System.Windows.Forms.Button();
             this._passengerDgv = new System.Windows.Forms.DataGridView();
+            this._passengerControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this._passengerNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._passengerIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._passengerBs = new System.Windows.Forms.BindingSource(this.components);
             this._addCustomerBtn = new System.Windows.Forms.Button();
             this._customerIdTb = new System.Windows.Forms.TextBox();
@@ -98,10 +107,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this._topPanel = new System.Windows.Forms.Panel();
-            this._backBtnPanel = new System.Windows.Forms.Panel();
-            this.btnTroLai2 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this._mainContainer = new System.Windows.Forms.SplitContainer();
             this._leftContainer = new System.Windows.Forms.SplitContainer();
             this._endDtp = new System.Windows.Forms.DateTimePicker();
@@ -113,21 +118,16 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this._tourGroupGv = new System.Windows.Forms.DataGridView();
+            this._searchTourGroupBs = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this._tourGroupSearchBtn = new System.Windows.Forms.Button();
             this._tourGroupKeywordTb = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this._topPanel = new System.Windows.Forms.Panel();
+            this._backBtnPanel = new System.Windows.Forms.Panel();
+            this.btnTroLai2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this._searchtransportBs = new System.Windows.Forms.BindingSource(this.components);
-            this._searchTourGroupBs = new System.Windows.Forms.BindingSource(this.components);
-            this._passengerControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this._passengerNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._passengerIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._transportControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this._transportNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._transportIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._employeeControlCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this._employeeNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._employeeIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tourGroupNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -161,8 +161,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._passengerBs)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this._topPanel.SuspendLayout();
-            this._backBtnPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._mainContainer)).BeginInit();
             this._mainContainer.Panel1.SuspendLayout();
             this._mainContainer.Panel2.SuspendLayout();
@@ -173,9 +171,11 @@
             this._leftContainer.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._tourGroupGv)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._searchtransportBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._searchTourGroupBs)).BeginInit();
+            this.panel8.SuspendLayout();
+            this._topPanel.SuspendLayout();
+            this._backBtnPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._searchtransportBs)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -590,6 +590,27 @@
             this._employeeDgv.TabIndex = 5;
             this._employeeDgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._employeeDgv_CellFormatting);
             // 
+            // _employeeControlCol
+            // 
+            this._employeeControlCol.FillWeight = 30F;
+            this._employeeControlCol.HeaderText = "";
+            this._employeeControlCol.Name = "_employeeControlCol";
+            // 
+            // _employeeNoCol
+            // 
+            this._employeeNoCol.HeaderText = "STT";
+            this._employeeNoCol.Name = "_employeeNoCol";
+            this._employeeNoCol.ReadOnly = true;
+            this._employeeNoCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._employeeNoCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // _employeeIdCol
+            // 
+            this._employeeIdCol.DataPropertyName = "employee_id";
+            this._employeeIdCol.HeaderText = "Mã nhân viên";
+            this._employeeIdCol.Name = "_employeeIdCol";
+            this._employeeIdCol.ReadOnly = true;
+            // 
             // _addEmployeeBtn
             // 
             this._addEmployeeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -657,6 +678,27 @@
             this._transportDgv.Size = new System.Drawing.Size(380, 335);
             this._transportDgv.TabIndex = 5;
             this._transportDgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._transportDgv_CellFormatting);
+            // 
+            // _transportControlCol
+            // 
+            this._transportControlCol.FillWeight = 30F;
+            this._transportControlCol.HeaderText = "";
+            this._transportControlCol.Name = "_transportControlCol";
+            this._transportControlCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._transportControlCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // _transportNoCol
+            // 
+            this._transportNoCol.HeaderText = "STT";
+            this._transportNoCol.Name = "_transportNoCol";
+            this._transportNoCol.ReadOnly = true;
+            // 
+            // _transportIdCol
+            // 
+            this._transportIdCol.DataPropertyName = "transport_id";
+            this._transportIdCol.HeaderText = "Mã phương tiện";
+            this._transportIdCol.Name = "_transportIdCol";
+            this._transportIdCol.ReadOnly = true;
             // 
             // _transportDeleteBtn
             // 
@@ -749,6 +791,25 @@
             this._passengerDgv.Size = new System.Drawing.Size(380, 335);
             this._passengerDgv.TabIndex = 3;
             this._passengerDgv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._passengerDgv_CellFormatting);
+            // 
+            // _passengerControlCol
+            // 
+            this._passengerControlCol.FillWeight = 30F;
+            this._passengerControlCol.HeaderText = "";
+            this._passengerControlCol.Name = "_passengerControlCol";
+            // 
+            // _passengerNoCol
+            // 
+            this._passengerNoCol.HeaderText = "STT";
+            this._passengerNoCol.Name = "_passengerNoCol";
+            this._passengerNoCol.ReadOnly = true;
+            // 
+            // _passengerIdCol
+            // 
+            this._passengerIdCol.DataPropertyName = "customer_id";
+            this._passengerIdCol.HeaderText = "Mã khách hàng";
+            this._passengerIdCol.Name = "_passengerIdCol";
+            this._passengerIdCol.ReadOnly = true;
             // 
             // _addCustomerBtn
             // 
@@ -875,55 +936,6 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
-            // 
-            // _topPanel
-            // 
-            this._topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this._topPanel.Controls.Add(this._backBtnPanel);
-            this._topPanel.Controls.Add(this.label11);
-            this._topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this._topPanel.Location = new System.Drawing.Point(3, 3);
-            this._topPanel.Margin = new System.Windows.Forms.Padding(0);
-            this._topPanel.Name = "_topPanel";
-            this._topPanel.Size = new System.Drawing.Size(1348, 80);
-            this._topPanel.TabIndex = 23;
-            // 
-            // _backBtnPanel
-            // 
-            this._backBtnPanel.Controls.Add(this.btnTroLai2);
-            this._backBtnPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this._backBtnPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this._backBtnPanel.Location = new System.Drawing.Point(0, 0);
-            this._backBtnPanel.Margin = new System.Windows.Forms.Padding(0);
-            this._backBtnPanel.Name = "_backBtnPanel";
-            this._backBtnPanel.Padding = new System.Windows.Forms.Padding(12);
-            this._backBtnPanel.Size = new System.Drawing.Size(80, 80);
-            this._backBtnPanel.TabIndex = 21;
-            // 
-            // btnTroLai2
-            // 
-            this.btnTroLai2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
-            this.btnTroLai2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTroLai2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTroLai2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTroLai2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTroLai2.Location = new System.Drawing.Point(12, 12);
-            this.btnTroLai2.Margin = new System.Windows.Forms.Padding(14, 13, 14, 13);
-            this.btnTroLai2.Name = "btnTroLai2";
-            this.btnTroLai2.Size = new System.Drawing.Size(56, 56);
-            this.btnTroLai2.TabIndex = 1;
-            this.btnTroLai2.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(435, 21);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(484, 44);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "TRA CỨU ĐOÀN DU LỊCH";
             // 
             // _mainContainer
             // 
@@ -1167,66 +1179,54 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Tìm kiếm đoàn du lịch";
             // 
-            // _passengerControlCol
+            // _topPanel
             // 
-            this._passengerControlCol.FillWeight = 30F;
-            this._passengerControlCol.HeaderText = "";
-            this._passengerControlCol.Name = "_passengerControlCol";
+            this._topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._topPanel.Controls.Add(this._backBtnPanel);
+            this._topPanel.Controls.Add(this.label11);
+            this._topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this._topPanel.Location = new System.Drawing.Point(3, 3);
+            this._topPanel.Margin = new System.Windows.Forms.Padding(0);
+            this._topPanel.Name = "_topPanel";
+            this._topPanel.Size = new System.Drawing.Size(1348, 80);
+            this._topPanel.TabIndex = 23;
             // 
-            // _passengerNoCol
+            // _backBtnPanel
             // 
-            this._passengerNoCol.HeaderText = "STT";
-            this._passengerNoCol.Name = "_passengerNoCol";
-            this._passengerNoCol.ReadOnly = true;
+            this._backBtnPanel.Controls.Add(this.btnTroLai2);
+            this._backBtnPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this._backBtnPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._backBtnPanel.Location = new System.Drawing.Point(0, 0);
+            this._backBtnPanel.Margin = new System.Windows.Forms.Padding(0);
+            this._backBtnPanel.Name = "_backBtnPanel";
+            this._backBtnPanel.Padding = new System.Windows.Forms.Padding(12);
+            this._backBtnPanel.Size = new System.Drawing.Size(80, 80);
+            this._backBtnPanel.TabIndex = 21;
             // 
-            // _passengerIdCol
+            // btnTroLai2
             // 
-            this._passengerIdCol.DataPropertyName = "customer_id";
-            this._passengerIdCol.HeaderText = "Mã khách hàng";
-            this._passengerIdCol.Name = "_passengerIdCol";
-            this._passengerIdCol.ReadOnly = true;
+            this.btnTroLai2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
+            this.btnTroLai2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTroLai2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTroLai2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTroLai2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTroLai2.Location = new System.Drawing.Point(12, 12);
+            this.btnTroLai2.Margin = new System.Windows.Forms.Padding(14, 13, 14, 13);
+            this.btnTroLai2.Name = "btnTroLai2";
+            this.btnTroLai2.Size = new System.Drawing.Size(56, 56);
+            this.btnTroLai2.TabIndex = 1;
+            this.btnTroLai2.UseVisualStyleBackColor = true;
             // 
-            // _transportControlCol
+            // label11
             // 
-            this._transportControlCol.FillWeight = 30F;
-            this._transportControlCol.HeaderText = "";
-            this._transportControlCol.Name = "_transportControlCol";
-            this._transportControlCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._transportControlCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // _transportNoCol
-            // 
-            this._transportNoCol.HeaderText = "STT";
-            this._transportNoCol.Name = "_transportNoCol";
-            this._transportNoCol.ReadOnly = true;
-            // 
-            // _transportIdCol
-            // 
-            this._transportIdCol.DataPropertyName = "transport_id";
-            this._transportIdCol.HeaderText = "Mã phương tiện";
-            this._transportIdCol.Name = "_transportIdCol";
-            this._transportIdCol.ReadOnly = true;
-            // 
-            // _employeeControlCol
-            // 
-            this._employeeControlCol.FillWeight = 30F;
-            this._employeeControlCol.HeaderText = "";
-            this._employeeControlCol.Name = "_employeeControlCol";
-            // 
-            // _employeeNoCol
-            // 
-            this._employeeNoCol.HeaderText = "STT";
-            this._employeeNoCol.Name = "_employeeNoCol";
-            this._employeeNoCol.ReadOnly = true;
-            this._employeeNoCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._employeeNoCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // _employeeIdCol
-            // 
-            this._employeeIdCol.DataPropertyName = "employee_id";
-            this._employeeIdCol.HeaderText = "Mã nhân viên";
-            this._employeeIdCol.Name = "_employeeIdCol";
-            this._employeeIdCol.ReadOnly = true;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(435, 21);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(484, 44);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "TRA CỨU ĐOÀN DU LỊCH";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1277,7 +1277,7 @@
             // _passengersColumn
             // 
             this._passengersColumn.FillWeight = 60F;
-            this._passengersColumn.HeaderText = "Số hành khách";
+            this._passengersColumn.HeaderText = "Hành khách";
             this._passengersColumn.Name = "_passengersColumn";
             this._passengersColumn.ReadOnly = true;
             this._passengersColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -1355,9 +1355,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this._topPanel.ResumeLayout(false);
-            this._topPanel.PerformLayout();
-            this._backBtnPanel.ResumeLayout(false);
             this._mainContainer.Panel1.ResumeLayout(false);
             this._mainContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._mainContainer)).EndInit();
@@ -1370,10 +1367,13 @@
             this._leftContainer.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._tourGroupGv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._searchTourGroupBs)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this._topPanel.ResumeLayout(false);
+            this._topPanel.PerformLayout();
+            this._backBtnPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._searchtransportBs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._searchTourGroupBs)).EndInit();
             this.ResumeLayout(false);
 
         }

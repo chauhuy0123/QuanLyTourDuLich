@@ -176,9 +176,11 @@
     </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
     <Compile Include="Presenters\DestinationPresenter.cs" />
+    <Compile Include="Presenters\EmployeePresenter.cs" />
     <Compile Include="Presenters\HotelPresenter.cs" />
     <Compile Include="Presenters\ICustomerSearchPresenter.cs" />
     <Compile Include="Presenters\IDestinationPresenter.cs" />
+    <Compile Include="Presenters\IEmployeePresenter.cs" />
     <Compile Include="Presenters\IHotelPresenter.cs" />
     <Compile Include="Presenters\ITourGroupSearchPresenter.cs" />
     <Compile Include="Presenters\ITourSearchPresenter.cs" />
@@ -204,6 +206,7 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Views\ICustomerSearchView.cs" />
     <Compile Include="Views\IDestinationView.cs" />
+    <Compile Include="Views\IEmployeeView.cs" />
     <Compile Include="Views\IHotelView.cs" />
     <Compile Include="Views\IStatusView.cs" />
     <Compile Include="Views\ITourGroupSearchView.cs" />

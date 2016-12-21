@@ -423,16 +423,18 @@ namespace QuanLyTourDuLich.Forms
             var senderGrid = sender as DataGridView;
             if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell)
             {
-                if (e.ColumnIndex == 6)
+
+                if (senderGrid.Columns[e.ColumnIndex].HeaderText == "Hành khách")
                 {
                     var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
                     new fmTourGroupPassengers(tourGroup).ShowDialog();
                 }
-                if (e.ColumnIndex == 7)
+                if (senderGrid.Columns[e.ColumnIndex].HeaderText == "Nhân Viên")
                 {
-                    // ds nhân viên
+                    var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
+                    new fmTourGroupEmployees(tourGroup).ShowDialog();
                 }
-                if (e.ColumnIndex == 8)
+                if (senderGrid.Columns[e.ColumnIndex].HeaderText == "P.Tiện di chuyển")
                 {
                     // ds phương tiện
                 }
