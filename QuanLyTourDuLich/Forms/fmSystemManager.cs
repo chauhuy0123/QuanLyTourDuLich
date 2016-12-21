@@ -369,6 +369,7 @@ namespace QuanLyTourDuLich.GUI
 
         #endregion
 
+        #region Tab Sao lưu va khôi phục
         /// <summary>
         /// Chức năng sao lưu dữ liệu
         /// </summary>
@@ -514,4 +515,5 @@ namespace QuanLyTourDuLich.GUI
             }
         }
     }
+    #endregion
 }

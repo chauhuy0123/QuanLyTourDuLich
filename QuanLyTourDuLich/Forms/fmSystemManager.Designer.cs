@@ -61,7 +61,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnTroLai2 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txbSaveFilePath = new System.Windows.Forms.TextBox();
@@ -460,10 +459,6 @@
             this.imageList1.Images.SetKeyName(1, "account.png");
             this.imageList1.Images.SetKeyName(2, "database (1).png");
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.groupBox3);
@@ -706,7 +701,6 @@
         private System.Windows.Forms.BindingSource bdsAccountList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.GroupBox groupBox3;
