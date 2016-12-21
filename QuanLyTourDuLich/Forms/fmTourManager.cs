@@ -41,7 +41,8 @@ namespace QuanLyTourDuLich.Forms
             _priceBus = new TourPriceBUS();
             _tour = _tourBus.getEntries();
             _category = _categoryBus.getEntries();
-            _destination = _destinationBus.getEntries();
+            //_destination = _destinationBus.getEntries();
+            _destination = _tourBus.getAllDestination();
             _isAdd = true;
             _currentTour = new Tour();
             _minDate = new DateTime(2000, 1, 1);
@@ -146,7 +147,7 @@ namespace QuanLyTourDuLich.Forms
                     MessageBox.Show("Please fill textbox!");
                     return;
                 }
-                Tour tour = new Tour();
+                var tour = new Tour();
                 var category = (TourCategory)cbTourCategory.SelectedItem;
                 var destination = (Destination)cbDestination.SelectedItem;
      
@@ -158,10 +159,14 @@ namespace QuanLyTourDuLich.Forms
                     return;
                 }else
                     tour.TourPrice = addNewTourPrice();
-                //tour.TourPrice.Tours.Add(tour);
-
-                /*var _newtoursite = clbTourSite.CheckedItems.Cast<TourSite>();
-                var b = new TourSiteBUS();
+                //_toursite = _tourBus.getAllTourSites();
+                
+                var _newtoursite = clbTourSite.CheckedItems.Cast<TourSite>();
+                foreach (var site in _newtoursite)
+                {
+                    tour.TourSites.Add(site);
+                }
+                //var b = new TourSiteBUS();
                 //foreach (var site in _newtoursite)
                 //{
                 //    site.Tours.Add(tour);
@@ -169,9 +174,9 @@ namespace QuanLyTourDuLich.Forms
                 //}
 
                 //tour.TourSites = _newtoursite.ToList();
-                _tourBus.add(tour);
+                //_tourBus.add(tour);
 
-                var tourbus = new TourBUS();
+                /*var tourbus = new TourBUS();
                 var t = tourbus.getCustomerById(tour.id);
                 foreach (var site in _newtoursite)
                 {
@@ -196,10 +201,24 @@ namespace QuanLyTourDuLich.Forms
             _currentTour.name = tbTourName.Text.ToString();
             _currentTour.category_id = category.id;
             _currentTour.destination_id = destination.id;
-            _currentTour.TourPrice.price = decimal.Parse(tbTourPrice.Text.Trim());
+            try
+            {
+                _currentTour.TourPrice.price = decimal.Parse(tbTourPrice.Text.Trim());
+            }
+            catch
+            {
+                MessageBox.Show("Price must be number");
+                return;
+            }
             _currentTour.TourPrice.start_date = dtpStart_date.Value;
             _currentTour.TourPrice.end_date = dtpEnd_date.Value;
+            var _newtoursite = clbTourSite.CheckedItems.Cast<TourSite>();
+            foreach (var site in _newtoursite)
+            {
+                _currentTour.TourSites.Add(site);
+            }
             _tourBus.update(_currentTour);
+            MessageBox.Show("Update successfull");
             _isAdd = true;
             btnAddTour.Text = "Add";
             updateDataGridView();
@@ -210,15 +229,19 @@ namespace QuanLyTourDuLich.Forms
         {
             // new lai cho no cap nhat lai. ma vay so no cham.
             _tourBus = new TourBUS();
+            _destination = _tourBus.getAllDestination();
             _tour = _tourBus.getEntries();
             //bsListTour.DataSource = null;
             bsListTour.DataSource = _tour;
+            bsDestination.DataSource = _destination;
             //((DataGridView)dgvListTour).DataSource = bsListTour;
             //dgvListTour.Refresh(); 
             tbTourName.Clear();
             tbTourPrice.Clear();
+            ckbSelectAll.Checked = false;
             dtpStart_date.Value = DateTime.Now;
             dtpEnd_date.Value = _maxDate;
+            btnAddTour.Text = "Add";
             
         }
         private TourPrice addNewTourPrice()
@@ -232,7 +255,7 @@ namespace QuanLyTourDuLich.Forms
             }
             catch
             {
-                MessageBox.Show("Price must be number!");
+                MessageBox.Show("Price must be numbers");
                 tbTourPrice.Clear();
                 tbTourPrice.Focus();
                 return null;
@@ -283,15 +306,32 @@ namespace QuanLyTourDuLich.Forms
             cbDestination.Text = _currentTour.Destination.name;
             dtpStart_date.Value = _currentTour.TourPrice.start_date;
             dtpEnd_date.Value = _currentTour.TourPrice.end_date;
+            var _site=_currentTour.TourSites;
+            for (int i = 0; i < clbTourSite.Items.Count; i++)
+            {
+                var site=clbTourSite.Items[i];
+                foreach (var s in _site)
+                {
+                    if (site.Equals(s))
+                    {
+                        clbTourSite.SetItemChecked(i, true);
+                    }
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (_currentTour.TourGroups.Count !=0)
+            {
+                MessageBox.Show("Không thể xóa khi đã có đoàn đăng ký");
+                return;
+            }
             if (_currentTour != null)
                 _tourBus.delete(_currentTour);
             else return;
             updateDataGridView();
-            
+            _isAdd = true;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

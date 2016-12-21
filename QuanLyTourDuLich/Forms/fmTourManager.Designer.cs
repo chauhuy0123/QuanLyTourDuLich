@@ -51,6 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ckbSelectAll = new System.Windows.Forms.CheckBox();
             this.dtpEnd_date = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.clbTourSite = new System.Windows.Forms.CheckedListBox();
@@ -67,6 +68,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnCSDL = new System.Windows.Forms.Button();
@@ -82,9 +85,6 @@
             this.bsTourSite = new System.Windows.Forms.BindingSource(this.components);
             this.bsCategory = new System.Windows.Forms.BindingSource(this.components);
             this.bsDestination = new System.Windows.Forms.BindingSource(this.components);
-            this.ckbSelectAll = new System.Windows.Forms.CheckBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -313,6 +313,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tạo tour mới";
             // 
+            // ckbSelectAll
+            // 
+            this.ckbSelectAll.AutoSize = true;
+            this.ckbSelectAll.Location = new System.Drawing.Point(270, 347);
+            this.ckbSelectAll.Name = "ckbSelectAll";
+            this.ckbSelectAll.Size = new System.Drawing.Size(47, 22);
+            this.ckbSelectAll.TabIndex = 35;
+            this.ckbSelectAll.Text = "All";
+            this.ckbSelectAll.UseVisualStyleBackColor = true;
+            this.ckbSelectAll.CheckedChanged += new System.EventHandler(this.ckbSelectAll_CheckedChanged);
+            // 
             // dtpEnd_date
             // 
             this.dtpEnd_date.CustomFormat = "dd/MM/yyyy";
@@ -474,6 +485,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour hiện có";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(524, 548);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(116, 43);
+            this.btnRefresh.TabIndex = 32;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(665, 548);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(116, 43);
+            this.btnDelete.TabIndex = 31;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -517,6 +554,7 @@
             // 
             // dgvListTour
             // 
+            this.dgvListTour.AllowUserToAddRows = false;
             this.dgvListTour.AutoGenerateColumns = false;
             this.dgvListTour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -531,6 +569,7 @@
             this.dgvListTour.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvListTour.Location = new System.Drawing.Point(3, 22);
             this.dgvListTour.Name = "dgvListTour";
+            this.dgvListTour.ReadOnly = true;
             this.dgvListTour.RowTemplate.Height = 24;
             this.dgvListTour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListTour.Size = new System.Drawing.Size(923, 520);
@@ -542,6 +581,7 @@
             // 
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             this.STT.Width = 50;
             // 
             // TourId
@@ -549,6 +589,7 @@
             this.TourId.DataPropertyName = "id";
             this.TourId.HeaderText = "Mã Tour";
             this.TourId.Name = "TourId";
+            this.TourId.ReadOnly = true;
             this.TourId.Width = 50;
             // 
             // TourName
@@ -556,6 +597,7 @@
             this.TourName.DataPropertyName = "name";
             this.TourName.HeaderText = "Tour";
             this.TourName.Name = "TourName";
+            this.TourName.ReadOnly = true;
             this.TourName.Width = 300;
             // 
             // TourDestination
@@ -563,6 +605,7 @@
             this.TourDestination.DataPropertyName = "Destination";
             this.TourDestination.HeaderText = "Điểm đến";
             this.TourDestination.Name = "TourDestination";
+            this.TourDestination.ReadOnly = true;
             this.TourDestination.Width = 125;
             // 
             // TourPrice
@@ -570,56 +613,22 @@
             this.TourPrice.DataPropertyName = "TourPrice";
             this.TourPrice.HeaderText = "Giá";
             this.TourPrice.Name = "TourPrice";
+            this.TourPrice.ReadOnly = true;
             // 
             // ApplyDay
             // 
             this.ApplyDay.DataPropertyName = "TourPrice";
             this.ApplyDay.HeaderText = "Ngày áp dụng";
             this.ApplyDay.Name = "ApplyDay";
+            this.ApplyDay.ReadOnly = true;
             // 
             // Category
             // 
             this.Category.DataPropertyName = "TourCategory";
             this.Category.HeaderText = "Loại hình du lịch";
             this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             this.Category.Width = 175;
-            // 
-            // ckbSelectAll
-            // 
-            this.ckbSelectAll.AutoSize = true;
-            this.ckbSelectAll.Location = new System.Drawing.Point(270, 347);
-            this.ckbSelectAll.Name = "ckbSelectAll";
-            this.ckbSelectAll.Size = new System.Drawing.Size(47, 22);
-            this.ckbSelectAll.TabIndex = 35;
-            this.ckbSelectAll.Text = "All";
-            this.ckbSelectAll.UseVisualStyleBackColor = true;
-            this.ckbSelectAll.CheckedChanged += new System.EventHandler(this.ckbSelectAll_CheckedChanged);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(665, 548);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(116, 43);
-            this.btnDelete.TabIndex = 31;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(524, 548);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(116, 43);
-            this.btnRefresh.TabIndex = 32;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // fmTourManager
             // 
