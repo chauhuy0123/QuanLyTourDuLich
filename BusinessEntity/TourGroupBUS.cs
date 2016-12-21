@@ -73,5 +73,15 @@ namespace BusinessEntity
                 return TourGroupBUS.MaxDate;
             return entries.Max(group => group.return_date);
         }
+
+        public IEnumerable<TourGroup> getTourGroupByTour(Tour tour)
+        {
+            return _unitOfWork.TourGroupRepository.GetMany(tourgroup => tourgroup.tour_id == tour.id);
+        }
+
+        public IEnumerable<TourGroup> getAllTourGroupByName(string name)
+        {
+            return _unitOfWork.TourGroupRepository.GetMany(tourgroup => tourgroup.name == name);
+        }
     }
 }

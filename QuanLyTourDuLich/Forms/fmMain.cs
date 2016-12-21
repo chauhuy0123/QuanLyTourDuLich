@@ -229,7 +229,12 @@ namespace QuanLyTourDuLich
         /// <param name="e"></param>
         private void btnReport_Click(object sender, EventArgs e)
         {
-
+            this.Cursor = Cursors.WaitCursor;
+            fmReport fm = new fmReport();
+            this.Hide();
+            this.Cursor = Cursors.Default;
+            fm.ShowDialog();
+            this.Show();
         }
 
         /// <summary>
