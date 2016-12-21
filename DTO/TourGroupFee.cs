@@ -12,16 +12,13 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class Hotel
+    public partial class TourGroupFee
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
-        public string phone { get; set; }
-        public string status { get; set; }
-        public int destination_id { get; set; }
-        public Nullable<double> price { get; set; }
+        public int Id { get; set; }
+        public int tourgroup_id { get; set; }
+        public double hotel_fee { get; set; }
+        public double transport_fee { get; set; }
     
-        public virtual Destination Destination { get; set; }
+        public virtual TourGroup TourGroup { get; set; }
     }
 }

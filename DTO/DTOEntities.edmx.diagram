@@ -35,6 +35,8 @@
         <AssociationConnector Association="TourManagerModel.Passenger" />
         <AssociationConnector Association="TourManagerModel.TourDetail" />
         <AssociationConnector Association="TourManagerModel.TransportsTourGroup" />
+        <EntityTypeShape EntityType="TourManagerModel.TourGroupFee" Width="1.5" PointX="13.5" PointY="8.75" />
+        <AssociationConnector Association="TourManagerModel.FK_TourGroupFee_TourGroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

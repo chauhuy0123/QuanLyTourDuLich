@@ -22,6 +22,7 @@ namespace DTO
         public int id { get; set; }
         public string name { get; set; }
         public int status { get; set; }
+        public Nullable<double> price { get; set; }
     
         public virtual Status Status1 { get; set; }
         public virtual ICollection<TourGroup> TourGroups { get; set; }
