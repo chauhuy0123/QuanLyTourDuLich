@@ -183,9 +183,17 @@ namespace QuanLyTourDuLich.Forms
 
         private void _tourGroupCb_SelectedValueChanged(object sender, EventArgs e)
         {
-            _passengerBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
-            _transportBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
-            _employeeBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+            if (_tourGroupCb.SelectedValue != null)
+            {
+                _passengerBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+                _transportBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+                _employeeBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+            } else
+            {
+                _passengerBs.Filter = "tour_group_id = -1";
+                _transportBs.Filter = "tour_group_id = -1";
+                _employeeBs.Filter = "tour_group_id = -1";
+            }
         }
 
         private void _passengerDgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

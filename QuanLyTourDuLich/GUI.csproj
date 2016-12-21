@@ -162,6 +162,12 @@
     <Compile Include="Forms\fmTourManager.Designer.cs">
       <DependentUpon>fmTourManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeeManagement.Designer.cs">
+      <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
     <Compile Include="Presenters\DestinationPresenter.cs" />
     <Compile Include="Presenters\HotelPresenter.cs" />
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmTourManager.resx">
       <DependentUpon>fmTourManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeeManagement.resx">
+      <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
