@@ -32,7 +32,7 @@
         <AssociationConnector Association="TourManagerModel.FK_Tour_TourPrice" />
         <AssociationConnector Association="TourManagerModel.FK_TourGroup_TourCategory" />
         <AssociationConnector Association="TourManagerModel.EmployeesTourGroup" />
-        <AssociationConnector Association="TourManagerModel.Passenger" />
+        <AssociationConnector Association="TourManagerModel.Passenger" ></AssociationConnector>
         <AssociationConnector Association="TourManagerModel.TourDetail" />
         <AssociationConnector Association="TourManagerModel.TransportsTourGroup" />
         <EntityTypeShape EntityType="TourManagerModel.TourGroupFee" Width="1.5" PointX="13.5" PointY="8.75" />

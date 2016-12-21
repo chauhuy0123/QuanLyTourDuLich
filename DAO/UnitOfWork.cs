@@ -35,6 +35,7 @@ namespace DAO
         private GenericRepository<Transport> _transportRepository;
         private GenericRepository<Account> _accountRepository;
         private GenericRepository<AccountType> _accountTypeRepository;
+        private GenericRepository<TourGroupFee> _tourGroupFeeRepository;
 
         public GenericRepository<Customer> CustomerRepository
         {
@@ -184,6 +185,16 @@ namespace DAO
                 if (_accountTypeRepository == null)
                     _accountTypeRepository = new GenericRepository<AccountType>(_entityContext);
                 return _accountTypeRepository;
+            }
+        }
+
+        public GenericRepository<TourGroupFee> TourGroupFeeRepository
+        {
+            get
+            {
+                if (_tourGroupFeeRepository == null)
+                    _tourGroupFeeRepository = new GenericRepository<TourGroupFee>(_entityContext);
+                return _tourGroupFeeRepository;
             }
         }
 

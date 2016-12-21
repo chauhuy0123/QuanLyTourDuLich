@@ -70,6 +70,7 @@
     <Compile Include="TourBUS.cs" />
     <Compile Include="TourCategoryBUS.cs" />
     <Compile Include="TourGroupBUS.cs" />
+    <Compile Include="TourGroupFeeBUS.cs" />
     <Compile Include="TourPriceBUS.cs" />
     <Compile Include="TourSiteBUS.cs" />
     <Compile Include="TransportBUS.cs" />

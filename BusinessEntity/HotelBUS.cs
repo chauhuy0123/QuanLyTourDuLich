@@ -16,6 +16,11 @@ namespace BusinessEntity
             return _unitOfWork.HotelRepository.GetByID(id);
         }
 
+        public Hotel getHotelByDesId(Destination des)
+        {
+            return _unitOfWork.HotelRepository.Get(ht => ht.destination_id == des.id);
+        }
+
         public IEnumerable<Hotel> getEntries()
         {
             return _unitOfWork.HotelRepository.GetAll();
