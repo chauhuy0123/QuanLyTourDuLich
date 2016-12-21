@@ -57,6 +57,7 @@
     <Compile Include="EmployeeTourGroupBUS.cs" />
     <Compile Include="GenderBUS.cs" />
     <Compile Include="HotelBUS.cs" />
+    <Compile Include="LoginBUS.cs" />
     <Compile Include="PassengerBUS.cs" />
     <Compile Include="SearchEngine\CustomerSearchEngine.cs" />
     <Compile Include="SearchEngine\DestinationSearchEngine.cs" />

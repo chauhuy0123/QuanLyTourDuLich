@@ -150,6 +150,12 @@
     <Compile Include="Forms\fmSearch.Designer.cs">
       <DependentUpon>fmSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\fmTourGroupEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmTourGroupEmployees.Designer.cs">
+      <DependentUpon>fmTourGroupEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmTourGroupPassengers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     <EmbeddedResource Include="Forms\fmSearch.resx">
       <DependentUpon>fmSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmTourGroupEmployees.resx">
+      <DependentUpon>fmTourGroupEmployees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmTourGroupPassengers.resx">
       <DependentUpon>fmTourGroupPassengers.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +342,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\accountmanager.png" />
+    <Content Include="Resources\account.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\db.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\db\TourManager.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -342,6 +357,12 @@
     </Content>
     <Content Include="Resources\ic_accept.png" />
     <Content Include="Resources\ic_add.png" />
+    <Content Include="Resources\ic_add_all.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ic_add_all_disable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\ic_add_disabled.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -358,6 +379,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ic_remove.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ic_remove_all.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ic_remove_all_disable.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ic_remove_disabled.png">

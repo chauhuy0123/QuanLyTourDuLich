@@ -34,7 +34,7 @@ namespace QuanLyTourDuLich
             // code behind just test. also example 
 
             /* Bussiness object for all you need */
-            var bus = new BusinessEntity.CustomerBUS();
+            //var bus = new BusinessEntity.CustomerBUS();
 
             /* Get by Id Examples */
             // var c = bus.getCustomerById(2);
