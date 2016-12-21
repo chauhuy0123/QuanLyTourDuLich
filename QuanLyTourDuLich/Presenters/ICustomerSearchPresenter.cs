@@ -10,6 +10,9 @@ namespace QuanLyTourDuLich.Presenters
     interface ICustomerSearchPresenter
     {
         void performClickSearch(string keyword);
+
+        void performClickSearch(string keyword, int tourId);
+
         void searchResult(IEnumerable<Customer> result);
 
         void sortIdColumn();
@@ -21,5 +24,14 @@ namespace QuanLyTourDuLich.Presenters
         void sortPhoneColumn();
 
         void sortGenderColumn();
+
+        void toggleCustomerTourGroupStatus(Customer customer, TourGroup tourGroupId);
+
+        TourGroup getTourGroupById(int p);
+
+        void addPassengerToTourGroup(Customer customer, TourGroup _tourGroup);
+        void addPassengerToTourGroup(IEnumerable<Customer> customers, TourGroup tourGroup);
+
+        void removePassengerFromTourGroup(Customer customer, TourGroup _tourGroup);
     }
 }

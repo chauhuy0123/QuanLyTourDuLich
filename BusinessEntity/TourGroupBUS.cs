@@ -15,9 +15,20 @@ namespace BusinessEntity
         private static DateTime MinDate = new DateTime(2000, 1, 1);
         private static DateTime MaxDate = new DateTime(2100, 1, 1);
 
+
         public TourGroup getCustomerById(int id)
         {
             return _unitOfWork.TourGroupRepository.GetByID(id);
+        }
+
+        public IEnumerable<Customer> getAllCustomers()
+        {
+            return _unitOfWork.CustomerRepository.GetAll();
+        }
+
+        public IEnumerable<Customer> getCustomerInTourGroup(int tourGroupid)
+        {
+            return _unitOfWork.CustomerRepository.GetMany(c => c.TourGroups.Where(group => group.id == tourGroupid).Count() != 0);
         }
 
         public IEnumerable<TourGroup> getEntries()
@@ -61,6 +72,16 @@ namespace BusinessEntity
             if (entries.Count() == 0)
                 return TourGroupBUS.MaxDate;
             return entries.Max(group => group.return_date);
+        }
+
+        public IEnumerable<TourGroup> getTourGroupByTour(Tour tour)
+        {
+            return _unitOfWork.TourGroupRepository.GetMany(tourgroup => tourgroup.tour_id == tour.id);
+        }
+
+        public IEnumerable<TourGroup> getAllTourGroupByName(string name)
+        {
+            return _unitOfWork.TourGroupRepository.GetMany(tourgroup => tourgroup.name == name);
         }
     }
 }

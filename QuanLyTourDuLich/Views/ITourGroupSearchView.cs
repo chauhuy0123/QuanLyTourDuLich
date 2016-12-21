@@ -12,5 +12,8 @@ namespace QuanLyTourDuLich.Views
         void handleSearchTourGroupClick(string keyword);
         void updateSearchResult(IEnumerable<TourGroup> searchResult);
 
+        void updateMinDepartDate(DateTime mindate);
+
+        void udpateMaxReturnDate(DateTime maxdate);
     }
 }

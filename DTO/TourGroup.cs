@@ -31,5 +31,6 @@ namespace DTO
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Transport> Transports { get; set; }
+        public virtual TourGroupFee TourGroupFee { get; set; }
     }
 }

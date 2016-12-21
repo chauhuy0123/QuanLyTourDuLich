@@ -37,6 +37,11 @@ namespace BusinessEntity.SearchEngine
             var regex = RegexProxy.getInstance().getRegex(keyword);
             return _entry.Where(destination => regex.IsMatch(destination.city));
         }
+        public void refresh()
+        {
+            _bus = new DestinationBUS();
+        }
+
 
     }
 }

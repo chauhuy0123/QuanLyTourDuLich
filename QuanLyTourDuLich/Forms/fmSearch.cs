@@ -16,7 +16,7 @@ using QuanLyTourDuLich.Presenters;
 namespace QuanLyTourDuLich.GUI
 {
 
-    public partial class fmSearch : Form, ICustomerSearchView, ITourSearchView, ITourGroupSearchView
+    public partial class fmSearch : Form, ICustomerSearchView, ITourSearchView, ITourGroupSearchView, ITransportView
     {
 
         ICustomerSearchPresenter _customerSearchpresenter;
@@ -31,18 +31,13 @@ namespace QuanLyTourDuLich.GUI
         TourPriceBUS _tourPriceBus;
         IEnumerable<TourPrice> _tourPrices;
 
-        TransportBUS _transportBUS;
-        IEnumerable<Transport> _transports;
-
         float _minPrice;
         float _maxPrice;
 
         ITourGroupSearchPresenter _tourGroupSearchPresenter;
-        TourGroupBUS _tourGroupBus;
+        ITransportPresenter _transportPresenter;
 
-        SearchEngine<TourGroup> tourGroupSearchEngine;
-        DateTime _minDepartDate;
-        DateTime _maxReturnDate;
+
 
         public fmSearch()
         {
@@ -50,8 +45,7 @@ namespace QuanLyTourDuLich.GUI
             postInit();
             _customerSearchpresenter = new CustomerSearchPresenter(this);
             _tourSearchpresenter = new TourSearchPresenter(this);
-            _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
-
+            
             _bus = new TourCategoryBUS();
             _entry = _bus.getEntries();
 
@@ -63,14 +57,8 @@ namespace QuanLyTourDuLich.GUI
             _minPrice = _tourPriceBus.getMinPrice();
             _maxPrice = _tourPriceBus.getMaxPrice();
 
-            _transportBUS = new TransportBUS();
-            _transports = _transportBUS.getEntries();
-
-            _tourGroupBus = new TourGroupBUS();
-            _minDepartDate = _tourGroupBus.getMinDepartDate();
-            _maxReturnDate = _tourGroupBus.getMaxReturnDate();
-
-            tourGroupSearchEngine = new SearchEngine<TourGroup>();
+            _transportPresenter = new TransportPresenter(this);
+            _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
 
         }
 
@@ -78,7 +66,7 @@ namespace QuanLyTourDuLich.GUI
         {
             _tourCategoryClb.DataSource = _tourCategoryBs;
             _destinationClb.DataSource = _destinationBs;
-            _transportClb.DataSource = _transportBs;
+            _transportClb.DataSource = _transportBs;                // todo
         }
 
         private void fmSearch_Load(object sender, EventArgs e)
@@ -92,11 +80,12 @@ namespace QuanLyTourDuLich.GUI
             _minPriceUD.Value = (decimal)_minPrice;
             _maxPriceUD.Value = (decimal)_maxPrice + 1;
 
-            _transportBs.DataSource = _transports;
-            _transportClb.DisplayMember = "name";
+            _transportPresenter.loadAllActiveTransports();
 
-            _startDtp.Value = _minDepartDate;
-            _endDtp.Value = _maxReturnDate;
+            _tourGroupSearchPresenter.loadMinDepartDate();
+            _tourGroupSearchPresenter.loadMaxReturnDate();
+            //_startDtp.Value = _minDepartDate;           // todo
+            //_endDtp.Value = _maxReturnDate;             // todo
         }
 
         private void btnTroLai1_Click(object sender, EventArgs e)
@@ -159,6 +148,123 @@ namespace QuanLyTourDuLich.GUI
                 _customerSearchpresenter.sortGenderColumn();
         }
         #endregion Tab Customer
+
+        #region Tab Tour Group
+
+        private void _startDtp_ValueChanged(object sender, EventArgs e)
+        {
+            var mindate = _startDtp.Value;
+            var maxdate = _endDtp.Value;
+            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+        }
+
+        private void _endDtp_ValueChanged(object sender, EventArgs e)
+        {
+            var mindate = _startDtp.Value;
+            var maxdate = _endDtp.Value;
+            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+        }
+
+        public void updateMinDepartDate(DateTime minValue)
+        {
+             _startDtp.Value = minValue;
+        }
+
+        public void udpateMaxReturnDate(DateTime minValue)
+        {
+            _endDtp.Value = minValue;
+        }
+
+        public void upateTransportsView(IEnumerable<Transport> transports)
+        {
+            _transportBs.DataSource = transports;
+            _transportClb.DisplayMember = "name";       // todo
+
+        }
+
+        private void _transportClb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = _transportClb.CheckedItems.Cast<Transport>();
+            _tourGroupSearchPresenter.filterTransport(selected);
+        }
+
+        private void _tourGroupKeywordTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.handleSearchTourGroupClick(_tourGroupKeywordTb.Text);
+        }
+
+        private void tourGroupSearchBtn_Click(object sender, EventArgs e)
+        {
+            var keyword = _tourGroupKeywordTb.Text.Trim();
+            this.handleSearchTourGroupClick(keyword);
+        }
+
+        private void _tourGroupGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+            var senderGrid = sender as DataGridView;
+            if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell)
+            {
+                if (e.ColumnIndex == 7)
+                {
+                    // ds nhân viên
+                }
+                if (e.ColumnIndex == 8)
+                {
+                    // ds phương tiện
+                }
+            }
+        }
+
+        private void _tourGroupGv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                e.Value = e.RowIndex + 1;
+            }
+            if (e.Value == null)
+                return;
+            if (e.ColumnIndex == 3)
+            {
+                e.Value = (e.Value as Tour).name;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                if (e.Value == null)
+                    e.Value = 0;
+                else
+                    e.Value = (e.Value as IEnumerable<Customer>).Count().ToString();
+            }
+        }
+
+        private void _tourGroupGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+                _tourGroupSearchPresenter.sortByTourGrouId();
+            else if (e.ColumnIndex == 2)
+                _tourGroupSearchPresenter.sortByTourGroupName();
+            else if (e.ColumnIndex == 3)
+                _tourGroupSearchPresenter.sortByTourName();
+            else if (e.ColumnIndex == 4)
+                _tourGroupSearchPresenter.sortByDepartDate();
+            else if (e.ColumnIndex == 5)
+                _tourGroupSearchPresenter.sortByReturnDate();
+            else if (e.ColumnIndex == 6)
+                _tourGroupSearchPresenter.sortByEmployees();
+
+        }
+
+        public void handleSearchTourGroupClick(string keyword)
+        {
+            _tourGroupSearchPresenter.handleSearchClick(keyword);
+        }
+
+        public void updateSearchResult(IEnumerable<TourGroup> searchResult)
+        {
+            _tourGroupBs.DataSource = searchResult;
+        }
+        #endregion
 
         public void handleSearchTourClick(string keyword)
         {
@@ -237,90 +343,6 @@ namespace QuanLyTourDuLich.GUI
             this.handleSearchTourClick(_searchTourTb.Text.Trim());
         }
 
-        private void _startDtp_ValueChanged(object sender, EventArgs e)
-        {
-            var dtpicker = (sender as DateTimePicker);
-            if (dtpicker == null)
-                return;
-            _minDepartDate = dtpicker.Value;
-            _tourGroupSearchPresenter.filterDate(new DateTime[] { _minDepartDate, _maxReturnDate });
-        }
-
-        private void _endDtp_ValueChanged(object sender, EventArgs e)
-        {
-            var dtpicker = (sender as DateTimePicker);
-            if (dtpicker == null)
-                return;
-            _maxReturnDate = dtpicker.Value;
-            _tourGroupSearchPresenter.filterDate(new DateTime[] { _minDepartDate, _maxReturnDate });
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //_tourGroupBs.DataSource = tourGroupSearchEngine.Search(_tourGroupKeywordTb.Text);
-            var keyword = _tourGroupKeywordTb.Text.Trim();
-            this.handleSearchTourGroupClick(keyword);
-        }
-
-        private void _tourGroupGv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-            {
-                e.Value = e.RowIndex + 1;
-            }
-
-            if (e.ColumnIndex == 3)
-            {
-                e.Value = (e.Value as Tour).name;
-            }
-            if (e.ColumnIndex == 6)
-            {
-                if (e.Value == null)
-                    e.Value = 0;
-                else
-                    e.Value = (e.Value as IEnumerable<Customer>).Count().ToString();
-            }
-        }
-
-        private void _tourGroupGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == -1)
-                return;
-            var senderGrid = sender as DataGridView;
-            if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell)
-            {
-                if (e.ColumnIndex == 7)
-                {
-                    // ds nhân viên
-                }
-                if (e.ColumnIndex == 8)
-                {
-                    // ds phương tiện
-                }
-            }
-        }
-
-        private void _tourGroupKeywordTb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.handleSearchTourGroupClick(_tourGroupKeywordTb.Text);
-        }
-
-        public void handleSearchTourGroupClick(string keyword)
-        {
-            _tourGroupSearchPresenter.handleSearchClick(keyword);
-        }
-
-        public void updateSearchResult(IEnumerable<TourGroup> searchResult)
-        {
-            _tourGroupBs.DataSource = searchResult;
-        }
-
-        private void _transportClb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selected = _transportClb.CheckedItems.Cast<Transport>();
-            _tourGroupSearchPresenter.filterTransport(selected);
-        }
-
         private void _keywordTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             _customerSearchpresenter.performClickSearch(_keywordTb.Text.Trim());
@@ -328,23 +350,6 @@ namespace QuanLyTourDuLich.GUI
 
         private void _tourOptionContainer_Panel1_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void _tourGroupGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex == 1)
-                _tourGroupSearchPresenter.sortByTourGrouId();
-            else if (e.ColumnIndex == 2)
-                _tourGroupSearchPresenter.sortByTourGroupName();
-            else if (e.ColumnIndex == 3)
-                _tourGroupSearchPresenter.sortByTourName();
-            else if (e.ColumnIndex == 4)
-                _tourGroupSearchPresenter.sortByDepartDate();
-            else if (e.ColumnIndex == 5)
-                _tourGroupSearchPresenter.sortByReturnDate();
-            else if (e.ColumnIndex == 6)
-                _tourGroupSearchPresenter.sortByEmployees();
 
         }
 

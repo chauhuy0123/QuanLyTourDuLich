@@ -59,14 +59,23 @@
             this.btnBack1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txbSaveFilePath = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSaveFilePath = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txbSaveRestoreFile = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnRestore = new System.Windows.Forms.Button();
+            this.txbRestoreFilePath = new System.Windows.Forms.TextBox();
+            this.btnOpenFile = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTroLai2 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -77,6 +86,9 @@
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +98,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Constantia", 11.25F);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -178,6 +191,7 @@
             this.noColumn.Name = "noColumn";
             this.noColumn.ReadOnly = true;
             this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.noColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // usernameColumn
             // 
@@ -187,6 +201,7 @@
             this.usernameColumn.HeaderText = "Tên tài khoản";
             this.usernameColumn.Name = "usernameColumn";
             this.usernameColumn.ReadOnly = true;
+            this.usernameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // accountTypeColumn
             // 
@@ -196,6 +211,7 @@
             this.accountTypeColumn.HeaderText = "Loại tài khoản";
             this.accountTypeColumn.Name = "accountTypeColumn";
             this.accountTypeColumn.ReadOnly = true;
+            this.accountTypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // groupBox2
             // 
@@ -408,9 +424,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.groupBox4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Font = new System.Drawing.Font("Constantia", 11.25F);
             this.panel3.Location = new System.Drawing.Point(3, 87);
@@ -418,17 +433,147 @@
             this.panel3.Size = new System.Drawing.Size(1248, 537);
             this.panel3.TabIndex = 24;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.groupBox3);
+            this.panel5.Controls.Add(this.groupBox4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1248, 537);
+            this.panel5.TabIndex = 24;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Controls.Add(this.txbSaveFilePath);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.btnSaveFilePath);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Font = new System.Drawing.Font("Constantia", 11.25F);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(591, 537);
+            this.groupBox3.Size = new System.Drawing.Size(1248, 250);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sao lưu dữ liệu";
+            // 
+            // txbSaveFilePath
+            // 
+            this.txbSaveFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txbSaveFilePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbSaveFilePath.Location = new System.Drawing.Point(377, 106);
+            this.txbSaveFilePath.Name = "txbSaveFilePath";
+            this.txbSaveFilePath.ReadOnly = true;
+            this.txbSaveFilePath.Size = new System.Drawing.Size(400, 30);
+            this.txbSaveFilePath.TabIndex = 29;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(165, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(170, 23);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Đường dẫn sao lưu";
+            // 
+            // btnSaveFilePath
+            // 
+            this.btnSaveFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnSaveFilePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSaveFilePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveFilePath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSaveFilePath.Location = new System.Drawing.Point(845, 100);
+            this.btnSaveFilePath.Name = "btnSaveFilePath";
+            this.btnSaveFilePath.Size = new System.Drawing.Size(130, 40);
+            this.btnSaveFilePath.TabIndex = 27;
+            this.btnSaveFilePath.Text = "Chọn...";
+            this.btnSaveFilePath.UseVisualStyleBackColor = false;
+            this.btnSaveFilePath.Click += new System.EventHandler(this.btnSaveFilePath_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.txbSaveRestoreFile);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.btnRestore);
+            this.groupBox4.Controls.Add(this.txbRestoreFilePath);
+            this.groupBox4.Controls.Add(this.btnOpenFile);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox4.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox4.Location = new System.Drawing.Point(0, 287);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1248, 250);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Phục hồi dữ liệu";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(56, 158);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(279, 23);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Đường dẫn nơi lưu file phục hồi";
+            // 
+            // txbSaveRestoreFile
+            // 
+            this.txbSaveRestoreFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txbSaveRestoreFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbSaveRestoreFile.Location = new System.Drawing.Point(377, 155);
+            this.txbSaveRestoreFile.Name = "txbSaveRestoreFile";
+            this.txbSaveRestoreFile.ReadOnly = true;
+            this.txbSaveRestoreFile.Size = new System.Drawing.Size(400, 30);
+            this.txbSaveRestoreFile.TabIndex = 28;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(92, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(243, 23);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Đường dẫn chọn file (*.bak)";
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnRestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnRestore.Location = new System.Drawing.Point(845, 149);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(130, 40);
+            this.btnRestore.TabIndex = 25;
+            this.btnRestore.Text = "Chọn...";
+            this.btnRestore.UseVisualStyleBackColor = false;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            // 
+            // txbRestoreFilePath
+            // 
+            this.txbRestoreFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txbRestoreFilePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbRestoreFilePath.Location = new System.Drawing.Point(377, 72);
+            this.txbRestoreFilePath.Name = "txbRestoreFilePath";
+            this.txbRestoreFilePath.ReadOnly = true;
+            this.txbRestoreFilePath.Size = new System.Drawing.Size(400, 30);
+            this.txbRestoreFilePath.TabIndex = 24;
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnOpenFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnOpenFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenFile.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnOpenFile.Location = new System.Drawing.Point(845, 66);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(130, 40);
+            this.btnOpenFile.TabIndex = 23;
+            this.btnOpenFile.Text = "Chọn...";
+            this.btnOpenFile.UseVisualStyleBackColor = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // button1
             // 
@@ -441,18 +586,6 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox4.Font = new System.Drawing.Font("Constantia", 11.25F);
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox4.Location = new System.Drawing.Point(597, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(651, 537);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Phục hồi dữ liệu";
             // 
             // panel2
             // 
@@ -498,10 +631,6 @@
             this.imageList1.Images.SetKeyName(1, "account.png");
             this.imageList1.Images.SetKeyName(2, "database (1).png");
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // fmSystemManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -516,7 +645,6 @@
             this.Name = "fmSystemManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmSystemManager";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fmSystemManager_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -530,6 +658,11 @@
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -555,8 +688,6 @@
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.TextBox txbRePassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
@@ -568,12 +699,23 @@
         private System.Windows.Forms.Label labPassword;
         private System.Windows.Forms.Label labUsername;
         private System.Windows.Forms.BindingSource bdsAccountList;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txbSaveFilePath;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSaveFilePath;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txbSaveRestoreFile;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnRestore;
+        private System.Windows.Forms.TextBox txbRestoreFilePath;
+        private System.Windows.Forms.Button btnOpenFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn noColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountTypeColumn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Panel panel4;
     }
 }

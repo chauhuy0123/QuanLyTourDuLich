@@ -21,7 +21,6 @@ namespace BusinessEntity.SearchEngine
             return _engine.Search(keyword);
         }
 
-
         private ISearchAble<TEntity> getEngine()
         {
             if (typeof(TEntity) == typeof(DTO.Customer))
@@ -49,6 +48,11 @@ namespace BusinessEntity.SearchEngine
                 return new HotelSearchEngine() as ISearchAble<TEntity>;
             } 
             return null;
+        }
+
+        public void refresh()
+        {
+            _engine.refresh();
         }
     }
 }

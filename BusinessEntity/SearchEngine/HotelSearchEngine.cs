@@ -45,5 +45,10 @@ namespace BusinessEntity.SearchEngine
             return _entry.Where(hotel => regex.IsMatch(hotel.address));
         }
 
+        public void refresh()
+        {
+            _bus = new HotelBUS();
+        }
+
     }
 }

@@ -150,6 +150,9 @@
     <Compile Include="TourGroup.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TourGroupFee.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TourPrice.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>

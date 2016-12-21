@@ -43,6 +43,7 @@ namespace DTO
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
+        public DbSet<TourGroupFee> TourGroupFees { get; set; }
     
         public virtual ObjectResult<GetCustomerById_Result> GetCustomerById(string id)
         {

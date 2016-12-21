@@ -54,5 +54,15 @@ namespace BusinessEntity
             //_unitOfWork.CustomerRepository.GetFirst(c => c.name == "Tung");
             //_unitOfWork.CustomerRepository.GetMany(c => c.id > 11);
         }
+
+        public TourGroup getTourGroupById(int tourGroupId)
+        {
+            return _unitOfWork.TourGroupRepository.GetByID(tourGroupId);
+        }
+
+        public void update(TourGroup group)
+        {
+            _unitOfWork.TourGroupRepository.Update(group);
+        }
     }
 }
