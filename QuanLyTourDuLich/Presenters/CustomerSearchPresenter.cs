@@ -13,21 +13,31 @@ namespace QuanLyTourDuLich.Presenters
     class CustomerSearchPresenter : ICustomerSearchPresenter
     {
         private ICustomerSearchView _view;
-//        private CustomerBUS _bus;
+
+        private CustomerBUS _bus;
 
         private SearchEngine<Customer> _customerSearch;
         private IEnumerable<Customer> _searchResult;
 
+
         public CustomerSearchPresenter(ICustomerSearchView view)
         {
             _view = view;
-        //    _bus = new CustomerBUS();
+            _bus = new CustomerBUS();
             _customerSearch = new SearchEngine<Customer>();
         }
 
         public void performClickSearch(string keyword)
         {
+            _customerSearch = new SearchEngine<Customer>();
             _searchResult = _customerSearch.Search(keyword);
+            this.searchResult(_searchResult);
+        }
+
+        public void performClickSearch(string keyword, int tourId)
+        {
+            _searchResult = _customerSearch.Search(keyword);
+            //_searchResult = _searchResult.Where(c => c.TourGroups.Any(t => t.id == tourId));
             this.searchResult(_searchResult);
         }
 
@@ -84,6 +94,83 @@ namespace QuanLyTourDuLich.Presenters
             var query = _searchResult.ToList();
             query.Sort(comparasion);
             this.searchResult(query);
+        }
+
+        public void toggleCustomerTourGroupStatus( Customer  customer, TourGroup tourGroup)
+        {
+            var cus = _bus.getCustomerById(customer.id);
+            var tourgroup = _bus.getTourGroupById(tourGroup.id);
+            if (cus.TourGroups.Contains(tourgroup))
+            {
+                cus.TourGroups.Remove(tourgroup);
+            }
+            else
+            {
+                cus.TourGroups.Add(tourgroup);
+            }
+            _bus.update(cus);
+        }
+
+        public void addPassengerToTourGroup(Customer customer, TourGroup tourGroup)
+        {
+            var cus = _bus.getCustomerById(customer.id);
+            var tourgroup = _bus.getTourGroupById(tourGroup.id);
+            if (cus.TourGroups.Contains(tourgroup) == false)
+            {
+                cus.TourGroups.Add(tourgroup);
+            }
+            _bus.update(cus);
+        }
+
+        public void addPassengerToTourGroup(IEnumerable<Customer> customers, TourGroup tourGroup)
+        {
+            var group = _bus.getTourGroupById(tourGroup.id);
+
+            foreach (var c in customers)
+            {
+                var cus = _bus.getCustomerById(c.id);
+                if (group.Customers.Contains(cus) == false)
+                {
+                    group.Customers.Add(cus);
+                }
+            }
+            //var cus = _bus.getCustomerById(customer.id);
+            //var tourgroup = _bus.getTourGroupById(tourGroup.id);
+            //if (cus.TourGroups.Contains(tourgroup) == false)
+            //{
+            //    cus.TourGroups.Add(tourgroup);
+            //}
+            _bus.update(group);
+        }
+
+        public void removePassengerFromTourGroup(Customer customer, TourGroup tourGroup)
+        {
+            var cus = _bus.getCustomerById(customer.id);
+            var tourgroup = _bus.getTourGroupById(tourGroup.id);
+            if (cus.TourGroups.Contains(tourgroup))
+            {
+                cus.TourGroups.Remove(tourgroup);
+            }
+            _bus.update(cus);
+        }
+
+        public TourGroup getTourGroupById(int tourGroupId)
+        {
+            return _bus.getTourGroupById(tourGroupId);
+        }
+    }
+
+    class TourGroupComparer : IEqualityComparer<TourGroup>
+    {
+
+        public bool Equals(TourGroup x, TourGroup y)
+        {
+            return x.id == y.id;
+        }
+
+        public int GetHashCode(TourGroup obj)
+        {
+            return obj.id.GetHashCode();
         }
     }
 }

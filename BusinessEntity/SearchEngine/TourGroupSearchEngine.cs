@@ -37,5 +37,10 @@ namespace BusinessEntity.SearchEngine
             var regex = RegexProxy.getInstance().getRegex(keyword);
             return _entry.Where(tour => regex.IsMatch(tour.name));
         }
+
+        public void refresh()
+        {
+            _bus = new TourGroupBUS();
+        }
     }
 }

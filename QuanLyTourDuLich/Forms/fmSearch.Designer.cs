@@ -67,9 +67,18 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this._tourGroupGv = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tourGroupNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._passengersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this._tourGroupBs = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this._tourGroupSearchBtn = new System.Windows.Forms.Button();
             this._tourGroupKeywordTb = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -116,15 +125,6 @@
             this._destinationBs = new System.Windows.Forms.BindingSource(this.components);
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this._transportBs = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tourGroupNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._passengersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -655,11 +655,87 @@
             this._tourGroupGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._tourGroupGv_CellFormatting);
             this._tourGroupGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._tourGroupGv_ColumnHeaderMouseClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn2.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Đoàn";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // _tourGroupNameColumn
+            // 
+            this._tourGroupNameColumn.DataPropertyName = "name";
+            this._tourGroupNameColumn.HeaderText = "Tên Đoàn";
+            this._tourGroupNameColumn.Name = "_tourGroupNameColumn";
+            this._tourGroupNameColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Tour";
+            this.dataGridViewTextBoxColumn3.FillWeight = 120F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "depart_date";
+            this.dataGridViewTextBoxColumn4.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày khởi hành";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "return_date";
+            this.dataGridViewTextBoxColumn5.FillWeight = 90F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày trở về";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // _passengersColumn
+            // 
+            this._passengersColumn.DataPropertyName = "Customers";
+            this._passengersColumn.FillWeight = 40F;
+            this._passengersColumn.HeaderText = "Số hành khách";
+            this._passengersColumn.Name = "_passengersColumn";
+            this._passengersColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Destination";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Nhân Viên";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.Text = "Ds Nhân Viên...";
+            this.dataGridViewTextBoxColumn6.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Destination";
+            this.dataGridViewTextBoxColumn7.HeaderText = "P.Tiện di chuyển";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn7.Text = "Ds Phương tiện...";
+            this.dataGridViewTextBoxColumn7.UseColumnTextForButtonValue = true;
+            // 
             // panel2
             // 
             this.panel2.AllowDrop = true;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this._tourGroupSearchBtn);
             this.panel2.Controls.Add(this._tourGroupKeywordTb);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -668,18 +744,18 @@
             this.panel2.Size = new System.Drawing.Size(1049, 80);
             this.panel2.TabIndex = 0;
             // 
-            // button4
+            // _tourGroupSearchBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(342, 38);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 28);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this._tourGroupSearchBtn.BackColor = System.Drawing.Color.White;
+            this._tourGroupSearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_tourGroupSearchBtn.BackgroundImage")));
+            this._tourGroupSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this._tourGroupSearchBtn.Location = new System.Drawing.Point(342, 38);
+            this._tourGroupSearchBtn.Margin = new System.Windows.Forms.Padding(0);
+            this._tourGroupSearchBtn.Name = "_tourGroupSearchBtn";
+            this._tourGroupSearchBtn.Size = new System.Drawing.Size(33, 28);
+            this._tourGroupSearchBtn.TabIndex = 4;
+            this._tourGroupSearchBtn.UseVisualStyleBackColor = false;
+            this._tourGroupSearchBtn.Click += new System.EventHandler(this.tourGroupSearchBtn_Click);
             // 
             // _tourGroupKeywordTb
             // 
@@ -1241,82 +1317,6 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn2.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Đoàn";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // _tourGroupNameColumn
-            // 
-            this._tourGroupNameColumn.DataPropertyName = "name";
-            this._tourGroupNameColumn.HeaderText = "Tên Đoàn";
-            this._tourGroupNameColumn.Name = "_tourGroupNameColumn";
-            this._tourGroupNameColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Tour";
-            this.dataGridViewTextBoxColumn3.FillWeight = 120F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "depart_date";
-            this.dataGridViewTextBoxColumn4.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày khởi hành";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "return_date";
-            this.dataGridViewTextBoxColumn5.FillWeight = 90F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày trở về";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // _passengersColumn
-            // 
-            this._passengersColumn.DataPropertyName = "Customers";
-            this._passengersColumn.FillWeight = 40F;
-            this._passengersColumn.HeaderText = "Số hành khách";
-            this._passengersColumn.Name = "_passengersColumn";
-            this._passengersColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Destination";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nhân Viên";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn6.Text = "Ds Nhân Viên...";
-            this.dataGridViewTextBoxColumn6.UseColumnTextForButtonValue = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Destination";
-            this.dataGridViewTextBoxColumn7.HeaderText = "P.Tiện di chuyển";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn7.Text = "Ds Phương tiện...";
-            this.dataGridViewTextBoxColumn7.UseColumnTextForButtonValue = true;
-            // 
             // fmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1477,7 +1477,7 @@
         private System.Windows.Forms.BindingSource _transportBs;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button _tourGroupSearchBtn;
         private System.Windows.Forms.TextBox _tourGroupKeywordTb;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView _tourGroupGv;

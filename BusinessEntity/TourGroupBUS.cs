@@ -15,9 +15,20 @@ namespace BusinessEntity
         private static DateTime MinDate = new DateTime(2000, 1, 1);
         private static DateTime MaxDate = new DateTime(2100, 1, 1);
 
+
         public TourGroup getCustomerById(int id)
         {
             return _unitOfWork.TourGroupRepository.GetByID(id);
+        }
+
+        public IEnumerable<Customer> getAllCustomers()
+        {
+            return _unitOfWork.CustomerRepository.GetAll();
+        }
+
+        public IEnumerable<Customer> getCustomerInTourGroup(int tourGroupid)
+        {
+            return _unitOfWork.CustomerRepository.GetMany(c => c.TourGroups.Where(group => group.id == tourGroupid).Count() != 0);
         }
 
         public IEnumerable<TourGroup> getEntries()

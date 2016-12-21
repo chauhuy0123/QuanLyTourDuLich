@@ -31,5 +31,9 @@ namespace BusinessEntity.SearchEngine
             return _entry.Where(tour => regex.IsMatch(tour.name));
         }
 
+        public void refresh()
+        {
+            _bus = new TourBUS();
+        }
     }
 }

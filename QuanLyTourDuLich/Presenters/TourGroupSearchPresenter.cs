@@ -1,4 +1,5 @@
-﻿using BusinessEntity.SearchEngine;
+﻿using BusinessEntity;
+using BusinessEntity.SearchEngine;
 using DTO;
 using QuanLyTourDuLich.Views;
 using System;
@@ -21,13 +22,14 @@ namespace QuanLyTourDuLich.Presenters
 
         private DateTime _return_date = DateTime.MaxValue;
 
-
+        private TourGroupBUS _bus;
         public TourGroupSearchPresenter(ITourGroupSearchView view)
         {
             _view = view;
 
             _tourGrourSearch = new SearchEngine<TourGroup>();
-            
+
+            _bus = new TourGroupBUS();
         }
         public void handleSearchClick(string keyword)
         {
@@ -149,6 +151,18 @@ namespace QuanLyTourDuLich.Presenters
         }
 
         #endregion //!Sort
+
+        public void loadMinDepartDate()
+        {
+            var rs = this._bus.getMinDepartDate();
+            _view.updateMinDepartDate(rs);
+        }
+
+        public void loadMaxReturnDate()
+        {
+            var rs = this._bus.getMaxReturnDate();
+            _view.udpateMaxReturnDate(rs);
+        }
 
         class TransportEqualityComparer : IEqualityComparer<Transport>
         {

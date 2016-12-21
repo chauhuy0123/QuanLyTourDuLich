@@ -8,5 +8,7 @@ namespace BusinessEntity
     public interface ISearchAble<TEntity> where TEntity : class
     {
         IEnumerable<TEntity> Search(string keyword);
+
+        void refresh();
     }
 }

@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using BusinessEntity;
 using DTO;
 using System.Reflection;
+using QuanLyTourDuLich.Presenters;
+using QuanLyTourDuLich.Views;
 
 namespace QuanLyTourDuLich.Forms
 {
-    public partial class frmTourGroupManager : Form
+    public partial class frmTourGroupManager : Form, ITourGroupSearchView, ITransportView
     {
         TourGroupBUS _tourGroupBus;
         IEnumerable<TourGroup> _tourGroups;
@@ -33,6 +35,10 @@ namespace QuanLyTourDuLich.Forms
         CustomerBUS _customerBus;
         TransportBUS _transportBus;
         EmployeeBUS _employeeBus;
+
+        ITourGroupSearchPresenter _tourGroupSearchPresenter;
+        ITransportPresenter _transportPresenter;
+
  
         public frmTourGroupManager()
         {
@@ -53,6 +59,10 @@ namespace QuanLyTourDuLich.Forms
             _transportBus = new TransportBUS();
 
             _employeeBus = new EmployeeBUS();
+
+            _transportPresenter = new TransportPresenter(this);
+
+            _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
 
             init();
         }
@@ -90,6 +100,13 @@ namespace QuanLyTourDuLich.Forms
 
             _departDateDtp.MinDate = DateTime.Now;
             _returnDateDtp.MinDate = DateTime.Now;
+
+            _transportClb.DataSource = _searchtransportBs;                // todo
+
+            _transportPresenter.loadAllActiveTransports();
+
+            _tourGroupSearchPresenter.loadMinDepartDate();
+            _tourGroupSearchPresenter.loadMaxReturnDate();
         }
 
         private void _tourCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -336,5 +353,132 @@ namespace QuanLyTourDuLich.Forms
         {
 
         }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+        #region Tab Tour Group
+
+        private void _startDtp_ValueChanged(object sender, EventArgs e)
+        {
+            var mindate = _startDtp.Value;
+            var maxdate = _endDtp.Value;
+            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+        }
+
+        private void _endDtp_ValueChanged(object sender, EventArgs e)
+        {
+            var mindate = _startDtp.Value;
+            var maxdate = _endDtp.Value;
+            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+        }
+
+        public void updateMinDepartDate(DateTime minValue)
+        {
+            _startDtp.Value = minValue;
+        }
+
+        public void udpateMaxReturnDate(DateTime minValue)
+        {
+            _endDtp.Value = minValue;
+        }
+
+        public void upateTransportsView(IEnumerable<Transport> transports)
+        {
+            _searchtransportBs.DataSource = transports;
+            _transportClb.DisplayMember = "name";       // todo
+
+        }
+
+        private void _transportClb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selected = _transportClb.CheckedItems.Cast<Transport>();
+            _tourGroupSearchPresenter.filterTransport(selected);
+        }
+
+        private void _tourGroupKeywordTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.handleSearchTourGroupClick(_tourGroupKeywordTb.Text);
+        }
+
+        private void tourGroupSearchBtn_Click(object sender, EventArgs e)
+        {
+            var keyword = _tourGroupKeywordTb.Text.Trim();
+            this.handleSearchTourGroupClick(keyword);
+        }
+
+        private void _tourGroupGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+                return;
+            var senderGrid = sender as DataGridView;
+            if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewButtonCell)
+            {
+                if (e.ColumnIndex == 6)
+                {
+                    var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
+                    new fmTourGroupPassengers(tourGroup).ShowDialog();
+                }
+                if (e.ColumnIndex == 7)
+                {
+                    // ds nhân viên
+                }
+                if (e.ColumnIndex == 8)
+                {
+                    // ds phương tiện
+                }
+            }
+        }
+
+        private void _tourGroupGv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                e.Value = e.RowIndex + 1;
+            }
+            if (e.Value == null)
+                return;
+            if (e.ColumnIndex == 3)
+            {
+                e.Value = (e.Value as Tour).name;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                //if (e.Value == null)
+                //    e.Value = 0;
+                //else
+                //    e.Value = (e.Value as IEnumerable<Customer>).Count().ToString();
+            }
+        }
+
+        private void _tourGroupGv_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+                _tourGroupSearchPresenter.sortByTourGrouId();
+            else if (e.ColumnIndex == 2)
+                _tourGroupSearchPresenter.sortByTourGroupName();
+            else if (e.ColumnIndex == 3)
+                _tourGroupSearchPresenter.sortByTourName();
+            else if (e.ColumnIndex == 4)
+                _tourGroupSearchPresenter.sortByDepartDate();
+            else if (e.ColumnIndex == 5)
+                _tourGroupSearchPresenter.sortByReturnDate();
+            //else if (e.ColumnIndex == 6)
+            //    _tourGroupSearchPresenter.sortByEmployees();
+
+        }
+
+        public void handleSearchTourGroupClick(string keyword)
+        {
+            _tourGroupSearchPresenter.handleSearchClick(keyword);
+        }
+
+        public void updateSearchResult(IEnumerable<TourGroup> searchResult)
+        {
+            _searchTourGroupBs.DataSource = searchResult;
+        }
+        #endregion
+
     }
 }

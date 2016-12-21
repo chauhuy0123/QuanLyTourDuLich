@@ -44,5 +44,14 @@ namespace BusinessEntity
             _unitOfWork.Save();
         }
 
+
+        public IEnumerable<Transport> getTransportTourGroup()
+        {
+            return _unitOfWork
+                .TransportRepository
+                .GetMany(transport => (transport.TourGroups != null && transport.TourGroups.Count != 0));
+
+
+        }
     }
 }

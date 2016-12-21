@@ -21,5 +21,9 @@ namespace QuanLyTourDuLich.Presenters
         void sortByReturnDate();
         void sortByEmployees();
 
+
+        void loadMinDepartDate();
+
+        void loadMaxReturnDate();
     }
 }
