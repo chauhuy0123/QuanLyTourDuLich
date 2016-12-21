@@ -36,6 +36,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.dgvAccountList = new System.Windows.Forms.DataGridView();
+            this.noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsAccountList = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labAccountType = new System.Windows.Forms.Label();
@@ -56,11 +59,6 @@
             this.btnBack1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnTroLai2 = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txbSaveFilePath = new System.Windows.Forms.TextBox();
@@ -73,9 +71,11 @@
             this.btnRestore = new System.Windows.Forms.Button();
             this.txbRestoreFilePath = new System.Windows.Forms.TextBox();
             this.btnOpenFile = new System.Windows.Forms.Button();
-            this.noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnTroLai2 = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -86,10 +86,10 @@
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -98,6 +98,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Constantia", 11.25F);
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -182,6 +183,35 @@
             this.dgvAccountList.TabIndex = 0;
             this.dgvAccountList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccountList_CellClick);
             this.dgvAccountList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAccountList_CellFormatting);
+            // 
+            // noColumn
+            // 
+            this.noColumn.FillWeight = 30F;
+            this.noColumn.HeaderText = "STT";
+            this.noColumn.Name = "noColumn";
+            this.noColumn.ReadOnly = true;
+            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.noColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // usernameColumn
+            // 
+            this.usernameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.usernameColumn.DataPropertyName = "username";
+            this.usernameColumn.FillWeight = 152.2843F;
+            this.usernameColumn.HeaderText = "Tên tài khoản";
+            this.usernameColumn.Name = "usernameColumn";
+            this.usernameColumn.ReadOnly = true;
+            this.usernameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // accountTypeColumn
+            // 
+            this.accountTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.accountTypeColumn.DataPropertyName = "AccountType";
+            this.accountTypeColumn.FillWeight = 93.42376F;
+            this.accountTypeColumn.HeaderText = "Loại tài khoản";
+            this.accountTypeColumn.Name = "accountTypeColumn";
+            this.accountTypeColumn.ReadOnly = true;
+            this.accountTypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // groupBox2
             // 
@@ -403,62 +433,6 @@
             this.panel3.Size = new System.Drawing.Size(1248, 537);
             this.panel3.TabIndex = 24;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(1118, 487);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 45);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.btnTroLai2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1248, 84);
-            this.panel2.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(395, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(579, 55);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "SAO LƯU VÀ PHỤC HỒI";
-            // 
-            // btnTroLai2
-            // 
-            this.btnTroLai2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
-            this.btnTroLai2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTroLai2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTroLai2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTroLai2.Location = new System.Drawing.Point(3, 8);
-            this.btnTroLai2.Name = "btnTroLai2";
-            this.btnTroLai2.Size = new System.Drawing.Size(64, 64);
-            this.btnTroLai2.TabIndex = 1;
-            this.btnTroLai2.UseVisualStyleBackColor = true;
-            this.btnTroLai2.Click += new System.EventHandler(this.btnTroLai2_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "account (1).png");
-            this.imageList1.Images.SetKeyName(1, "account.png");
-            this.imageList1.Images.SetKeyName(2, "database (1).png");
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.groupBox3);
@@ -601,34 +575,61 @@
             this.btnOpenFile.UseVisualStyleBackColor = false;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
-            // noColumn
+            // button1
             // 
-            this.noColumn.FillWeight = 30F;
-            this.noColumn.HeaderText = "STT";
-            this.noColumn.Name = "noColumn";
-            this.noColumn.ReadOnly = true;
-            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.noColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(1118, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 45);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // usernameColumn
+            // panel2
             // 
-            this.usernameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.usernameColumn.DataPropertyName = "username";
-            this.usernameColumn.FillWeight = 152.2843F;
-            this.usernameColumn.HeaderText = "Tên tài khoản";
-            this.usernameColumn.Name = "usernameColumn";
-            this.usernameColumn.ReadOnly = true;
-            this.usernameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.btnTroLai2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1248, 84);
+            this.panel2.TabIndex = 22;
             // 
-            // accountTypeColumn
+            // label6
             // 
-            this.accountTypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.accountTypeColumn.DataPropertyName = "AccountType";
-            this.accountTypeColumn.FillWeight = 93.42376F;
-            this.accountTypeColumn.HeaderText = "Loại tài khoản";
-            this.accountTypeColumn.Name = "accountTypeColumn";
-            this.accountTypeColumn.ReadOnly = true;
-            this.accountTypeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(395, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(579, 55);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "SAO LƯU VÀ PHỤC HỒI";
+            // 
+            // btnTroLai2
+            // 
+            this.btnTroLai2.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.back_left_arrow_circular_button_outline;
+            this.btnTroLai2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTroLai2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTroLai2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTroLai2.Location = new System.Drawing.Point(3, 8);
+            this.btnTroLai2.Name = "btnTroLai2";
+            this.btnTroLai2.Size = new System.Drawing.Size(64, 64);
+            this.btnTroLai2.TabIndex = 1;
+            this.btnTroLai2.UseVisualStyleBackColor = true;
+            this.btnTroLai2.Click += new System.EventHandler(this.btnTroLai2_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "account (1).png");
+            this.imageList1.Images.SetKeyName(1, "account.png");
+            this.imageList1.Images.SetKeyName(2, "database (1).png");
             // 
             // fmSystemManager
             // 
@@ -658,13 +659,13 @@
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
