@@ -3,8 +3,11 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -363,8 +366,152 @@ namespace QuanLyTourDuLich.GUI
 
 
 
+
         #endregion
 
-        
+        /// <summary>
+        /// Chức năng sao lưu dữ liệu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSaveFilePath_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog _save = new SaveFileDialog();
+
+            _save.Title = "Chọn nơi lưu file";
+            _save.FileName = "*.bak";
+            _save.DefaultExt = "bak";
+            _save.Filter = "File Bak (*.bak) | *.bak | All files (*.*) | *.*";
+
+            if (_save.ShowDialog() == DialogResult.OK)
+            {
+                //Lấy chuỗi kết nối
+                var _connectionString = ConfigurationManager.ConnectionStrings["QuanLyTourDuLich.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+
+                //Lấy đường dẫn đến thư mục lưu file 
+                var _backupPath = Path.GetDirectoryName(_save.FileName.ToString());
+
+                // Xây dựng chuỗi
+                var _sqlConnectBuilder = new SqlConnectionStringBuilder(_connectionString);
+
+                //Thiết lập tên file sao lưu
+                var _backupDbFileName = String.Format("{0}\\{1}-{2}.bak", _backupPath, Path.GetFileNameWithoutExtension(_save.FileName), DateTime.Now.ToString("dd-MM-yyyy"));
+
+
+                using (var con = new SqlConnection(_sqlConnectBuilder.ConnectionString))
+                {
+                    try
+                    {
+                        var backupDbQuery = String.Format(@"BACKUP DATABASE [" + System.Windows.Forms.Application.StartupPath + "\\Resources\\db\\TourManager.mdf] TO DISK = '{0}';", _backupDbFileName);
+
+
+                        using (var command = new SqlCommand(backupDbQuery, con))
+                        {
+                            con.Open();
+                            command.ExecuteNonQuery();
+                            con.Close();
+
+                        }
+
+                        MessageBox.Show("Sao lưu file thành công!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+
+                txbSaveFilePath.Text = _backupDbFileName;
+            }
+            else
+            {
+                txbSaveFilePath.Text = "Vui lòng chọn đường dẫn để lưu file!";
+            }
+        }
+
+        /// <summary>
+        /// Chọn file cần phục hồi (file *.bak)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog _open = new OpenFileDialog();
+
+            _open.Title = "Chọn file cần phục hồi";
+            _open.Filter = "File Bak (*.bak) | *.bak";
+            _open.Multiselect = false;
+
+            if (_open.ShowDialog() == DialogResult.OK)
+            {
+                txbRestoreFilePath.Text = _open.FileName;
+            }
+            else
+            {
+                txbRestoreFilePath.Text = "Vui lòng chọn đường dẫn đến file để phục hồi!";
+            }
+        }
+
+        /// <summary>
+        /// Chức năng phục hồi dữ liệu từ file *.bak
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog _folder = new FolderBrowserDialog();
+            _folder.ShowNewFolderButton = true;
+
+            if (_folder.ShowDialog() == DialogResult.OK)
+            {
+
+                txbSaveRestoreFile.Text = _folder.SelectedPath;
+
+                // Lấy chuỗi kết nối
+                var _connectionString = ConfigurationManager.ConnectionStrings["QuanLyTourDuLich.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+
+                //Lấy đường dẫn đến thư mục chưa file cần restore
+                var _restorePath = txbRestoreFilePath.Text;
+
+                // Xây dựng chuỗi
+                var _sqlConnectBuilder = new SqlConnectionStringBuilder(_connectionString);
+
+                string _startupPath = System.Windows.Forms.Application.StartupPath;
+
+                using (var con = new SqlConnection(_sqlConnectBuilder.ConnectionString))
+                {
+                    try
+                    {
+                        var restoreDbQuery = String.Format(@"RESTORE DATABASE [TourManager] 
+                                                             FROM DISK = '{0}'
+                                                             WITH REPLACE,
+                                                             MOVE 'TourManager' TO '" + _folder.SelectedPath + "\\TourManager.mdf', MOVE 'TourManager_log' TO '" + _folder.SelectedPath + "\\TourManager_log.ldf';", _restorePath);
+
+
+                        using (var command = new SqlCommand(restoreDbQuery, con))
+                        {
+                            con.Open();
+                            command.ExecuteNonQuery();
+                            con.Close();
+
+                        }
+
+                        MessageBox.Show("Phục hồi cơ sở dữ liệu thành công!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+
+                txbSaveRestoreFile.Text = _folder.SelectedPath;
+            }
+            else
+            {
+                txbSaveRestoreFile.Text = "Vui lòng chọn đường dẫn để lưu file được phục hồi!";
+            }
+        }
     }
 }
