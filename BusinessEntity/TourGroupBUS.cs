@@ -66,6 +66,7 @@ namespace BusinessEntity
                 return TourGroupBUS.MinDate;
             return entries.Min(group => group.depart_date);
         }
+
         public DateTime getMaxReturnDate()
         {
             var entries = _unitOfWork.TourGroupRepository.GetAll();
@@ -83,5 +84,14 @@ namespace BusinessEntity
         {
             return _unitOfWork.TourGroupRepository.GetMany(tourgroup => tourgroup.name == name);
         }
+
+        public DateTime getMaxDepartDate()
+        {
+            var entries = _unitOfWork.TourGroupRepository.GetAll();
+            if (entries.Count() == 0)
+                return TourGroupBUS.MaxDate;
+            return entries.Max(group => group.depart_date);
+        }
+
     }
 }

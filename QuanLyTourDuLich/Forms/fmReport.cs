@@ -23,24 +23,20 @@ namespace QuanLyTourDuLich.Forms
         TourGroupBUS _tourGroupBus;
         IEnumerable<TourGroup> _tourGroupEntries;
 
-        TourGroupFeeBUS _tourGroupFeeBus;
-        IEnumerable<TourGroupFee> _tourGroupFeeEntries;
-
-        DestinationBUS _destinationBus;
-        IEnumerable<Destination> _destinationEntries;
-
-        HotelBUS _hotelBus;
-        IEnumerable<Hotel> _hotelEntries;
-
-        TransportBUS _transportBus;
-        IEnumerable<Transport> _transportEntries;
-
         static string _tourGroupName;
-        static int _year;
-        static int _month;
+        static string _tourName;
+        static string _tourNameTab3;
 
-        List<decimal> _ticketPriceTotal;
-        List<decimal> _costTotal;
+        List<float> _revenueTotal; // Tổng doanh thu từ số vé đã bán
+        List<float> _costTotal; //Tổng chi phí đã bó ra (chi phí khách sạn + chi phí di chuyển)
+
+        List<float> _tourGroupTotal; //Tổng số đoàn của 1 tour
+        List<float> _revenueTourTotal;
+        List<float> _costTourTotal;
+
+        List<float> _tourGroupTotalTab3;
+        List<float> _revenueTourTotalTab3;
+        List<float> _costTourTotalTab3;
 
         public fmReport()
         {
@@ -50,29 +46,45 @@ namespace QuanLyTourDuLich.Forms
             _tourEntries = _tourBus.getEntries();
 
             _tourPriceBus = new TourPriceBUS();
+            _tourPriceEntries = _tourPriceBus.getEntries();
 
             _tourGroupBus = new TourGroupBUS();
+            _tourGroupEntries = _tourGroupBus.getEntries();
 
-            _tourGroupFeeBus = new TourGroupFeeBUS();
+            _revenueTotal = new List<float>();
+            _costTotal = new List<float>();
 
-            _destinationBus = new DestinationBUS();
+            _tourGroupTotal = new List<float>();
+            _revenueTourTotal = new List<float>();
+            _costTourTotal = new List<float>();
 
-            _hotelBus = new HotelBUS();
+            _tourGroupTotalTab3 = new List<float>();
+            _revenueTourTotalTab3 = new List<float>();
+            _costTourTotalTab3 = new List<float>();
 
-            _transportBus = new TransportBUS();
-
-            btnTourGroupReport.Enabled = false;
-            btnTourGroupPrint.Enabled = false;
+            dateTimeCustom();
+            dateTimeCustom2();
         }
 
         private void fmReport_Load(object sender, EventArgs e)
         {
-            cbbTourList_Load();
-            cbbYear_Load();
-            cbbMonth_Load();
+            /*Tab Doanh số của Đoàn*/
+            cbbTourGroupList_Load(); //Load danh sách các đoàn hiện có
+            btnTourGroupReport.Enabled = false;
+            btnTourGroupPrint.Enabled = false;
+
+            /*Tab Doanh số của Tour*/
+            cbbTourList_Load(); //Load danh sách tour
+            btnTourReport.Enabled = false;
+            btnTourReportPrint.Enabled = false;
+
+            /*Tab Tình hình hoạt động của các Tour*/
+            cbbTourStatusReport_Load();
+            btnTourStatusReport.Enabled = false;
+            btnTourStatusReportPrint.Enabled = false;
         }
 
-        #region Tab Doanh số của một đoàn
+        #region Tab1: Doanh số của đoàn
         /// <summary>
         /// Button back
         /// </summary>
@@ -84,55 +96,16 @@ namespace QuanLyTourDuLich.Forms
         }
 
         /// <summary>
-        /// Load danh sách các tour hiện có vào combobox Tour
-        /// </summary>
-        private void cbbTourList_Load()
-        {
-            foreach (var tour in _tourEntries)
-            {
-                cbbTourList.Items.Add(tour.name);
-            }
-        }
-
-        /// <summary>
-        /// Sự kiện SelectedIndexChanged của combobox Danh sách tour
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cbbTourList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbTourGroupList.Items.Clear();
-            foreach (var tour in _tourEntries)
-            {
-                if (cbbTourList.SelectedItem.ToString() == tour.name)
-                {
-                    cbbTourGroupList_Load(tour);
-                }
-            }
-
-            if (cbbYear.SelectedIndex != -1 && cbbMonth.SelectedIndex != -1 && cbbTourList.SelectedIndex != -1 && cbbTourGroupList.SelectedIndex != -1)
-            {
-                btnTourGroupReport.Enabled = true;
-            }
-            else
-            {
-                btnTourGroupReport.Enabled = false;
-            }
-        }
-
-        /// <summary>
-        /// Load các danh sách đoàn du lịch theo tour đã chọn
+        /// Load các danh sách đoàn du lịch hiện có
         /// </summary>
         /// <param name="tour"></param>
-        private void cbbTourGroupList_Load(Tour tour)
+        private void cbbTourGroupList_Load()
         {
-            _tourGroupEntries = _tourGroupBus.getTourGroupByTour(tour);
-            cbbTourGroupList.Items.Add("Chọn tất cả");
+            cbbTourGroupList.Items.Add("--- Chọn tất cả ---");
             foreach (var tourGroup in _tourGroupEntries)
             {
                 cbbTourGroupList.Items.Add(tourGroup.name);
             }
-
         }
 
         /// <summary>
@@ -142,81 +115,55 @@ namespace QuanLyTourDuLich.Forms
         /// <param name="e"></param>
         private void cbbTourGroupList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _tourGroupName = cbbTourGroupList.SelectedItem.ToString();
+            try
+            {
+                //Chọn tất cả đoàn
+                if (cbbTourGroupList.SelectedIndex == 0)
+                {
+                    btnTourGroupReport.Enabled = true;
+                }
+                else
+                {
+                    btnTourGroupReport.Enabled = true;
+                    _tourGroupName = cbbTourGroupList.SelectedItem.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            if (cbbYear.SelectedIndex != -1 && cbbMonth.SelectedIndex != -1 && cbbTourList.SelectedIndex != -1 && cbbTourGroupList.SelectedIndex != -1)
-            {
-                btnTourGroupReport.Enabled = true;
-            }
-            else
-            {
-                btnTourGroupReport.Enabled = false;
-            }
+            
         }
 
         /// <summary>
-        /// Load danh sách các năm của các đoàn du lịch
+        /// Custom DateTimePicker
         /// </summary>
-        private void cbbYear_Load()
+        public void dateTimeCustom()
         {
-            DateTime _min = new DateTime();
-            DateTime _max = new DateTime();
-
-            _min = _tourGroupBus.getMinDepartDate();
-            _max = _tourGroupBus.getMaxReturnDate();
-
-            for (int i = _min.Year; i <= _max.Year; i++)
+            try
             {
-                cbbYear.Items.Add(i);
+                /*<--- From month --->*/
+                // Tab: Doanh số của đoàn
+                dtpFromDate.Format = DateTimePickerFormat.Custom;
+                dtpFromDate.CustomFormat = "MM/yyyy";
+                dtpFromDate.ShowUpDown = true;
+                dtpFromDate.MinDate = _tourGroupBus.getMinDepartDate();
+                dtpFromDate.MaxDate = _tourGroupBus.getMaxDepartDate();
+                dtpFromDate.Value = dtpFromDate.MinDate;
+
+                /*<--- To month --->*/
+                // Tab: Doanh số của đoàn
+                dtpToDate.Format = DateTimePickerFormat.Custom;
+                dtpToDate.CustomFormat = "MM/yyyy";
+                dtpToDate.ShowUpDown = true;
+                dtpToDate.MinDate = dtpFromDate.Value.Date;
+
+
             }
-        }
-
-        /// <summary>
-        /// Sự kiện SelectedIndexChanged của combobox năm
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cbbYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _year = Int32.Parse(cbbYear.SelectedItem.ToString().Trim());
-
-            if (cbbYear.SelectedIndex != -1 && cbbMonth.SelectedIndex != -1 && cbbTourList.SelectedIndex != -1 && cbbTourGroupList.SelectedIndex != -1)
+            catch (Exception ex)
             {
-                btnTourGroupReport.Enabled = true;
-            }
-            else
-            {
-                btnTourGroupReport.Enabled = false;
-            }
-        }
-
-        /// <summary>
-        /// Danh sách các tháng trong năm
-        /// </summary>
-        private void cbbMonth_Load()
-        {
-            for (int i = 1; i <= 12; i++)
-            {
-                cbbMonth.Items.Add("Tháng " + i);
-            }
-        }
-
-        /// <summary>
-        /// Sự kiện SelectedIndexChanged của combobox tháng
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _month = cbbMonth.SelectedIndex + 1;
-
-            if (cbbYear.SelectedIndex != -1 && cbbMonth.SelectedIndex != -1 && cbbTourList.SelectedIndex != -1 && cbbTourGroupList.SelectedIndex != -1)
-            {
-                btnTourGroupReport.Enabled = true;
-            }
-            else
-            {
-                btnTourGroupReport.Enabled = false;
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -230,44 +177,37 @@ namespace QuanLyTourDuLich.Forms
             try
             {
                 bdsTourGroupReport.DataSource = null;
+                _revenueTotal.Clear();
+                _costTotal.Clear();
 
                 dgvTourGroupReport.Rows.Clear();
                 dgvTourGroupReport.Refresh();
 
-                Tour _tourTemp = new Tour();
-                TourPrice _tourPriceTemp = new TourPrice();
-                TourGroupFee _tgfTemp = new TourGroupFee();
-                Destination _desTemp = new Destination();
-                Hotel _hotelTemp = new Hotel();
+                if (_tourGroupName == null && cbbTourGroupList.SelectedIndex != 0)
+                {
+                    MessageBox.Show("Tên đoàn chưa đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnTourGroupPrint.Enabled = false;
+                }
 
-                _ticketPriceTotal = new List<decimal>();
-                _costTotal = new List<decimal>();
-
+                //Chọn tất cả đoàn
                 if (cbbTourGroupList.SelectedIndex == 0)
                 {
                     foreach (var tourGroup in _tourGroupEntries)
                     {
-                        if (tourGroup.depart_date.Year <= _year)
+                        if (tourGroup.depart_date.Year >= dtpFromDate.Value.Year && tourGroup.depart_date.Year <= dtpToDate.Value.Year)
                         {
-                            if (tourGroup.depart_date.Month <= _month)
+                            if(tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
                             {
                                 bdsTourGroupReport.Add(tourGroup);
-                                _tourTemp = _tourBus.getCustomerById(tourGroup.tour_id); // Lấy thông tin Tour
-                                _tourPriceTemp = _tourPriceBus.getCustomerById(_tourTemp.tour_price_id); //Lấy thông tin TourPrice
-                                _ticketPriceTotal.Add((tourGroup.Customers.Count) * _tourPriceTemp.price); //Tổng giá vé = (Tổng số người * giá tour)
 
-                                //_tgfTemp = _tourGroupFeeBus.getTourGroupFeeByTG(tourGroup); //Lấy TourGroupFee
-                                _desTemp = _destinationBus.getCustomerById(_tourTemp.destination_id); //Lấy điểm đến
-                                _hotelTemp = _hotelBus.getHotelByDesId(_desTemp); // Lấy thông tin của Hotel
-
-                                //Tính tổng chi phí
-                                _tgfTemp.hotel_fee = (double)((tourGroup.Customers.Count) * _hotelTemp.price); // Chi phí khách sạn
-                                _tgfTemp.transport_fee = (double)((tourGroup.Customers.Count) * tourGroup.Transports.Sum(t => t.price)); //Chi phí transport
-                                //_tgfTemp.tourgroup_id = tourGroup.id;
-
-                                _costTotal.Add((decimal)(_tgfTemp.hotel_fee + _tgfTemp.transport_fee));
+                                //Tổng danh thu từ tiền vé
+                                _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price); 
+                                
+                                //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
 
                             }
+                            
                         }
                     }
 
@@ -277,25 +217,29 @@ namespace QuanLyTourDuLich.Forms
                     IEnumerable<TourGroup> _temp = _tourGroupBus.getAllTourGroupByName(_tourGroupName);
                     foreach (var tourGroup in _temp)
                     {
-                        if (tourGroup.depart_date.Year <= _year)
+                        if (tourGroup.depart_date.Year >= dtpFromDate.Value.Year && tourGroup.depart_date.Year <= dtpToDate.Value.Year)
                         {
-                            if (tourGroup.depart_date.Month <= _month)
+                            if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
                             {
                                 bdsTourGroupReport.Add(tourGroup);
 
-                                _tourTemp = _tourBus.getCustomerById(tourGroup.tour_id); // Lấy thông tin Tour
-                                _tourPriceTemp = _tourPriceBus.getCustomerById(_tourTemp.tour_price_id); //Lấy thông tin TourPrice
-                                _ticketPriceTotal.Add((tourGroup.Customers.Count) * _tourPriceTemp.price); //Tổng giá vé = (Tổng số người * giá tour)
+                                //Tổng doanh thu tự tiền vé
+                                _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
 
-                                //Tính tổng chi phí
-                                _tgfTemp.hotel_fee = (double)((tourGroup.Customers.Count) * _hotelTemp.price); // Chi phí khách sạn
-                                _tgfTemp.transport_fee = (double)((tourGroup.Customers.Count) * tourGroup.Transports.Sum(t => t.price)); //Chi phí transport
-                                //_tgfTemp.tourgroup_id = tourGroup.id;
+                                //Tổng chi phí (chi phí khách sạn + chi phí di chuyển)
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
 
-                                _costTotal.Add((decimal)(_tgfTemp.hotel_fee + _tgfTemp.transport_fee));
                             }
                         }
                     }
+                }
+                if (dgvTourGroupReport.RowCount == 0)
+                {
+                    btnTourGroupPrint.Enabled = false;
+                }
+                else
+                {
+                    btnTourGroupPrint.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -322,32 +266,384 @@ namespace QuanLyTourDuLich.Forms
                 {
                     return;
                 }
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 3)
                 {
-                    e.Value = _ticketPriceTotal[e.RowIndex];
+                    e.Value = (e.Value as Tour).name;
                 }
                 if (e.ColumnIndex == 6)
                 {
-                    e.Value = _costTotal[e.RowIndex];
+                    e.Value = _revenueTotal[e.RowIndex];
                 }
                 if (e.ColumnIndex == 7)
                 {
-                    e.Value = _ticketPriceTotal[e.RowIndex] - _costTotal[e.RowIndex];
+                    e.Value = _costTotal[e.RowIndex];
+                }
+                if (e.ColumnIndex == 8)
+                {
+                    e.Value = _revenueTotal[e.RowIndex] - _costTotal[e.RowIndex]; //Lợi nhuận
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
-            
+
+        #endregion
+
+        #region Tab2: Doanh số của tour
+
+        private void btnBack2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Load danh sách tour hiện có
+        /// </summary>
+        private void cbbTourList_Load()
+        {
+            cbbTourList.Items.Add("--- Chọn tất cả ----");
+            foreach (var tour in _tourEntries)
+            {
+                cbbTourList.Items.Add(tour.name);
+            }
+        }
+
+        /// <summary>
+        /// Combobox Tour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbTourList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Chọn tất cả tour
+                if (cbbTourList.SelectedIndex == 0)
+                {
+                    btnTourReport.Enabled = true;
+                }
+                else
+                {
+                    btnTourReport.Enabled = true;
+                    _tourName = cbbTourList.SelectedItem.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void dateTimeCustom2()
+        {
+            try
+            {
+                dtpFromDate2.Format = DateTimePickerFormat.Custom;
+                dtpFromDate2.CustomFormat = "MM/yyyy";
+                dtpFromDate2.ShowUpDown = true;
+                dtpFromDate2.MinDate = _tourPriceBus.getMinStartDate();
+                dtpFromDate2.MaxDate = _tourPriceBus.getMaxStartDate();
+                dtpFromDate2.Value = dtpFromDate2.MinDate;
+
+                dtpToDate2.Format = DateTimePickerFormat.Custom;
+                dtpToDate2.CustomFormat = "MM/yyyy";
+                dtpToDate2.ShowUpDown = true;
+                dtpToDate2.MinDate = dtpFromDate2.Value.Date;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Button Báo cáo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTourReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bdsTourReport.DataSource = null;
+                _tourGroupTotal.Clear();
+                _revenueTourTotal.Clear();
+                _costTourTotal.Clear();
+
+                dgvTourReport.Rows.Clear();
+                dgvTourReport.Refresh();
+
+                if (_tourName == null && cbbTourList.SelectedIndex != 0)
+                {
+                    MessageBox.Show("Tên Tour chưa đúng! Vui lòng chọn lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //Chọn tất cả
+                if (cbbTourList.SelectedIndex == 0)
+                {
+                    foreach (var tour in _tourEntries)
+                    {
+                        if (tour.TourPrice.start_date.Year >= dtpFromDate2.Value.Year && tour.TourPrice.start_date.Year <= dtpToDate2.Value.Year)
+                        {
+                            if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                            {
+                                bdsTourReport.Add(tour);
+
+                                //Tổng số đoàn của 1 tour
+                                _tourGroupTotal.Add(tour.TourGroups.Count);
+
+                                //Tổng doanh thu của 1 tour từ tiền vé
+                                _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                                //Tổng chi phí
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    IEnumerable<Tour> _tourTemp = _tourBus.getAllTourByName(_tourName);
+                    foreach (var tour in _tourTemp)
+                    {
+                        if (tour.TourPrice.start_date.Year >= dtpFromDate2.Value.Year && tour.TourPrice.start_date.Year <= dtpToDate2.Value.Year)
+                        {
+                            if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                            {
+                                bdsTourReport.Add(tour);
+
+                                //Tổng số đoàn của 1 tour
+                                _tourGroupTotal.Add(tour.TourGroups.Count);
+
+                                //Tổng doanh thu của 1 tour từ tiền vé
+                                _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                                //Tổng chi phí
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                            }
+                        }
+                    }
+                }
+
+                if (dgvTourReport.RowCount == 0)
+                {
+                    btnTourReportPrint.Enabled = false;
+                }
+                else
+                {
+                    btnTourReportPrint.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void dgvTourReport_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    e.Value = e.RowIndex + 1;
+                }
+                if (e.Value == null)
+                {
+                    return;
+                }
+                if (e.ColumnIndex == 3)
+                {
+                    e.Value = (e.Value as TourPrice).start_date.ToShortDateString();
+                }
+                if (e.ColumnIndex == 4)
+                {
+                    e.Value = (e.Value as TourPrice).end_date.ToShortDateString();
+                }
+                if (e.ColumnIndex == 5)
+                {
+                    e.Value = _tourGroupTotal[e.RowIndex];
+                }
+                if (e.ColumnIndex == 6)
+                {
+                    e.Value = _revenueTourTotal[e.RowIndex];
+                }
+                if (e.ColumnIndex == 7)
+                {
+                    e.Value = _costTourTotal[e.RowIndex];
+                }
+                if (e.ColumnIndex == 8)
+                {
+                    e.Value = _revenueTourTotal[e.RowIndex] - _costTourTotal[e.RowIndex];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
 
 
         #endregion
 
+        #region Tab 3: Tình hình hoạt động của các Tour
+        private void btnBack3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void cbbTourStatusReport_Load()
+        {
+            cbbTourStatusReport.Items.Add("--- Chọn tất cả ---");
+            foreach (var tour in _tourEntries)
+            {
+                cbbTourStatusReport.Items.Add(tour.name);
+            }
+        }
+
+        private void cbbTourStatusReport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Chọn tất cả tour
+                if (cbbTourStatusReport.SelectedIndex == 0)
+                {
+                    btnTourStatusReport.Enabled = true;
+
+                }
+                else
+                {
+                    btnTourStatusReport.Enabled = true;
+                    _tourNameTab3 = cbbTourStatusReport.SelectedItem.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Button báo cáo của Tab Tình hình hoạt động của các Tour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTourStatusReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bdsTourStatusReport.DataSource = null;
+
+                _tourGroupTotalTab3.Clear();
+                _revenueTourTotalTab3.Clear();
+                _costTourTotalTab3.Clear();
+
+                dgvTourStatusReport.Rows.Clear();
+                dgvTourStatusReport.Refresh();
+
+                if (_tourNameTab3 == null && cbbTourStatusReport.SelectedIndex != 0)
+                {
+                    MessageBox.Show("Tên Tour chưa đúng! Vui lòng chọn lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //Chọn tất cả
+                if (cbbTourStatusReport.SelectedIndex == 0)
+                {
+                    foreach (var tour in _tourEntries)
+                    {
+                        bdsTourStatusReport.Add(tour);
+
+                        _tourGroupTotalTab3.Add(tour.TourGroups.Count);
+
+                        //Tổng doanh thu của 1 tour từ tiền vé
+                        _revenueTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                        //Tổng chi phí
+                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                    }
+                }
+                else
+                {
+                    IEnumerable<Tour> _tourStatusTemp = _tourBus.getAllTourByName(_tourNameTab3);
+
+                    foreach (var tour in _tourStatusTemp)
+                    {
+                        bdsTourStatusReport.Add(tour);
+
+                        _tourGroupTotalTab3.Add(tour.TourGroups.Count);
+
+                        //Tổng doanh thu của 1 tour từ tiền vé
+                        _revenueTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                        //Tổng chi phí
+                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                    }
+                }
+
+                if (dgvTourStatusReport.RowCount == 0)
+                {
+                    btnTourStatusReportPrint.Enabled = false;
+                }
+                else
+                {
+                    btnTourStatusReportPrint.Enabled = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvTourStatusReport_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    e.Value = e.RowIndex + 1;
+                }
+                if (e.Value == null)
+                {
+                    return;
+                }
+                if (e.ColumnIndex == 3)
+                {
+                    e.Value = (e.Value as TourCategory).name;
+                }
+                if (e.ColumnIndex == 4)
+                {
+                    e.Value = (e.Value as TourPrice).start_date.ToShortDateString();
+                }
+                if (e.ColumnIndex == 5)
+                {
+                    e.Value = (e.Value as TourPrice).end_date.ToShortDateString();
+                }
+                if (e.ColumnIndex == 6)
+                {
+                    e.Value = _tourGroupTotalTab3[e.RowIndex];
+                }
+                if (e.ColumnIndex == 7)
+                {
+                    e.Value = _revenueTourTotalTab3[e.RowIndex] - _costTourTotalTab3[e.RowIndex];
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        
     }
 }

@@ -10,6 +10,8 @@ namespace BusinessEntity
     public class TourPriceBUS
     {
         UnitOfWork _unitOfWork = new DAO.UnitOfWork();
+        private static DateTime MinDate = new DateTime(2000, 1, 1);
+        private static DateTime MaxDate = new DateTime(2100, 1, 1);
 
         public TourPrice getCustomerById(int id)
         {
@@ -60,5 +62,22 @@ namespace BusinessEntity
         {
             return (int)_unitOfWork.TourPriceRepository.GetAll().Max(p => p.price);
         }
+
+        public DateTime getMinStartDate()
+        {
+            var entries = _unitOfWork.TourPriceRepository.GetAll();
+            if (entries.Count() == 0)
+                return MinDate;
+            return entries.Min(tourPrice => tourPrice.start_date);
+        }
+
+        public DateTime getMaxStartDate()
+        {
+            var entries = _unitOfWork.TourPriceRepository.GetAll();
+            if (entries.Count() == 0)
+                return MaxDate;
+            return entries.Max(tourPrice => tourPrice.start_date);
+        }
+
     }
 }

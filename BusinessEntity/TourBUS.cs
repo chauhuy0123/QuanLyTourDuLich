@@ -82,5 +82,15 @@ namespace BusinessEntity
         {
             _unitOfWork.TourRepository.Refresh();
         }
+
+        public Tour getTourByTourGroup(TourGroup group)
+        {
+            return _unitOfWork.TourRepository.Get(tour => tour.id == group.tour_id);
+        }
+
+        public IEnumerable<Tour> getAllTourByName(string name)
+        {
+            return _unitOfWork.TourRepository.GetMany(tour => tour.name == name);
+        }
     }
 }
