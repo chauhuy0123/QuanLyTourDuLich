@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BusinessEntity;
+using System.IO;
+using System.Collections;
+using System.Drawing.Printing;
+using System.Drawing.Text;
 
 namespace QuanLyTourDuLich.Forms
 {
@@ -37,6 +41,16 @@ namespace QuanLyTourDuLich.Forms
         List<float> _tourGroupTotalTab3;
         List<float> _revenueTourTotalTab3;
         List<float> _costTourTotalTab3;
+
+        StringFormat _strFormat; // Sử dụng để định dang chuỗi trong các dòng của DataGridView
+        ArrayList _columnCoor = new ArrayList(); // Sử dụng để lưu tọa độ của các cột
+        ArrayList _columnWidths = new ArrayList(); // Sử dụng để lưu độ rộng của các cột
+        int _cellHeight = 0; // Sử dụng thể thiết lập giá trị độ cao của các cell
+        int _totalWidth = 0; // Tính tổng độ rộng cần để in
+        int _count = 0; // Đếm số row
+        int _headerHeight = 0; // Độ cao của header
+        bool _firstPage = false;
+        bool _newPage = false;
 
         public fmReport()
         {
@@ -71,7 +85,7 @@ namespace QuanLyTourDuLich.Forms
             /*Tab Doanh số của Đoàn*/
             cbbTourGroupList_Load(); //Load danh sách các đoàn hiện có
             btnTourGroupReport.Enabled = false;
-            btnTourGroupPrint.Enabled = false;
+            btnTourGroupReportPrint.Enabled = false;
 
             /*Tab Doanh số của Tour*/
             cbbTourList_Load(); //Load danh sách tour
@@ -150,7 +164,7 @@ namespace QuanLyTourDuLich.Forms
                 dtpFromDate.ShowUpDown = true;
                 dtpFromDate.MinDate = _tourGroupBus.getMinDepartDate();
                 dtpFromDate.MaxDate = _tourGroupBus.getMaxDepartDate();
-                dtpFromDate.Value = dtpFromDate.MinDate;
+
 
                 /*<--- To month --->*/
                 // Tab: Doanh số của đoàn
@@ -186,7 +200,7 @@ namespace QuanLyTourDuLich.Forms
                 if (_tourGroupName == null && cbbTourGroupList.SelectedIndex != 0)
                 {
                     MessageBox.Show("Tên đoàn chưa đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btnTourGroupPrint.Enabled = false;
+                    btnTourGroupReportPrint.Enabled = false;
                 }
 
                 //Chọn tất cả đoàn
@@ -235,11 +249,11 @@ namespace QuanLyTourDuLich.Forms
                 }
                 if (dgvTourGroupReport.RowCount == 0)
                 {
-                    btnTourGroupPrint.Enabled = false;
+                    btnTourGroupReportPrint.Enabled = false;
                 }
                 else
                 {
-                    btnTourGroupPrint.Enabled = true;
+                    btnTourGroupReportPrint.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -249,11 +263,191 @@ namespace QuanLyTourDuLich.Forms
 
             if (dgvTourGroupReport.DataSource != null)
             {
-                btnTourGroupPrint.Enabled = true;
+                btnTourGroupReportPrint.Enabled = true;
             }
         }
 
+        /// <summary>
+        /// Button in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTourGroupReportPrint_Click(object sender, EventArgs e)
+        {
+            if (dgvTourGroupReport.Rows.Count > 0)
+            {
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = printTourGroupReport;
+                printDialog.UseEXDialog = true;
 
+                if (DialogResult.OK == printDialog.ShowDialog())
+                {
+                    printTourGroupReport.DocumentName = "Báo cáo Doanh số của Đoàn";
+                    printTourGroupReport.Print();
+                    MessageBox.Show("In thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Không có dữ liệu để in", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+
+        }
+
+        private void printTourGroupReport_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                _strFormat = new StringFormat();
+                _strFormat.Alignment = StringAlignment.Near;
+                _strFormat.LineAlignment = StringAlignment.Center;
+                _strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                _columnCoor.Clear();
+                _columnWidths.Clear();
+                _cellHeight = 0;
+                _count = 0;
+                _firstPage = true;
+                _newPage = true;
+
+                _totalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dgvTourGroupReport.Columns)
+                {
+                    _totalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printTourGroupReport_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                // Đặt lề trái
+                int _leftMargin = e.MarginBounds.Left;
+                //Đặt lề trên
+                int _topMargin = e.MarginBounds.Top;
+                // Thiết lập có cần nhiều trang để in hay không
+                bool _needMorePagesToPrint = false;
+                int _tmpWidth = 0;
+
+                int _footerX = 0;
+                int _footerY = 0;
+                // Thiết lập độ dộng của các cell và độ cao của header để in trang đầu tiên
+                if (_firstPage)
+                {
+                    foreach (DataGridViewColumn GridCol in dgvTourGroupReport.Columns)
+                    {
+                        _tmpWidth = (int)(Math.Floor((double)((double)GridCol.Width / (double)_totalWidth * (double)_totalWidth * ((double)e.MarginBounds.Width / (double)_totalWidth))));
+
+                        _headerHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText, new System.Drawing.Font("Constantia", 10), _tmpWidth).Height) + 23;
+
+                        // Lưu độ rộng và độ cao của các header
+                        _columnCoor.Add(_leftMargin);
+                        _columnWidths.Add(_tmpWidth);
+                        _leftMargin += _tmpWidth;
+                    }
+                }
+
+                // Vòng lặp cho đến tất cả những trang chưa được in
+                while (_count <= dgvTourGroupReport.Rows.Count - 1)
+                {
+                    DataGridViewRow _rows = dgvTourGroupReport.Rows[_count];
+                    // Đặt độ cao của cell
+                    _cellHeight = _rows.Height + 30;
+                    int i = 0;
+
+                    // Kiểm tra thiết lập trang xem còn nhiều dòng để in sang trang mới
+                    if (_topMargin + _cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        _newPage = true;
+                        _firstPage = false;
+                        _needMorePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (_newPage)
+                        {
+                            // Vẽ các header
+                            e.Graphics.DrawString("BÁO CÁO DOANH SỐ CỦA ĐOÀN", new Font("Constantia", 20, FontStyle.Bold), Brushes.Black, new Point(200, 50));
+                            e.Graphics.DrawString("Đoàn: " + cbbTourGroupList.SelectedItem.ToString(), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(100, 150));
+                            e.Graphics.DrawString("Từ tháng: " + dtpFromDate.Value.ToString("MM/yyyy"), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(400, 150));
+                            e.Graphics.DrawString("Đến tháng: " + dtpToDate.Value.ToString("MM/yyyy"), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(600, 150));
+
+                            // Vẽ cột              
+                            _topMargin = e.MarginBounds.Top + 80;
+                            foreach (DataGridViewColumn column in dgvTourGroupReport.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray), new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawString(column.HeaderText, new System.Drawing.Font("Constantia", 10), new SolidBrush(column.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], _topMargin,
+                                    (int)_columnWidths[i], _headerHeight), _strFormat);
+                                i++;
+                            }
+                            _newPage = false;
+                            _topMargin += _headerHeight;
+                        }
+                        i = 0;
+                        // Vẽ nội dung của các cột          
+                        foreach (DataGridViewCell cell in _rows.Cells)
+                        {
+ 
+                            if (cell.ColumnIndex == 1 || cell.ColumnIndex == 2 || cell.ColumnIndex == 4 || cell.ColumnIndex == 5)
+                            {
+                                if (cell.Value != null)
+                                {
+
+                                    e.Graphics.DrawString(cell.Value.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                                }
+                                
+                            }
+                            else
+                            {
+               
+                                e.Graphics.DrawString(cell.FormattedValue.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                            }
+                            // Vẽ đường viền 
+                            e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i],
+                                    _topMargin, (int)_columnWidths[i], _cellHeight));
+
+                            _footerX = (int)_columnCoor[i];
+                            i++;
+                            
+                        }
+                    }
+
+                    _count++;
+                    _topMargin += _cellHeight;
+
+                    _footerY = _topMargin;
+
+                }
+
+                ////Footer
+                e.Graphics.DrawString("TP.HCM, " + DateTime.Now.Date.ToString("dd/MM/yyyy"), new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 70, _topMargin + 20));
+                e.Graphics.DrawString("Người lập ", new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 50, _topMargin + 50));
+                e.Graphics.DrawString("(Ký, ghi rõ họ tên)", new Font("Constantia", 10), Brushes.Black, new Point(_footerX - 70, _topMargin + 80));
+
+                // Nếu không đủ để in các dòng trên 1 trang, thì in sang trang khác
+                if (_needMorePagesToPrint)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+       
         private void dgvTourGroupReport_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -346,7 +540,6 @@ namespace QuanLyTourDuLich.Forms
                 dtpFromDate2.ShowUpDown = true;
                 dtpFromDate2.MinDate = _tourPriceBus.getMinStartDate();
                 dtpFromDate2.MaxDate = _tourPriceBus.getMaxStartDate();
-                dtpFromDate2.Value = dtpFromDate2.MinDate;
 
                 dtpToDate2.Format = DateTimePickerFormat.Custom;
                 dtpToDate2.CustomFormat = "MM/yyyy";
@@ -444,6 +637,185 @@ namespace QuanLyTourDuLich.Forms
             }
         }
 
+        /// <summary>
+        /// Button in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTourReportPrint_Click(object sender, EventArgs e)
+        {
+            if (dgvTourReport.Rows.Count > 0)
+            {
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = printTourReport;
+                printDialog.UseEXDialog = true;
+
+                if (DialogResult.OK == printDialog.ShowDialog())
+                {
+                    printTourReport.DocumentName = "Báo cáo Doanh số của Tour";
+                    printTourReport.Print();
+                    MessageBox.Show("In thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Không có dữ liệu để in", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+        }
+
+        private void printTourReport_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                _strFormat = new StringFormat();
+                _strFormat.Alignment = StringAlignment.Near;
+                _strFormat.LineAlignment = StringAlignment.Center;
+                _strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                _columnCoor.Clear();
+                _columnWidths.Clear();
+                _cellHeight = 0;
+                _count = 0;
+                _firstPage = true;
+                _newPage = true;
+
+                _totalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dgvTourReport.Columns)
+                {
+                    _totalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printTourReport_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                // Đặt lề trái
+                int _leftMargin = e.MarginBounds.Left;
+                //Đặt lề trên
+                int _topMargin = e.MarginBounds.Top;
+                // Thiết lập có cần nhiều trang để in hay không
+                bool _needMorePagesToPrint = false;
+                int _tmpWidth = 0;
+
+                int _footerX = 0;
+                int _footerY = 0;
+                // Thiết lập độ dộng của các cell và độ cao của header để in trang đầu tiên
+                if (_firstPage)
+                {
+                    foreach (DataGridViewColumn GridCol in dgvTourReport.Columns)
+                    {
+                        _tmpWidth = (int)(Math.Floor((double)((double)GridCol.Width / (double)_totalWidth * (double)_totalWidth * ((double)e.MarginBounds.Width / (double)_totalWidth))));
+
+                        _headerHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText, new System.Drawing.Font("Constantia", 10), _tmpWidth).Height) + 23;
+
+                        // Lưu độ rộng và độ cao của các header
+                        _columnCoor.Add(_leftMargin);
+                        _columnWidths.Add(_tmpWidth);
+                        _leftMargin += _tmpWidth;
+                    }
+                }
+
+                // Vòng lặp cho đến tất cả những trang chưa được in
+                while (_count <= dgvTourReport.Rows.Count - 1)
+                {
+                    DataGridViewRow _rows = dgvTourReport.Rows[_count];
+                    // Đặt độ cao của cell
+                    _cellHeight = _rows.Height + 30;
+                    int i = 0;
+
+                    // Kiểm tra thiết lập trang xem còn nhiều dòng để in sang trang mới
+                    if (_topMargin + _cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        _newPage = true;
+                        _firstPage = false;
+                        _needMorePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (_newPage)
+                        {
+                            // Vẽ các header
+                            e.Graphics.DrawString("BÁO CÁO DOANH SỐ CỦA TOUR", new Font("Constantia", 20, FontStyle.Bold), Brushes.Black, new Point(200, 50));
+                            e.Graphics.DrawString("Tour: " + cbbTourList.SelectedItem.ToString(), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(100, 120));
+                            e.Graphics.DrawString("Từ tháng: " + dtpFromDate2.Value.ToString("MM/yyyy"), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(100, 150));
+                            e.Graphics.DrawString("Đến tháng: " + dtpToDate2.Value.ToString("MM/yyyy"), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(500, 150));
+
+                            // Vẽ cột              
+                            _topMargin = e.MarginBounds.Top + 80;
+                            foreach (DataGridViewColumn column in dgvTourReport.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray), new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawString(column.HeaderText, new System.Drawing.Font("Constantia", 10), new SolidBrush(column.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], _topMargin,
+                                    (int)_columnWidths[i], _headerHeight), _strFormat);
+                                i++;
+                            }
+                            _newPage = false;
+                            _topMargin += _headerHeight;
+                        }
+                        i = 0;
+                        // Vẽ nội dung của các cột          
+                        foreach (DataGridViewCell cell in _rows.Cells)
+                        {
+
+                            if (cell.ColumnIndex == 1 || cell.ColumnIndex == 2)
+                            {
+                                if (cell.Value != null)
+                                {
+
+                                    e.Graphics.DrawString(cell.Value.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                                }
+
+                            }
+                            else
+                            {
+
+                                e.Graphics.DrawString(cell.FormattedValue.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                            }
+                            // Vẽ đường viền 
+                            e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i],
+                                    _topMargin, (int)_columnWidths[i], _cellHeight));
+
+                            _footerX = (int)_columnCoor[i];
+                            i++;
+
+                        }
+                    }
+
+                    _count++;
+                    _topMargin += _cellHeight;
+
+                    _footerY = _topMargin;
+
+                }
+
+                ////Footer
+                e.Graphics.DrawString("TP.HCM, " + DateTime.Now.Date.ToString("dd/MM/yyyy"), new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 70, _topMargin + 20));
+                e.Graphics.DrawString("Người lập ", new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 50, _topMargin + 50));
+                e.Graphics.DrawString("(Ký, ghi rõ họ tên)", new Font("Constantia", 10), Brushes.Black, new Point(_footerX - 70, _topMargin + 80));
+
+                // Nếu không đủ để in các dòng trên 1 trang, thì in sang trang khác
+                if (_needMorePagesToPrint)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void dgvTourReport_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -603,6 +975,183 @@ namespace QuanLyTourDuLich.Forms
             }
         }
 
+        /// <summary>
+        /// Button in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTourStatusReportPrint_Click(object sender, EventArgs e)
+        {
+            if (dgvTourStatusReport.Rows.Count > 0)
+            {
+                PrintDialog printDialog = new PrintDialog();
+                printDialog.Document = printTourStatusReport;
+                printDialog.UseEXDialog = true;
+
+                if (DialogResult.OK == printDialog.ShowDialog())
+                {
+                    printTourStatusReport.DocumentName = "Báo cáo Tình hình hoạt động của Tour";
+                    printTourStatusReport.Print();
+                    MessageBox.Show("In thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+                MessageBox.Show("Không có dữ liệu để in", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        }
+
+        private void printTourStatusReport_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                _strFormat = new StringFormat();
+                _strFormat.Alignment = StringAlignment.Near;
+                _strFormat.LineAlignment = StringAlignment.Center;
+                _strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                _columnCoor.Clear();
+                _columnWidths.Clear();
+                _cellHeight = 0;
+                _count = 0;
+                _firstPage = true;
+                _newPage = true;
+
+                _totalWidth = 0;
+                foreach (DataGridViewColumn dgvGridCol in dgvTourStatusReport.Columns)
+                {
+                    _totalWidth += dgvGridCol.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printTourStatusReport_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                // Đặt lề trái
+                int _leftMargin = e.MarginBounds.Left;
+                //Đặt lề trên
+                int _topMargin = e.MarginBounds.Top;
+                // Thiết lập có cần nhiều trang để in hay không
+                bool _needMorePagesToPrint = false;
+                int _tmpWidth = 0;
+
+                int _footerX = 0;
+                int _footerY = 0;
+                // Thiết lập độ dộng của các cell và độ cao của header để in trang đầu tiên
+                if (_firstPage)
+                {
+                    foreach (DataGridViewColumn GridCol in dgvTourStatusReport.Columns)
+                    {
+                        _tmpWidth = (int)(Math.Floor((double)((double)GridCol.Width / (double)_totalWidth * (double)_totalWidth * ((double)e.MarginBounds.Width / (double)_totalWidth))));
+
+                        _headerHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText, new System.Drawing.Font("Constantia", 10), _tmpWidth).Height) + 23;
+
+                        // Lưu độ rộng và độ cao của các header
+                        _columnCoor.Add(_leftMargin);
+                        _columnWidths.Add(_tmpWidth);
+                        _leftMargin += _tmpWidth;
+                    }
+                }
+
+                // Vòng lặp cho đến tất cả những trang chưa được in
+                while (_count <= dgvTourStatusReport.Rows.Count - 1)
+                {
+                    DataGridViewRow _rows = dgvTourStatusReport.Rows[_count];
+                    // Đặt độ cao của cell
+                    _cellHeight = _rows.Height + 30;
+                    int i = 0;
+
+                    // Kiểm tra thiết lập trang xem còn nhiều dòng để in sang trang mới
+                    if (_topMargin + _cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        _newPage = true;
+                        _firstPage = false;
+                        _needMorePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (_newPage)
+                        {
+                            // Vẽ các header
+                            e.Graphics.DrawString("BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG CỦA TOUR", new Font("Constantia", 20, FontStyle.Bold), Brushes.Black, new Point(100, 50));
+                            e.Graphics.DrawString("Tour: " + cbbTourStatusReport.SelectedItem.ToString(), new Font("Constantia", 12, FontStyle.Bold), Brushes.Black, new Point(100, 140));
+                            
+                            // Vẽ cột              
+                            _topMargin = e.MarginBounds.Top + 80;
+                            foreach (DataGridViewColumn column in dgvTourStatusReport.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray), new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i], _topMargin, (int)_columnWidths[i], _headerHeight));
+
+                                e.Graphics.DrawString(column.HeaderText, new System.Drawing.Font("Constantia", 10), new SolidBrush(column.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], _topMargin,
+                                    (int)_columnWidths[i], _headerHeight), _strFormat);
+                                i++;
+                            }
+                            _newPage = false;
+                            _topMargin += _headerHeight;
+                        }
+                        i = 0;
+                        // Vẽ nội dung của các cột          
+                        foreach (DataGridViewCell cell in _rows.Cells)
+                        {
+
+                            if (cell.ColumnIndex == 1 || cell.ColumnIndex == 2)
+                            {
+                                if (cell.Value != null)
+                                {
+
+                                    e.Graphics.DrawString(cell.Value.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                                }
+
+                            }
+                            else
+                            {
+
+                                e.Graphics.DrawString(cell.FormattedValue.ToString(), new System.Drawing.Font("Constantia", 7), new SolidBrush(cell.InheritedStyle.ForeColor), new RectangleF((int)_columnCoor[i], (float)_topMargin,
+                                            (int)_columnWidths[i], (float)_cellHeight), _strFormat);
+                            }
+                            // Vẽ đường viền 
+                            e.Graphics.DrawRectangle(Pens.Black, new System.Drawing.Rectangle((int)_columnCoor[i],
+                                    _topMargin, (int)_columnWidths[i], _cellHeight));
+
+                            _footerX = (int)_columnCoor[i];
+                            i++;
+
+                        }
+                    }
+
+                    _count++;
+                    _topMargin += _cellHeight;
+
+                    _footerY = _topMargin;
+
+                }
+
+                ////Footer
+                e.Graphics.DrawString("TP.HCM, " + DateTime.Now.Date.ToString("dd/MM/yyyy"), new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 70, _topMargin + 20));
+                e.Graphics.DrawString("Người lập ", new Font("Constantia", 10, FontStyle.Bold), Brushes.Black, new Point(_footerX - 50, _topMargin + 50));
+                e.Graphics.DrawString("(Ký, ghi rõ họ tên)", new Font("Constantia", 10), Brushes.Black, new Point(_footerX - 70, _topMargin + 80));
+
+                // Nếu không đủ để in các dòng trên 1 trang, thì in sang trang khác
+                if (_needMorePagesToPrint)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void dgvTourStatusReport_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -642,6 +1191,14 @@ namespace QuanLyTourDuLich.Forms
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
+
+
+
+
         #endregion
 
         

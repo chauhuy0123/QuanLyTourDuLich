@@ -34,14 +34,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dgvTourStatusReport = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsTourStatusReport = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnTourStatusReport = new System.Windows.Forms.Button();
@@ -55,15 +47,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvTourReport = new System.Windows.Forms.DataGridView();
-            this.noColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tourId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tourName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tourGroupTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.revenueTotal2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costTotal2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.profitTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsTourReport = new System.Windows.Forms.BindingSource(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnTourReport = new System.Windows.Forms.Button();
@@ -80,6 +63,21 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvTourGroupReport = new System.Windows.Forms.DataGridView();
+            this.bdsTourGroupReport = new System.Windows.Forms.BindingSource(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.btnTourGroupReport = new System.Windows.Forms.Button();
+            this.btnTourGroupReportPrint = new System.Windows.Forms.Button();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbTourGroupList = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.printTourGroupReport = new System.Drawing.Printing.PrintDocument();
             this.noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idTourGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tourGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,20 +87,25 @@
             this.revenueTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsTourGroupReport = new System.Windows.Forms.BindingSource(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
-            this.btnTourGroupReport = new System.Windows.Forms.Button();
-            this.btnTourGroupPrint = new System.Windows.Forms.Button();
-            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbbTourGroupList = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBack1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.printTourReport = new System.Drawing.Printing.PrintDocument();
+            this.noColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tourId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tourName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tourGroupTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.revenueTotal2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costTotal2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profitTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printTourStatusReport = new System.Drawing.Printing.PrintDocument();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTourStatusReport)).BeginInit();
@@ -183,68 +186,6 @@
             this.dgvTourStatusReport.TabIndex = 9;
             this.dgvTourStatusReport.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTourStatusReport_CellFormatting);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã tour";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 350;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TourCategory";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Loại hình du lịch";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TourPrice";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày bắt đầu";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TourPrice";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày kết thúc";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Tổng số đoàn";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Tổng lợi nhuận";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.btnTourStatusReport);
@@ -281,6 +222,7 @@
             this.btnTourStatusReportPrint.TabIndex = 27;
             this.btnTourStatusReportPrint.Text = "In";
             this.btnTourStatusReportPrint.UseVisualStyleBackColor = false;
+            this.btnTourStatusReportPrint.Click += new System.EventHandler(this.btnTourStatusReportPrint_Click);
             // 
             // cbbTourStatusReport
             // 
@@ -401,75 +343,6 @@
             this.dgvTourReport.TabIndex = 8;
             this.dgvTourReport.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTourReport_CellFormatting);
             // 
-            // noColumn2
-            // 
-            this.noColumn2.HeaderText = "STT";
-            this.noColumn2.Name = "noColumn2";
-            this.noColumn2.ReadOnly = true;
-            this.noColumn2.Width = 50;
-            // 
-            // tourId
-            // 
-            this.tourId.DataPropertyName = "id";
-            this.tourId.HeaderText = "Mã tour";
-            this.tourId.Name = "tourId";
-            this.tourId.ReadOnly = true;
-            // 
-            // tourName2
-            // 
-            this.tourName2.DataPropertyName = "name";
-            this.tourName2.HeaderText = "Tên Tour";
-            this.tourName2.Name = "tourName2";
-            this.tourName2.ReadOnly = true;
-            this.tourName2.Width = 330;
-            // 
-            // startDate
-            // 
-            this.startDate.DataPropertyName = "TourPrice";
-            this.startDate.HeaderText = "Ngày bắt đầu";
-            this.startDate.Name = "startDate";
-            this.startDate.ReadOnly = true;
-            this.startDate.Width = 115;
-            // 
-            // endDate
-            // 
-            this.endDate.DataPropertyName = "TourPrice";
-            this.endDate.HeaderText = "Ngày kết thúc";
-            this.endDate.Name = "endDate";
-            this.endDate.ReadOnly = true;
-            this.endDate.Width = 115;
-            // 
-            // tourGroupTotal
-            // 
-            this.tourGroupTotal.DataPropertyName = "id";
-            this.tourGroupTotal.HeaderText = "Tổng số đoàn";
-            this.tourGroupTotal.Name = "tourGroupTotal";
-            this.tourGroupTotal.ReadOnly = true;
-            // 
-            // revenueTotal2
-            // 
-            this.revenueTotal2.DataPropertyName = "id";
-            this.revenueTotal2.HeaderText = "Tổng doanh thu";
-            this.revenueTotal2.Name = "revenueTotal2";
-            this.revenueTotal2.ReadOnly = true;
-            this.revenueTotal2.Width = 160;
-            // 
-            // costTotal2
-            // 
-            this.costTotal2.DataPropertyName = "id";
-            this.costTotal2.HeaderText = "Tổng chi phí";
-            this.costTotal2.Name = "costTotal2";
-            this.costTotal2.ReadOnly = true;
-            this.costTotal2.Width = 160;
-            // 
-            // profitTotal
-            // 
-            this.profitTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.profitTotal.DataPropertyName = "id";
-            this.profitTotal.HeaderText = "Tổng lợi nhuận";
-            this.profitTotal.Name = "profitTotal";
-            this.profitTotal.ReadOnly = true;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.btnTourReport);
@@ -510,6 +383,7 @@
             this.btnTourReportPrint.TabIndex = 37;
             this.btnTourReportPrint.Text = "In";
             this.btnTourReportPrint.UseVisualStyleBackColor = false;
+            this.btnTourReportPrint.Click += new System.EventHandler(this.btnTourReportPrint_Click);
             // 
             // dtpToDate2
             // 
@@ -666,84 +540,6 @@
             this.dgvTourGroupReport.TabIndex = 32;
             this.dgvTourGroupReport.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTourGroupReport_CellFormatting);
             // 
-            // noColumn
-            // 
-            this.noColumn.HeaderText = "STT";
-            this.noColumn.Name = "noColumn";
-            this.noColumn.ReadOnly = true;
-            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.noColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.noColumn.Width = 50;
-            // 
-            // idTourGroup
-            // 
-            this.idTourGroup.DataPropertyName = "id";
-            this.idTourGroup.HeaderText = "Mã đoàn";
-            this.idTourGroup.Name = "idTourGroup";
-            this.idTourGroup.ReadOnly = true;
-            this.idTourGroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idTourGroup.Width = 70;
-            // 
-            // tourGroupName
-            // 
-            this.tourGroupName.DataPropertyName = "name";
-            this.tourGroupName.HeaderText = "Tên đoàn";
-            this.tourGroupName.Name = "tourGroupName";
-            this.tourGroupName.ReadOnly = true;
-            this.tourGroupName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.tourGroupName.Width = 200;
-            // 
-            // tourName
-            // 
-            this.tourName.DataPropertyName = "Tour";
-            this.tourName.HeaderText = "Tour";
-            this.tourName.Name = "tourName";
-            this.tourName.ReadOnly = true;
-            this.tourName.Width = 300;
-            // 
-            // departDate
-            // 
-            this.departDate.DataPropertyName = "depart_date";
-            this.departDate.HeaderText = "Ngày khởi hành";
-            this.departDate.Name = "departDate";
-            this.departDate.ReadOnly = true;
-            this.departDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // returnDate
-            // 
-            this.returnDate.DataPropertyName = "return_date";
-            this.returnDate.HeaderText = "Ngày về";
-            this.returnDate.Name = "returnDate";
-            this.returnDate.ReadOnly = true;
-            this.returnDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // revenueTotal
-            // 
-            this.revenueTotal.DataPropertyName = "id";
-            this.revenueTotal.HeaderText = "Tổng doanh thu";
-            this.revenueTotal.Name = "revenueTotal";
-            this.revenueTotal.ReadOnly = true;
-            this.revenueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.revenueTotal.Width = 150;
-            // 
-            // costTotal
-            // 
-            this.costTotal.DataPropertyName = "id";
-            this.costTotal.HeaderText = "Tổng chi phí";
-            this.costTotal.Name = "costTotal";
-            this.costTotal.ReadOnly = true;
-            this.costTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.costTotal.Width = 125;
-            // 
-            // revenue
-            // 
-            this.revenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.revenue.DataPropertyName = "id";
-            this.revenue.HeaderText = "Tổng lợi nhuận";
-            this.revenue.Name = "revenue";
-            this.revenue.ReadOnly = true;
-            this.revenue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel4);
@@ -757,7 +553,7 @@
             // 
             this.panel4.Controls.Add(this.dtpToDate);
             this.panel4.Controls.Add(this.btnTourGroupReport);
-            this.panel4.Controls.Add(this.btnTourGroupPrint);
+            this.panel4.Controls.Add(this.btnTourGroupReportPrint);
             this.panel4.Controls.Add(this.dtpFromDate);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label1);
@@ -792,17 +588,18 @@
             this.btnTourGroupReport.UseVisualStyleBackColor = false;
             this.btnTourGroupReport.Click += new System.EventHandler(this.btnTourGroupReport_Click);
             // 
-            // btnTourGroupPrint
+            // btnTourGroupReportPrint
             // 
-            this.btnTourGroupPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTourGroupPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTourGroupPrint.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnTourGroupPrint.Location = new System.Drawing.Point(1145, 13);
-            this.btnTourGroupPrint.Name = "btnTourGroupPrint";
-            this.btnTourGroupPrint.Size = new System.Drawing.Size(100, 35);
-            this.btnTourGroupPrint.TabIndex = 25;
-            this.btnTourGroupPrint.Text = "In";
-            this.btnTourGroupPrint.UseVisualStyleBackColor = false;
+            this.btnTourGroupReportPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTourGroupReportPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTourGroupReportPrint.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTourGroupReportPrint.Location = new System.Drawing.Point(1145, 13);
+            this.btnTourGroupReportPrint.Name = "btnTourGroupReportPrint";
+            this.btnTourGroupReportPrint.Size = new System.Drawing.Size(100, 35);
+            this.btnTourGroupReportPrint.TabIndex = 25;
+            this.btnTourGroupReportPrint.Text = "In";
+            this.btnTourGroupReportPrint.UseVisualStyleBackColor = false;
+            this.btnTourGroupReportPrint.Click += new System.EventHandler(this.btnTourGroupReportPrint_Click);
             // 
             // dtpFromDate
             // 
@@ -895,6 +692,230 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "DOANH SỐ CỦA ĐOÀN";
             // 
+            // printTourGroupReport
+            // 
+            this.printTourGroupReport.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printTourGroupReport_BeginPrint);
+            this.printTourGroupReport.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTourGroupReport_PrintPage);
+            // 
+            // noColumn
+            // 
+            this.noColumn.HeaderText = "STT";
+            this.noColumn.Name = "noColumn";
+            this.noColumn.ReadOnly = true;
+            this.noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.noColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.noColumn.Width = 70;
+            // 
+            // idTourGroup
+            // 
+            this.idTourGroup.DataPropertyName = "id";
+            this.idTourGroup.HeaderText = "Mã đoàn";
+            this.idTourGroup.Name = "idTourGroup";
+            this.idTourGroup.ReadOnly = true;
+            this.idTourGroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // tourGroupName
+            // 
+            this.tourGroupName.DataPropertyName = "name";
+            this.tourGroupName.HeaderText = "Tên đoàn";
+            this.tourGroupName.Name = "tourGroupName";
+            this.tourGroupName.ReadOnly = true;
+            this.tourGroupName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tourGroupName.Width = 200;
+            // 
+            // tourName
+            // 
+            this.tourName.DataPropertyName = "Tour";
+            this.tourName.HeaderText = "Tour";
+            this.tourName.Name = "tourName";
+            this.tourName.ReadOnly = true;
+            this.tourName.Width = 250;
+            // 
+            // departDate
+            // 
+            this.departDate.DataPropertyName = "depart_date";
+            this.departDate.HeaderText = "Ngày khởi hành";
+            this.departDate.Name = "departDate";
+            this.departDate.ReadOnly = true;
+            this.departDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // returnDate
+            // 
+            this.returnDate.DataPropertyName = "return_date";
+            this.returnDate.HeaderText = "Ngày về";
+            this.returnDate.Name = "returnDate";
+            this.returnDate.ReadOnly = true;
+            this.returnDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // revenueTotal
+            // 
+            this.revenueTotal.DataPropertyName = "id";
+            this.revenueTotal.HeaderText = "Tổng doanh thu";
+            this.revenueTotal.Name = "revenueTotal";
+            this.revenueTotal.ReadOnly = true;
+            this.revenueTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.revenueTotal.Width = 150;
+            // 
+            // costTotal
+            // 
+            this.costTotal.DataPropertyName = "id";
+            this.costTotal.HeaderText = "Tổng chi phí";
+            this.costTotal.Name = "costTotal";
+            this.costTotal.ReadOnly = true;
+            this.costTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.costTotal.Width = 125;
+            // 
+            // revenue
+            // 
+            this.revenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.revenue.DataPropertyName = "id";
+            this.revenue.HeaderText = "Tổng lợi nhuận";
+            this.revenue.Name = "revenue";
+            this.revenue.ReadOnly = true;
+            this.revenue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // printTourReport
+            // 
+            this.printTourReport.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printTourReport_BeginPrint);
+            this.printTourReport.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTourReport_PrintPage);
+            // 
+            // noColumn2
+            // 
+            this.noColumn2.HeaderText = "STT";
+            this.noColumn2.Name = "noColumn2";
+            this.noColumn2.ReadOnly = true;
+            this.noColumn2.Width = 80;
+            // 
+            // tourId
+            // 
+            this.tourId.DataPropertyName = "id";
+            this.tourId.HeaderText = "Mã tour";
+            this.tourId.Name = "tourId";
+            this.tourId.ReadOnly = true;
+            // 
+            // tourName2
+            // 
+            this.tourName2.DataPropertyName = "name";
+            this.tourName2.HeaderText = "Tên Tour";
+            this.tourName2.Name = "tourName2";
+            this.tourName2.ReadOnly = true;
+            this.tourName2.Width = 300;
+            // 
+            // startDate
+            // 
+            this.startDate.DataPropertyName = "TourPrice";
+            this.startDate.HeaderText = "Ngày bắt đầu";
+            this.startDate.Name = "startDate";
+            this.startDate.ReadOnly = true;
+            this.startDate.Width = 115;
+            // 
+            // endDate
+            // 
+            this.endDate.DataPropertyName = "TourPrice";
+            this.endDate.HeaderText = "Ngày kết thúc";
+            this.endDate.Name = "endDate";
+            this.endDate.ReadOnly = true;
+            this.endDate.Width = 115;
+            // 
+            // tourGroupTotal
+            // 
+            this.tourGroupTotal.DataPropertyName = "id";
+            this.tourGroupTotal.HeaderText = "Tổng số đoàn";
+            this.tourGroupTotal.Name = "tourGroupTotal";
+            this.tourGroupTotal.ReadOnly = true;
+            // 
+            // revenueTotal2
+            // 
+            this.revenueTotal2.DataPropertyName = "id";
+            this.revenueTotal2.HeaderText = "Tổng doanh thu";
+            this.revenueTotal2.Name = "revenueTotal2";
+            this.revenueTotal2.ReadOnly = true;
+            this.revenueTotal2.Width = 145;
+            // 
+            // costTotal2
+            // 
+            this.costTotal2.DataPropertyName = "id";
+            this.costTotal2.HeaderText = "Tổng chi phí";
+            this.costTotal2.Name = "costTotal2";
+            this.costTotal2.ReadOnly = true;
+            this.costTotal2.Width = 145;
+            // 
+            // profitTotal
+            // 
+            this.profitTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.profitTotal.DataPropertyName = "id";
+            this.profitTotal.HeaderText = "Tổng lợi nhuận";
+            this.profitTotal.Name = "profitTotal";
+            this.profitTotal.ReadOnly = true;
+            // 
+            // printTourStatusReport
+            // 
+            this.printTourStatusReport.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printTourStatusReport_BeginPrint);
+            this.printTourStatusReport.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printTourStatusReport_PrintPage);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã tour";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TourCategory";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Loại hình du lịch";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TourPrice";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày bắt đầu";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "TourPrice";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày kết thúc";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tổng số đoàn";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Tổng lợi nhuận";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
             // fmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -964,7 +985,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvTourGroupReport;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnTourGroupPrint;
+        private System.Windows.Forms.Button btnTourGroupReportPrint;
         private System.Windows.Forms.Button btnTourGroupReport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -985,6 +1006,13 @@
         private System.Windows.Forms.DateTimePicker dtpFromDate2;
         private System.Windows.Forms.Button btnTourReport;
         private System.Windows.Forms.Button btnTourReportPrint;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.BindingSource bdsTourReport;
+        private System.Windows.Forms.Button btnTourStatusReport;
+        private System.Windows.Forms.Button btnTourStatusReportPrint;
+        private System.Windows.Forms.DataGridView dgvTourStatusReport;
+        private System.Windows.Forms.BindingSource bdsTourStatusReport;
+        private System.Drawing.Printing.PrintDocument printTourGroupReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn noColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTourGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn tourGroupName;
@@ -994,8 +1022,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn revenueTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn costTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn revenue;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.BindingSource bdsTourReport;
+        private System.Drawing.Printing.PrintDocument printTourReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn noColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn tourId;
         private System.Windows.Forms.DataGridViewTextBoxColumn tourName2;
@@ -1005,10 +1032,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn revenueTotal2;
         private System.Windows.Forms.DataGridViewTextBoxColumn costTotal2;
         private System.Windows.Forms.DataGridViewTextBoxColumn profitTotal;
-        private System.Windows.Forms.Button btnTourStatusReport;
-        private System.Windows.Forms.Button btnTourStatusReportPrint;
-        private System.Windows.Forms.DataGridView dgvTourStatusReport;
-        private System.Windows.Forms.BindingSource bdsTourStatusReport;
+        private System.Drawing.Printing.PrintDocument printTourStatusReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
