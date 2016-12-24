@@ -14,6 +14,11 @@ namespace DTO
     
     public partial class Hotel
     {
+        public Hotel()
+        {
+            this.TourGroupHotels = new HashSet<TourGroupHotel>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
         public string address { get; set; }
@@ -23,5 +28,6 @@ namespace DTO
         public Nullable<double> price { get; set; }
     
         public virtual Destination Destination { get; set; }
+        public virtual ICollection<TourGroupHotel> TourGroupHotels { get; set; }
     }
 }

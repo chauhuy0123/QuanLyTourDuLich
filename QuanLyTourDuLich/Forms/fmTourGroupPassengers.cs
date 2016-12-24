@@ -20,12 +20,12 @@ namespace QuanLyTourDuLich.Forms
         ICustomerSearchPresenter _customerPresenter;
 
         int _tourgroupId;
-        public fmTourGroupPassengers(TourGroup tourgroup)
+        public fmTourGroupPassengers(int tourGroupId)
         {
             InitializeComponent();
 
             _customerPresenter = new CustomerSearchPresenter(this);
-            _tourgroupId = tourgroup.id;
+            _tourgroupId = tourGroupId;
         }
 
 

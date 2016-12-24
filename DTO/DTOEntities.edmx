@@ -22,6 +22,14 @@
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="level" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Constant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="id" />
@@ -145,6 +153,14 @@
           <Property Name="hotel_fee" Type="float" Nullable="false" />
           <Property Name="transport_fee" Type="float" Nullable="false" />
         </EntityType>
+        <EntityType Name="TourGroupHotel">
+          <Key>
+            <PropertyRef Name="tourgroup_id" />
+          </Key>
+          <Property Name="tourgroup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hotel_id" Type="int" Nullable="false" />
+          <Property Name="fee" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="TourPrice">
           <Key>
             <PropertyRef Name="id" />
@@ -178,6 +194,7 @@
           </Key>
           <Property Name="transport_id" Type="int" Nullable="false" />
           <Property Name="tour_group_id" Type="int" Nullable="false" />
+          <Property Name="fee" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_Account_AccountType">
           <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
@@ -371,6 +388,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TourGroupHotel_Hotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="TourGroupHotel" Type="Self.TourGroupHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupHotel">
+              <PropertyRef Name="hotel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupHotel_TourGroup">
+          <End Role="TourGroup" Type="Self.TourGroup" Multiplicity="1" />
+          <End Role="TourGroupHotel" Type="Self.TourGroupHotel" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TourGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupHotel">
+              <PropertyRef Name="tourgroup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TourSite_Destination">
           <End Role="Destination" Type="Self.Destination" Multiplicity="1" />
           <End Role="TourSite" Type="Self.TourSite" Multiplicity="*" />
@@ -480,6 +521,7 @@
         <EntityContainer Name="TourManagerModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Constant" EntityType="Self.Constant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Destination" EntityType="Self.Destination" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
@@ -494,6 +536,7 @@
           <EntitySet Name="TourDetail" EntityType="Self.TourDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourGroup" EntityType="Self.TourGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourGroupFee" EntityType="Self.TourGroupFee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TourGroupHotel" EntityType="Self.TourGroupHotel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourPrice" EntityType="Self.TourPrice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TourSite" EntityType="Self.TourSite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
@@ -561,6 +604,14 @@
           <AssociationSet Name="FK_TourGroupFee_TourGroup" Association="Self.FK_TourGroupFee_TourGroup">
             <End Role="TourGroup" EntitySet="TourGroup" />
             <End Role="TourGroupFee" EntitySet="TourGroupFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupHotel_Hotel" Association="Self.FK_TourGroupHotel_Hotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="TourGroupHotel" EntitySet="TourGroupHotel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupHotel_TourGroup" Association="Self.FK_TourGroupHotel_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroup" />
+            <End Role="TourGroupHotel" EntitySet="TourGroupHotel" />
           </AssociationSet>
           <AssociationSet Name="FK_TourSite_Destination" Association="Self.FK_TourSite_Destination">
             <End Role="Destination" EntitySet="Destination" />
@@ -642,8 +693,15 @@
           </FunctionImport>
           <FunctionImport Name="GetAllEmployeeTourGroup" ReturnType="Collection(TourManagerModel.GetAllEmployeeTourGroup_Result)" />
           <FunctionImport Name="GetAllTransportTourGroup" ReturnType="Collection(TourManagerModel.GetAllTransportTourGroup_Result)" />
+          <FunctionImport Name="GetEmployeeByTourGroupId1">
+          <Parameter Name="tour_group_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPassengerByTourGroupId1">
+          <Parameter Name="tour_group_id" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="Accounts" EntityType="TourManagerModel.Account" />
           <EntitySet Name="AccountTypes" EntityType="TourManagerModel.AccountType" />
+          <EntitySet Name="Constants" EntityType="TourManagerModel.Constant" />
           <EntitySet Name="Customers" EntityType="TourManagerModel.Customer" />
           <EntitySet Name="Destinations" EntityType="TourManagerModel.Destination" />
           <EntitySet Name="Employees" EntityType="TourManagerModel.Employee" />
@@ -654,9 +712,12 @@
           <EntitySet Name="Tours" EntityType="TourManagerModel.Tour" />
           <EntitySet Name="TourCategories" EntityType="TourManagerModel.TourCategory" />
           <EntitySet Name="TourGroups" EntityType="TourManagerModel.TourGroup" />
+          <EntitySet Name="TourGroupFees" EntityType="TourManagerModel.TourGroupFee" />
+          <EntitySet Name="TourGroupHotels" EntityType="TourManagerModel.TourGroupHotel" />
           <EntitySet Name="TourPrices" EntityType="TourManagerModel.TourPrice" />
           <EntitySet Name="TourSites" EntityType="TourManagerModel.TourSite" />
           <EntitySet Name="Transports" EntityType="TourManagerModel.Transport" />
+          <EntitySet Name="TransportsTourGroups" EntityType="TourManagerModel.TransportsTourGroup" />
           <AssociationSet Name="FK_Account_AccountType" Association="TourManagerModel.FK_Account_AccountType">
             <End Role="AccountType" EntitySet="AccountTypes" />
             <End Role="Account" EntitySet="Accounts" />
@@ -685,6 +746,10 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
+          <AssociationSet Name="FK_TourGroupHotel_Hotel" Association="TourManagerModel.FK_TourGroupHotel_Hotel">
+            <End Role="Hotel" EntitySet="Hotels" />
+            <End Role="TourGroupHotel" EntitySet="TourGroupHotels" />
+          </AssociationSet>
           <AssociationSet Name="FK_Transport_Status" Association="TourManagerModel.FK_Transport_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Transport" EntitySet="Transports" />
@@ -701,6 +766,22 @@
             <End Role="Tour" EntitySet="Tours" />
             <End Role="TourGroup" EntitySet="TourGroups" />
           </AssociationSet>
+          <AssociationSet Name="FK_TourGroupFee_TourGroup" Association="TourManagerModel.FK_TourGroupFee_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroups" />
+            <End Role="TourGroupFee" EntitySet="TourGroupFees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourGroupHotel_TourGroup" Association="TourManagerModel.FK_TourGroupHotel_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroups" />
+            <End Role="TourGroupHotel" EntitySet="TourGroupHotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportsTourGroup_TourGroup" Association="TourManagerModel.FK_TransportsTourGroup_TourGroup">
+            <End Role="TourGroup" EntitySet="TourGroups" />
+            <End Role="TransportsTourGroup" EntitySet="TransportsTourGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportsTourGroup_Transport" Association="TourManagerModel.FK_TransportsTourGroup_Transport">
+            <End Role="Transport" EntitySet="Transports" />
+            <End Role="TransportsTourGroup" EntitySet="TransportsTourGroups" />
+          </AssociationSet>
           <AssociationSet Name="EmployeesTourGroup" Association="TourManagerModel.EmployeesTourGroup">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="TourGroup" EntitySet="TourGroups" />
@@ -712,21 +793,6 @@
           <AssociationSet Name="TourDetail" Association="TourManagerModel.TourDetail">
             <End Role="Tour" EntitySet="Tours" />
             <End Role="TourSite" EntitySet="TourSites" />
-          </AssociationSet>
-          <AssociationSet Name="TransportsTourGroup" Association="TourManagerModel.TransportsTourGroup">
-            <End Role="TourGroup" EntitySet="TourGroups" />
-            <End Role="Transport" EntitySet="Transports" />
-          </AssociationSet>
-          <FunctionImport Name="GetEmployeeByTourGroupId1">
-          <Parameter Name="tour_group_id" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="GetPassengerByTourGroupId1">
-          <Parameter Name="tour_group_id" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="TourGroupFees" EntityType="TourManagerModel.TourGroupFee" />
-          <AssociationSet Name="FK_TourGroupFee_TourGroup" Association="TourManagerModel.FK_TourGroupFee_TourGroup">
-            <End Role="TourGroup" EntitySet="TourGroups" />
-            <End Role="TourGroupFee" EntitySet="TourGroupFees" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="GetCustomerById_Result">
@@ -850,10 +916,18 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="level" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Accounts" Relationship="TourManagerModel.FK_Account_AccountType" FromRole="AccountType" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Constant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -919,8 +993,9 @@
           <Property Name="phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="status" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="destination_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Destination" Relationship="TourManagerModel.FK_Hotel_Destination" FromRole="Hotel" ToRole="Destination" />
           <Property Name="price" Type="Double" />
+          <NavigationProperty Name="Destination" Relationship="TourManagerModel.FK_Hotel_Destination" FromRole="Hotel" ToRole="Destination" />
+          <NavigationProperty Name="TourGroupHotels" Relationship="TourManagerModel.FK_TourGroupHotel_Hotel" FromRole="Hotel" ToRole="TourGroupHotel" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -964,10 +1039,31 @@
           <Property Name="depart_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Tour" Relationship="TourManagerModel.FK_TourGroup_TourCategory" FromRole="TourGroup" ToRole="Tour" />
+          <NavigationProperty Name="TourGroupFee" Relationship="TourManagerModel.FK_TourGroupFee_TourGroup" FromRole="TourGroup" ToRole="TourGroupFee" />
+          <NavigationProperty Name="TourGroupHotel" Relationship="TourManagerModel.FK_TourGroupHotel_TourGroup" FromRole="TourGroup" ToRole="TourGroupHotel" />
+          <NavigationProperty Name="TransportsTourGroups" Relationship="TourManagerModel.FK_TransportsTourGroup_TourGroup" FromRole="TourGroup" ToRole="TransportsTourGroup" />
           <NavigationProperty Name="Employees" Relationship="TourManagerModel.EmployeesTourGroup" FromRole="TourGroup" ToRole="Employee" />
           <NavigationProperty Name="Customers" Relationship="TourManagerModel.Passenger" FromRole="TourGroup" ToRole="Customer" />
-          <NavigationProperty Name="Transports" Relationship="TourManagerModel.TransportsTourGroup" FromRole="TourGroup" ToRole="Transport" />
-          <NavigationProperty Name="TourGroupFee" Relationship="TourManagerModel.FK_TourGroupFee_TourGroup" FromRole="TourGroup" ToRole="TourGroupFee" />
+        </EntityType>
+        <EntityType Name="TourGroupFee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tourgroup_id" Type="Int32" Nullable="false" />
+          <Property Name="hotel_fee" Type="Double" Nullable="false" />
+          <Property Name="transport_fee" Type="Double" Nullable="false" />
+          <NavigationProperty Name="TourGroup" Relationship="TourManagerModel.FK_TourGroupFee_TourGroup" FromRole="TourGroupFee" ToRole="TourGroup" />
+        </EntityType>
+        <EntityType Name="TourGroupHotel">
+          <Key>
+            <PropertyRef Name="tourgroup_id" />
+          </Key>
+          <Property Name="tourgroup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hotel_id" Type="Int32" Nullable="false" />
+          <Property Name="fee" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Hotel" Relationship="TourManagerModel.FK_TourGroupHotel_Hotel" FromRole="TourGroupHotel" ToRole="Hotel" />
+          <NavigationProperty Name="TourGroup" Relationship="TourManagerModel.FK_TourGroupHotel_TourGroup" FromRole="TourGroupHotel" ToRole="TourGroup" />
         </EntityType>
         <EntityType Name="TourPrice">
           <Key>
@@ -996,9 +1092,20 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Status1" Relationship="TourManagerModel.FK_Transport_Status" FromRole="Transport" ToRole="Status" />
-          <NavigationProperty Name="TourGroups" Relationship="TourManagerModel.TransportsTourGroup" FromRole="Transport" ToRole="TourGroup" />
           <Property Name="price" Type="Double" />
+          <NavigationProperty Name="Status1" Relationship="TourManagerModel.FK_Transport_Status" FromRole="Transport" ToRole="Status" />
+          <NavigationProperty Name="TransportsTourGroups" Relationship="TourManagerModel.FK_TransportsTourGroup_Transport" FromRole="Transport" ToRole="TransportsTourGroup" />
+        </EntityType>
+        <EntityType Name="TransportsTourGroup">
+          <Key>
+            <PropertyRef Name="transport_id" />
+            <PropertyRef Name="tour_group_id" />
+          </Key>
+          <Property Name="transport_id" Type="Int32" Nullable="false" />
+          <Property Name="tour_group_id" Type="Int32" Nullable="false" />
+          <Property Name="fee" Type="Double" Nullable="false" />
+          <NavigationProperty Name="TourGroup" Relationship="TourManagerModel.FK_TransportsTourGroup_TourGroup" FromRole="TransportsTourGroup" ToRole="TourGroup" />
+          <NavigationProperty Name="Transport" Relationship="TourManagerModel.FK_TransportsTourGroup_Transport" FromRole="TransportsTourGroup" ToRole="Transport" />
         </EntityType>
         <Association Name="FK_Account_AccountType">
           <End Type="TourManagerModel.AccountType" Role="AccountType" Multiplicity="1" />
@@ -1084,6 +1191,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TourGroupHotel_Hotel">
+          <End Type="TourManagerModel.Hotel" Role="Hotel" Multiplicity="1" />
+          <End Type="TourManagerModel.TourGroupHotel" Role="TourGroupHotel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupHotel">
+              <PropertyRef Name="hotel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Transport_Status">
           <End Type="TourManagerModel.Status" Role="Status" Multiplicity="1" />
           <End Type="TourManagerModel.Transport" Role="Transport" Multiplicity="*" />
@@ -1132,32 +1251,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeesTourGroup">
-          <End Type="TourManagerModel.Employee" Role="Employee" Multiplicity="*" />
-          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
-        </Association>
-        <Association Name="Passenger">
-          <End Type="TourManagerModel.Customer" Role="Customer" Multiplicity="*" />
-          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
-        </Association>
-        <Association Name="TourDetail">
-          <End Type="TourManagerModel.Tour" Role="Tour" Multiplicity="*" />
-          <End Type="TourManagerModel.TourSite" Role="TourSite" Multiplicity="*" />
-        </Association>
-        <Association Name="TransportsTourGroup">
-          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
-          <End Type="TourManagerModel.Transport" Role="Transport" Multiplicity="*" />
-        </Association>
-        <EntityType Name="TourGroupFee">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tourgroup_id" Type="Int32" Nullable="false" />
-          <Property Name="hotel_fee" Type="Double" Nullable="false" />
-          <Property Name="transport_fee" Type="Double" Nullable="false" />
-          <NavigationProperty Name="TourGroup" Relationship="TourManagerModel.FK_TourGroupFee_TourGroup" FromRole="TourGroupFee" ToRole="TourGroup" />
-        </EntityType>
         <Association Name="FK_TourGroupFee_TourGroup">
           <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="1" />
           <End Type="TourManagerModel.TourGroupFee" Role="TourGroupFee" Multiplicity="0..1" />
@@ -1169,6 +1262,54 @@
               <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourGroupHotel_TourGroup">
+          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="1" />
+          <End Type="TourManagerModel.TourGroupHotel" Role="TourGroupHotel" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TourGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TourGroupHotel">
+              <PropertyRef Name="tourgroup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportsTourGroup_TourGroup">
+          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="1" />
+          <End Type="TourManagerModel.TransportsTourGroup" Role="TransportsTourGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourGroup">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TransportsTourGroup">
+              <PropertyRef Name="tour_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportsTourGroup_Transport">
+          <End Type="TourManagerModel.Transport" Role="Transport" Multiplicity="1" />
+          <End Type="TourManagerModel.TransportsTourGroup" Role="TransportsTourGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TransportsTourGroup">
+              <PropertyRef Name="transport_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeesTourGroup">
+          <End Type="TourManagerModel.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="Passenger">
+          <End Type="TourManagerModel.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="TourManagerModel.TourGroup" Role="TourGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="TourDetail">
+          <End Type="TourManagerModel.Tour" Role="Tour" Multiplicity="*" />
+          <End Type="TourManagerModel.TourSite" Role="TourSite" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1328,6 +1469,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetEmployeeByTourGroupId1" FunctionName="TourManagerModel.Store.GetEmployeeByTourGroupId" />
+          <FunctionImportMapping FunctionImportName="GetPassengerByTourGroupId1" FunctionName="TourManagerModel.Store.GetPassengerByTourGroupId" />
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="TourManagerModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -1344,6 +1487,15 @@
                 <ScalarProperty Name="level" ColumnName="level" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Constants">
+            <EntityTypeMapping TypeName="TourManagerModel.Constant">
+              <MappingFragment StoreEntitySet="Constant">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1447,6 +1599,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TourGroupFees">
+            <EntityTypeMapping TypeName="TourManagerModel.TourGroupFee">
+              <MappingFragment StoreEntitySet="TourGroupFee">
+                <ScalarProperty Name="transport_fee" ColumnName="transport_fee" />
+                <ScalarProperty Name="hotel_fee" ColumnName="hotel_fee" />
+                <ScalarProperty Name="tourgroup_id" ColumnName="tourgroup_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourGroupHotels">
+            <EntityTypeMapping TypeName="TourManagerModel.TourGroupHotel">
+              <MappingFragment StoreEntitySet="TourGroupHotel">
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="hotel_id" ColumnName="hotel_id" />
+                <ScalarProperty Name="tourgroup_id" ColumnName="tourgroup_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TourPrices">
             <EntityTypeMapping TypeName="TourManagerModel.TourPrice">
               <MappingFragment StoreEntitySet="TourPrice">
@@ -1476,6 +1647,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TransportsTourGroups">
+            <EntityTypeMapping TypeName="TourManagerModel.TransportsTourGroup">
+              <MappingFragment StoreEntitySet="TransportsTourGroup">
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="tour_group_id" ColumnName="tour_group_id" />
+                <ScalarProperty Name="transport_id" ColumnName="transport_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="EmployeesTourGroup" TypeName="TourManagerModel.EmployeesTourGroup" StoreEntitySet="EmployeesTourGroup">
             <EndProperty Name="TourGroup">
               <ScalarProperty Name="id" ColumnName="tour_group_id" />
@@ -1500,26 +1680,6 @@
               <ScalarProperty Name="id" ColumnName="tour_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="TransportsTourGroup" TypeName="TourManagerModel.TransportsTourGroup" StoreEntitySet="TransportsTourGroup">
-            <EndProperty Name="Transport">
-              <ScalarProperty Name="id" ColumnName="transport_id" />
-            </EndProperty>
-            <EndProperty Name="TourGroup">
-              <ScalarProperty Name="id" ColumnName="tour_group_id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="GetEmployeeByTourGroupId1" FunctionName="TourManagerModel.Store.GetEmployeeByTourGroupId" />
-          <FunctionImportMapping FunctionImportName="GetPassengerByTourGroupId1" FunctionName="TourManagerModel.Store.GetPassengerByTourGroupId" />
-          <EntitySetMapping Name="TourGroupFees">
-            <EntityTypeMapping TypeName="TourManagerModel.TourGroupFee">
-              <MappingFragment StoreEntitySet="TourGroupFee">
-                <ScalarProperty Name="transport_fee" ColumnName="transport_fee" />
-                <ScalarProperty Name="hotel_fee" ColumnName="hotel_fee" />
-                <ScalarProperty Name="tourgroup_id" ColumnName="tourgroup_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

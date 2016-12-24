@@ -56,6 +56,9 @@
     <Compile Include="AccountType.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Constant.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
@@ -153,6 +156,9 @@
     <Compile Include="TourGroupFee.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="TourGroupHotel.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TourPrice.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
@@ -160,6 +166,9 @@
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Transport.cs">
+      <DependentUpon>DTOEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportsTourGroup.cs">
       <DependentUpon>DTOEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>

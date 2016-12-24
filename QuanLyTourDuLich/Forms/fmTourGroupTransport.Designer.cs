@@ -1,6 +1,6 @@
-﻿namespace QuanLyTourDuLich.Forms
+﻿namespace QuanLyTourDuLich
 {
-    partial class fmTourGroupPassengers
+    partial class fmTourGroupTransport
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmTourGroupPassengers));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmTourGroupTransport));
             this._tourGroupPanel = new System.Windows.Forms.Panel();
             this._returnDateLb = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,13 +52,14 @@
             this._addColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._phonecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._nationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._identifyNumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._foreignColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this._passengerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._transportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
+            this._editBtn = new System.Windows.Forms.Button();
+            this.editBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._totalFeeTb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this._countLb = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this._showStateCb = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,14 +68,15 @@
             this.addAllBtn = new System.Windows.Forms.Button();
             this.addAllBtnImageList = new System.Windows.Forms.ImageList(this.components);
             this._searchBtn = new System.Windows.Forms.Button();
-            this._tourGroupKeywordTb = new System.Windows.Forms.TextBox();
+            this._searchTb = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this._tourGroupPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._resultGv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._passengerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._transportBindingSource)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -96,7 +100,7 @@
             this._tourGroupPanel.Name = "_tourGroupPanel";
             this._tourGroupPanel.Padding = new System.Windows.Forms.Padding(16);
             this._tourGroupPanel.Size = new System.Drawing.Size(240, 661);
-            this._tourGroupPanel.TabIndex = 0;
+            this._tourGroupPanel.TabIndex = 1;
             // 
             // _returnDateLb
             // 
@@ -208,7 +212,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(16);
             this.panel1.Size = new System.Drawing.Size(744, 661);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // panel3
             // 
@@ -219,7 +223,7 @@
             this.panel3.Location = new System.Drawing.Point(16, 141);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(712, 504);
-            this.panel3.TabIndex = 13;
+            this.panel3.TabIndex = 14;
             // 
             // _resultGv
             // 
@@ -242,11 +246,8 @@
             this._nameColumn,
             this._addColumn,
             this._phonecolumn,
-            this._nationalityColumn,
-            this._identifyNumberColumn,
-            this._genderColumn,
-            this._foreignColumn});
-            this._resultGv.DataSource = this._passengerBindingSource;
+            this._nationalityColumn});
+            this._resultGv.DataSource = this._transportBindingSource;
             this._resultGv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._resultGv.EnableHeadersVisualStyles = false;
             this._resultGv.Location = new System.Drawing.Point(0, 0);
@@ -268,8 +269,8 @@
             this._resultGv.ShowEditingIcon = false;
             this._resultGv.Size = new System.Drawing.Size(712, 468);
             this._resultGv.TabIndex = 12;
+            this._resultGv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._resultGv_CellContentDoubleClick);
             this._resultGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._resultGv_CellFormatting);
-            this._resultGv.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._resultGv_CellMouseDoubleClick);
             // 
             // _noColumn
             // 
@@ -282,73 +283,87 @@
             // 
             this._idColumn.DataPropertyName = "id";
             this._idColumn.FillWeight = 60F;
-            this._idColumn.HeaderText = "Mã khách hàng";
+            this._idColumn.HeaderText = "Mã phương tiện";
             this._idColumn.Name = "_idColumn";
             this._idColumn.ReadOnly = true;
             // 
             // _nameColumn
             // 
             this._nameColumn.DataPropertyName = "name";
-            this._nameColumn.HeaderText = "Họ tên";
+            this._nameColumn.HeaderText = "Tên phương tiện";
             this._nameColumn.Name = "_nameColumn";
             this._nameColumn.ReadOnly = true;
             // 
             // _addColumn
             // 
-            this._addColumn.DataPropertyName = "address";
-            this._addColumn.HeaderText = "Địa chỉ";
+            this._addColumn.DataPropertyName = "Status1";
+            this._addColumn.FillWeight = 60F;
+            this._addColumn.HeaderText = "Ghi chú";
             this._addColumn.Name = "_addColumn";
             this._addColumn.ReadOnly = true;
             // 
             // _phonecolumn
             // 
-            this._phonecolumn.DataPropertyName = "phone";
-            this._phonecolumn.HeaderText = "Số điện thoại";
+            this._phonecolumn.DataPropertyName = "price";
+            dataGridViewCellStyle2.NullValue = "0";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._phonecolumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this._phonecolumn.HeaderText = "Chi phí cơ bản (nghìn đồng)";
             this._phonecolumn.Name = "_phonecolumn";
             this._phonecolumn.ReadOnly = true;
             // 
             // _nationalityColumn
             // 
-            this._nationalityColumn.DataPropertyName = "nationality";
-            this._nationalityColumn.HeaderText = "Quốc tịch";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.0";
+            this._nationalityColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this._nationalityColumn.HeaderText = "Chi phí tạm tính (nghìn đồng)";
             this._nationalityColumn.Name = "_nationalityColumn";
-            this._nationalityColumn.ReadOnly = true;
-            // 
-            // _identifyNumberColumn
-            // 
-            this._identifyNumberColumn.DataPropertyName = "identifiedcard_id";
-            this._identifyNumberColumn.HeaderText = "CMND /Hộ Chiếu";
-            this._identifyNumberColumn.Name = "_identifyNumberColumn";
-            this._identifyNumberColumn.ReadOnly = true;
-            // 
-            // _genderColumn
-            // 
-            this._genderColumn.DataPropertyName = "Gender1";
-            this._genderColumn.FillWeight = 40F;
-            this._genderColumn.HeaderText = "Giới tính";
-            this._genderColumn.Name = "_genderColumn";
-            this._genderColumn.ReadOnly = true;
-            this._genderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // _foreignColumn
-            // 
-            this._foreignColumn.DataPropertyName = "isforeign";
-            this._foreignColumn.FillWeight = 40F;
-            this._foreignColumn.HeaderText = "Người nước ngoài";
-            this._foreignColumn.Name = "_foreignColumn";
-            this._foreignColumn.ReadOnly = true;
-            this._foreignColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._foreignColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this._editBtn);
+            this.panel5.Controls.Add(this._totalFeeTb);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this._countLb);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 468);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(712, 36);
             this.panel5.TabIndex = 13;
+            // 
+            // _editBtn
+            // 
+            this._editBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this._editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._editBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this._editBtn.ImageIndex = 0;
+            this._editBtn.ImageList = this.editBtnImageList;
+            this._editBtn.Location = new System.Drawing.Point(232, 0);
+            this._editBtn.Name = "_editBtn";
+            this._editBtn.Size = new System.Drawing.Size(32, 36);
+            this._editBtn.TabIndex = 15;
+            this.toolTip1.SetToolTip(this._editBtn, "Thêm những phương tiện đã chọn");
+            this._editBtn.UseVisualStyleBackColor = true;
+            this._editBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // editBtnImageList
+            // 
+            this.editBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("editBtnImageList.ImageStream")));
+            this.editBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.editBtnImageList.Images.SetKeyName(0, "ic_edit.png");
+            this.editBtnImageList.Images.SetKeyName(1, "ic_edit_disable.png");
+            // 
+            // _totalFeeTb
+            // 
+            this._totalFeeTb.Dock = System.Windows.Forms.DockStyle.Left;
+            this._totalFeeTb.Enabled = false;
+            this._totalFeeTb.Location = new System.Drawing.Point(132, 0);
+            this._totalFeeTb.Name = "_totalFeeTb";
+            this._totalFeeTb.Size = new System.Drawing.Size(100, 26);
+            this._totalFeeTb.TabIndex = 14;
+            this._totalFeeTb.Leave += new System.EventHandler(this._totalFeeTb_Leave);
             // 
             // label7
             // 
@@ -373,18 +388,29 @@
             this._countLb.Text = "...";
             this._countLb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 36);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Tổng phí di chuyển";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this._showStateCb);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this._searchBtn);
-            this.panel2.Controls.Add(this._tourGroupKeywordTb);
+            this.panel2.Controls.Add(this._searchTb);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(16, 64);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(712, 77);
-            this.panel2.TabIndex = 11;
+            this.panel2.TabIndex = 12;
             // 
             // _showStateCb
             // 
@@ -419,6 +445,7 @@
             this.removeAllBtn.Name = "removeAllBtn";
             this.removeAllBtn.Size = new System.Drawing.Size(32, 32);
             this.removeAllBtn.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.removeAllBtn, "Huỷ những phương tiện đã chọn");
             this.removeAllBtn.UseVisualStyleBackColor = true;
             this.removeAllBtn.Click += new System.EventHandler(this.removeAllBtn_Click);
             // 
@@ -439,8 +466,8 @@
             this.addAllBtn.Name = "addAllBtn";
             this.addAllBtn.Size = new System.Drawing.Size(32, 32);
             this.addAllBtn.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.addAllBtn, "Thêm những phương tiện đã chọn");
             this.addAllBtn.UseVisualStyleBackColor = true;
-            this.addAllBtn.EnabledChanged += new System.EventHandler(this.addAllBtn_EnabledChanged);
             this.addAllBtn.Click += new System.EventHandler(this.addAllBtn_Click);
             // 
             // addAllBtnImageList
@@ -464,15 +491,15 @@
             this._searchBtn.UseVisualStyleBackColor = false;
             this._searchBtn.Click += new System.EventHandler(this._searchBtn_Click);
             // 
-            // _tourGroupKeywordTb
+            // _searchTb
             // 
-            this._tourGroupKeywordTb.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tourGroupKeywordTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this._tourGroupKeywordTb.Location = new System.Drawing.Point(22, 36);
-            this._tourGroupKeywordTb.Name = "_tourGroupKeywordTb";
-            this._tourGroupKeywordTb.Size = new System.Drawing.Size(310, 26);
-            this._tourGroupKeywordTb.TabIndex = 5;
-            this._tourGroupKeywordTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._tourGroupKeywordTb_KeyPress);
+            this._searchTb.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._searchTb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this._searchTb.Location = new System.Drawing.Point(22, 36);
+            this._searchTb.Name = "_searchTb";
+            this._searchTb.Size = new System.Drawing.Size(310, 26);
+            this._searchTb.TabIndex = 5;
+            this._searchTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._searchTb_KeyPress);
             // 
             // label18
             // 
@@ -493,11 +520,11 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(712, 48);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Danh sách hành khách";
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Danh sách phương tiện di chuyển";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // fmTourGroupPassengers
+            // fmTourGroupTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -508,16 +535,17 @@
             this.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "fmTourGroupPassengers";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fmTourGroupPassengers";
-            this.Load += new System.EventHandler(this.fmTourGroupPassengers_Load);
+            this.Name = "fmTourGroupTransport";
+            this.Text = "fmTourGroupTransport";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmTourGroupTransport_FormClosing);
+            this.Load += new System.EventHandler(this.fmTourGroupTransport_Load);
             this._tourGroupPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._resultGv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._passengerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._transportBindingSource)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -528,41 +556,43 @@
         #endregion
 
         private System.Windows.Forms.Panel _tourGroupPanel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _returnDateLb;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label _departDateLb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label _tourNameLb;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label _returnDateLb;
+        private System.Windows.Forms.Label _tourGroupNameLb;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox _tourGroupKeywordTb;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button _searchBtn;
-        private System.Windows.Forms.DataGridView _resultGv;
-        private System.Windows.Forms.Label _tourGroupNameLb;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.BindingSource _passengerBindingSource;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button addAllBtn;
-        private System.Windows.Forms.ImageList addAllBtnImageList;
-        private System.Windows.Forms.Button removeAllBtn;
-        private System.Windows.Forms.ImageList removeAllBtnImageList;
         private System.Windows.Forms.CheckBox _showStateCb;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button removeAllBtn;
+        private System.Windows.Forms.Button addAllBtn;
+        private System.Windows.Forms.Button _searchBtn;
+        private System.Windows.Forms.TextBox _searchTb;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView _resultGv;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label _countLb;
+        private System.Windows.Forms.ImageList removeAllBtnImageList;
+        private System.Windows.Forms.ImageList addAllBtnImageList;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.BindingSource _transportBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn _noColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _addColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _phonecolumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _nationalityColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _identifyNumberColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _genderColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn _foreignColumn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ImageList editBtnImageList;
+        private System.Windows.Forms.TextBox _totalFeeTb;
+        private System.Windows.Forms.Button _editBtn;
     }
 }

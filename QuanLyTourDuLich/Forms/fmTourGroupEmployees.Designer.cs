@@ -44,6 +44,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this._resultGv = new System.Windows.Forms.DataGridView();
+            this._noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,10 +63,6 @@
             this._searchTb = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this._noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._tourGroupPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -184,7 +184,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Constantia", 13.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -261,6 +261,35 @@
             this._resultGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._resultGv_CellFormatting);
             this._resultGv.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._resultGv_CellMouseDoubleClick);
             // 
+            // _noColumn
+            // 
+            this._noColumn.FillWeight = 30F;
+            this._noColumn.HeaderText = "STT";
+            this._noColumn.Name = "_noColumn";
+            this._noColumn.ReadOnly = true;
+            // 
+            // _idColumn
+            // 
+            this._idColumn.DataPropertyName = "id";
+            this._idColumn.FillWeight = 60F;
+            this._idColumn.HeaderText = "Mã nhân viên";
+            this._idColumn.Name = "_idColumn";
+            this._idColumn.ReadOnly = true;
+            // 
+            // _nameColumn
+            // 
+            this._nameColumn.DataPropertyName = "name";
+            this._nameColumn.HeaderText = "Họ tên";
+            this._nameColumn.Name = "_nameColumn";
+            this._nameColumn.ReadOnly = true;
+            // 
+            // _genderColumn
+            // 
+            this._genderColumn.DataPropertyName = "EmployeeRole";
+            this._genderColumn.HeaderText = "Chức vụ";
+            this._genderColumn.Name = "_genderColumn";
+            this._genderColumn.ReadOnly = true;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label7);
@@ -315,7 +344,7 @@
             this._showStateCb.Padding = new System.Windows.Forms.Padding(24, 16, 16, 4);
             this._showStateCb.Size = new System.Drawing.Size(191, 77);
             this._showStateCb.TabIndex = 21;
-            this._showStateCb.Text = "Chỉ hiển thị hành khách tour này";
+            this._showStateCb.Text = "Chỉ hiển thị nhân viên tour này";
             this._showStateCb.UseVisualStyleBackColor = true;
             this._showStateCb.CheckedChanged += new System.EventHandler(this._showStateCb_CheckedChanged);
             // 
@@ -408,7 +437,7 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Constantia", 13.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 16);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -416,35 +445,6 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Danh sách nhân viên";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // _noColumn
-            // 
-            this._noColumn.FillWeight = 30F;
-            this._noColumn.HeaderText = "STT";
-            this._noColumn.Name = "_noColumn";
-            this._noColumn.ReadOnly = true;
-            // 
-            // _idColumn
-            // 
-            this._idColumn.DataPropertyName = "id";
-            this._idColumn.FillWeight = 60F;
-            this._idColumn.HeaderText = "Mã nhân viên";
-            this._idColumn.Name = "_idColumn";
-            this._idColumn.ReadOnly = true;
-            // 
-            // _nameColumn
-            // 
-            this._nameColumn.DataPropertyName = "name";
-            this._nameColumn.HeaderText = "Họ tên";
-            this._nameColumn.Name = "_nameColumn";
-            this._nameColumn.ReadOnly = true;
-            // 
-            // _genderColumn
-            // 
-            this._genderColumn.DataPropertyName = "EmployeeRole";
-            this._genderColumn.HeaderText = "Chức vụ";
-            this._genderColumn.Name = "_genderColumn";
-            this._genderColumn.ReadOnly = true;
             // 
             // fmTourGroupEmployees
             // 

@@ -12,19 +12,13 @@ namespace DTO
     using System;
     using System.Collections.Generic;
     
-    public partial class Transport
+    public partial class TourGroupHotel
     {
-        public Transport()
-        {
-            this.TransportsTourGroups = new HashSet<TransportsTourGroup>();
-        }
+        public int tourgroup_id { get; set; }
+        public int hotel_id { get; set; }
+        public double fee { get; set; }
     
-        public int id { get; set; }
-        public string name { get; set; }
-        public int status { get; set; }
-        public Nullable<double> price { get; set; }
-    
-        public virtual Status Status1 { get; set; }
-        public virtual ICollection<TransportsTourGroup> TransportsTourGroups { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        public virtual TourGroup TourGroup { get; set; }
     }
 }

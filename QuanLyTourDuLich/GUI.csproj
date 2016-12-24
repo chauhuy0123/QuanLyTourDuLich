@@ -90,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="Forms\fmTourGroupTransport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fmTourGroupTransport.Designer.cs">
+      <DependentUpon>fmTourGroupTransport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\fmDestinationDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,10 +180,8 @@
     <Compile Include="Forms\fmTourManager.Designer.cs">
       <DependentUpon>fmTourManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmployeeManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEmployeeManagement.Designer.cs">
+    <Compile Include="Forms\frmEmployeeManagement.cs" />
+    <Compile Include="Forms\frmEmployeeManagement.Designer.cs">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenters\CustomerSearchPresenter.cs" />
@@ -222,6 +226,9 @@
     <EmbeddedResource Include="CustomControl\AddButton.resx">
       <DependentUpon>AddButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fmTourGroupTransport.resx">
+      <DependentUpon>fmTourGroupTransport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\fmDestinationDetail.resx">
       <DependentUpon>fmDestinationDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,7 +271,7 @@
     <EmbeddedResource Include="Forms\fmTourManager.resx">
       <DependentUpon>fmTourManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmployeeManagement.resx">
+    <EmbeddedResource Include="Forms\frmEmployeeManagement.resx">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -376,6 +383,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ic_discard_change.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ic_edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ic_edit_disable.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\ic_remove.png">

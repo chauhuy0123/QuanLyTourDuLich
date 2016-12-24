@@ -64,7 +64,7 @@ namespace QuanLyTourDuLich.Forms
 
             _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
 
-            init();
+            //init();
         }
 
         private void btnBack1_Click(object sender, EventArgs e)
@@ -91,15 +91,21 @@ namespace QuanLyTourDuLich.Forms
         {
             _tourCb.DisplayMember = "name";
             _tourCb.ValueMember = "id";
-
+#if OLD_VER
             _tourCb2.DisplayMember = "name";
             _tourCb2.ValueMember = "id";
 
             _tourGroupCb.DisplayMember = "name";
             _tourGroupCb.ValueMember = "id";
-
+#endif
             _departDateDtp.MinDate = DateTime.Now;
             _returnDateDtp.MinDate = DateTime.Now;
+           
+            _tourGroups = _tourGroupBus.getEntries();
+            _tourGroupBs.DataSource = _tourGroups;
+
+            _filterBs.DataSource = _tourGroups.ToDataTable();
+
 
             _transportClb.DataSource = _searchtransportBs;                // todo
 
@@ -107,6 +113,7 @@ namespace QuanLyTourDuLich.Forms
 
             _tourGroupSearchPresenter.loadMinDepartDate();
             _tourGroupSearchPresenter.loadMaxReturnDate();
+
         }
 
         private void _tourCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,6 +164,7 @@ namespace QuanLyTourDuLich.Forms
             _returnDateDtp.MinDate = _departDateDtp.Value;
         }
 
+        [Obsolete("Dont't use it, use init(tourGroupId) instead", false)]
         private void init()
         {
             _tourGroups = _tourGroupBus.getEntries();
@@ -178,6 +186,21 @@ namespace QuanLyTourDuLich.Forms
             _transportBs.DataSource = _transports.ToDataTable();
         }
 
+
+        private void init(int tourGroupId)
+        {
+            _tourGroupBus = new TourGroupBUS();
+            _tourGrouptab3 = _tourGroupBus.getTourGroupById(tourGroupId);
+            _tourGroupNameLb.Text = _tourGrouptab3.name;
+            _tourNameLb.Text = _tourGrouptab3.Tour.name;
+            _departDateLb.Text = _tourGrouptab3.depart_date.ToString();
+            _returnDateLb.Text = _tourGrouptab3.return_date.ToString();
+
+            _passengerBs.DataSource = _tourGroupBus.getCustomerInTourGroup(tourGroupId);
+            _employeeBs.DataSource = _tourGroupBus.getEmployeeInTourGroup(tourGroupId);
+            _transportBs.DataSource = _tourGroupBus.getTransportInTourGroup(tourGroupId);
+        }
+
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có muốn xóa những dòng đã chọn?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -196,21 +219,6 @@ namespace QuanLyTourDuLich.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void _tourGroupCb_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (_tourGroupCb.SelectedValue != null)
-            {
-                _passengerBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
-                _transportBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
-                _employeeBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
-            } else
-            {
-                _passengerBs.Filter = "tour_group_id = -1";
-                _transportBs.Filter = "tour_group_id = -1";
-                _employeeBs.Filter = "tour_group_id = -1";
-            }
         }
 
         private void _passengerDgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -237,86 +245,54 @@ namespace QuanLyTourDuLich.Forms
             }
         }
 
-        private void _addCustomerBtn_Click(object sender, EventArgs e)
-        {
-            if (_customerIdTb.Text.Length <=0 )
-            {
-                MessageBox.Show("Mã khách hàng không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!_customerBus.isExists(int.Parse(_customerIdTb.Text)))
-            {
-                MessageBox.Show("Mã khách hàng không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                _passengerBus.addPassenger(int.Parse(_customerIdTb.Text), int.Parse(_tourGroupCb.SelectedValue.ToString()));
-                init();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Mã khách hàng đã tồn tại trong đoàn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void _customerDeleteBtn_Click(object sender, EventArgs e)
         {
+            if (_tourGrouptab3 == null)
+                return;
             DialogResult result = MessageBox.Show("Bạn có muốn xóa những dòng đã chọn?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
+
+                var sources = _passengerBs.DataSource as IEnumerable<Customer>;
                 foreach (DataGridViewRow row in _passengerDgv.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
-                        _passengerBus.deletePassenger(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
+                        _tourGrouptab3.Customers.Remove(sources.ElementAt(row.Index));
+                        _tourGroupBus.update(_tourGrouptab3);
+                        //_passengerBus.deletePassenger(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
                     }
                 }
-                init();
+                init(_tourGrouptab3.id);
             }
         }
 
-        private void _addTransportBtn_Click(object sender, EventArgs e)
-        {
-            if (_transportIdTb.Text.Length <= 0)
-            {
-                MessageBox.Show("Mã phương tiện không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!_transportBus.isExists(int.Parse(_transportIdTb.Text)))
-            {
-                MessageBox.Show("Mã phương tiện không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            try
-            {
-                _transportTourGroupBus.addTransportTourGroup(int.Parse(_transportIdTb.Text), int.Parse(_tourGroupCb.SelectedValue.ToString()));
-                init();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Mã phương tiện đã tồn tại trong đoàn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void _transportDeleteBtn_Click(object sender, EventArgs e)
         {
+            if (_tourGrouptab3 == null)
+                return;
             DialogResult result = MessageBox.Show("Bạn có muốn xóa những dòng đã chọn?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
+                var sources = _transportBs.DataSource as IEnumerable<Transport>;
+
                 foreach (DataGridViewRow row in _transportDgv.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
-                        _transportTourGroupBus.deleteTransportTourGroup(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
+                        var transport = sources.ElementAt(row.Index);
+                        _tourGroupBus.removeTransportInTourGroup(_tourGrouptab3.id, transport.id);
+                        //_transportTourGroupBus.deleteTransportTourGroup(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
                     }
                 }
-                init();
+                init(_tourGrouptab3.id);
             }
         }
 
+
+#if OLD_VER
         private void _addEmployeeBtn_Click(object sender, EventArgs e)
         {
             if (_employeeIdTb.Text.Length <= 0)
@@ -341,19 +317,92 @@ namespace QuanLyTourDuLich.Forms
             }
         }
 
+
+                private void _addTransportBtn_Click(object sender, EventArgs e)
+        {
+            if (_transportIdTb.Text.Length <= 0)
+            {
+                MessageBox.Show("Mã phương tiện không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!_transportBus.isExists(int.Parse(_transportIdTb.Text)))
+            {
+                MessageBox.Show("Mã phương tiện không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                _transportTourGroupBus.addTransportTourGroup(int.Parse(_transportIdTb.Text), int.Parse(_tourGroupCb.SelectedValue.ToString()));
+                init();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Mã phương tiện đã tồn tại trong đoàn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void _addCustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (_customerIdTb.Text.Length <=0 )
+            {
+                MessageBox.Show("Mã khách hàng không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!_customerBus.isExists(int.Parse(_customerIdTb.Text)))
+            {
+                MessageBox.Show("Mã khách hàng không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                _passengerBus.addPassenger(int.Parse(_customerIdTb.Text), int.Parse(_tourGroupCb.SelectedValue.ToString()));
+                init();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Mã khách hàng đã tồn tại trong đoàn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void _tourGroupCb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (_tourGroupCb.SelectedValue != null)
+            {
+                _passengerBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+                _transportBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+                _employeeBs.Filter = "tour_group_id = " + _tourGroupCb.SelectedValue;
+            } else
+            {
+                _passengerBs.Filter = "tour_group_id = -1";
+                _transportBs.Filter = "tour_group_id = -1";
+                _employeeBs.Filter = "tour_group_id = -1";
+            }
+        }
+#endif
+
+
         private void _employeeDeleteBtn_Click(object sender, EventArgs e)
         {
+            if (_tourGrouptab3 == null)
+                return;
             DialogResult result = MessageBox.Show("Bạn có muốn xóa những dòng đã chọn?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (result == DialogResult.Yes)
             {
+                var source = _employeeBs.DataSource as IEnumerable<Employee>;
                 foreach (DataGridViewRow row in _employeeDgv.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[0].Value) == true)
                     {
-                        _employeeTourGroupBus.deleteEmployeeTourGroup(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
+                        var empl = source.ElementAt(row.Index);
+                        _tourGrouptab3.Employees.Remove(empl);
+                        _tourGroupBus.update(_tourGrouptab3);
+                        //_employeeTourGroupBus.deleteEmployeeTourGroup(int.Parse(row.Cells[2].Value.ToString()), int.Parse(_tourGroupCb.SelectedValue.ToString()));
                     }
                 }
-                init();
+                init(_tourGrouptab3.id);
             }
         }
 
@@ -427,16 +476,17 @@ namespace QuanLyTourDuLich.Forms
                 if (senderGrid.Columns[e.ColumnIndex].HeaderText == "Hành khách")
                 {
                     var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
-                    new fmTourGroupPassengers(tourGroup).ShowDialog();
+                    new fmTourGroupPassengers(tourGroup.id).ShowDialog();
                 }
                 if (senderGrid.Columns[e.ColumnIndex].HeaderText == "Nhân Viên")
                 {
                     var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
-                    new fmTourGroupEmployees(tourGroup).ShowDialog();
+                    new fmTourGroupEmployees(tourGroup.id).ShowDialog();
                 }
                 if (senderGrid.Columns[e.ColumnIndex].HeaderText == "P.Tiện di chuyển")
                 {
-                    // ds phương tiện
+                    var tourGroup = senderGrid.CurrentRow.DataBoundItem as TourGroup;
+                    new fmTourGroupTransport(tourGroup.id).ShowDialog();
                 }
             }
         }
@@ -489,6 +539,80 @@ namespace QuanLyTourDuLich.Forms
             _searchTourGroupBs.DataSource = searchResult;
         }
         #endregion
+
+
+        TourGroup _tourGrouptab3;
+
+        private void _tourGroupGv_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var sources = _searchTourGroupBs.DataSource as IEnumerable<TourGroup>;
+            //if (sources != null)
+            //    _tourGrouptab3 = sources.ElementAt(e.RowIndex);
+            _mainTabControl.SelectedIndex = 2;
+            init((sources.ElementAt(e.RowIndex) as TourGroup).id);
+            //_tourGroupNameLb.Text = _tourGrouptab3.name;
+            //_tourNameLb.Text = _tourGrouptab3.Tour.name;
+            //_departDateLb.Text = _tourGrouptab3.depart_date.ToString();
+            //_returnDateLb.Text = _tourGrouptab3.return_date.ToString();
+
+            //_passengerBs.Filter = "tour_group_id = " + _tourGrouptab3.id;
+            //_transportBs.Filter = "tour_group_id = " + _tourGrouptab3.id;
+            //_employeeBs.Filter = "tour_group_id = " + _tourGrouptab3.id;
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void _customerDetail_Click(object sender, EventArgs e)
+        {
+            if (_tourGrouptab3 == null)
+                return;
+            new fmTourGroupPassengers(_tourGrouptab3.id).ShowDialog();
+            init(_tourGrouptab3.id);
+
+        }
+
+        private void _transportDetaitBtn_Click(object sender, EventArgs e)
+        {
+            if (_tourGrouptab3 == null)
+                return;
+            new fmTourGroupTransport(_tourGrouptab3.id).ShowDialog();
+            init(_tourGrouptab3.id);
+
+        }
+
+        private void _employeeDetailBtn_Click(object sender, EventArgs e)
+        {
+            if (_tourGrouptab3 == null)
+                return;
+            new fmTourGroupEmployees(_tourGrouptab3.id).ShowDialog();
+            init(_tourGrouptab3.id);
+
+        }
+
+        private void _mainTabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPageIndex == 1)
+            {
+                this.handleSearchTourGroupClick(String.Empty);            
+            }
+        }
+
+        private void btnTroLai2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+
 
     }
 }

@@ -83,10 +83,11 @@ namespace QuanLyTourDuLich.Presenters
                 source = _searchResult;
             if (transports == null || transports.Count() == 0)
                 return source;
-            var comparer = new TransportEqualityComparer();
-            return source
-                .Where(tourG => tourG.Transports.Intersect(transports, comparer).Count() != 0)
-                .ToList();
+            return source;
+            //var comparer = new TransportEqualityComparer();
+            //return source
+            //    .Where(tourG => tourG.Transports.Intersect(transports, comparer).Count() != 0)
+            //    .ToList();
         }
 
         #region Sort

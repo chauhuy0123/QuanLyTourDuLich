@@ -28,7 +28,7 @@ namespace BusinessEntity
 
         public IEnumerable<Customer> getCustomerInTourGroup(int tourGroupid)
         {
-            return _unitOfWork.CustomerRepository.GetMany(c => c.TourGroups.Where(group => group.id == tourGroupid).Count() != 0);
+            return _unitOfWork.CustomerRepository.GetMany(c => c.TourGroups.Any(group => group.id == tourGroupid));
         }
 
         public IEnumerable<TourGroup> getEntries()
@@ -93,5 +93,30 @@ namespace BusinessEntity
             return entries.Max(group => group.depart_date);
         }
 
+        public TourGroup getTourGroupById(int tourGroupId)
+        {
+            return _unitOfWork.TourGroupRepository.GetByID(tourGroupId);
+        }
+
+        public IEnumerable<Employee> getEmployeeInTourGroup(int tourGroupId)
+        {
+            return _unitOfWork.EmplyeeRepository.GetMany(c => c.TourGroups.Any(group => group.id == tourGroupId));
+        }
+
+        public IEnumerable<Transport> getTransportInTourGroup(int tourGroupId)
+        {
+            return _unitOfWork.TransportRepository.GetMany(c => c.TransportsTourGroups.Any(group => group.tour_group_id == tourGroupId));
+        }
+
+        public void removeTourGroupPassenger(int tourGroupId, int passengerId)
+        {
+            //_unitOfWork.TourGroupRepository.
+        }
+
+        public void removeTransportInTourGroup(int tourGroupId, int transportId)
+        {
+            _unitOfWork.TransportTourGroupRepository.Delete(t => t.tour_group_id == tourGroupId && t.transport_id == transportId);
+            _unitOfWork.Save();
+        }
     }
 }

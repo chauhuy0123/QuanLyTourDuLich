@@ -22,11 +22,11 @@ namespace QuanLyTourDuLich.Forms
 
         int _touGroupId;
 
-        public fmTourGroupEmployees(TourGroup tourGroup)
+        public fmTourGroupEmployees(int tourGroupId)
         {
             InitializeComponent();
 
-            _touGroupId = tourGroup.id;
+            _touGroupId = tourGroupId;
 
             _presenter = new EmployeePresenter(this);
         }

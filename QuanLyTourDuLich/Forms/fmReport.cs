@@ -218,8 +218,14 @@ namespace QuanLyTourDuLich.Forms
                                 _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price); 
                                 
                                 //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
+                                //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
 
+
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee)));
+                                // tùng: 
+                                // tourgroup không có trnasport nữa mà có TransportTourGroup
+                                // muốn tính tổng chi phí transport thì 
+                                // tourGroup.TransportTourGroups.sum(t => t.price)
                             }
                             
                         }
@@ -241,7 +247,10 @@ namespace QuanLyTourDuLich.Forms
                                 _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
 
                                 //Tổng chi phí (chi phí khách sạn + chi phí di chuyển)
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
+                                //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
+
+
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee)));
 
                             }
                         }
@@ -593,7 +602,9 @@ namespace QuanLyTourDuLich.Forms
                                 _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
                                 //Tổng chi phí
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                                //_costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+
                             }
                         }
                     }
@@ -616,7 +627,7 @@ namespace QuanLyTourDuLich.Forms
                                 _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
                                 //Tổng chi phí
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
                             }
                         }
                     }
@@ -938,7 +949,9 @@ namespace QuanLyTourDuLich.Forms
                         _revenueTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
                         //Tổng chi phí
-                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                        //_costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+
                     }
                 }
                 else
@@ -955,7 +968,9 @@ namespace QuanLyTourDuLich.Forms
                         _revenueTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
                         //Tổng chi phí
-                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                        //_costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
+                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+                    
                     }
                 }
 

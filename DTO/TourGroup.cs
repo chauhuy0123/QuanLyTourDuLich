@@ -16,9 +16,9 @@ namespace DTO
     {
         public TourGroup()
         {
+            this.TransportsTourGroups = new HashSet<TransportsTourGroup>();
             this.Employees = new HashSet<Employee>();
             this.Customers = new HashSet<Customer>();
-            this.Transports = new HashSet<Transport>();
         }
     
         public int id { get; set; }
@@ -28,9 +28,10 @@ namespace DTO
         public System.DateTime return_date { get; set; }
     
         public virtual Tour Tour { get; set; }
+        public virtual TourGroupFee TourGroupFee { get; set; }
+        public virtual TourGroupHotel TourGroupHotel { get; set; }
+        public virtual ICollection<TransportsTourGroup> TransportsTourGroups { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
-        public virtual ICollection<Transport> Transports { get; set; }
-        public virtual TourGroupFee TourGroupFee { get; set; }
     }
 }

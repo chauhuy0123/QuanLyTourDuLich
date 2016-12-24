@@ -98,28 +98,28 @@ namespace QuanLyTourDuLich.Presenters
 
         public void toggleCustomerTourGroupStatus( Customer  customer, TourGroup tourGroup)
         {
-            var cus = _bus.getCustomerById(customer.id);
-            var tourgroup = _bus.getTourGroupById(tourGroup.id);
-            if (cus.TourGroups.Contains(tourgroup))
+            var dummyCustomer = _bus.getCustomerById(customer.id);
+            var dummyTourGroup = _bus.getTourGroupById(tourGroup.id);
+            if (dummyCustomer.TourGroups.Contains(dummyTourGroup))
             {
-                cus.TourGroups.Remove(tourgroup);
+                dummyCustomer.TourGroups.Remove(dummyTourGroup);
             }
             else
             {
-                cus.TourGroups.Add(tourgroup);
+                dummyCustomer.TourGroups.Add(dummyTourGroup);
             }
-            _bus.update(cus);
+            _bus.update(dummyCustomer);
         }
 
         public void addPassengerToTourGroup(Customer customer, TourGroup tourGroup)
         {
-            var cus = _bus.getCustomerById(customer.id);
-            var tourgroup = _bus.getTourGroupById(tourGroup.id);
-            if (cus.TourGroups.Contains(tourgroup) == false)
+            var dummyCustomer = _bus.getCustomerById(customer.id);
+            var dummyTourGroup = _bus.getTourGroupById(tourGroup.id);
+            if (dummyCustomer.TourGroups.Contains(dummyTourGroup) == false)
             {
-                cus.TourGroups.Add(tourgroup);
+                dummyCustomer.TourGroups.Add(dummyTourGroup);
             }
-            _bus.update(cus);
+            _bus.update(dummyCustomer);
         }
 
         public void addPassengerToTourGroup(IEnumerable<Customer> customers, TourGroup tourGroup)
@@ -145,13 +145,13 @@ namespace QuanLyTourDuLich.Presenters
 
         public void removePassengerFromTourGroup(Customer customer, TourGroup tourGroup)
         {
-            var cus = _bus.getCustomerById(customer.id);
-            var tourgroup = _bus.getTourGroupById(tourGroup.id);
-            if (cus.TourGroups.Contains(tourgroup))
+            var dummyCustomer = _bus.getCustomerById(customer.id);
+            var dummyTourGroup = _bus.getTourGroupById(tourGroup.id);
+            if (dummyCustomer.TourGroups.Contains(dummyTourGroup))
             {
-                cus.TourGroups.Remove(tourgroup);
+                dummyCustomer.TourGroups.Remove(dummyTourGroup);
             }
-            _bus.update(cus);
+            _bus.update(dummyCustomer);
         }
 
         public TourGroup getTourGroupById(int tourGroupId)

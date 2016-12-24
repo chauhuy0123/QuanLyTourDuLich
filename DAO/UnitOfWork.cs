@@ -35,7 +35,36 @@ namespace DAO
         private GenericRepository<Transport> _transportRepository;
         private GenericRepository<Account> _accountRepository;
         private GenericRepository<AccountType> _accountTypeRepository;
+        private GenericRepository<Constant> _constantRepository;
         private GenericRepository<TourGroupFee> _tourGroupFeeRepository;
+        private GenericRepository<TransportsTourGroup> _transportTourGroupRepository;
+
+        public GenericRepository<TransportsTourGroup> TransportTourGroupRepository
+        {
+            get {
+                if (_transportTourGroupRepository == null)
+                    _transportTourGroupRepository = new GenericRepository<TransportsTourGroup>(_entityContext);
+                return _transportTourGroupRepository;
+            }
+        }
+
+        public GenericRepository<TourGroupFee> TourGroupFeeRepository
+        {
+            get {
+                if (_tourGroupFeeRepository == null)
+                    _tourGroupFeeRepository = new GenericRepository<TourGroupFee>(_entityContext);
+                return _tourGroupFeeRepository; 
+            }
+        }
+
+        public GenericRepository<Constant> ConstantRepository
+        {
+            get { 
+                if (_constantRepository == null)
+                    _constantRepository = new GenericRepository<Constant>(_entityContext);
+                return _constantRepository;
+            }
+        }
 
         public GenericRepository<Customer> CustomerRepository
         {
@@ -185,16 +214,6 @@ namespace DAO
                 if (_accountTypeRepository == null)
                     _accountTypeRepository = new GenericRepository<AccountType>(_entityContext);
                 return _accountTypeRepository;
-            }
-        }
-
-        public GenericRepository<TourGroupFee> TourGroupFeeRepository
-        {
-            get
-            {
-                if (_tourGroupFeeRepository == null)
-                    _tourGroupFeeRepository = new GenericRepository<TourGroupFee>(_entityContext);
-                return _tourGroupFeeRepository;
             }
         }
 

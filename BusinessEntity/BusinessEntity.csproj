@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
     <Compile Include="AccountTypeBUS.cs" />
+    <Compile Include="ConstantBUS.cs" />
     <Compile Include="CustomerBUS.cs" />
     <Compile Include="DestinationBUS.cs" />
     <Compile Include="EmployeeBUS.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="SearchEngine\TourGroupSearchEngine.cs" />
     <Compile Include="SearchEngine\TourSearchEngine.cs" />
     <Compile Include="SearchEngine\TourSiteSearchEngine.cs" />
+    <Compile Include="SearchEngine\TransportSearchEngine.cs" />
     <Compile Include="TourBUS.cs" />
     <Compile Include="TourCategoryBUS.cs" />
     <Compile Include="TourGroupBUS.cs" />

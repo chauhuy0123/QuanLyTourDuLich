@@ -50,6 +50,10 @@ namespace BusinessEntity.SearchEngine
             if (typeof(TEntity) == typeof(DTO.Employee))
             {
                 return new EmployeeSearchEngine() as ISearchAble<TEntity>;
+            }
+            if (typeof(TEntity) == typeof(DTO.Transport))
+            {
+                return new TransportSearchEngine() as ISearchAble<TEntity>;
             } 
             return null;
         }

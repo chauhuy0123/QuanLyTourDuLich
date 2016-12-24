@@ -30,6 +30,7 @@ namespace DTO
     
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<Constant> Constants { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Employee> Employees { get; set; }
@@ -40,10 +41,12 @@ namespace DTO
         public DbSet<Tour> Tours { get; set; }
         public DbSet<TourCategory> TourCategories { get; set; }
         public DbSet<TourGroup> TourGroups { get; set; }
+        public DbSet<TourGroupFee> TourGroupFees { get; set; }
+        public DbSet<TourGroupHotel> TourGroupHotels { get; set; }
         public DbSet<TourPrice> TourPrices { get; set; }
         public DbSet<TourSite> TourSites { get; set; }
         public DbSet<Transport> Transports { get; set; }
-        public DbSet<TourGroupFee> TourGroupFees { get; set; }
+        public DbSet<TransportsTourGroup> TransportsTourGroups { get; set; }
     
         public virtual ObjectResult<GetCustomerById_Result> GetCustomerById(string id)
         {
