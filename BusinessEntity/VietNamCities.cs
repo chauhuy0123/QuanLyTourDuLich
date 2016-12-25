@@ -27,5 +27,32 @@ namespace BusinessEntity
             }
         }
 
+        private VietNamCities() { }
+
+    }
+    public class GlobalCountries
+    {
+        private GlobalCountries() { }
+        public static List<Country> getAllCCountries()
+        {
+            string json = System.IO.File.ReadAllText("countries.json");
+
+            var cities = JsonConvert.DeserializeObject<List<Country>>(json);
+            cities.Sort();
+            return cities;
+
+        }
+
+        public class Country : IComparable<Country>
+        {
+            public string name { get; set; }
+
+            public string code { get; set; }
+
+            public int CompareTo(Country other)
+            {
+                return code.CompareTo(other.code);
+            }
+        }
     }
 }

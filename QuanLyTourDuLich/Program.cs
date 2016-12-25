@@ -81,6 +81,8 @@ namespace QuanLyTourDuLich
             //myTour.TourSites.Add(myTourSite);
             //_bus.update(myTour);
 
+            //var list = BusinessEntity.GlobalCountries.getAllCCountries();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fmMain());

@@ -10,5 +10,7 @@ namespace QuanLyTourDuLich.Views
     {
         void updateSearchResultView(IEnumerable<DTO.Customer> searchResult);
 
+
+        void deleteError(DTO.Customer customer);
     }
 }

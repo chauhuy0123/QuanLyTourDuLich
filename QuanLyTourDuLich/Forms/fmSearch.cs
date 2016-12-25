@@ -84,6 +84,13 @@ namespace QuanLyTourDuLich.GUI
 
             _tourGroupSearchPresenter.loadMinDepartDate();
             _tourGroupSearchPresenter.loadMaxReturnDate();
+
+            _countriesBs.DataSource = GlobalCountries.getAllCCountries();
+            _countriesCb.DisplayMember = "name";
+
+            _customerSearchpresenter.loadAllCustomer();
+            setEnableSaveBtn(false);
+
             //_startDtp.Value = _minDepartDate;           // todo
             //_endDtp.Value = _maxReturnDate;             // todo
         }
@@ -108,14 +115,19 @@ namespace QuanLyTourDuLich.GUI
 
         private void _resultGvCustomer_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (_resultGv.Columns[e.ColumnIndex].HeaderText == "STT")
+            {
+                e.Value = e.RowIndex + 1;
+            }
+            if (_resultGv.Columns[e.ColumnIndex].HeaderText == "Giới tính")
             {
                 if (e.Value != null)
                     e.Value = ((Gender)e.Value).name;
             }
-            if (e.ColumnIndex == 0)
+            if (_resultGv.Columns[e.ColumnIndex].HeaderText == "Người nước ngoài")
             {
-                e.Value = e.RowIndex + 1;
+                if (e.Value == null)
+                    e.Value = false;
             }
         }
 
@@ -368,6 +380,154 @@ namespace QuanLyTourDuLich.GUI
             else if (e.ColumnIndex == 6)
                 _tourSearchpresenter.sortByCity();
         }
+
+
+        #region Insert
+
+        private void flowLayoutPanel1_Layout(object sender, LayoutEventArgs e)
+        {
+            var isenable = isAcceptBtnEnabled();
+            _acceptBtn.Enabled = isenable;
+            _cancelBtn.Enabled = isenable;
+        }
+
+        private bool isAcceptBtnEnabled()
+        {
+            if (String.IsNullOrWhiteSpace(_customerNameTb.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(_addressTb.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(_phoneTb.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(_identifiedTb.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(_countriesCb.Text))
+                return false;
+            return true;
+
+        }
+
+        private void _acceptBtn_Click(object sender, EventArgs e)
+        {
+            var customer = buildCustomer();
+
+            _customerSearchpresenter.insertCustomer(customer);
+
+            _customerSearchpresenter.performClickSearch(_keywordTb.Text.Trim());
+            this.clearCustomerInfo();
+        }
+
+        private Customer buildCustomer()
+        {
+            var customer = new Customer();
+            customer.name = _customerNameTb.Text.Trim();
+            customer.address = _addressTb.Text.Trim();
+            customer.phone = _phoneTb.Text.Trim();
+            customer.nationality = _countriesCb.Text.Trim();
+            customer.identifiedcard_id = _identifiedTb.Text.Trim();
+            if (_femaleRb.Checked)
+                customer.gender = 1;        // hard code tạm cho nhanh
+            else if (_maleRb.Checked)
+                customer.gender = 2;
+            else
+                customer.gender = 3;
+            customer.isforeign = _isForeignCb.Checked;
+            return customer;
+        }
+
+        private void _customerNameTb_TextChanged(object sender, EventArgs e)
+        {
+            var isenable = isAcceptBtnEnabled();
+            _acceptBtn.Enabled = isenable;
+            _cancelBtn.Enabled = isenable;
+        }
+
+        private void _cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.clearCustomerInfo();
+        }
+
+        private void clearCustomerInfo()
+        {
+            _customerNameTb.Clear();
+            _addressTb.Clear();
+            _phoneTb.Clear();
+            _identifiedTb.Clear();
+            _countriesCb.SelectedIndex = 0;
+
+        }
+
+        #endregion // Insert
+
+        #region Delete
+
+        private void deleteBtn_EnabledChanged(object sender, EventArgs e)
+        {
+            if ((sender as Button).Enabled == false)
+                (sender as Button).ImageIndex = 1;
+            else
+                (sender as Button).ImageIndex = 0;
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (_resultGv.SelectedRows.Count == 0)
+                return;
+            int selectedindex = _resultGv.SelectedRows[0].Index;
+            var customer = (_searchReultBs.DataSource as IEnumerable<Customer>).ElementAt(selectedindex);
+
+            _customerSearchpresenter.deleteCustomer(customer);
+
+        }
+
+        public void deleteError(Customer customer)
+        {
+            string msg = "Khách hàng không thể xoá khi đã có tham gia tour.\nTên khách hàng: {0}\n Số đoàn: {1}";
+            msg = String.Format(msg, customer.name, customer.TourGroups.Count.ToString());
+            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        #endregion Delete
+
+
+        #region Edit
+
+        private void _resultGv_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _resultGv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            setEnableSaveBtn(true);
+        }
+
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            _customerSearchpresenter.updateAll(_searchReultBs.DataSource as IEnumerable<Customer>);
+            Cursor.Current = Cursors.Default;
+            setEnableSaveBtn(false);
+        }
+
+        private void setEnableSaveBtn(bool isenabled)
+        {
+            saveBtn.Enabled = isenabled;
+            discardBtn.Enabled = isenabled;
+        }
+
+        private void discardBtn_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            _customerSearchpresenter.refresh();
+            _customerSearchpresenter.loadAllCustomer();
+            Cursor.Current = Cursors.Default;
+            this.setEnableSaveBtn(false);
+        }
+
+        #endregion // Edit
 
 
     }

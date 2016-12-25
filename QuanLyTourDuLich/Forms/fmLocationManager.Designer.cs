@@ -492,6 +492,7 @@
             this._secondSpliter.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this._secondSpliter.Panel2.Controls.Add(this._destinationGv);
             this._secondSpliter.Panel2.Controls.Add(this.panel4);
+            this._secondSpliter.Panel2.Font = new System.Drawing.Font("Constantia", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._secondSpliter.Panel2MinSize = 272;
             this._secondSpliter.Size = new System.Drawing.Size(1061, 600);
             this._secondSpliter.SplitterDistance = 273;
@@ -874,7 +875,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this._searchTb.Location = new System.Drawing.Point(143, 12);
             this._searchTb.Name = "_searchTb";
-            this._searchTb.Size = new System.Drawing.Size(280, 27);
+            this._searchTb.Size = new System.Drawing.Size(280, 26);
             this._searchTb.TabIndex = 1;
             this._searchTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._searchTb_KeyPress);
             // 
@@ -883,9 +884,10 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(11, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(126, 19);
+            this.label11.Size = new System.Drawing.Size(117, 18);
             this.label11.TabIndex = 0;
             this.label11.Text = "Tìm kiếm nhanh";
             // 

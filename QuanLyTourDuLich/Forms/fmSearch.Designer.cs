@@ -29,21 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmSearch));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this._resultGv = new System.Windows.Forms.DataGridView();
-            this._noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._addColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._phonecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._searchReultBs = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this._searchBtn = new System.Windows.Forms.Button();
@@ -125,6 +119,44 @@
             this._destinationBs = new System.Windows.Forms.BindingSource(this.components);
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this._transportBs = new System.Windows.Forms.BindingSource(this.components);
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this._customerNameTb = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this._addressTb = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this._phoneTb = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this._identifiedTb = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this._femaleRb = new System.Windows.Forms.RadioButton();
+            this._maleRb = new System.Windows.Forms.RadioButton();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this._isForeignCb = new System.Windows.Forms.CheckBox();
+            this._cancelBtn = new System.Windows.Forms.Button();
+            this._acceptBtn = new System.Windows.Forms.Button();
+            this._countriesCb = new System.Windows.Forms.ComboBox();
+            this._countriesBs = new System.Windows.Forms.BindingSource(this.components);
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.discardBtn = new System.Windows.Forms.Button();
+            this.discardBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.saveBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.deleteBtnImageList = new System.Windows.Forms.ImageList(this.components);
+            this._noColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._addColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._identifyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._nationalityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._phonecolumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._genderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._isForeignColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -175,6 +207,11 @@
             ((System.ComponentModel.ISupportInitialize)(this._destinationBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._transportBs)).BeginInit();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._countriesBs)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -189,7 +226,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1350, 729);
+            this.tabControl1.Size = new System.Drawing.Size(984, 661);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -203,7 +240,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 42);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1342, 683);
+            this.tabPage1.Size = new System.Drawing.Size(976, 615);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Khách hàng";
             // 
@@ -212,11 +249,12 @@
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.panel10.Controls.Add(this.groupBox2);
             this.panel10.Controls.Add(this.groupBox1);
+            this.panel10.Controls.Add(this.panel11);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 80);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(24);
-            this.panel10.Size = new System.Drawing.Size(1342, 603);
+            this.panel10.Size = new System.Drawing.Size(976, 535);
             this.panel10.TabIndex = 24;
             // 
             // groupBox2
@@ -225,11 +263,11 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox2.Location = new System.Drawing.Point(24, 124);
+            this.groupBox2.Location = new System.Drawing.Point(275, 124);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.groupBox2.Size = new System.Drawing.Size(1294, 455);
+            this.groupBox2.Size = new System.Drawing.Size(677, 387);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả tìm kiếm";
@@ -239,23 +277,26 @@
             this._resultGv.AllowUserToAddRows = false;
             this._resultGv.AutoGenerateColumns = false;
             this._resultGv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._resultGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._resultGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this._resultGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._resultGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._noColumn,
             this._idColumn,
             this._nameColumn,
             this._addColumn,
+            this._identifyColumn,
+            this._nationalityColumn,
             this._phonecolumn,
-            this._genderColumn});
+            this._genderColumn,
+            this._isForeignColumn});
             this._resultGv.DataSource = this._searchReultBs;
             this._resultGv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._resultGv.EnableHeadersVisualStyles = false;
@@ -276,70 +317,28 @@
             this._resultGv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._resultGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._resultGv.ShowEditingIcon = false;
-            this._resultGv.Size = new System.Drawing.Size(1294, 420);
+            this._resultGv.Size = new System.Drawing.Size(677, 352);
             this._resultGv.TabIndex = 0;
             this._resultGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._resultGvCustomer_CellFormatting);
+            this._resultGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._resultGv_CellValueChanged);
             this._resultGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._resultGv_ColumnHeaderMouseClick);
-            // 
-            // _noColumn
-            // 
-            this._noColumn.FillWeight = 30F;
-            this._noColumn.HeaderText = "STT";
-            this._noColumn.Name = "_noColumn";
-            this._noColumn.ReadOnly = true;
-            this._noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // _idColumn
-            // 
-            this._idColumn.DataPropertyName = "id";
-            this._idColumn.FillWeight = 60F;
-            this._idColumn.HeaderText = "Mã khách hàng";
-            this._idColumn.Name = "_idColumn";
-            this._idColumn.ReadOnly = true;
-            this._idColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // _nameColumn
-            // 
-            this._nameColumn.DataPropertyName = "name";
-            this._nameColumn.HeaderText = "Họ tên";
-            this._nameColumn.Name = "_nameColumn";
-            this._nameColumn.ReadOnly = true;
-            // 
-            // _addColumn
-            // 
-            this._addColumn.DataPropertyName = "address";
-            this._addColumn.HeaderText = "Địa chỉ";
-            this._addColumn.Name = "_addColumn";
-            this._addColumn.ReadOnly = true;
-            // 
-            // _phonecolumn
-            // 
-            this._phonecolumn.DataPropertyName = "phone";
-            this._phonecolumn.HeaderText = "Số điện thoại";
-            this._phonecolumn.Name = "_phonecolumn";
-            this._phonecolumn.ReadOnly = true;
-            // 
-            // _genderColumn
-            // 
-            this._genderColumn.DataPropertyName = "Gender1";
-            this._genderColumn.FillWeight = 40F;
-            this._genderColumn.HeaderText = "Giới tính";
-            this._genderColumn.Name = "_genderColumn";
-            this._genderColumn.ReadOnly = true;
-            this._genderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._resultGv.SelectionChanged += new System.EventHandler(this._resultGv_SelectionChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.groupBox1.Controls.Add(this.deleteBtn);
+            this.groupBox1.Controls.Add(this.saveBtn);
+            this.groupBox1.Controls.Add(this.discardBtn);
             this.groupBox1.Controls.Add(this._searchBtn);
             this.groupBox1.Controls.Add(this._keywordTb);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.groupBox1.Location = new System.Drawing.Point(24, 24);
+            this.groupBox1.Location = new System.Drawing.Point(275, 24);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1294, 100);
+            this.groupBox1.Size = new System.Drawing.Size(677, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tìm kiếm";
@@ -349,7 +348,7 @@
             this._searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this._searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._searchBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this._searchBtn.Location = new System.Drawing.Point(666, 37);
+            this._searchBtn.Location = new System.Drawing.Point(372, 32);
             this._searchBtn.Name = "_searchBtn";
             this._searchBtn.Size = new System.Drawing.Size(130, 37);
             this._searchBtn.TabIndex = 18;
@@ -361,7 +360,7 @@
             // 
             this._keywordTb.Location = new System.Drawing.Point(117, 43);
             this._keywordTb.Name = "_keywordTb";
-            this._keywordTb.Size = new System.Drawing.Size(506, 26);
+            this._keywordTb.Size = new System.Drawing.Size(249, 26);
             this._keywordTb.TabIndex = 2;
             this._keywordTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._keywordTb_KeyPress);
             // 
@@ -394,7 +393,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1342, 80);
+            this.panel1.Size = new System.Drawing.Size(976, 80);
             this.panel1.TabIndex = 22;
             // 
             // panel9
@@ -610,15 +609,15 @@
             this._tourGroupGv.AllowUserToAddRows = false;
             this._tourGroupGv.AutoGenerateColumns = false;
             this._tourGroupGv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._tourGroupGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._tourGroupGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this._tourGroupGv.ColumnHeadersHeight = 32;
             this._tourGroupGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this._tourGroupGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1115,15 +1114,15 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.ColumnHeadersHeight = 32;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1317,13 +1316,409 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.flowLayoutPanel1);
+            this.panel11.Controls.Add(this.panel12);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(24, 24);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(251, 487);
+            this.panel11.TabIndex = 21;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this._acceptBtn);
+            this.panel12.Controls.Add(this._cancelBtn);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(0, 435);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(251, 52);
+            this.panel12.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label19);
+            this.flowLayoutPanel1.Controls.Add(this.label20);
+            this.flowLayoutPanel1.Controls.Add(this._customerNameTb);
+            this.flowLayoutPanel1.Controls.Add(this.label21);
+            this.flowLayoutPanel1.Controls.Add(this._addressTb);
+            this.flowLayoutPanel1.Controls.Add(this.label22);
+            this.flowLayoutPanel1.Controls.Add(this._phoneTb);
+            this.flowLayoutPanel1.Controls.Add(this.label23);
+            this.flowLayoutPanel1.Controls.Add(this._identifiedTb);
+            this.flowLayoutPanel1.Controls.Add(this.label24);
+            this.flowLayoutPanel1.Controls.Add(this._countriesCb);
+            this.flowLayoutPanel1.Controls.Add(this.label25);
+            this.flowLayoutPanel1.Controls.Add(this.panel13);
+            this.flowLayoutPanel1.Controls.Add(this._isForeignCb);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(251, 435);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Layout += new System.Windows.Forms.LayoutEventHandler(this.flowLayoutPanel1_Layout);
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.Font = new System.Drawing.Font("Constantia", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(0, 0);
+            this.label19.Margin = new System.Windows.Forms.Padding(0);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(8);
+            this.label19.Size = new System.Drawing.Size(250, 63);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Thêm thông tin khách hàng";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 75);
+            this.label20.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(113, 18);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Tên khách hàng";
+            // 
+            // _customerNameTb
+            // 
+            this._customerNameTb.Location = new System.Drawing.Point(0, 97);
+            this._customerNameTb.Margin = new System.Windows.Forms.Padding(0);
+            this._customerNameTb.Name = "_customerNameTb";
+            this._customerNameTb.Size = new System.Drawing.Size(238, 26);
+            this._customerNameTb.TabIndex = 5;
+            this._customerNameTb.TextChanged += new System.EventHandler(this._customerNameTb_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(8, 135);
+            this.label21.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(54, 18);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Địa chỉ";
+            // 
+            // _addressTb
+            // 
+            this._addressTb.Location = new System.Drawing.Point(0, 157);
+            this._addressTb.Margin = new System.Windows.Forms.Padding(0);
+            this._addressTb.Name = "_addressTb";
+            this._addressTb.Size = new System.Drawing.Size(238, 26);
+            this._addressTb.TabIndex = 7;
+            this._addressTb.TextChanged += new System.EventHandler(this._customerNameTb_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 195);
+            this.label22.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(94, 18);
+            this.label22.TabIndex = 8;
+            this.label22.Text = "Số điện thoại";
+            // 
+            // _phoneTb
+            // 
+            this._phoneTb.Location = new System.Drawing.Point(0, 217);
+            this._phoneTb.Margin = new System.Windows.Forms.Padding(0);
+            this._phoneTb.Name = "_phoneTb";
+            this._phoneTb.Size = new System.Drawing.Size(238, 26);
+            this._phoneTb.TabIndex = 9;
+            this._phoneTb.TextChanged += new System.EventHandler(this._customerNameTb_TextChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 255);
+            this.label23.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(144, 18);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "Số CMND/ Hộ chiếu";
+            // 
+            // _identifiedTb
+            // 
+            this._identifiedTb.Location = new System.Drawing.Point(0, 277);
+            this._identifiedTb.Margin = new System.Windows.Forms.Padding(0);
+            this._identifiedTb.Name = "_identifiedTb";
+            this._identifiedTb.Size = new System.Drawing.Size(238, 26);
+            this._identifiedTb.TabIndex = 11;
+            this._identifiedTb.TextChanged += new System.EventHandler(this._customerNameTb_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(8, 315);
+            this.label24.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(73, 18);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "Quốc tịch";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(8, 381);
+            this.label25.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(68, 18);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "Giới tính";
+            // 
+            // _femaleRb
+            // 
+            this._femaleRb.Checked = true;
+            this._femaleRb.Location = new System.Drawing.Point(4, 0);
+            this._femaleRb.Name = "_femaleRb";
+            this._femaleRb.Size = new System.Drawing.Size(55, 28);
+            this._femaleRb.TabIndex = 15;
+            this._femaleRb.TabStop = true;
+            this._femaleRb.Text = "Nữ";
+            this._femaleRb.UseVisualStyleBackColor = true;
+            // 
+            // _maleRb
+            // 
+            this._maleRb.Location = new System.Drawing.Point(76, 0);
+            this._maleRb.Name = "_maleRb";
+            this._maleRb.Size = new System.Drawing.Size(64, 28);
+            this._maleRb.TabIndex = 16;
+            this._maleRb.Text = "Nam";
+            this._maleRb.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            this.panel13.AutoSize = true;
+            this.panel13.Controls.Add(this.radioButton1);
+            this.panel13.Controls.Add(this._femaleRb);
+            this.panel13.Controls.Add(this._maleRb);
+            this.panel13.Location = new System.Drawing.Point(3, 402);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(234, 31);
+            this.panel13.TabIndex = 17;
+            // 
+            // _isForeignCb
+            // 
+            this._isForeignCb.AutoSize = true;
+            this._isForeignCb.Location = new System.Drawing.Point(8, 448);
+            this._isForeignCb.Margin = new System.Windows.Forms.Padding(8, 12, 0, 4);
+            this._isForeignCb.Name = "_isForeignCb";
+            this._isForeignCb.Size = new System.Drawing.Size(105, 22);
+            this._isForeignCb.TabIndex = 0;
+            this._isForeignCb.Text = "Nước ngoài";
+            this._isForeignCb.UseVisualStyleBackColor = true;
+            // 
+            // _cancelBtn
+            // 
+            this._cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._cancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._cancelBtn.FlatAppearance.BorderSize = 3;
+            this._cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._cancelBtn.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this._cancelBtn.ForeColor = System.Drawing.Color.White;
+            this._cancelBtn.Location = new System.Drawing.Point(167, 10);
+            this._cancelBtn.Margin = new System.Windows.Forms.Padding(4);
+            this._cancelBtn.Name = "_cancelBtn";
+            this._cancelBtn.Size = new System.Drawing.Size(72, 32);
+            this._cancelBtn.TabIndex = 8;
+            this._cancelBtn.Text = "Huỷ";
+            this._cancelBtn.UseVisualStyleBackColor = false;
+            this._cancelBtn.Click += new System.EventHandler(this._cancelBtn_Click);
+            // 
+            // _acceptBtn
+            // 
+            this._acceptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._acceptBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this._acceptBtn.FlatAppearance.BorderSize = 3;
+            this._acceptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._acceptBtn.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this._acceptBtn.ForeColor = System.Drawing.Color.White;
+            this._acceptBtn.Location = new System.Drawing.Point(89, 10);
+            this._acceptBtn.Margin = new System.Windows.Forms.Padding(4);
+            this._acceptBtn.Name = "_acceptBtn";
+            this._acceptBtn.Size = new System.Drawing.Size(72, 32);
+            this._acceptBtn.TabIndex = 9;
+            this._acceptBtn.Text = "Thêm";
+            this._acceptBtn.UseVisualStyleBackColor = false;
+            this._acceptBtn.Click += new System.EventHandler(this._acceptBtn_Click);
+            // 
+            // _countriesCb
+            // 
+            this._countriesCb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this._countriesCb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this._countriesCb.DataSource = this._countriesBs;
+            this._countriesCb.FormattingEnabled = true;
+            this._countriesCb.Location = new System.Drawing.Point(3, 340);
+            this._countriesCb.Name = "_countriesCb";
+            this._countriesCb.Size = new System.Drawing.Size(238, 26);
+            this._countriesCb.TabIndex = 18;
+            this._countriesCb.TextChanged += new System.EventHandler(this._customerNameTb_TextChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Location = new System.Drawing.Point(163, 0);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(68, 28);
+            this.radioButton1.TabIndex = 17;
+            this.radioButton1.Text = "Khác";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // discardBtn
+            // 
+            this.discardBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.discardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.discardBtn.Enabled = false;
+            this.discardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.discardBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.discardBtn.ImageIndex = 0;
+            this.discardBtn.ImageList = this.discardBtnImageList;
+            this.discardBtn.Location = new System.Drawing.Point(643, 39);
+            this.discardBtn.Name = "discardBtn";
+            this.discardBtn.Padding = new System.Windows.Forms.Padding(2);
+            this.discardBtn.Size = new System.Drawing.Size(28, 28);
+            this.discardBtn.TabIndex = 19;
+            this.discardBtn.UseVisualStyleBackColor = true;
+            this.discardBtn.EnabledChanged += new System.EventHandler(this.deleteBtn_EnabledChanged);
+            this.discardBtn.Click += new System.EventHandler(this.discardBtn_Click);
+            // 
+            // discardBtnImageList
+            // 
+            this.discardBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("discardBtnImageList.ImageStream")));
+            this.discardBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.discardBtnImageList.Images.SetKeyName(0, "ic_revert.png");
+            this.discardBtnImageList.Images.SetKeyName(1, "ic_revert_disabled.png");
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.saveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.saveBtn.Enabled = false;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.saveBtn.ImageIndex = 0;
+            this.saveBtn.ImageList = this.saveBtnImageList;
+            this.saveBtn.Location = new System.Drawing.Point(609, 39);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Padding = new System.Windows.Forms.Padding(2);
+            this.saveBtn.Size = new System.Drawing.Size(28, 28);
+            this.saveBtn.TabIndex = 20;
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.EnabledChanged += new System.EventHandler(this.deleteBtn_EnabledChanged);
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // saveBtnImageList
+            // 
+            this.saveBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("saveBtnImageList.ImageStream")));
+            this.saveBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.saveBtnImageList.Images.SetKeyName(0, "ic_save.png");
+            this.saveBtnImageList.Images.SetKeyName(1, "ic_save_disabled.png");
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.deleteBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.deleteBtn.ImageIndex = 0;
+            this.deleteBtn.ImageList = this.deleteBtnImageList;
+            this.deleteBtn.Location = new System.Drawing.Point(575, 39);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Padding = new System.Windows.Forms.Padding(2);
+            this.deleteBtn.Size = new System.Drawing.Size(28, 28);
+            this.deleteBtn.TabIndex = 21;
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.EnabledChanged += new System.EventHandler(this.deleteBtn_EnabledChanged);
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // deleteBtnImageList
+            // 
+            this.deleteBtnImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("deleteBtnImageList.ImageStream")));
+            this.deleteBtnImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.deleteBtnImageList.Images.SetKeyName(0, "ic_remove.png");
+            this.deleteBtnImageList.Images.SetKeyName(1, "ic_remove_disabled.png");
+            // 
+            // _noColumn
+            // 
+            this._noColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this._noColumn.FillWeight = 30F;
+            this._noColumn.HeaderText = "STT";
+            this._noColumn.Name = "_noColumn";
+            this._noColumn.ReadOnly = true;
+            this._noColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._noColumn.Width = 32;
+            // 
+            // _idColumn
+            // 
+            this._idColumn.DataPropertyName = "id";
+            this._idColumn.FillWeight = 40F;
+            this._idColumn.HeaderText = "Mã KH";
+            this._idColumn.Name = "_idColumn";
+            this._idColumn.ReadOnly = true;
+            this._idColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // _nameColumn
+            // 
+            this._nameColumn.DataPropertyName = "name";
+            this._nameColumn.HeaderText = "Họ tên";
+            this._nameColumn.Name = "_nameColumn";
+            this._nameColumn.ReadOnly = true;
+            // 
+            // _addColumn
+            // 
+            this._addColumn.DataPropertyName = "address";
+            this._addColumn.HeaderText = "Địa chỉ";
+            this._addColumn.Name = "_addColumn";
+            this._addColumn.ReadOnly = true;
+            // 
+            // _identifyColumn
+            // 
+            this._identifyColumn.DataPropertyName = "identifiedcard_id";
+            this._identifyColumn.HeaderText = "CMND/Hộ chiếu";
+            this._identifyColumn.Name = "_identifyColumn";
+            // 
+            // _nationalityColumn
+            // 
+            this._nationalityColumn.DataPropertyName = "nationality";
+            this._nationalityColumn.HeaderText = "Quốc tịch";
+            this._nationalityColumn.Name = "_nationalityColumn";
+            // 
+            // _phonecolumn
+            // 
+            this._phonecolumn.DataPropertyName = "phone";
+            this._phonecolumn.HeaderText = "Số điện thoại";
+            this._phonecolumn.Name = "_phonecolumn";
+            this._phonecolumn.ReadOnly = true;
+            // 
+            // _genderColumn
+            // 
+            this._genderColumn.DataPropertyName = "Gender1";
+            this._genderColumn.FillWeight = 40F;
+            this._genderColumn.HeaderText = "Giới tính";
+            this._genderColumn.Name = "_genderColumn";
+            this._genderColumn.ReadOnly = true;
+            this._genderColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // _isForeignColumn
+            // 
+            this._isForeignColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this._isForeignColumn.DataPropertyName = "isforeign";
+            this._isForeignColumn.FillWeight = 215.2727F;
+            this._isForeignColumn.HeaderText = "Người nước ngoài";
+            this._isForeignColumn.Name = "_isForeignColumn";
+            this._isForeignColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._isForeignColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this._isForeignColumn.Width = 48;
+            // 
             // fmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -1398,6 +1793,12 @@
             ((System.ComponentModel.ISupportInitialize)(this._destinationBs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._transportBs)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._countriesBs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1449,12 +1850,6 @@
         private System.Windows.Forms.Button _tourSearchBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource _tourBs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _noColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _idColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _nameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _addColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _phonecolumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _genderColumn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridViewTextBoxColumn _no_tour_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn _id_tourColumn;
@@ -1496,5 +1891,43 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn _passengersColumn;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox _customerNameTb;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox _addressTb;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox _phoneTb;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox _identifiedTb;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.RadioButton _femaleRb;
+        private System.Windows.Forms.RadioButton _maleRb;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.CheckBox _isForeignCb;
+        private System.Windows.Forms.Button _acceptBtn;
+        private System.Windows.Forms.Button _cancelBtn;
+        private System.Windows.Forms.ComboBox _countriesCb;
+        private System.Windows.Forms.BindingSource _countriesBs;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button discardBtn;
+        private System.Windows.Forms.ImageList discardBtnImageList;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.ImageList deleteBtnImageList;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.ImageList saveBtnImageList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _noColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _idColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _nameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _addColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _identifyColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _nationalityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _phonecolumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _genderColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn _isForeignColumn;
     }
 }

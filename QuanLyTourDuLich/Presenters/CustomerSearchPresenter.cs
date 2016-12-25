@@ -158,6 +158,42 @@ namespace QuanLyTourDuLich.Presenters
         {
             return _bus.getTourGroupById(tourGroupId);
         }
+
+        public void insertCustomer(Customer customer)
+        {
+            _bus.add(customer);
+        }
+
+        public void deleteCustomer(Customer customer)
+        {
+            if (customer.TourGroups != null && customer.TourGroups.Count != 0)
+                _view.deleteError(customer);
+            else
+            {
+                _bus.deletaById(customer.id);
+                loadAllCustomer();
+            }
+        }
+
+        public void loadAllCustomer()
+        {
+            _searchResult = _bus.getEntries();
+            _view.updateSearchResultView(_searchResult);
+        }
+
+        public void updateAll(IEnumerable<Customer> destinations)
+        {
+            foreach (var item in destinations)
+            {
+                _bus.update(item);
+            }
+            this.loadAllCustomer();
+        }
+
+        public void refresh()
+        {
+            _bus.refresh();
+        }
     }
 
     class TourGroupComparer : IEqualityComparer<TourGroup>

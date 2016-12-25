@@ -160,6 +160,13 @@ namespace QuanLyTourDuLich.Forms
         {
             _customerPresenter.performClickSearch(_tourGroupKeywordTb.Text.Trim());
         }
+
+
+        public void deleteError(Customer customer)
+        {
+            // do nothing here
+            throw new NotImplementedException();
+        }
     }
 
     public class CustomerComparer : IEqualityComparer<Customer>

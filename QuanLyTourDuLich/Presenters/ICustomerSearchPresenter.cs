@@ -33,5 +33,15 @@ namespace QuanLyTourDuLich.Presenters
         void addPassengerToTourGroup(IEnumerable<Customer> customers, TourGroup tourGroup);
 
         void removePassengerFromTourGroup(Customer customer, TourGroup _tourGroup);
+
+        void insertCustomer(Customer customer);
+
+        void deleteCustomer(Customer customer);
+
+        void loadAllCustomer();
+
+        void updateAll(IEnumerable<Customer> destinations);
+
+        void refresh();
     }
 }

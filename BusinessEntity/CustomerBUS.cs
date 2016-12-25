@@ -64,5 +64,10 @@ namespace BusinessEntity
         {
             _unitOfWork.TourGroupRepository.Update(group);
         }
+
+        public void refresh()
+        {
+            _unitOfWork.CustomerRepository.Refresh();
+        }
     }
 }

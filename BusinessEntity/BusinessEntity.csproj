@@ -94,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="countries.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="vn_cities.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
