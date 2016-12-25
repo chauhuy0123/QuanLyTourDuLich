@@ -80,6 +80,15 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this._tourGroupGv = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._tourGroupNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._passengersColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this._searchTourGroupBs = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this._tourGroupSearchBtn = new System.Windows.Forms.Button();
@@ -136,15 +145,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this._searchtransportBs = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._tourGroupNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._passengersColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this._filterBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._tourGroupBs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._tourBs)).BeginInit();
@@ -259,7 +259,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this._tourGroupDgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this._tourGroupDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11F);
+            this._tourGroupDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
@@ -751,6 +751,87 @@
             this._tourGroupGv.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._tourGroupGv_CellMouseDoubleClick);
             this._tourGroupGv.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this._tourGroupGv_ColumnHeaderMouseClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 42;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn2.FillWeight = 40F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Đoàn";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // _tourGroupNameColumn
+            // 
+            this._tourGroupNameColumn.DataPropertyName = "name";
+            this._tourGroupNameColumn.FillWeight = 80F;
+            this._tourGroupNameColumn.HeaderText = "Tên Đoàn";
+            this._tourGroupNameColumn.Name = "_tourGroupNameColumn";
+            this._tourGroupNameColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Tour";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "depart_date";
+            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày khởi hành";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "return_date";
+            this.dataGridViewTextBoxColumn5.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày trở về";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // _passengersColumn
+            // 
+            this._passengersColumn.FillWeight = 50F;
+            this._passengersColumn.HeaderText = "Hành khách";
+            this._passengersColumn.Name = "_passengersColumn";
+            this._passengersColumn.ReadOnly = true;
+            this._passengersColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this._passengersColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this._passengersColumn.Text = "Chi tiết";
+            this._passengersColumn.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Nhân Viên";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn6.Text = "Chi tiết";
+            this.dataGridViewTextBoxColumn6.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "P.Tiện di chuyển";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn7.Text = "Chi tiết";
+            this.dataGridViewTextBoxColumn7.UseColumnTextForButtonValue = true;
+            // 
             // panel8
             // 
             this.panel8.AllowDrop = true;
@@ -969,6 +1050,7 @@
             this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._passengerDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this._passengerDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._passengerDgv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this._passengerDgv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this._passengerDgv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
@@ -1088,6 +1170,7 @@
             this._transportDgv.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this._transportDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._transportDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this._transportDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
             this._transportDgv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this._transportDgv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this._transportDgv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
@@ -1209,6 +1292,7 @@
             this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._employeeDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this._employeeDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
             this._employeeDgv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this._employeeDgv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this._employeeDgv.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightBlue;
@@ -1393,87 +1477,6 @@
             this.label1.Size = new System.Drawing.Size(324, 37);
             this.label1.TabIndex = 9;
             this.label1.Text = "DANH SÁCH ĐOÀN";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 42;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn2.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mã Đoàn";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // _tourGroupNameColumn
-            // 
-            this._tourGroupNameColumn.DataPropertyName = "name";
-            this._tourGroupNameColumn.FillWeight = 80F;
-            this._tourGroupNameColumn.HeaderText = "Tên Đoàn";
-            this._tourGroupNameColumn.Name = "_tourGroupNameColumn";
-            this._tourGroupNameColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Tour";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Tên Tour";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "depart_date";
-            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày khởi hành";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "return_date";
-            this.dataGridViewTextBoxColumn5.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ngày trở về";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // _passengersColumn
-            // 
-            this._passengersColumn.FillWeight = 50F;
-            this._passengersColumn.HeaderText = "Hành khách";
-            this._passengersColumn.Name = "_passengersColumn";
-            this._passengersColumn.ReadOnly = true;
-            this._passengersColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this._passengersColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this._passengersColumn.Text = "Chi tiết";
-            this._passengersColumn.UseColumnTextForButtonValue = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nhân Viên";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn6.Text = "Chi tiết";
-            this.dataGridViewTextBoxColumn6.UseColumnTextForButtonValue = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "P.Tiện di chuyển";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn7.Text = "Chi tiết";
-            this.dataGridViewTextBoxColumn7.UseColumnTextForButtonValue = true;
             // 
             // frmTourGroupManager
             // 
