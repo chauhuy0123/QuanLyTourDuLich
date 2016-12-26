@@ -180,7 +180,9 @@
     <Compile Include="Forms\fmTourManager.Designer.cs">
       <DependentUpon>fmTourManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmEmployeeManagement.cs" />
+    <Compile Include="Forms\frmEmployeeManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmEmployeeManagement.Designer.cs">
       <DependentUpon>frmEmployeeManagement.cs</DependentUpon>
     </Compile>

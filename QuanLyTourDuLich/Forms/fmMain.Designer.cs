@@ -45,6 +45,7 @@
             this.loginBtn = new System.Windows.Forms.Button();
             this.forgotPassBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.employeeBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnUserAccount.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -97,7 +98,7 @@
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReport.Location = new System.Drawing.Point(343, 426);
+            this.btnReport.Location = new System.Drawing.Point(349, 426);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(320, 140);
             this.btnReport.TabIndex = 5;
@@ -158,7 +159,7 @@
             this.btnLocationManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocationManager.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocationManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLocationManager.Location = new System.Drawing.Point(343, 274);
+            this.btnLocationManager.Location = new System.Drawing.Point(349, 274);
             this.btnLocationManager.Name = "btnLocationManager";
             this.btnLocationManager.Size = new System.Drawing.Size(320, 140);
             this.btnLocationManager.TabIndex = 2;
@@ -178,7 +179,7 @@
             this.btnTourManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTourManager.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTourManager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTourManager.Location = new System.Drawing.Point(343, 118);
+            this.btnTourManager.Location = new System.Drawing.Point(349, 118);
             this.btnTourManager.Name = "btnTourManager";
             this.btnTourManager.Size = new System.Drawing.Size(320, 140);
             this.btnTourManager.TabIndex = 1;
@@ -243,7 +244,7 @@
             this.pnUserAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnUserAccount.Location = new System.Drawing.Point(16, 140);
             this.pnUserAccount.Name = "pnUserAccount";
-            this.pnUserAccount.Size = new System.Drawing.Size(290, 140);
+            this.pnUserAccount.Size = new System.Drawing.Size(305, 140);
             this.pnUserAccount.TabIndex = 21;
             // 
             // loginPanel
@@ -254,7 +255,7 @@
             this.loginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.loginPanel.Location = new System.Drawing.Point(16, 0);
             this.loginPanel.Name = "loginPanel";
-            this.loginPanel.Size = new System.Drawing.Size(290, 140);
+            this.loginPanel.Size = new System.Drawing.Size(305, 140);
             this.loginPanel.TabIndex = 22;
             // 
             // label2
@@ -298,14 +299,36 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.employeeBtn);
             this.panel2.Controls.Add(this.pnUserAccount);
             this.panel2.Controls.Add(this.loginPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 90);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
-            this.panel2.Size = new System.Drawing.Size(322, 491);
+            this.panel2.Size = new System.Drawing.Size(337, 491);
             this.panel2.TabIndex = 23;
+            // 
+            // employeeBtn
+            // 
+            this.employeeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.employeeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.employeeBtn.BackgroundImage = global::QuanLyTourDuLich.Properties.Resources.tourist;
+            this.employeeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.employeeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.employeeBtn.FlatAppearance.BorderSize = 8;
+            this.employeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeBtn.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.employeeBtn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.employeeBtn.Location = new System.Drawing.Point(15, 336);
+            this.employeeBtn.Name = "employeeBtn";
+            this.employeeBtn.Size = new System.Drawing.Size(320, 140);
+            this.employeeBtn.TabIndex = 24;
+            this.employeeBtn.Text = "Quản lý nhân viên";
+            this.employeeBtn.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.employeeBtn.UseVisualStyleBackColor = false;
+            this.employeeBtn.Click += new System.EventHandler(this.employeeBtn_Click);
             // 
             // fmMain
             // 
@@ -360,6 +383,7 @@
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Button forgotPassBtn;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button employeeBtn;
     }
 }
 

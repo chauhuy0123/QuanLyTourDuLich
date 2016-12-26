@@ -135,7 +135,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1362, 85);
+            this.panel1.Size = new System.Drawing.Size(1362, 80);
             this.panel1.TabIndex = 28;
             // 
             // _backBtnPanel
@@ -145,8 +145,8 @@
             this._backBtnPanel.Location = new System.Drawing.Point(0, 0);
             this._backBtnPanel.Margin = new System.Windows.Forms.Padding(0);
             this._backBtnPanel.Name = "_backBtnPanel";
-            this._backBtnPanel.Padding = new System.Windows.Forms.Padding(14, 13, 14, 13);
-            this._backBtnPanel.Size = new System.Drawing.Size(90, 85);
+            this._backBtnPanel.Padding = new System.Windows.Forms.Padding(12);
+            this._backBtnPanel.Size = new System.Drawing.Size(80, 80);
             this._backBtnPanel.TabIndex = 30;
             // 
             // btnBack
@@ -157,24 +157,23 @@
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnBack.Location = new System.Drawing.Point(14, 13);
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(62, 59);
+            this.btnBack.Size = new System.Drawing.Size(56, 56);
             this.btnBack.TabIndex = 29;
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Window;
-            this.label7.Location = new System.Drawing.Point(473, 20);
+            this.label7.Location = new System.Drawing.Point(503, 22);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(416, 44);
+            this.label7.Size = new System.Drawing.Size(356, 37);
             this.label7.TabIndex = 16;
             this.label7.Text = "DANH SÁCH ĐỊA ĐIỂM";
             // 
@@ -209,12 +208,12 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(160, 28);
-            this.tabControl1.Location = new System.Drawing.Point(0, 85);
+            this.tabControl1.Location = new System.Drawing.Point(0, 80);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1362, 636);
+            this.tabControl1.Size = new System.Drawing.Size(1362, 641);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 32;
             // 
@@ -224,7 +223,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1354, 600);
+            this.tabPage1.Size = new System.Drawing.Size(1354, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Điểm đến";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -250,7 +249,7 @@
             // 
             this._mainContainer.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this._mainContainer.Panel2.Controls.Add(this._secondSpliter);
-            this._mainContainer.Size = new System.Drawing.Size(1354, 600);
+            this._mainContainer.Size = new System.Drawing.Size(1354, 605);
             this._mainContainer.SplitterDistance = 291;
             this._mainContainer.SplitterWidth = 2;
             this._mainContainer.TabIndex = 33;
@@ -266,7 +265,7 @@
             this._tourSitePanel.Location = new System.Drawing.Point(16, 176);
             this._tourSitePanel.Name = "_tourSitePanel";
             this._tourSitePanel.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
-            this._tourSitePanel.Size = new System.Drawing.Size(259, 360);
+            this._tourSitePanel.Size = new System.Drawing.Size(259, 365);
             this._tourSitePanel.TabIndex = 6;
             this._tourSitePanel.Layout += new System.Windows.Forms.LayoutEventHandler(this._tourSitePanel_Layout);
             // 
@@ -277,7 +276,7 @@
             this._tourSitesTempLv.Location = new System.Drawing.Point(16, 99);
             this._tourSitesTempLv.MultiSelect = false;
             this._tourSitesTempLv.Name = "_tourSitesTempLv";
-            this._tourSitesTempLv.Size = new System.Drawing.Size(225, 259);
+            this._tourSitesTempLv.Size = new System.Drawing.Size(225, 264);
             this._tourSitesTempLv.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this._tourSitesTempLv.TabIndex = 2;
             this._tourSitesTempLv.UseCompatibleStateImageBehavior = false;
@@ -368,7 +367,7 @@
             this.panel3.Controls.Add(this._cancelBtn);
             this.panel3.Controls.Add(this._acceptBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(16, 536);
+            this.panel3.Location = new System.Drawing.Point(16, 541);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(8);
             this.panel3.Size = new System.Drawing.Size(259, 48);
@@ -494,7 +493,7 @@
             this._secondSpliter.Panel2.Controls.Add(this.panel4);
             this._secondSpliter.Panel2.Font = new System.Drawing.Font("Constantia", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._secondSpliter.Panel2MinSize = 272;
-            this._secondSpliter.Size = new System.Drawing.Size(1061, 600);
+            this._secondSpliter.Size = new System.Drawing.Size(1061, 605);
             this._secondSpliter.SplitterDistance = 273;
             this._secondSpliter.SplitterWidth = 2;
             this._secondSpliter.TabIndex = 0;
@@ -519,7 +518,7 @@
             this._hotelGv.RowHeadersVisible = false;
             this._hotelGv.RowTemplate.Height = 32;
             this._hotelGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._hotelGv.Size = new System.Drawing.Size(241, 233);
+            this._hotelGv.Size = new System.Drawing.Size(241, 238);
             this._hotelGv.TabIndex = 4;
             this._hotelGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._hotelGv_CellFormatting);
             this._hotelGv.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this._hotelGv_RowsAdded);
@@ -728,7 +727,7 @@
             this._destinationGv.RowTemplate.Height = 48;
             this._destinationGv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this._destinationGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._destinationGv.Size = new System.Drawing.Size(786, 552);
+            this._destinationGv.Size = new System.Drawing.Size(786, 557);
             this._destinationGv.TabIndex = 0;
             this._destinationGv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._destinationGv_CellDoubleClick);
             this._destinationGv.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);

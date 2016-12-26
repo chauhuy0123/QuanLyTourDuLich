@@ -294,6 +294,17 @@ namespace QuanLyTourDuLich
             MessageBox.Show("Chức năng đang phát triển", "Stop", MessageBoxButtons.OK);
         }
 
+        private void employeeBtn_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            var fm = new frmEmployeeManagement();
+            this.Hide();
+            this.Cursor = Cursors.Default;
+            fm.ShowDialog();
+            this.fmMain_Load(sender, e);
+            this.Show();
+        }
+
         
     }
 }

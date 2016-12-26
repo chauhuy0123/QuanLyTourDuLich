@@ -9,7 +9,14 @@ namespace BusinessEntity
 {
     public class EmployeeBUS
     {
-        UnitOfWork _unitOfWork = new UnitOfWork();
+        UnitOfWork _unitOfWork;
+        IEnumerable<Status> _statuses;
+
+        public EmployeeBUS()
+        {
+            _unitOfWork = new UnitOfWork();
+            _statuses = _unitOfWork.StatusRepository.GetAll();
+        }
 
         public IEnumerable<Employee> getEntries()
         {
@@ -47,6 +54,30 @@ namespace BusinessEntity
         public TourGroup getTourGroupById(int tourGroupId)
         {
             return _unitOfWork.TourGroupRepository.GetByID(tourGroupId);
+        }
+
+        public IEnumerable<EmployeeRole> getEmployeeRole()
+        {
+            return _unitOfWork.EmployeeRoleRepository.GetAll();
+        }
+
+        public Status getStatusById(int statusid)
+        {
+            return _unitOfWork.StatusRepository.GetByID(statusid);
+        }
+
+        public void updateAll(IEnumerable<Employee> employees)
+        {
+            foreach (var empl in employees)
+            {
+                _unitOfWork.EmplyeeRepository.Update(empl);
+            }
+            _unitOfWork.Save();
+        }
+
+        public void refresh()
+        {
+            _unitOfWork.EmplyeeRepository.Refresh();
         }
     }
 }
