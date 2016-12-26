@@ -64,7 +64,7 @@ namespace QuanLyTourDuLich.Forms
 
             _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
 
-            //init();
+            init();
         }
 
         private void btnBack1_Click(object sender, EventArgs e)
@@ -101,10 +101,10 @@ namespace QuanLyTourDuLich.Forms
             _departDateDtp.MinDate = DateTime.Now;
             _returnDateDtp.MinDate = DateTime.Now;
            
-            _tourGroups = _tourGroupBus.getEntries();
-            _tourGroupBs.DataSource = _tourGroups;
+            //_tourGroups = _tourGroupBus.getEntries();
+            //_tourGroupBs.DataSource = _tourGroups;
 
-            _filterBs.DataSource = _tourGroups.ToDataTable();
+            //_filterBs.DataSource = _tourGroups.ToDataTable();
 
 
             _transportClb.DataSource = _searchtransportBs;                // todo
@@ -174,6 +174,7 @@ namespace QuanLyTourDuLich.Forms
 
             _tours = _tourBus.getEntries();
             _tourBs.DataSource = _tours;
+            return;
 
 
             _passengers = _passengerBus.getEntries();
