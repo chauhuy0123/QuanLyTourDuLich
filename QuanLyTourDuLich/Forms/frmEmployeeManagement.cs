@@ -163,5 +163,10 @@ namespace QuanLyTourDuLich
             Cursor.Current = Cursors.Default;
             setSaveBtnEnabeled(false);
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

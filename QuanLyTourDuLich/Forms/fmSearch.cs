@@ -66,7 +66,7 @@ namespace QuanLyTourDuLich.GUI
         {
             _tourCategoryClb.DataSource = _tourCategoryBs;
             _destinationClb.DataSource = _destinationBs;
-            _transportClb.DataSource = _transportBs;                // todo
+          //  _transportClb.DataSource = _transportBs;                // todo
         }
 
         private void fmSearch_Load(object sender, EventArgs e)
@@ -165,50 +165,50 @@ namespace QuanLyTourDuLich.GUI
 
         private void _startDtp_ValueChanged(object sender, EventArgs e)
         {
-            var mindate = _startDtp.Value;
-            var maxdate = _endDtp.Value;
-            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+            //var mindate = _startDtp.Value;
+            //var maxdate = _endDtp.Value;
+           // _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
         }
 
         private void _endDtp_ValueChanged(object sender, EventArgs e)
         {
-            var mindate = _startDtp.Value;
-            var maxdate = _endDtp.Value;
-            _tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
+            //var mindate = _startDtp.Value;
+            //var maxdate = _endDtp.Value;
+            //_tourGroupSearchPresenter.filterDate(new DateTime[] { mindate, maxdate });
         }
 
         public void updateMinDepartDate(DateTime minValue)
         {
-             _startDtp.Value = minValue;
+            // _startDtp.Value = minValue;
         }
 
         public void udpateMaxReturnDate(DateTime minValue)
         {
-            _endDtp.Value = minValue;
+            //_endDtp.Value = minValue;
         }
 
         public void upateTransportsView(IEnumerable<Transport> transports)
         {
             _transportBs.DataSource = transports;
-            _transportClb.DisplayMember = "name";       // todo
+           // _transportClb.DisplayMember = "name";       // todo
 
         }
 
         private void _transportClb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = _transportClb.CheckedItems.Cast<Transport>();
-            _tourGroupSearchPresenter.filterTransport(selected);
+           // var selected = _transportClb.CheckedItems.Cast<Transport>();
+         //   _tourGroupSearchPresenter.filterTransport(selected);
         }
 
         private void _tourGroupKeywordTb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.handleSearchTourGroupClick(_tourGroupKeywordTb.Text);
+            //this.handleSearchTourGroupClick(_tourGroupKeywordTb.Text);
         }
 
         private void tourGroupSearchBtn_Click(object sender, EventArgs e)
         {
-            var keyword = _tourGroupKeywordTb.Text.Trim();
-            this.handleSearchTourGroupClick(keyword);
+           // var keyword = _tourGroupKeywordTb.Text.Trim();
+           // this.handleSearchTourGroupClick(keyword);
         }
 
         private void _tourGroupGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
