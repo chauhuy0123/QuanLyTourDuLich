@@ -45,6 +45,7 @@ namespace QuanLyTourDuLich.Forms
             _destination = _tourBus.getAllDestination();
             _isAdd = true;
             _currentTour = new Tour();
+            _currentTour = null;
             _minDate = new DateTime(2000, 1, 1);
             _maxDate = new DateTime(2100, 1, 1);
             dtpStart_date.MinDate = _minDate;
@@ -322,15 +323,16 @@ namespace QuanLyTourDuLich.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (_currentTour == null)
+                return;
             if (_currentTour.TourGroups.Count !=0)
             {
                 MessageBox.Show("Không thể xóa khi đã có đoàn đăng ký");
                 return;
             }
-            if (_currentTour != null)
-                _tourBus.delete(_currentTour);
-            else return;
+            _tourBus.delete(_currentTour);
             updateDataGridView();
+            _currentTour = null;
             _isAdd = true;
         }
 
