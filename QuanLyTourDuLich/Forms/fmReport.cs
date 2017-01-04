@@ -162,9 +162,8 @@ namespace QuanLyTourDuLich.Forms
                 dtpFromDate.Format = DateTimePickerFormat.Custom;
                 dtpFromDate.CustomFormat = "MM/yyyy";
                 dtpFromDate.ShowUpDown = true;
-                dtpFromDate.MinDate = _tourGroupBus.getMinDepartDate();
-                dtpFromDate.MaxDate = _tourGroupBus.getMaxDepartDate();
-
+                dtpFromDate.MinDate = new DateTime (_tourGroupBus.getMinDepartDate().Year, _tourGroupBus.getMinDepartDate().Month, 11);
+                dtpFromDate.MaxDate = new DateTime(_tourGroupBus.getMaxDepartDate().Year, _tourGroupBus.getMinDepartDate().Month, 11);
 
                 /*<--- To month --->*/
                 // Tab: Doanh số của đoàn
@@ -172,8 +171,6 @@ namespace QuanLyTourDuLich.Forms
                 dtpToDate.CustomFormat = "MM/yyyy";
                 dtpToDate.ShowUpDown = true;
                 dtpToDate.MinDate = dtpFromDate.Value.Date;
-
-
             }
             catch (Exception ex)
             {
@@ -210,22 +207,32 @@ namespace QuanLyTourDuLich.Forms
                     {
                         if (tourGroup.depart_date.Year >= dtpFromDate.Value.Year && tourGroup.depart_date.Year <= dtpToDate.Value.Year)
                         {
-                            if(tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
+                            if (tourGroup.depart_date.Year == dtpToDate.Value.Year)
                             {
-                                bdsTourGroupReport.Add(tourGroup);
+                                if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
+                                {
+                                    bdsTourGroupReport.Add(tourGroup);
 
-                                //Tổng danh thu từ tiền vé
-                                _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price); 
-                                
-                                //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)
-                                //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
+                                    //Tổng danh thu từ tiền vé
+                                    _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
 
+                                    //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)                                
+                                    _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price / 1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee / 1000)));
 
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price/1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee/1000)));
-                                // tùng: 
-                                // tourgroup không có trnasport nữa mà có TransportTourGroup
-                                // muốn tính tổng chi phí transport thì 
-                                // tourGroup.TransportTourGroups.sum(t => t.price)
+                                }
+                            }
+                            else
+                            {
+                                if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month)
+                                {
+                                    bdsTourGroupReport.Add(tourGroup);
+
+                                    //Tổng danh thu từ tiền vé
+                                    _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
+
+                                    //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)                                
+                                    _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price / 1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee / 1000)));
+                                }
                             }
                             
                         }
@@ -239,19 +246,32 @@ namespace QuanLyTourDuLich.Forms
                     {
                         if (tourGroup.depart_date.Year >= dtpFromDate.Value.Year && tourGroup.depart_date.Year <= dtpToDate.Value.Year)
                         {
-                            if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
+                            if (tourGroup.depart_date.Year == dtpToDate.Value.Year)
                             {
-                                bdsTourGroupReport.Add(tourGroup);
+                                if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month && tourGroup.depart_date.Month <= dtpToDate.Value.Month)
+                                {
+                                    bdsTourGroupReport.Add(tourGroup);
 
-                                //Tổng doanh thu tự tiền vé
-                                _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
+                                    //Tổng danh thu từ tiền vé
+                                    _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
 
-                                //Tổng chi phí (chi phí khách sạn + chi phí di chuyển)
-                                //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
+                                    //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)                                
+                                    _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price / 1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee / 1000)));
 
+                                }
+                            }
+                            else
+                            {
+                                if (tourGroup.depart_date.Month >= dtpFromDate.Value.Month)
+                                {
+                                    bdsTourGroupReport.Add(tourGroup);
 
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price /1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee /1000)));
+                                    //Tổng danh thu từ tiền vé
+                                    _revenueTotal.Add((float)tourGroup.Customers.Count * (float)tourGroup.Tour.TourPrice.price);
 
+                                    //Tổng chi phí (cchi phí khách sạn + chi phí di chuyển)                                
+                                    _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price / 1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee / 1000)));
+                                }
                             }
                         }
                     }
@@ -547,14 +567,13 @@ namespace QuanLyTourDuLich.Forms
                 dtpFromDate2.Format = DateTimePickerFormat.Custom;
                 dtpFromDate2.CustomFormat = "MM/yyyy";
                 dtpFromDate2.ShowUpDown = true;
-                dtpFromDate2.MinDate = _tourPriceBus.getMinStartDate();
-                dtpFromDate2.MaxDate = _tourPriceBus.getMaxStartDate();
+                dtpFromDate2.MinDate = new DateTime(_tourPriceBus.getMinStartDate().Year, _tourPriceBus.getMinStartDate().Month, 11);
+                dtpFromDate2.MaxDate = new DateTime(_tourPriceBus.getMaxStartDate().Year, _tourPriceBus.getMaxStartDate().Month, 11);
 
                 dtpToDate2.Format = DateTimePickerFormat.Custom;
                 dtpToDate2.CustomFormat = "MM/yyyy";
                 dtpToDate2.ShowUpDown = true;
                 dtpToDate2.MinDate = dtpFromDate2.Value.Date;
-
             }
             catch (Exception ex)
             {
@@ -591,21 +610,41 @@ namespace QuanLyTourDuLich.Forms
                     {
                         if (tour.TourPrice.start_date.Year >= dtpFromDate2.Value.Year && tour.TourPrice.start_date.Year <= dtpToDate2.Value.Year)
                         {
-                            if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                            if (tour.TourPrice.start_date.Year == dtpToDate2.Value.Year)
                             {
-                                bdsTourReport.Add(tour);
+                                if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                                {
+                                    bdsTourReport.Add(tour);
 
-                                //Tổng số đoàn của 1 tour
-                                _tourGroupTotal.Add(tour.TourGroups.Count);
+                                    //Tổng số đoàn của 1 tour
+                                    _tourGroupTotal.Add(tour.TourGroups.Count);
 
-                                //Tổng doanh thu của 1 tour từ tiền vé
-                                _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+                                    //Tổng doanh thu của 1 tour từ tiền vé
+                                    _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
-                                //Tổng chi phí
-                                //_costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee/1000))));
+                                    //Tổng chi phí
+                                    _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee / 1000))));
 
+                                }
                             }
+                            else
+                            {
+                                if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month)
+                                {
+                                    bdsTourReport.Add(tour);
+
+                                    //Tổng số đoàn của 1 tour
+                                    _tourGroupTotal.Add(tour.TourGroups.Count);
+
+                                    //Tổng doanh thu của 1 tour từ tiền vé
+                                    _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                                    //Tổng chi phí
+                                    _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee / 1000))));
+
+                                }
+                            }
+                            
                         }
                     }
                 }
@@ -616,18 +655,39 @@ namespace QuanLyTourDuLich.Forms
                     {
                         if (tour.TourPrice.start_date.Year >= dtpFromDate2.Value.Year && tour.TourPrice.start_date.Year <= dtpToDate2.Value.Year)
                         {
-                            if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                            if (tour.TourPrice.start_date.Year == dtpToDate2.Value.Year)
                             {
-                                bdsTourReport.Add(tour);
+                                if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month && tour.TourPrice.start_date.Month <= dtpToDate2.Value.Month)
+                                {
+                                    bdsTourReport.Add(tour);
 
-                                //Tổng số đoàn của 1 tour
-                                _tourGroupTotal.Add(tour.TourGroups.Count);
+                                    //Tổng số đoàn của 1 tour
+                                    _tourGroupTotal.Add(tour.TourGroups.Count);
 
-                                //Tổng doanh thu của 1 tour từ tiền vé
-                                _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+                                    //Tổng doanh thu của 1 tour từ tiền vé
+                                    _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
-                                //Tổng chi phí
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+                                    //Tổng chi phí
+                                    _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee / 1000))));
+
+                                }
+                            }
+                            else
+                            {
+                                if (tour.TourPrice.start_date.Month >= dtpFromDate2.Value.Month)
+                                {
+                                    bdsTourReport.Add(tour);
+
+                                    //Tổng số đoàn của 1 tour
+                                    _tourGroupTotal.Add(tour.TourGroups.Count);
+
+                                    //Tổng doanh thu của 1 tour từ tiền vé
+                                    _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
+
+                                    //Tổng chi phí
+                                    _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee / 1000))));
+
+                                }
                             }
                         }
                     }
@@ -870,9 +930,6 @@ namespace QuanLyTourDuLich.Forms
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
 
         #endregion
 

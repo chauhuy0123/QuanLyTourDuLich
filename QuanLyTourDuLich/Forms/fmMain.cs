@@ -236,12 +236,20 @@ namespace QuanLyTourDuLich
         /// <param name="e"></param>
         private void btnReport_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            fmReport fm = new fmReport();
-            this.Hide();
-            this.Cursor = Cursors.Default;
-            fm.ShowDialog();
-            this.Show();
+            try
+            {
+                this.Cursor = Cursors.WaitCursor;
+                fmReport fm = new fmReport();
+                this.Hide();
+                this.Cursor = Cursors.Default;
+                fm.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         /// <summary>
