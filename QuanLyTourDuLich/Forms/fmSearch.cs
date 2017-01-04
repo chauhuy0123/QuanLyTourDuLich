@@ -527,8 +527,12 @@ namespace QuanLyTourDuLich.GUI
             this.setEnableSaveBtn(false);
         }
 
+
         #endregion // Edit
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

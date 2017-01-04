@@ -42,7 +42,7 @@ namespace QuanLyTourDuLich
         {
             #region Phân quyền
             //Tài khoản: Admin
-            if (_accountType == 1)
+            if (_accountType == 2)
             {
                 //Được dùng
                 btnSystemManager.Enabled = true;
@@ -56,7 +56,7 @@ namespace QuanLyTourDuLich
 
             }
             //Tài khoản: Giám đốc
-            else if (_accountType == 2)
+            else if (_accountType == 4)
             {
                 //Được dùng
                 btnSearch.Enabled = true;
@@ -82,7 +82,7 @@ namespace QuanLyTourDuLich
                 btnSystemManager.Enabled = false;
             }
             //Tài khoản: Nhân viên kế toán
-            else if (_accountType == 4)
+            else if (_accountType == 1)
             {
                 //Được dùng
                 btnReport.Enabled = true;
@@ -97,14 +97,13 @@ namespace QuanLyTourDuLich
             //Chưa đăng nhập
             else
             {
-                //Hiện tại chưa hoàn thành nên chú thích cái đống này lại để tiện test các chức năng
-                //btnTourManager.Enabled = false;
-                //btnTouristsGroupManager.Enabled = false;
-                //btnLocationManager.Enabled = false;
-                //btnSearch.Enabled = false;
-                //btnSystemManager.Enabled = false;
-                //btnReport.Enabled = false;
-                defaultValue();
+                btnTourManager.Enabled = false;
+                btnTouristsGroupManager.Enabled = false;
+                btnLocationManager.Enabled = false;
+                btnSearch.Enabled = false;
+                btnSystemManager.Enabled = false;
+                btnReport.Enabled = false;
+                //defaultValue();
             }
             #endregion
 
@@ -177,13 +176,6 @@ namespace QuanLyTourDuLich
             this.Show();
         }
 
-        private void btnKetNoiCSDL_Click(object sender, EventArgs e)
-        {
-            fmConnectDatabase fm = new fmConnectDatabase();
-            this.Hide();
-            fm.ShowDialog();
-            this.Show();
-        }
 
         //
         //Button: Quản lý đoàn / btnTouristsGroupManager
