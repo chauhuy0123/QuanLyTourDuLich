@@ -430,10 +430,11 @@
             // 
             this._citiesCbb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._citiesCbb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this._citiesCbb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this._citiesCbb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this._citiesCbb.DataSource = this._citiesBindingSource;
             this._citiesCbb.DropDownHeight = 132;
+            this._citiesCbb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._citiesCbb.FormattingEnabled = true;
             this._citiesCbb.IntegralHeight = false;
             this._citiesCbb.ItemHeight = 19;

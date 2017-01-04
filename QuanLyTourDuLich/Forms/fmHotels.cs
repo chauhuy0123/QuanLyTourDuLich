@@ -63,11 +63,11 @@ namespace QuanLyTourDuLich.Forms
                 _addBtn.Enabled = false;
                 return;
             }
-            if (String.IsNullOrEmpty(_statusTb.Text.Trim()))
-            {
-                _addBtn.Enabled = false;
-                return;
-            }
+            //if (String.IsNullOrEmpty(_statusTb.Text.Trim()))
+            //{
+            //    _addBtn.Enabled = false;
+            //    return;
+            //}
             _addBtn.Enabled = true;
 
         }
@@ -85,9 +85,10 @@ namespace QuanLyTourDuLich.Forms
             hotel.name = _hotelNameTb.Text.Trim();
             hotel.address = _addressNameTb.Text.Trim();
             hotel.phone = _phoneTb.Text.Trim();
-            hotel.status = _statusTb.Text.Trim();
+            hotel.status = "";
             hotel.destination_id = _destination.id;
-
+            hotel.price = (double)numericUpDown1.Value;
+            //hotel.TourGroupHotels = new List<TourGroupHotel>();
             _presenter.addHotel(hotel);
         }
 
@@ -166,6 +167,11 @@ namespace QuanLyTourDuLich.Forms
         {
             string keyword = _searchBoxTb.Text.Trim();
             _presenter.search(keyword, _destination.id);
+        }
+
+        private void _addBtn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

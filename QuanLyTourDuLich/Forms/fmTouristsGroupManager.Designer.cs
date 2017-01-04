@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTourGroupManager));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._filterBs = new System.Windows.Forms.BindingSource(this.components);
             this._tourGroupBs = new System.Windows.Forms.BindingSource(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -239,8 +239,8 @@
             // 
             this._tourGroupDgv.AllowUserToAddRows = false;
             this._tourGroupDgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this._tourGroupDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this._tourGroupDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this._tourGroupDgv.AutoGenerateColumns = false;
             this._tourGroupDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._tourGroupDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -256,9 +256,9 @@
             this._tourGroupDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tourGroupDgv.Location = new System.Drawing.Point(8, 8);
             this._tourGroupDgv.Name = "_tourGroupDgv";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this._tourGroupDgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this._tourGroupDgv.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this._tourGroupDgv.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
@@ -396,6 +396,7 @@
             // 
             this._tourCb.DataSource = this._tourBs;
             this._tourCb.DisplayMember = "id";
+            this._tourCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._tourCb.Font = new System.Drawing.Font("Constantia", 12F);
             this._tourCb.FormattingEnabled = true;
             this._tourCb.Location = new System.Drawing.Point(91, 4);
@@ -705,15 +706,15 @@
             this._tourGroupGv.AllowUserToAddRows = false;
             this._tourGroupGv.AutoGenerateColumns = false;
             this._tourGroupGv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Constantia", 11.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._tourGroupGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Constantia", 11.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._tourGroupGv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._tourGroupGv.ColumnHeadersHeight = 32;
             this._tourGroupGv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this._tourGroupGv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1046,8 +1047,8 @@
             this._passengerDgv.Location = new System.Drawing.Point(16, 16);
             this._passengerDgv.Name = "_passengerDgv";
             this._passengerDgv.RowHeadersVisible = false;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this._passengerDgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._passengerDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._passengerDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1166,8 +1167,8 @@
             this._transportDgv.Location = new System.Drawing.Point(16, 16);
             this._transportDgv.Name = "_transportDgv";
             this._transportDgv.RowHeadersVisible = false;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this._transportDgv.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this._transportDgv.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this._transportDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._transportDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._transportDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);
@@ -1288,8 +1289,8 @@
             this._employeeDgv.Location = new System.Drawing.Point(16, 16);
             this._employeeDgv.Name = "_employeeDgv";
             this._employeeDgv.RowHeadersVisible = false;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this._employeeDgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this._employeeDgv.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this._employeeDgv.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Constantia", 11.25F);

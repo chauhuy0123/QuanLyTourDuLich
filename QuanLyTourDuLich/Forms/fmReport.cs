@@ -221,7 +221,7 @@ namespace QuanLyTourDuLich.Forms
                                 //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
 
 
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee)));
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price/1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee/1000)));
                                 // tùng: 
                                 // tourgroup không có trnasport nữa mà có TransportTourGroup
                                 // muốn tính tổng chi phí transport thì 
@@ -250,7 +250,7 @@ namespace QuanLyTourDuLich.Forms
                                 //_costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.Transports.Sum(t => t.price)));
 
 
-                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee)));
+                                _costTotal.Add((float)tourGroup.Customers.Count * ((float)tourGroup.Tour.Destination.Hotels.Sum(hotel => hotel.price /1000) + (float)tourGroup.TransportsTourGroups.Sum(t => t.fee /1000)));
 
                             }
                         }
@@ -603,7 +603,7 @@ namespace QuanLyTourDuLich.Forms
 
                                 //Tổng chi phí
                                 //_costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee/1000))));
 
                             }
                         }
@@ -627,7 +627,7 @@ namespace QuanLyTourDuLich.Forms
                                 _revenueTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * (float)tour.TourPrice.price);
 
                                 //Tổng chi phí
-                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+                                _costTourTotal.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price / 1000) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
                             }
                         }
                     }
@@ -950,7 +950,7 @@ namespace QuanLyTourDuLich.Forms
 
                         //Tổng chi phí
                         //_costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.Transports.Sum(tp => tp.price))));
-                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee))));
+                        _costTourTotalTab3.Add((float)tour.TourGroups.Sum(tg => tg.Customers.Count /1000) * ((float)tour.Destination.Hotels.Sum(ht => ht.price) + (float)tour.TourGroups.Sum(tg => tg.TransportsTourGroups.Sum(tp => tp.fee/1000))));
 
                     }
                 }

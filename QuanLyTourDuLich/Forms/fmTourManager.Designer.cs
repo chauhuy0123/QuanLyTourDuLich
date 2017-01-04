@@ -362,6 +362,7 @@
             // 
             // cbTourCategory
             // 
+            this.cbTourCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTourCategory.FormattingEnabled = true;
             this.cbTourCategory.Location = new System.Drawing.Point(146, 89);
             this.cbTourCategory.Name = "cbTourCategory";

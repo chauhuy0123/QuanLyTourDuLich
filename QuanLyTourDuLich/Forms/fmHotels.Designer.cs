@@ -45,10 +45,6 @@
             this._searchBoxTb = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this._currentHotelsGv = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel7 = new System.Windows.Forms.Panel();
             this._mainPanel = new System.Windows.Forms.Panel();
@@ -65,6 +61,12 @@
             this._addressNameTb = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this._leftPanel = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._currentHotelsGv)).BeginInit();
@@ -75,6 +77,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this._leftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -108,7 +111,7 @@
             this.panel3.Controls.Add(this._deleteBtn);
             this.panel3.Controls.Add(this._addBtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(16, 244);
+            this.panel3.Location = new System.Drawing.Point(16, 304);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(208, 42);
@@ -193,6 +196,7 @@
             this._addBtn.Padding = new System.Windows.Forms.Padding(8);
             this._addBtn.Size = new System.Drawing.Size(42, 42);
             this._addBtn.TabIndex = 13;
+            this._addBtn.Load += new System.EventHandler(this._addBtn_Load);
             this._addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // addBtnImageList
@@ -236,7 +240,7 @@
             this.dataGridViewTextBoxColumn1,
             this._addressColumn,
             this._phoneColumn,
-            this._statusColumn});
+            this.priceColumn});
             this._currentHotelsGv.DataSource = this._hotelBindingSource;
             this._currentHotelsGv.Dock = System.Windows.Forms.DockStyle.Fill;
             this._currentHotelsGv.Location = new System.Drawing.Point(12, 76);
@@ -266,32 +270,6 @@
             this._currentHotelsGv.TabIndex = 3;
             this._currentHotelsGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.currentHotelsGv_CellValueChanged);
             this._currentHotelsGv.SelectionChanged += new System.EventHandler(this.currentTourSiteGv_SelectionChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ToolTipText = "Click đôi để thêm vào vào điểm đến";
-            // 
-            // _addressColumn
-            // 
-            this._addressColumn.DataPropertyName = "address";
-            this._addressColumn.HeaderText = "Địa chỉ";
-            this._addressColumn.Name = "_addressColumn";
-            // 
-            // _phoneColumn
-            // 
-            this._phoneColumn.DataPropertyName = "phone";
-            this._phoneColumn.HeaderText = "Sđt";
-            this._phoneColumn.Name = "_phoneColumn";
-            // 
-            // _statusColumn
-            // 
-            this._statusColumn.DataPropertyName = "status";
-            this._statusColumn.FillWeight = 70F;
-            this._statusColumn.HeaderText = "Ghi chú";
-            this._statusColumn.Name = "_statusColumn";
             // 
             // panel7
             // 
@@ -378,6 +356,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this._statusTb);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this._phoneTb);
@@ -403,6 +383,7 @@
             this._statusTb.Name = "_statusTb";
             this._statusTb.Size = new System.Drawing.Size(208, 26);
             this._statusTb.TabIndex = 13;
+            this._statusTb.Visible = false;
             this._statusTb.TextChanged += new System.EventHandler(this.hotelInfo_TextChanged);
             // 
             // label7
@@ -415,6 +396,7 @@
             this.label7.Size = new System.Drawing.Size(61, 34);
             this.label7.TabIndex = 12;
             this.label7.Text = "Ghi chú";
+            this.label7.Visible = false;
             // 
             // _phoneTb
             // 
@@ -471,6 +453,62 @@
             this._leftPanel.Size = new System.Drawing.Size(240, 561);
             this._leftPanel.TabIndex = 5;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Location = new System.Drawing.Point(16, 244);
+            this.label8.Name = "label8";
+            this.label8.Padding = new System.Windows.Forms.Padding(0, 12, 0, 4);
+            this.label8.Size = new System.Drawing.Size(178, 34);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Phí thuê phòng (tr. đồng)";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 1;
+            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown1.Location = new System.Drawing.Point(16, 278);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(208, 26);
+            this.numericUpDown1.TabIndex = 14;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ToolTipText = "Click đôi để thêm vào vào điểm đến";
+            // 
+            // _addressColumn
+            // 
+            this._addressColumn.DataPropertyName = "address";
+            this._addressColumn.HeaderText = "Địa chỉ";
+            this._addressColumn.Name = "_addressColumn";
+            // 
+            // _phoneColumn
+            // 
+            this._phoneColumn.DataPropertyName = "phone";
+            this._phoneColumn.HeaderText = "Sđt";
+            this._phoneColumn.Name = "_phoneColumn";
+            // 
+            // priceColumn
+            // 
+            this.priceColumn.DataPropertyName = "price";
+            this.priceColumn.HeaderText = "Phí (nghìn đ)";
+            this.priceColumn.Name = "priceColumn";
+            this.priceColumn.ReadOnly = true;
+            // 
             // fmHotels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -499,6 +537,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this._leftPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,10 +573,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox _phoneTb;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource _hotelBindingSource;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn _addressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _phoneColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _statusColumn;
-        private System.Windows.Forms.BindingSource _hotelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceColumn;
     }
 }
