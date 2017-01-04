@@ -60,6 +60,7 @@ namespace QuanLyTourDuLich
             {
                 //Được dùng
                 btnSearch.Enabled = true;
+                employeeBtn.Enabled = true;
 
                 //Ko đc dùng
                 btnTourManager.Enabled = false;
@@ -94,6 +95,16 @@ namespace QuanLyTourDuLich
                 btnSearch.Enabled = false;
                 btnSystemManager.Enabled = false;
             }
+            else if (_accountType == 5)
+            {
+                btnTourManager.Enabled = true;
+                btnTouristsGroupManager.Enabled = true;
+                btnLocationManager.Enabled = true;
+                btnSearch.Enabled = true;
+                btnSystemManager.Enabled = true;
+                btnReport.Enabled = true;
+                employeeBtn.Enabled = true;
+            }
             //Chưa đăng nhập
             else
             {
@@ -103,6 +114,7 @@ namespace QuanLyTourDuLich
                 btnSearch.Enabled = false;
                 btnSystemManager.Enabled = false;
                 btnReport.Enabled = false;
+                employeeBtn.Enabled = false;
                 //defaultValue();
             }
             #endregion
@@ -268,6 +280,7 @@ namespace QuanLyTourDuLich
             btnSearch.Enabled = true;
             btnSystemManager.Enabled = true;
             btnReport.Enabled = true;
+            employeeBtn.Enabled = true;
 #else
 #if RELEASE
 #endif // RELEASE
@@ -277,6 +290,7 @@ namespace QuanLyTourDuLich
             btnSearch.Enabled = false;
             btnSystemManager.Enabled = false;
             btnReport.Enabled = false;
+            employeeBtn.Enabled = false;
 #endif // DEBUG
 
         }

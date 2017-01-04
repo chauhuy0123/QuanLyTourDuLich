@@ -315,10 +315,11 @@
             this.cbbAccountType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbAccountType.FormattingEnabled = true;
             this.cbbAccountType.Items.AddRange(new object[] {
+            "Nhân viên kế toán",
             "Admin",
-            "Giám đốc",
             "Nhân viên quản lý",
-            "nhân viên kế toán"});
+            "Giám đốc"
+            });
             this.cbbAccountType.Location = new System.Drawing.Point(219, 246);
             this.cbbAccountType.Name = "cbbAccountType";
             this.cbbAccountType.Size = new System.Drawing.Size(336, 31);
