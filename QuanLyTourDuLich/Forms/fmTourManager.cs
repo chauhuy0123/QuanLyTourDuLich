@@ -266,9 +266,9 @@ namespace QuanLyTourDuLich.Forms
         {
             if (dt1.Year > dt2.Year)
                 return false;
-            else if (dt1.Month > dt2.Month)
+            else if (dt1.Year==dt2.Year && dt1.Month > dt2.Month)
                 return false;
-            else if (dt1.Day > dt2.Day)
+            else if (dt1.Year == dt2.Year && dt1.Month == dt2.Month && dt1.Day > dt2.Day)
                 return false;
             return true;
         }
