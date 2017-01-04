@@ -53,6 +53,7 @@ namespace QuanLyTourDuLich
                 btnLocationManager.Enabled = false;
                 btnReport.Enabled = false;
                 btnSearch.Enabled = false;
+                employeeBtn.Enabled = false;
 
             }
             //Tài khoản: Giám đốc
@@ -81,6 +82,7 @@ namespace QuanLyTourDuLich
                 //Ko đc dùng
                 btnReport.Enabled = false;
                 btnSystemManager.Enabled = false;
+                employeeBtn.Enabled = false;
             }
             //Tài khoản: Nhân viên kế toán
             else if (_accountType == 1)
@@ -94,6 +96,7 @@ namespace QuanLyTourDuLich
                 btnLocationManager.Enabled = false;
                 btnSearch.Enabled = false;
                 btnSystemManager.Enabled = false;
+                employeeBtn.Enabled = false;
             }
             else if (_accountType == 5)
             {
