@@ -52,7 +52,7 @@ namespace QuanLyTourDuLich.Forms
             dtpStart_date.MaxDate = _maxDate;
             dtpEnd_date.MinDate = _minDate;
             dtpEnd_date.MaxDate = _maxDate;
-            dtpEnd_date.Value = _maxDate;
+            dtpEnd_date.Value = DateTime.Now.AddYears(1);
             
         }
         private void postInit()
@@ -145,7 +145,7 @@ namespace QuanLyTourDuLich.Forms
             {
                 if (tbTourName.Text.Trim() == "" || tbTourPrice.Text.Trim() == "")
                 {
-                    MessageBox.Show("Please fill textbox!");
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin, bạn đã bỏ sót thông tin nào đó!");
                     return;
                 }
                 var tour = new Tour();
@@ -167,26 +167,7 @@ namespace QuanLyTourDuLich.Forms
                 {
                     tour.TourSites.Add(site);
                 }
-                //var b = new TourSiteBUS();
-                //foreach (var site in _newtoursite)
-                //{
-                //    site.Tours.Add(tour);
-                //    b.update(site);
-                //}
-
-                //tour.TourSites = _newtoursite.ToList();
-                //_tourBus.add(tour);
-
-                /*var tourbus = new TourBUS();
-                var t = tourbus.getCustomerById(tour.id);
-                foreach (var site in _newtoursite)
-                {
-                    //var toursite = b.getCustomerById(site.id);
-                    //toursite.Tours.Add(tour);
-                    //b.update(toursite);
-                    t.TourSites.Add(site);
-                }
-                tourbus.update(t);*/
+              
                 _tourBus.add(tour);
                 updateDataGridView();
             }
@@ -198,19 +179,28 @@ namespace QuanLyTourDuLich.Forms
         private void updateTour() {
             var category =cbTourCategory.SelectedItem as TourCategory;
             var destination =cbDestination.SelectedItem as Destination;
-
-            _currentTour.name = tbTourName.Text.ToString();
-            _currentTour.category_id = category.id;
-            _currentTour.destination_id = destination.id;
+            if (tbTourName.Text.Trim() == "" || tbTourPrice.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin, bạn đã bỏ sót thông tin nào đó!");
+                return;
+            }
             try
             {
                 _currentTour.TourPrice.price = decimal.Parse(tbTourPrice.Text.Trim());
             }
             catch
             {
-                MessageBox.Show("Price must be number");
+                MessageBox.Show("Giá tiền không hợp lệ");
                 return;
             }
+            if (!checkDateTime(dtpStart_date.Value, dtpEnd_date.Value))
+            {
+                MessageBox.Show("Ngày hết hạn không được nhỏ hơn ngày áp dụng!");
+                return;
+            }
+            _currentTour.name = tbTourName.Text.ToString();
+            _currentTour.category_id = category.id;
+            _currentTour.destination_id = destination.id;
             _currentTour.TourPrice.start_date = dtpStart_date.Value;
             _currentTour.TourPrice.end_date = dtpEnd_date.Value;
             var _newtoursite = clbTourSite.CheckedItems.Cast<TourSite>();
@@ -219,7 +209,7 @@ namespace QuanLyTourDuLich.Forms
                 _currentTour.TourSites.Add(site);
             }
             _tourBus.update(_currentTour);
-            MessageBox.Show("Update successfull");
+            MessageBox.Show("Cập nhật thành công");
             _isAdd = true;
             btnAddTour.Text = "Add";
             updateDataGridView();
@@ -241,7 +231,7 @@ namespace QuanLyTourDuLich.Forms
             tbTourPrice.Clear();
             ckbSelectAll.Checked = false;
             dtpStart_date.Value = DateTime.Now;
-            dtpEnd_date.Value = _maxDate;
+            dtpEnd_date.Value = DateTime.Now.AddYears(1);
             btnAddTour.Text = "Add";
             
         }
@@ -256,9 +246,14 @@ namespace QuanLyTourDuLich.Forms
             }
             catch
             {
-                MessageBox.Show("Price must be numbers");
+                MessageBox.Show("Giá tiền không hợp lệ!");
                 tbTourPrice.Clear();
                 tbTourPrice.Focus();
+                return null;
+            }
+            if (!checkDateTime(start_date,end_date))
+            {
+                MessageBox.Show("Ngày hết hạn không được nhỏ hơn ngày áp dụng!");
                 return null;
             }
             tourPrice = new DTO.TourPrice();
@@ -266,6 +261,16 @@ namespace QuanLyTourDuLich.Forms
             tourPrice.start_date = start_date;
             tourPrice.end_date = end_date;
             return tourPrice;
+        }
+        private Boolean checkDateTime(DateTime dt1, DateTime dt2)
+        {
+            if (dt1.Year > dt2.Year)
+                return false;
+            else if (dt1.Month > dt2.Month)
+                return false;
+            else if (dt1.Day > dt2.Day)
+                return false;
+            return true;
         }
         
 
