@@ -575,6 +575,7 @@
             this.dgvListTour.Size = new System.Drawing.Size(923, 520);
             this.dgvListTour.TabIndex = 0;
             this.dgvListTour.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListTour_CellContentDoubleClick);
+            this.dgvListTour.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListTour_CellDoubleClick);
             this.dgvListTour.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListTour_CellFormatting);
             // 
             // STT

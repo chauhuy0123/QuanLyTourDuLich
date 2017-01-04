@@ -295,7 +295,7 @@ namespace QuanLyTourDuLich.Forms
 
         private void dgvListTour_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            _isAdd = false;
+            /*_isAdd = false;
             btnAddTour.Text = "Update";
             int current_id = (int)dgvListTour.CurrentRow.Cells[1].Value;
             _currentTour = _tourBus.getCustomerById(current_id);
@@ -318,7 +318,7 @@ namespace QuanLyTourDuLich.Forms
                         clbTourSite.SetItemChecked(i, true);
                     }
                 }
-            }
+            }*/
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -348,6 +348,34 @@ namespace QuanLyTourDuLich.Forms
         {
             //var category = cbTourCategory.SelectedItem as TourCategory;
            
+        }
+
+        private void dgvListTour_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _isAdd = false;
+            btnAddTour.Text = "Update";
+            int current_id = (int)dgvListTour.CurrentRow.Cells[1].Value;
+            _currentTour = _tourBus.getCustomerById(current_id);
+            tbTourName.Text = _currentTour.name;
+            tbTourPrice.Text = _currentTour.TourPrice.price.ToString("0.00");
+            cbTourCategory.SelectedItem = _currentTour.TourCategory;
+            cbTourCategory.Text = _currentTour.TourCategory.name;
+            cbDestination.SelectedItem = _currentTour.Destination;
+            cbDestination.Text = _currentTour.Destination.name;
+            dtpStart_date.Value = _currentTour.TourPrice.start_date;
+            dtpEnd_date.Value = _currentTour.TourPrice.end_date;
+            var _site = _currentTour.TourSites;
+            for (int i = 0; i < clbTourSite.Items.Count; i++)
+            {
+                var site = clbTourSite.Items[i];
+                foreach (var s in _site)
+                {
+                    if (site.Equals(s))
+                    {
+                        clbTourSite.SetItemChecked(i, true);
+                    }
+                }
+            }
         }
 
         
