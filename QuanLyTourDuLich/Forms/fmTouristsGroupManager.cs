@@ -546,6 +546,8 @@ namespace QuanLyTourDuLich.Forms
 
         private void _tourGroupGv_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             var sources = _searchTourGroupBs.DataSource as IEnumerable<TourGroup>;
             //if (sources != null)
             //    _tourGrouptab3 = sources.ElementAt(e.RowIndex);
