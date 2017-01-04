@@ -51,6 +51,9 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>thumbnail.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -341,6 +344,7 @@
     <None Include="Resources\printer.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="thumbnail.ico" />
     <None Include="Resources\office-worker-outline.png" />
     <None Include="Resources\accountmanager.png" />
     <Content Include="Resources\account.png">

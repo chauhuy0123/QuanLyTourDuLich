@@ -23,7 +23,7 @@ namespace QuanLyTourDuLich
         {
             //initAppData();
 
-            //// Nếu chưa tồn tại file db thì copy file db gốc vào thư mục db
+            ////// Nếu chưa tồn tại file db thì copy file db gốc vào thư mục db
             //if (DatabaseManager.getInsance().isValidDataFile() == false)
             //{
             //    DatabaseManager.getInsance().createDataFile();

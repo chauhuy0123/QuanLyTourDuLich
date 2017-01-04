@@ -285,8 +285,6 @@ namespace QuanLyTourDuLich
             btnReport.Enabled = true;
             employeeBtn.Enabled = true;
 #else
-#if RELEASE
-#endif // RELEASE
             btnTourManager.Enabled = false;
             btnTouristsGroupManager.Enabled = false;
             btnLocationManager.Enabled = false;

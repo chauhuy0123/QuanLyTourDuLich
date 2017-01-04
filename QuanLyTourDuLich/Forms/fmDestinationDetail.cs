@@ -139,6 +139,11 @@ namespace QuanLyTourDuLich.Forms
             _presenter.search(keyword, _destination.id);
         }
 
+        private void _currentTourSiteGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
   
     }
 }

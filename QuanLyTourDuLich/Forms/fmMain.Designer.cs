@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmMain));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labUserAccount = new System.Windows.Forms.Label();
@@ -62,7 +63,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(159, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(862, 54);
+            this.label1.Size = new System.Drawing.Size(698, 44);
             this.label1.TabIndex = 8;
             this.label1.Text = "HỆ THỐNG QUẢN LÝ TOUR DU LỊCH";
             // 
@@ -82,7 +83,7 @@
             this.labUserAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labUserAccount.Location = new System.Drawing.Point(3, 24);
             this.labUserAccount.Name = "labUserAccount";
-            this.labUserAccount.Size = new System.Drawing.Size(148, 27);
+            this.labUserAccount.Size = new System.Drawing.Size(121, 22);
             this.labUserAccount.TabIndex = 10;
             this.labUserAccount.Text = "UserAccount";
             // 
@@ -143,7 +144,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(3, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 27);
+            this.label2.Size = new System.Drawing.Size(149, 22);
             this.label2.TabIndex = 10;
             this.label2.Text = "Bắt đầu làm việc";
             // 
@@ -332,7 +333,7 @@
             // 
             // fmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -346,6 +347,7 @@
             this.Controls.Add(this.btnLocationManager);
             this.Controls.Add(this.btnTourManager);
             this.Font = new System.Drawing.Font("Constantia", 11.25F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1032, 620);

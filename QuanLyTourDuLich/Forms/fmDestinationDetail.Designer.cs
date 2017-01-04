@@ -295,6 +295,7 @@
             this._currentTourSiteGv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._currentTourSiteGv.Size = new System.Drawing.Size(300, 437);
             this._currentTourSiteGv.TabIndex = 3;
+            this._currentTourSiteGv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._currentTourSiteGv_CellContentClick);
             this._currentTourSiteGv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this._currentTourSiteGv_CellValueChanged);
             this._currentTourSiteGv.SelectionChanged += new System.EventHandler(this._currentTourSiteGv_SelectionChanged);
             // 

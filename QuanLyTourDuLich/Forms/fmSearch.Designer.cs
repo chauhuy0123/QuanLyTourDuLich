@@ -962,11 +962,6 @@
             0,
             0,
             0});
-            this._maxPriceUD.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
             this._maxPriceUD.Name = "_maxPriceUD";
             this._maxPriceUD.Size = new System.Drawing.Size(135, 32);
             this._maxPriceUD.TabIndex = 1;
@@ -984,11 +979,6 @@
             this._minPriceUD.Location = new System.Drawing.Point(91, 6);
             this._minPriceUD.Maximum = new decimal(new int[] {
             200,
-            0,
-            0,
-            0});
-            this._minPriceUD.Minimum = new decimal(new int[] {
-            2,
             0,
             0,
             0});
