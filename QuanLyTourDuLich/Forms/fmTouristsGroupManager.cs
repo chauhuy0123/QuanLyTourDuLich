@@ -600,8 +600,10 @@ namespace QuanLyTourDuLich.Forms
         {
             if (e.TabPageIndex == 1)
             {
+                _tourGroupSearchPresenter = new TourGroupSearchPresenter(this);
                 this.handleSearchTourGroupClick(String.Empty);            
             }
+
         }
 
         private void btnTroLai2_Click(object sender, EventArgs e)
@@ -614,7 +616,6 @@ namespace QuanLyTourDuLich.Forms
             this.Close();
 
         }
-
 
 
     }
